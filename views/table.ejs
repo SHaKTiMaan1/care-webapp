@@ -1,0 +1,154 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap 4 Table-head with Dark Background</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="bs-example">
+
+  <h2>Adoption Eligibility Pool</h2>
+    <table class="table">
+        <thead class="thead-dark">
+
+          
+            <tr>
+              
+                <th>Full Name</th>
+                <th>ID</th>
+                
+                <th>State</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+          <%Child.forEach(function(Child){ %>
+            <tr>
+              
+              <td><%= Child.name %></td>
+              <td><%= Child.C_Id %> </td>
+              
+              <td><%= Child.cci_name %> </td>
+              <td><%= Child.reg_date %></td>
+              <td><%= Child.age %></td>
+            </tr>
+          
+          <% }); %>           
+        </tbody>
+    </table>
+</div>
+</body>
+</html>             
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eligibility Pool</title>
+
+   <!-- Style -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="../assets/css/table.css" rel="stylesheet" />
+ 
+   <!-- Fonts and icons -->
+   <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+   <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+
+  <div class="fresh-table full-screen-table full-color-orange">
+    <!--
+      Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
+      Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
+    -->
+  
+    <div class="toolbar">
+      <button id="alertBtn" class="btn btn-default">District JHANSI  Eligibility List</button>
+    </div>
+  
+    <table id="fresh-table" class="table">
+      <thead>
+        <th data-field="id">ID</th>
+        <th data-field="name">Name</th>
+        <th data-field="salary">CCI Name</th>
+        <th data-field="country">Date of joining</th>
+        <th data-field="city">Age</th>
+        <th data-field="actions" data-formatter="operateFormatter" >Actions</th>
+      </thead>
+      <tbody>
+       
+        <%Child.forEach(function(Child){ %>
+          <tr>
+            
+            <td><%= Child.C_Id %> </td>
+            <td><%= Child.name %></td>
+            <td><%= Child.cci_name %> </td>
+            <td><%= Child.reg_date %></td>
+            <td><%= Child.age %></td>
+          </tr>
+        
+        <% }); %>        
+         
+      </tbody>
+    </table>
+  </div>
+  
+  
+<!-- Javascript -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
+
+<script type="text/javascript">
+  var $table = $('#fresh-table')
+  
+ 
+  
+
+  $(function () {
+    $table.bootstrapTable({
+      classes: 'table table-hover table-striped',
+      toolbar: '.toolbar',
+
+      search: true,
+      showRefresh: true,
+      showToggle: true,
+      showColumns: true,
+      pagination: true,
+      striped: true,
+      sortable: true,
+      pageSize: 8,
+      pageList: [8, 10, 25, 50, 100],
+
+      formatShowingRows: function (pageFrom, pageTo, totalRows) {
+        return ''
+      },
+      formatRecordsPerPage: function (pageNumber) {
+        return pageNumber + ' rows visible'
+      }
+    })
+
+    
+  })
+
+</script
+
+</body>
+</html>
