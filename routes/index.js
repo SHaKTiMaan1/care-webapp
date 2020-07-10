@@ -1,10 +1,11 @@
-var express 	= require("express"),
-    router  	= express.Router();
-    
+const router  	= require('express').Router();
 
-router.get("/", function(req, res){
-    res.render("landing.ejs");
+router.get("/", (req,res) => {
+    res.render('loginOptions.ejs');
 });
-    
+
+router.get("/registerByAdminOptions", (req,res) => {
+    res.render('registerByAdminOptions.ejs');
+});
 
 module.exports = router;

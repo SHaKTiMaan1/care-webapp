@@ -1,20 +1,32 @@
 var mongoose = require("mongoose");
 
-var CwcEmployeeSchema = new mongoose.Schema({
-    employee_id     : String,
-    firstName       : String,
-    middleName      : String,
-    lastName        : String,
-    dateOfBirth     : {type : Date},
-    contactNumber   : Number,
-    emailId         : String,
-    associatedCWC   : {
-        id : {
-			type : mongoose.Schema.Types.ObjectId,
-			ref	 : "CWC"
-        },
-        cwc_id      : String
+var cciEmployeeSchema = new mongoose.Schema({
+    employee_id     : {
+        type        : String,
+    },
+    name : {
+        type        : String,
+        required    : true,
+        min         : 3,
+        max         : 255
+    },
+    contactNumber   : {
+        type        : Number,
+        min         : 2,
+        max         : 255
+    },
+    email : {
+        type        : String,
+        required    : true,
+        min         : 7,
+        max         : 255
+    },
+    password : {
+        type        : String,
+        required    : true,
+        max         : 1024,
+        min         : 4
     }
 });
 
-module.exports = mongoose.model("CwcEmployee",CwcEmployeeSchema);
+module.exports = mongoose.model("CciEmployee",cciEmployeeSchema);
