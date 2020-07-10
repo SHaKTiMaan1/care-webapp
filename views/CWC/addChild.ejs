@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Page</title>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center top-buffer">New Child Registration Portal</h2>
+        <form class="form-horizontal" role="form" method="post" action="/addChild">
+            <div class="form-group">
+                <div class="alert alert-danger" role="alert" id="msgDiv"></div>
+            </div>
+            <div class="form-group"><label class="col-sm-3 control-label" for="fullname"> <strong>Child Name</strong></label>
+                <div class="col-sm-9"><input class="form-control" name="name" id="fullname" type="text" placeholder="Full Name" autofocus="" value=""></div>
+            </div>
+            <div class="form-group"><label class="col-sm-3 control-label" for="email"> <strong>Age</strong></label>
+                <div class="col-sm-9"><input class="form-control" id="email" name="age" type="text" placeholder="In Numbers"></div>
+            </div>
+           
+            <div class="form-group"><label class="col-sm-3 control-label" for="cpassword"> <strong>CCI assigned</strong></label>
+                <div class="col-sm-9"><input class="form-control" id="cpassword" type="text" name="cci_name" placeholder="Name of CCI"></div>
+            </div>
+            <div class="col-sm-9"><input class="form-control" id="cpassword" type="text" name="cci_id" placeholder="CCI ID">
+            </div>
+
+            <div class="form-group"><label class="col-sm-3 control-label" for="cpassword"> <strong>Address of CCI</strong></label>
+            <div class="col-sm-9"><input class="form-control"  type="text" name="address" placeholder="Address"></div>
+            </div> 
+            <div class="form-group"><label class="col-sm-3 control-label" for="country"> <strong>District  </strong></label>
+                <div class="col-sm-9"><select class="form-control" name="district"id="country">
+                        <option value="">Please Select</option>
+                        <option>Jhansi</option>
+                        <option>Agra</option>
+                        <option>Gorakhpur</option>
+                        <option>Prayagraj</option>
+                        <option>Ghaziabad </option>
+                        <option>Kanpur</option>
+                        <option>Gwalior</option>
+                        <option>Others</option>
+                    </select></div>
+            </div>
+            <div class="col-sm-9"><select class="form-control" name="state"id="country">
+                <option value=""> Select State</option>
+                <option>U.P.</option>
+                <option>Rajasthan</option>
+                <option>Gujarat</option>
+                <option>Bihar</option>
+                <option>M.P </option>
+            </select></div>
+             <div class="form-group"><label class="col-sm-9 control-label" for="dob"> <strong>Date when found</strong></label>
+                <div class="col-sm-9"><input class="form-control" id="dob" name= "reg_date" type="date"></div>
+            </div>
+            <div class="form-group"><label class="control-label col-sm-3"> <strong>Gender</strong></label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6"><label class="radio-inline"><input id="femaleRadio" name="gender" type="radio" value="F"> Female</label></div>
+                        <div class="col-sm-4"><label class="radio-inline"><input id="maleRadio" name="gender" type="radio" value="M"> Male </label></div>
+                    </div>
+                </div>
+            </div>
+           <!-- <div class="form-group"><label class="control-label col-sm-9"> <strong>Meal Preference</strong></label>
+                <div class="col-sm-9">
+                    <div class="checkbox"><label><input id="calorieCheckbox" type="checkbox" value="Calorie" name="calorie"> Low calorie</label></div>
+                    <div class="checkbox"><label><input id="saltCheckbox" type="checkbox" value="Salt" name="salt"> Low salt</label></div>
+                </div>
+            </div>-->
+            <div class="form-group"><label class="col-sm-3 control-label" for="cpassword"> <strong>CWC Witness</strong></label>
+                <div class="col-sm-9"><input class="form-control" id="cpassword" type="text" name="witness" placeholder="Name of CWC member"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div class="checkbox"><label><input id="terms" type="checkbox" value="yes" name="terms"> Confirm submission</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3"><button class="btn btn-primary btn-block" id="register" type="e">Register</button></div>
+            </div>
+        </form>
+    </div>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!--<script src="/javascripts/app.js"></script>-->
+</body>
+
+</html>

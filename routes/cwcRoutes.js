@@ -1,4 +1,4 @@
-const router  	= express.Router();
+const router  	    = require('express').Router();
 
     
 router.get("/cwc", function(req, res){
@@ -7,7 +7,7 @@ router.get("/cwc", function(req, res){
 
 
 router.get('/addChild',function(req, res){
-    res.render("addChild.ejs");
+    res.render("CWC/addChild.ejs");
 });
 
 

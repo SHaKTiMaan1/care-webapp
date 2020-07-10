@@ -5,8 +5,8 @@
 
     <body>
         <h1>Registration for a <%= category %></h1>
-
-        <form action="/registerByAdmin/<%= category %>" method="post">
+        <!-- registerByAdmin -->
+        <form action="/<%= registrationBy %>/<%= category %>" method="post">
             Name : <input type="text" name="name">                          <br>
             Contact Number : <input type="text" name = "contactNumber">     <br>
             email : <input type="text" name="email" value="you@you.com">    <br>

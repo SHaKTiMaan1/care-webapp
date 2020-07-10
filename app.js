@@ -4,10 +4,10 @@ const dotenv        = require('dotenv');
 const bodyParser 	= require("body-parser");
 
     //IMPORTING ROUTES
-const authRoutes    = require('./routes/auth');
-const indexRoutes   = require('./routes/index');
-
-
+const registrationRoutes    = require('./routes/registrationRoutes');
+const loginRoutes           = require('./routes/loginRoutes');
+const indexRoutes           = require('./routes/indexRoutes');
+const cwcRoutes             = require('./routes/cwcRoutes');
 
 const app = express();
 dotenv.config();
@@ -30,7 +30,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
     //ROUTE MIDDLEWARES
-app.use(authRoutes);
+app.use(registrationRoutes);
+app.use(loginRoutes);
 app.use(indexRoutes);
+app.use(cwcRoutes);
 
 app.listen(3000,() => console.log("Server says Hello!!"));

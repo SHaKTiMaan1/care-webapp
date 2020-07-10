@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 
     //REGISTER VALIDATION
-const registerValidation = validationData => {
+const registerValidationEmployee = validationData => {
     const schema = Joi.object({
         employee_id     : Joi.string()
                         .min(2),
@@ -21,6 +21,7 @@ const registerValidation = validationData => {
     return schema.validate(validationData);
 }
 
+    //LOGIN VALIDATION
 const loginValidation = validationData => {
     const schema = Joi.object({
         email   : Joi.string()  
@@ -34,6 +35,30 @@ const loginValidation = validationData => {
     return schema.validate(validationData);
 }
 
+    //CHILD REGISTRATION VALIDATION
+const childRegistrationValidation = validationData => {
+    const schema = Joi.object({
+        name    : Joi.string()
+                    .min(3)
+                    .required(),
+        age    : Joi.number()
+                    .integer()
+                    .required(),
+        cci_name: Joi.string()
+                    .min(3)
+                    .max(120)
+                    .required(),
+        cci_id  : Joi.string()
+                    .min(4)
+                    .max(30)
+                    .required(),
+        address : Joi.string(),
+        
+    });
 
-module.exports.registerValidation = registerValidation;
+    return schema.validate(validationData);
+}
+
+module.exports.registerValidationEmployee = registerValidationEmployee;
 module.exports.loginValidation = loginValidation;
+module.exports.childRegistrationValidation = childRegistrationValidation;
