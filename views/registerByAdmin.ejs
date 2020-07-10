@@ -1,0 +1,20 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1>Registration for a <%= category %></h1>
+
+        <form action="/registerByAdmin/<%= category %>" method="post">
+            Name : <input type="text" name="name">                          <br>
+            Contact Number : <input type="text" name = "contactNumber">     <br>
+            email : <input type="text" name="email" value="you@you.com">    <br>
+            Employee Id : <input type="text" name="employee_id">            <br>
+            password : <input type="password" name="password" value="Something_Complicated">  <br>
+            <input type="submit" name="" value="Register">
+        </form>
+
+
+    </body>
+</html>
