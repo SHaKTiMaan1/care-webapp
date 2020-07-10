@@ -9,13 +9,15 @@ const registerValidationEmployee = validationData => {
                         .min(2)
                         .required(),
         contactNumber   :Joi.number()
-                        .min(2),
+                        .min(2)
+                        .max(9999999999),
         email           : Joi.string()
                         .min(7)
                         .required()
                         .email(),
         password        : Joi.string()
                         .min(4)
+                        .max(1024)
                         .required()
     });
     return schema.validate(validationData);

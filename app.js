@@ -35,4 +35,7 @@ app.use(loginRoutes);
 app.use(indexRoutes);
 app.use(cwcRoutes);
 
-app.listen(3000,() => console.log("Server says Hello!!"));
+
+    //LISTENING
+app.listen(process.env.PORT, process.env.IP);
+// app.listen(3000,() => console.log("Server says Hello!!"));
