@@ -12,8 +12,8 @@ var cciEmployeeSchema = new mongoose.Schema({
     },
     contactNumber   : {
         type        : Number,
-        min         : 2,
-        max         : 255
+        min         : 1111111111,
+        max         : 9999999999
     },
     email : {
         type        : String,

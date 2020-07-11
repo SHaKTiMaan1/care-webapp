@@ -9,8 +9,8 @@ const registerValidationEmployee = validationData => {
                         .min(2)
                         .required(),
         contactNumber   :Joi.number()
-                        .min(2)
-                        .max(9999999999),
+                        .min(10)
+                        .max(10),
         email           : Joi.string()
                         .min(7)
                         .required()
