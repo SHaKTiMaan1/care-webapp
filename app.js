@@ -39,5 +39,5 @@ app.use(cwcRoutes);
 
 
     //LISTENING
-// app.listen(process.env.PORT, process.env.IP);
-app.listen(3000,() => console.log("Server says Hello!!"));
+app.listen(process.env.PORT, process.env.IP);
+// app.listen(3000,() => console.log("Server says Hello!!"));
