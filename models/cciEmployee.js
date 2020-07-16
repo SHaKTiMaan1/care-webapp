@@ -21,7 +21,7 @@ var cciEmployeeSchema = new mongoose.Schema({
         min         : 7,
         max         : 255
     },
-    employee_id : {
+    cci_id : {
         type        : String,
         required    : true
     },

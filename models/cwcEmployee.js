@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var cwcEmployeeSchema = new mongoose.Schema({
     employee_id     : {
         type        : String,
+        required    : true
     },
     name : {
         type        : String,
@@ -20,10 +21,6 @@ var cwcEmployeeSchema = new mongoose.Schema({
         required    : true,
         min         : 7,
         max         : 255
-    },
-    employee_id : {
-        type        : String,
-        required    : true
     },
     password : {
         type        : String,

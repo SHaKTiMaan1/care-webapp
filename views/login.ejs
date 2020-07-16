@@ -17,7 +17,12 @@
         <div class="login-content">
             <form action="/login/<%= category %>" method="post">
                 <img class="userimg" src="../images/icons/usericon.svg" alt="">
-                <h2>Login For <%= category %></h2>
+                <h2>
+                    Login 
+                    <% if(category !== 'others') { %>
+                    For <%= category %>
+                    <% }  %>
+                </h2>
                 <div class="input-div one">
                     <div class="i">
                         <i class="fas fa-user"></i>

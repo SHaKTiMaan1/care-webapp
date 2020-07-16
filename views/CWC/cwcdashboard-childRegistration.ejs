@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    ="width=device-width, initial-scale=1.0">
+    <title>Registering A New Child</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="../../stylesheets/CWC/cwcdashboard-childregistration.css">
+    <link rel="stylesheet" href="../../stylesheets/CWC/_childcontent-area.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/CWC/sweetalert.css"> 
+</head>
+<body>
+    
+    
+        <section id="sideMenu">
+            <nav>
+                <a class="active current" href="index.html"><i class="current2 fa fa-id-badge" aria-hidden="true"></i>Child Registration</a>
+                <a class="active" href="indexccireg.html"><i class="fa fa-building" aria-hidden="true"></i>CCI Registration</a>
+                <a class="active" href="indexemployeereg.html"><i class="fa fa-id-badge" aria-hidden="true"></i>Employee Registration</a>
+                <a class="active" href="indexpool.html"><i class="fa fa-list-alt" aria-hidden="true"></i>Eligibility Pool</a>
+                <a class="active" href="indexccidetails.html"><i class="fa fa-info" aria-hidden="true"></i>   CCI Details</a>
+            </nav>
+        </section>
+        <header>
+            <div class="logo">CARE</div>
+            <div class="user-field">
+                
+                <a href="#">
+                    <i class="fa fa-user-circle" aria-hidden="true"><%= employee.name%></i> 
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </a>
+                
+            </div>
+                               
+        </header>
+        <section id="content-area">
+            <div class="form-container">
+            <div class="heading">
+                <h3>New Child Registration Portal</h3>
+            </div>
+            <div class="main">
+                <form class="form-group">
+                    <label class="name" for="">Name Of Child</label>
+                           
+                   <div class="row position">
+                   
+                       <div class="col-lg-6">
+                           
+                           <input type="text" name="child_firstname" id="name" class="full_name" placeholder="First Name">
+                       </div>
+                       <div class="col-lg-6">
+                           
+                           
+                          <input type="text" name="child_lastname" class="child-age" placeholder="Last Name">
+                       </div>
+                   </div>
+                   <label class="name" for="">AGE</label>
+                   <input type="text" name="child_age" id="name" class="cci-address" placeholder="Age in Years">
+                       
+                   <div>
+                  <label class="name" for="">Name Of CCI</label>
+                    <select name="cci_name" class="option1">
+                        <option disabled="disabled" selected="selected">-----------------Select----------------</option>
+                        <option>St. Judes Child Care</option>
+                        <option>Mother Teresa Child Care</option>
+                        <option>Snehalaya Child Care</option>
+                        
+                    </select>
+                    
+                   </div>
+                   
+                    <label for="" class="name">DATE WHEN THE CHILD WAS FOUND</label>
+                    <input type="date" class="date" name="found_date" placeholder="dd-mm-yyyy"> 
+                    <div class="row pos">
+                        <label for="" class="name">GENDER</label>
+                    </div>
+                    <div class="row pos">
+                        
+                        <label for="" class="radio name">
+                            <input type="radio" class="radio-one" name="gender">
+                            <span class="checkmark"></span>
+                            Male
+                        </label>
+                        <label for="" class="radio name">
+                            <input type="radio" class="radio-one" name="gender">
+                            <span class="checkmark"></span>
+                            Female
+                        </label>
+                        <label for="" class="radio name">
+                            <input type="radio" class="radio-one" name="gender">
+                            <span class="checkmark"></span>
+                            Others
+                        </label>
+                    </div>
+                    <label for="" class="name">CWC WITNESS</label>
+                    <input type="text" class="cwc" name="cwc_witness" placeholder="CWC Official(ID)">
+                    <div class="row name pos">
+                        <input type="checkbox" name="confirm">
+                        <label for="" class="check">CONFIRM</label>
+                    </div>
+                   
+                  <button onclick="validation();" class="btn">REGISTER</button>
+
+
+
+
+                </form>
+            </div>
+        </div>
+        </section>
+       
+    
+    <!-- <script src="../scripts/sweetalert.min.js"></script> -->
+    <script type="text/javascript">
+        function validation(){
+            swal("Registered Successfully", "Child is registered", "success");
+            
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+   
+
+    
+
+
+
+</body>
+</html>

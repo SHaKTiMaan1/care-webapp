@@ -20,14 +20,13 @@ router.post("/login/cwcemployee", async (req, res) => {
     if(!employee) res.send("Employee doesn't exist");
  
     console.log('Found Employee ' + employee);
+       
         //CHECKING IF PASSWORD IS CORRECT
-    console.log(bcrypt.hash(req.body.password, bcrypt.genSalt(10)));
-
     const isPasswordValid = await bcrypt.compare(req.body.password, employee.password);
     
     console.log("isPasswordValid : " + isPasswordValid);
     if(isPasswordValid){
-        res.render("CWC/cwclanding.ejs", {employee : employee});
+        res.redirect("/cwc/dashboard/:" + employee.employee_id);
     } else {
         res.send("Wrong Password !!");
     }
