@@ -21,16 +21,17 @@ var cciEmployeeSchema = new mongoose.Schema({
         min         : 7,
         max         : 255
     },
+    employee_id : {
+        type        : String,
+        required    : true
+    },
     password : {
         type        : String,
         required    : true,
         max         : 1024,
         min         : 4
     },
-    employee_id : {
-        type        : String,
-        required    : true
-    }
+    
 });
 
 module.exports = mongoose.model("CciEmployee",cciEmployeeSchema);
