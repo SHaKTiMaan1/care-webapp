@@ -26,6 +26,10 @@ var cciEmployeeSchema = new mongoose.Schema({
         required    : true,
         max         : 1024,
         min         : 4
+    },
+    employee_id : {
+        type        : String,
+        required    : true
     }
 });
 
