@@ -15,6 +15,10 @@ const registerValidationEmployee = validationData => {
                         .min(7)
                         .required()
                         .email(),
+        cci_id          : Joi.string()
+                        .min(4)
+                        .max(30)
+                        .required(),
         password        : Joi.string()
                         .min(4)
                         .max(1024)
