@@ -84,6 +84,7 @@ router.post("/registerByCWC/cciemployee", async (req,res) => {
         contactNumber   :   req.body.contactNumber,
         email           :   req.body.email,
         employee_id     :   req.body.employee_id,
+        cci_id          :   req.body.cci_id,
         password        :   hashedPassword
     });
 
