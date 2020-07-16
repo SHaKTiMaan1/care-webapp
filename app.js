@@ -24,6 +24,8 @@ var db = mongoose.connection;
     console.log("We are connected to MongoDB");
   });
 
+    //SERVING THE PUBLIC DIRECTORY
+app.use(express.static(__dirname + "/public"));
 
     //MIDDLEWARES
 app.use(bodyParser.urlencoded({extended: true}));
@@ -37,5 +39,5 @@ app.use(cwcRoutes);
 
 
     //LISTENING
-app.listen(process.env.PORT, process.env.IP);
-// app.listen(3000,() => console.log("Server says Hello!!"));
+// app.listen(process.env.PORT, process.env.IP);
+app.listen(3000,() => console.log("Server says Hello!!"));
