@@ -24,6 +24,15 @@ var cciSchema = new mongoose.Schema({
             child_id : {
                 type : String
             },
+            firstName  : {
+                type        : String,
+            },
+            middleName : {
+                type        : String
+            },
+            lastName   : {
+                type        : String
+            },
             date : {
                 type : String
             },
