@@ -1,8 +1,9 @@
-var mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-var cciEmployeeSchema = new mongoose.Schema({
-    employee_id     : {
+const liaisonSchema = new mongoose.Schema({
+    liaison_id : {
         type        : String,
+        required    : true
     },
     firstName  : {
         type        : String,
@@ -12,9 +13,6 @@ var cciEmployeeSchema = new mongoose.Schema({
     },
     lastName   : {
         type        : String
-    },
-    dateOfBirth : {
-        type : Date
     },
     contactNumber   : {
         type        : Number,
@@ -33,16 +31,9 @@ var cciEmployeeSchema = new mongoose.Schema({
         max         : 1024,
         min         : 4
     },
-    cwc_id : {
-        type : String       //cwc_id from cwcSchema
-    },
-    cci_id : {
-        type : String       //cci_id from cciSchema
-    },
-    registeredBy : {
-        type : String       //employee_id from the cwcEmployeeSchema
+    organisation : {
+        type        : String
     }
-    
 });
 
-module.exports = mongoose.model("CciEmployee",cciEmployeeSchema);
+module.exports = mongoose.model("Liaison", liaisonSchema)

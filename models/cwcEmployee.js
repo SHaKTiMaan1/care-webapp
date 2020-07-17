@@ -5,11 +5,17 @@ var cwcEmployeeSchema = new mongoose.Schema({
         type        : String,
         required    : true
     },
-    name : {
+    firstName  : {
         type        : String,
-        required    : true,
-        min         : 3,
-        max         : 255
+    },
+    middleName : {
+        type        : String
+    },
+    lastName   : {
+        type        : String
+    },
+    dateOfBirth : {
+        type : Date
     },
     contactNumber   : {
         type        : Number,
@@ -27,6 +33,9 @@ var cwcEmployeeSchema = new mongoose.Schema({
         required    : true,
         max         : 1024,
         min         : 4
+    },
+    cwc_id : {
+        type : String
     }
 });
 
