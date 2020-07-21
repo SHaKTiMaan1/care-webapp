@@ -1,7 +1,7 @@
-@import './icons/error';
-@import './icons/warning';
-@import './icons/success';
-@import './icons/info';
+@import './icons/error.css';
+@import './icons/warning.css';
+@import './icons/success.css';
+@import './icons/info.css';
 
 .swal-icon {
   width: 80px;

@@ -1,8 +1,8 @@
-@import './css/icons';
-@import './css/text';
-@import './css/buttons';
-@import './css/content';
-@import './css/button-loader';
+@import 'icons.css';
+@import 'text.css';
+@import 'buttons.css';
+@import 'content.css';
+@import 'button-loader.css';
 
 :root {
   --swal-modal-width: 478px;

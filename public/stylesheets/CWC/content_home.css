@@ -1,0 +1,180 @@
+#content-area{
+    margin-left: 250px;
+    padding-top: 100px;
+    background: #f3f0f0;
+    /* border: 2px solid red; */
+    
+}
+/* .form-container{
+    padding-top: 100px;
+    border: 2px solid red;
+    
+} */
+.heading{
+    width: 800px;
+    font-size: 0.2rem;
+   
+    margin: auto;
+    color: black;
+    
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+   
+
+}
+.main{
+    
+    width: 900px;
+    margin: auto;
+    color: black; 
+    
+    border-radius: 0px 0px 15px 15px;
+}
+.name{
+    font-size: 1rem;
+    font-weight: 300;
+    color : white;
+    text-align: center;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #F4F6F9;
+}
+
+ #sideMenu{
+    
+    background: #7e04b6 !important; /*  #382043 */
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 99999;
+    transition: all .3s ease;
+}
+
+nav{
+    padding-top: 80px;
+    background: #7e04b6;
+    
+    
+}
+a.active{
+    display: block;
+    color: #D3D3D3;
+    text-decoration: none;
+    padding: 15px 10px;
+    font-weight: 300;
+    transition: all .3s ease-in-out;
+    
+}
+
+
+.fa{
+    color: #D3D3D3;
+    font-size: 1.4rem;
+    margin-right: .8rem;
+    display: inline-block;
+    width: 20px;
+    position: relative;
+    top: 2px;
+    
+}
+
+a.active:hover{
+    background: #ffffff;
+    color: #7e04b6;
+    text-decoration: none;
+    border-left: 5px solid  #4b056b;
+    
+}
+a.active:hover i{
+    color: #7e04b6;
+}
+.current{
+    background: #f3f0f0 !important; /*380450*/
+    color: #380450 !important;
+    border-left: 2px solid  #ffffff;
+    
+}
+.current2{
+    background: #f3f0f0 !important;
+    color: #380450 !important;
+}
+
+
+/* header code*/
+header{
+    
+    padding-right: 10px;
+    background: #282639;
+    height: 50px;
+    width: 100%;
+    z-index: 99999;
+    position: fixed;
+
+
+}
+.logo{
+    float: left;
+    padding-top: 10px;
+    padding-left: 60px;
+    font-size: 24px;
+    color: #D3D3D3;
+}
+.user-field{
+    
+    float: right;
+    
+
+
+}
+.user-field a .fa{
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-right: 20px;
+    border: none !important;
+}
+.user-field a .fa:hover{
+    text-decoration: none;
+    color: #39ff14;
+    border: none !important;
+}
+.fa-caret-down{
+    font-size: .9em;
+    position: relative;
+    top: 0;
+}
+.fa-caret-down:hover{
+    color: #39ff14;
+}
+
+/* By Shraddha */
+
+.dashboard-nav{
+    background-color: #7e04b6;
+    border-bottom: 0.05px solid white;
+}
+
+.home-container{
+    border : 2px solid green;
+    width : 500px;
+    align-self: left;
+}
+.parent-row{
+    border : 2px solid black;
+}
+
+.home-grid-block{
+    height : 100px;
+    border : 2px solid black;
+    background-color: #7e04b6;
+    margin: 5px;
+    width: 100px;
+}
