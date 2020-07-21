@@ -14,7 +14,7 @@ var cciEmployeeSchema = new mongoose.Schema({
         type        : String
     },
     dateOfBirth : {
-        type : Date
+        type : String
     },
     contactNumber   : {
         type        : Number,
@@ -42,7 +42,6 @@ var cciEmployeeSchema = new mongoose.Schema({
     registeredBy : {
         type : String       //employee_id from the cwcEmployeeSchema
     }
-    
 });
 
 module.exports = mongoose.model("CciEmployee",cciEmployeeSchema);

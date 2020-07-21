@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-
 var cciSchema = new mongoose.Schema({
     cci_id : {
-        type : String
+        type : String,
     },
     address : {
         type : String,
@@ -26,9 +25,6 @@ var cciSchema = new mongoose.Schema({
             },
             firstName  : {
                 type        : String,
-            },
-            middleName : {
-                type        : String
             },
             lastName   : {
                 type        : String

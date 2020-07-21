@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var childSchema = new mongoose.Schema({
     firstName  : {
-        type        : String,
+        type        : String,   //Raju
     },
     middleName : {
         type        : String
@@ -14,7 +14,7 @@ var childSchema = new mongoose.Schema({
         type : Date
     },
     registrationDate : {
-        type : Date         //The current registration date
+        type : Date          //The current registration date
     },
     child_id : {
         type : String
@@ -35,6 +35,9 @@ var childSchema = new mongoose.Schema({
         type : Number
     },
     casteCategory : {
+        type : String
+    },
+    religion : {
         type : String
     },
     eligibilityStatus : {

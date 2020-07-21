@@ -9,20 +9,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <link rel="stylesheet" href="../../stylesheets/CWC/cwcdashboard-childregistration.css">
-    <link rel="stylesheet" href="../../stylesheets/CWC/_childcontent-area.css">
-    <link rel="stylesheet" type="text/css" href="../../stylesheets/CWC/sweetalert.css"> 
+    <script src="/scripts/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/CWC/cwcdashboard-childregistration.css">
+    <link rel="stylesheet" href="/stylesheets/CWC/_childcontent-area.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/CWC/sweetalert.css"> 
 </head>
 <body>
     
     
         <section id="sideMenu">
             <nav>
-                <a class="active current" href="index.html"><i class="current2 fa fa-id-badge" aria-hidden="true"></i>Child Registration</a>
-                <a class="active" href="indexccireg.html"><i class="fa fa-building" aria-hidden="true"></i>CCI Registration</a>
-                <a class="active" href="indexemployeereg.html"><i class="fa fa-id-badge" aria-hidden="true"></i>Employee Registration</a>
-                <a class="active" href="indexpool.html"><i class="fa fa-list-alt" aria-hidden="true"></i>Eligibility Pool</a>
-                <a class="active" href="indexccidetails.html"><i class="fa fa-info" aria-hidden="true"></i>   CCI Details</a>
+                <a class="active" href="cwc/dashboard/:<%= employee.employee_id %>"><i class="fa fa-info" aria-hidden="true"></i>Home</a>
+                <a class="active" href="cwc/dashboard/cciDetails:<%= employee.employee_id %>"><i class="fa fa-info" aria-hidden="true"></i> CCI Details</a>
+                <a class="active" href="cwc/dashboard/eligibilityPool/:<%= employee.employee_id %>"><i class="fa fa-list-alt" aria-hidden="true"></i>Eligibility Pool</a>
+                <a class="active current" href="cwc/dashboard/childRegistration/:<%= employee.employee_id %>"><i class="current2 fa fa-id-badge" aria-hidden="true"></i>Child Registration</a>
+                <a class="active" href="cwc/dashboard/cciRegistration"><i class="fa fa-building" aria-hidden="true"></i>CCI Registration</a>
+                <a class="active" href="cwc/dashboard/cciEmployeeRegistration"><i class="fa fa-id-badge" aria-hidden="true"></i>Employee Registration</a>                
             </nav>
         </section>
         <header>
@@ -114,7 +116,7 @@
         </section>
        
     
-    <!-- <script src="../scripts/sweetalert.min.js"></script> -->
+    <script src="/scripts/sweetalert.min.js"></script>
     <script type="text/javascript">
         function validation(){
             swal("Registered Successfully", "Child is registered", "success");
