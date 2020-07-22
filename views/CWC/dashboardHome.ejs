@@ -24,6 +24,7 @@
   <body>
     <section id="sideMenu">
       <nav id="sidemenu-flexbox">
+
         <a
           class="active current"
           href="/cwc/dashboard/:<%= employee.employee_id %>"
@@ -67,7 +68,7 @@
 
           <div id="dashboard-icons-container">
 
-            <h6 class="dashoard-nav-icon">KIRTI SINGH</h6>
+            <h6 class="dashoard-nav-icon"><%= employee.email.toUpperCase() %></h6>
             <a href="" title="Profile">
               <i class="dashoard-nav-icon fa fa-user"></i>
             </a>
@@ -215,6 +216,8 @@
                     Waiting List
                   </p>
                 </div>
+                <img src="/images/cwc/pie-chart-example.jpg" alt="">
+
               </div>
             </div>
 
@@ -252,9 +255,7 @@
               </table>
             </div>
           </div>
-        </div>
-
-         
+        </div>       
       </div>
 
        
