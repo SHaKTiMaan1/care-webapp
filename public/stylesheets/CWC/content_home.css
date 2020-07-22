@@ -40,7 +40,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;
+  width: 50px;
   height: 100vh;
   z-index: 99999;
   transition: all 0.3s ease;
@@ -60,7 +60,7 @@ a.active {
 }
 
 .fa {
-  color: #d3d3d3;
+  color: white;
   font-size: 1.4rem;
   margin-right: 0.8rem;
   display: inline-block;
@@ -84,7 +84,7 @@ a.active:hover i {
   border-left: 2px solid #ffffff;
 }
 .current2 {
-  background: #f3f0f0 !important;
+  background: #white !important;
   color: #380450 !important;
 }
 
@@ -129,21 +129,30 @@ header {
   color: #39ff14;
 }
 
-/* By Shraddha */
+/* By Shraddha ==================================================== */
+#sidemenu-flexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .dashboard-nav {
   background-color: white;
   width: 100%;
+  height: 70px;
   /* border-bottom: 0.05px solid white; */
 }
 
 .dashboard-nav-brand {
-  /* border: 2px solid green;
-  height: px;
-  width: 250px; */
   color: white !important;
   font-family: "Rowdies", cursive;
   font-size: 35px;
+}
+
+#dashboard-icons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 340px;
 }
 
 .dashoard-nav-icon {
@@ -152,46 +161,100 @@ header {
 
 .dashboard-nav-second {
   background-color: #7e04b6;
-  width: 250px;
+  width: 160px;
+  height: 70px;
+}
+
+.dashboard-home-info-container {
+  margin-top: 14vh !important;
+  margin-left: 50px !important;
+  display: inline-flex;
+  width: 96%;
+  height: ;
+  padding: 25px;
+  color: white;
+  justify-content: space-between;
+  background-color: whitesmoke;
+}
+
+.cwc-information-container {
+  background-color: ;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(to right, #7e04b6, #9216cc, #9d1ada);
+}
+
+.cwc-information-container a {
+  text-decoration: none;
+  color: white;
+}
+
+.undraw-svg-main {
+  max-height: 250px;
+}
+
+.cwc-stats-container {
+  background-color: ;
+  width: 40%;
 }
 
 .dashboard-home-content-container {
-  display: inline-flex;
-  margin-top: 14vh !important;
-  margin-left: 260px !important;
+  display: flex;
+  margin-left: 50px !important;
   justify-content: space-between;
-  /* border: 2px solid red; */
-  height: 100vh;
-  width: 79%;
-  /* background-color: pink; */
+  height: ;
+  width: 96%;
 }
 
 #content-area-1 {
-  /* border: 2px solid green; */
   background-color: whitesmoke;
-  width: 700px;
+  width: 41%;
 }
 
 #content-area-2 {
   background-color: whitesmoke;
-  width: 280px;
+  width: 50.6%;
 }
 
 .parent-row {
-  /* border: 2px solid black; */
 }
 
 .home-main-content-grid-block {
-  background-color: #c88ce4;
+  background-color: #d39feb;
   margin: 10px auto;
   max-width: 640px;
-  height: 90px;
+  height: ;
+}
+
+.action-parent {
+  max-width: 180px;
+}
+
+.action-required {
+  height: 100%;
+  width: 160px;
+  margin-left: 0;
+  text-align: center;
+  color: white;
+}
+
+.details-of-child-for-action {
+  text-align: center;
+  padding-top: 20px !important;
+  margin: 10px;
+  padding: 5px;
+  background-color: #ede4f1;
 }
 
 .home-grid-side-content-block {
-  height: 220px;
-  max-width: 250px;
+  /* height: 250px; */
+  max-width: 1000px;
   margin: 10px auto;
+  padding: 10px;
+  text-align: center;
   background-color: white;
 }
 
@@ -213,10 +276,34 @@ header {
   background-color: #f05e23 !important;
 }
 
- {
-  background-color: !important;
+.w800h100 {
+  width: 100%;
+  height: 100px;
+}
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
 }
 
- {
-  background-color: !important;
+.purple-gradient {
+  background-image: linear-gradient(to right, #7e04b6, #9216cc, #9d1ada);
+}
+
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-info {
+  height: 8vh;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-family: consolas;
+  padding: 30px;
+  padding-bottom: 50px !important;
 }

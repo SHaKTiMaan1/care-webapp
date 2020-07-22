@@ -23,112 +23,249 @@
   </head>
   <body>
     <section id="sideMenu">
-      <nav>
+      <nav id="sidemenu-flexbox">
         <a
           class="active current"
           href="/cwc/dashboard/:<%= employee.employee_id %>"
-          ><i class="current2 fa fa-home" aria-hidden="true"></i>Home</a
-        >
-        <a class="active" href="index.html"
-          ><i class="fa fa-id-badge" aria-hidden="true"></i>Child
-          Registration</a
-        >
-        <a class="active" href="indexccireg.html"
-          ><i class="fa fa-building" aria-hidden="true"></i>CCI Registration</a
-        >
-        <a class="active" href="indexemployeereg.html"
-          ><i class="fa fa-id-badge" aria-hidden="true"></i>Employee
-          Registration</a
-        >
-        <a class="active" href="indexpool.html"
-          ><i class="fa fa-list-alt" aria-hidden="true"></i>Eligibility Pool</a
-        >
-        <a class="active" href="indexccidetails.html"
-          ><i class="fa fa-info" aria-hidden="true"></i> CCI Details</a
-        >
+          title="Home"
+          ><i class="current2 fa fa-home" aria-hidden="true"></i
+        ></a>
+
+        <a
+          class="active"
+          href="indexccidetails.html"
+          title="Children Under Care"
+          ><i class="fa fa-child" aria-hidden="true"></i>
+        </a>
+
+        <a
+          class="active"
+          href="indexccireg.html"
+          title="Child Care Institutions under supervision"
+          ><i class="fa fa-building" aria-hidden="true"></i
+        ></a>
+
+        <a
+          class="active"
+          href="indexccireg.html"
+          title="Help"
+          ><i class="fa fa-question" aria-hidden="true"></i
+        ></a>
+
+        <a class="active" href="indexccidetails.html" title="Log Out"
+          ><i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+        </a>
+
       </nav>
     </section>
 
+  <div clas="flex-vertical">
     <header class="home-nav-container">
       <nav class="dashboard-nav navbar fixed-top navbar-light">
         <div class="container">
-          <a class="dashboard-nav-brand navbar-brand" href="#">CARE</a>
+          <a class="" href="#">CARE</a>
 
-          <div>
-            <i class="dashoard-nav-icon fa fa-user"></i>
-            <i class="dashoard-nav-icon fa fa-bell"></i>
+          <div id="dashboard-icons-container">
+
+            <h6 class="dashoard-nav-icon">KIRTI SINGH</h6>
+            <a href="" title="Profile">
+              <i class="dashoard-nav-icon fa fa-user"></i>
+            </a>
+            <a href="" title="Notifications"
+              ><i class="dashoard-nav-icon fa fa-bell"></i>
+            </a>
+            <a href="" title="Messages"
+              ><i class="dashoard-nav-icon fa fa-envelope"></i
+            ></a>
+            <a href="" title="Add Child"
+              ><i class="dashoard-nav-icon fa fa-plus"></i
+            ></a>
+
           </div>
         </div>
       </nav>
       <nav class="dashboard-nav-second navbar fixed-top navbar-light">
         <div class="container">
-          <a class="dashboard-nav-brand navbar-brand" href="#">CARE</a>
+          <a class="dashboard-nav-brand navbar-brand" href="#"> CARE</a>
         </div>
       </nav>
     </header>
 
     <section>
+      <div class="dashboard-home-info-container">
+        <div class="cwc-information-container">
+          <div class="about-cwc">
+            <h2>JHANSI</h2>
+            <p>
+              VIKRAM BAHADUR SINGH <br />
+              CHAIRMAN
+            </p>
+            <h1>6</h1>
+            <p>Members</p>
+          </div>
+          <div>
+            <h1>10</h1>
+            <p>
+              <a href="">
+                Child Care <br />
+                Institutons
+              </a>
+            </p>
+            <h1>1150</h1>
+            <p>
+              <a href="">
+                Children <br />
+                Under Care
+              </a>
+            </p>
+          </div>
+          <img
+            src="/images/cwc/building-for-dashboard.svg"
+            alt=""
+            class="undraw-svg-main"
+          />
+        </div>
+      </div>
+
       <div class="dashboard-home-content-container">
         <div id="content-area-1" class="container">
           <div class="parent-row row">
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
-            <div class="home-main-content-grid-block col-12">
-              One
-            </div>
+            
+            <div class="home-main-content-grid-block col-12 flex-between">              
+                <div class="action-required">
+                   <h6 class="crimson p-2">
+                    ACTION REQUIRED
+                   </h6> 
+                  <div class="purple-gradient p-3">
+                    Approval for Addition to the Eligibility List
+                  </div>
+                </div>
+                <div class="details-of-child-for-action">
+                <h6>HIMANSHU AGRAWAL</h6>
+                <p>
+                  ID : KL0023<br>
+                  CCI : JH001 <br>
+                  Registration Date : 02-06-2019 <br>
+                  <p class= "badge badge-warning">ABANDONED</p>
+                </p>
+                </div>
+            </div>    
+
+            <div class="home-main-content-grid-block col-12 flex-between">              
+              <div class="action-required">
+                 <h6 class="crimson p-2">
+                  ACTION REQUIRED
+                 </h6> 
+                <div class="purple-gradient p-3">
+                  Approval for Addition to the Eligibility List
+                </div>
+              </div>
+              <div class="details-of-child-for-action">
+              <h6>Mahima Verma</h6>
+              <p>
+                ID : PT0023<br>
+                CCI : JH003 <br>
+                Registration Date : 02-06-2019 <br>
+                <p class= "badge badge-secondary">ORPHANED</p>
+              </p>
+              </div>
           </div>
+          
+          <div class="home-main-content-grid-block col-12 flex-between">              
+            <div class="action-required">
+               <h6 class="crimson p-2">
+                ACTION REQUIRED
+               </h6> 
+              <div class="purple-gradient p-3">
+                Approval for Addition to the Eligibility List
+              </div>
+            </div>
+            <div class="details-of-child-for-action">
+            <h6>Mahima Verma</h6>
+            <p>
+              ID : PT0023<br>
+              CCI : JH003 <br>
+              Registration Date : 02-06-2019 <br>
+              <p class= "badge badge-secondary">ORPHANED</p>
+            </p>
+            </div>
         </div>
+
+          </div>           
+        </div>
+      
 
         <div id="content-area-2" class="container">
           <div class="parent-row row">
             <div class="home-grid-side-content-block col-12">
-              One
+              <h5>ADOPTION ELIGIBILITY STATISTICS</h5>
+              <br />
+              <div class="flex-around">
+                <div>
+                  <h1>500</h1>
+                  <p>
+                    Children Eligible <br />
+                    for Adoption
+                  </p>
+                </div>
+                <div>
+                  <h1>230</h1>
+                  <p>
+                    Children in <br />
+                    Waiting List
+                  </p>
+                </div>
+              </div>
             </div>
+
             <div class="home-grid-side-content-block col-12">
-              One
+              <h5>ATTENDANCE AND MOVEMENT DATA SYNC STATUS</h5>
+              <table class="table table-striped table-dark">
+                <thead>
+                  <tr></tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Institute Name</th>
+                    <th scope="col">Last Sync Date</th>
+                    <th scope="col">Last Sync Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>JH001</td>
+                    <td>St. JUDES</td>
+                    <td>25-01-2020</td>
+                    <td>5:15 PM</td>
+                  </tr>
+                  <tr>
+                    <td>JH003</td>
+                    <td>Mridul's Orphanage</td>
+                    <td>25-01-2020</td>
+                    <td>5:15 PM</td>
+                  </tr>
+                  <tr>
+                    <td>JH002</th>
+                    <td>Mother Terresa's Orphanage</td>
+                    <td>25-01-2020</td>
+                    <td>5:15 PM</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+
+         
       </div>
+
+       
     </section>
 
+    <section>
+      <div class="bottom-info purple-gradient">
+        <h6> <b> All Rights Reserved </b></h6>
+      </div>
+    </section>   
+  </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
