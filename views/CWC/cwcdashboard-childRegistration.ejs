@@ -1,1 +1,304 @@
 <%- include("../partials/headerCwcDashboard")%>
+<section id="content-area">
+    <!--heading-->
+    <div class="starting">
+        <p class="name">New Child Registration Portal</p>
+      </div>
+    <!--image-->
+    <div class="image">
+        <img src="../../public/images/cwc/happykids.png" alt="">
+    </div> 
+    <!--form-->
+    <div class="container pos">
+       <form action="">
+            <div class="personalinfo">
+                <p class="infoheading">Personal Information</p>
+                <hr>
+                <div class="form-group">
+                    <label for="" class="fields">Name Of Child</label>
+                   
+                    <div class="row position">
+                    
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="mname" id="mname" class="form-control" placeholder="Middle Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            
+                           <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    
+                </div> 
+                <div class="form-group">
+                
+                   
+                    <div class="row position">
+                    
+                        <div class="col-sm-6">
+                            <label for="" class="fields">AGE OF CHILD</label>
+                            <input type="text" name="age" id="age" class="form-control" placeholder="Age of child">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">DATE OF BIRTH</label>
+                            <input type="date" name="dob" id="dob" class="form-control" placeholder="dd-mm-yyyy">
+                        </div>
+                       
+                    </div>
+
+                    
+                </div>
+                <div class="form-group">
+                    <label for="" class="fields">AADHAAR NUMBER</label>
+                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">GENDER</label>
+                    <div class="row position">
+                    
+                        <div class="col-sm-4">
+                            
+                            <label for="" class="radio name">
+                                <input type="radio" class="radio-one" name="gender">
+                                <span class="checkmark"></span>
+                                Male
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <label for="" class="radio name">
+                                <input type="radio" class="radio-one" name="gender">
+                                <span class="checkmark"></span>
+                                Female
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            
+                            <label for="" class="radio name">
+                                <input type="radio" class="radio-one" name="gender">
+                                <span class="checkmark"></span>
+                                Others
+                            </label>
+                        </div>
+                    </div>
+                 </div>  
+            </div>
+            <div class="guardianinfo">
+                <p class="infoheading">Guardian Information</p>
+                <hr>
+                <div class="form-group">
+                    <label for="" class="fields">GUARDIAN 1</label>
+                   
+                    <div class="row position">
+                    
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="g1fname" id="g1fname" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="g1mname" id="g1mname" class="form-control" placeholder="Middle Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            
+                           <input type="text" name="g1lname" id="g1lname" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">AGE</label>
+                    <input type="text" name="ageg1" id="ageg1" class="form-control" placeholder="Enter Age">
+                </div> 
+                <hr>
+                <div class="form-group">
+                    <label for="" class="fields">GUARDIAN 2</label>
+                   
+                    <div class="row position">
+                    
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="g2fname" id="g2fname" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="g2mname" id="g2mname" class="form-control" placeholder="Middle Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            
+                           <input type="text" name="g2lname" id="g2lname" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">AGE</label>
+                    <input type="text" name="ageg2" id="ageg2" class="form-control" placeholder="Enter Age">
+                </div> 
+
+            </div>
+            <div class="healthinfo">
+                <p class="infoheading">Health Information</p>
+                <hr>
+                <div class="form-group">
+                   
+                   
+                    <div class="row position">
+                    
+                        <div class="col-sm-4">
+                            <label for="" class="fields">BLOOD GROUP</label>
+                            <input type="text" name="bloodgp" id="bloodgp" class="form-control" placeholder="Blood Group">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="" class="fields">HIEGHT</label>
+                            <input type="text" name="hieght" id="hieght" class="form-control" placeholder="Hieght(in m)">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <label for="" class="fields">WEIGHT</label> 
+                           <input type="text" name="weight" id="weight" class="form-control" placeholder="Weight(in kgs)">
+                        </div>
+                    </div>
+                    
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">ANY CHRONIC ILLNESS</label>
+                    <input type="text" name="chronicill" id="chronicill" class="form-control" placeholder="If yes then Specify the Illness">
+                </div>
+                <div class="form-group">
+                    <label for="" class="fields">ALLERGIC TO ANY PARTICULAR MEDICINE</label>
+                    <input type="text" name="allergy" id="allergy" class="form-control" placeholder="If yes then Specify name of medicine">
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">ANY PHYSICAL INJURIES</label>
+                    <div class="row position">
+                    
+                        <div class="col-sm-3">
+                            
+                            <label for="" class="radio name">
+                                <input type="radio" class="radio-one" name="injury">
+                                <span class="checkmark"></span>
+                                Cuts
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            
+                            <label for="" class="radio name">
+                                <input type="radio" class="radio-one" name="injury">
+                                <span class="checkmark"></span>
+                                Burns
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            
+                            
+                            <label for="" class="radio name">
+                                <input type="radio" class="radio-one" name="injury">
+                                <span class="checkmark"></span>
+                                Others
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            
+                            
+                            <label for="" class="radio name">
+                                <input type="radio" class="radio-one" name="injury">
+                                <span class="checkmark"></span>
+                                None
+                            </label>
+                        </div>
+                    </div>
+                 </div> 
+                 <div class="form-group">
+                    <label for="" class="fields">PHYSICALLY CHALLENGED</label>
+                    <input type="text" name="physicalchallenge" id="physicalchallenge" class="form-control" placeholder="Yes / No">
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">MENTAL ILLNESS</label>
+                    <input type="text" name="mentalhealth" id="mentalhealth" class="form-control" placeholder="Yes / No">
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">ANY DISEASE FROM WHICH THE CHILD IS CURRENTLY SUFFERING</label>
+                    <input type="text" name="disease" id="disease" class="form-control" placeholder="If yes then Specify name of disease">
+                </div> 
+            </div>
+            <div class="officialinfo">
+                <p class="infoheading">Official Information</p>
+                <hr>
+                <div class="form-group">
+                
+                   
+                    <div class="row position">
+                    
+                        <div class="col-sm-6">
+                            <label for="" class="fields">CHILD NUMBER</label>
+                            <input type="text" name="cnum" id="cnum" class="form-control" placeholder="Enter child Number">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">CHILD ID</label>
+                            <input type="text" name="cid" id="cid" class="form-control" placeholder="Enter child ID">
+                        </div>
+                       
+                    </div>
+
+                    
+                </div>
+                <div class="form-group">
+                    <label for="" class="fields">ASSIGNED CCI NAME</label>
+                    <select name="cci_name" class="form-control">
+                        <option disabled="disabled" selected="selected">-----------------Select----------------</option>
+                        <option>St. Judes Child Care</option>
+                        <option>Mother Teresa Child Care</option>
+                        <option>Snehalaya Child Care</option>
+                        
+                    </select>
+                </div> 
+                <div class="form-group">
+                    <label for="" class="fields">REGISTRATION DATE</label>
+                    <input type="date" name="regdate" id="regdate" class="form-control" placeholder="dd-mm-yyyy">
+                </div>
+               
+                <div class="form-group">
+                    <label for="" class="fields">WITNESS</label>
+                    <input type="text" name="witness" id="witness" class="form-control" placeholder="CWC Witness ID">
+                </div> 
+            </div>
+            <div class="registration">
+                <div class="form-group">
+                    <div class="row reg">
+                        <input type="checkbox" name="confirm">
+                        <label for="" class="infoheading">CONFIRM</label>
+                    </div>
+                </div>
+                <div class="btn"><a class="backbt" href="indexregister.html">REGISTER</a></div>
+                 
+            </div>
+           
+       </form>
+    </div> 
+</section>
+<script
+src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"
+></script>
+<script
+src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"
+></script>
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+crossorigin="anonymous"
+></script>
+</body>
+</html>
