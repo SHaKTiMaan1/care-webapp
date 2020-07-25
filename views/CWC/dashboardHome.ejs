@@ -1,97 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CWC Home Page</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rowdies&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <link rel="stylesheet" href="/stylesheets/CWC/content_home.css" />
-  </head>
-  <body>
-    <section id="sideMenu">
-      <nav id="sidemenu-flexbox">
+<%- include("../partials/headerCwcDashboard")%>
 
-        <a
-          class="active current"
-          href="/cwc/dashboard/:<%= employee.employee_id %>"
-          title="Home"
-          ><i class="current2 fa fa-home" aria-hidden="true"></i
-        ></a>
 
-        <a
-          class="active"
-          href="indexccidetails.html"
-          title="Children Under Care"
-          ><i class="fa fa-child" aria-hidden="true"></i>
-        </a>
-
-        <a
-          class="active"
-          href="indexccireg.html"
-          title="Child Care Institutions under supervision"
-          ><i class="fa fa-building" aria-hidden="true"></i
-        ></a>
-
-        <a
-          class="active"
-          href="indexccireg.html"
-          title="Help"
-          ><i class="fa fa-question" aria-hidden="true"></i
-        ></a>
-
-        <a class="active" href="indexccidetails.html" title="Log Out"
-          ><i class="fa fa-sign-out-alt" aria-hidden="true"></i>
-        </a>
-
-      </nav>
-    </section>
-
-  <div clas="flex-vertical">
-    <header class="home-nav-container">
-      <nav class="dashboard-nav navbar fixed-top navbar-light">
-        <div class="container">
-          <a class="" href="#">CARE</a>
-
-          <div id="dashboard-icons-container">
-
-            <h6 class="dashoard-nav-icon"><%= employee.email.toUpperCase() %></h6>
-            <a href="" title="Profile">
-              <i class="dashoard-nav-icon fa fa-user"></i>
-            </a>
-            <a href="" title="Notifications"
-              ><i class="dashoard-nav-icon fa fa-bell"></i>
-            </a>
-            <a href="" title="Messages"
-              ><i class="dashoard-nav-icon fa fa-envelope"></i
-            ></a>
-            <a href="" title="Add Child"
-              ><i class="dashoard-nav-icon fa fa-plus"></i
-            ></a>
-
-          </div>
-        </div>
-      </nav>
-      <nav class="dashboard-nav-second navbar fixed-top navbar-light">
-        <div class="container">
-          <a class="dashboard-nav-brand navbar-brand" href="#"> CARE</a>
-        </div>
-      </nav>
-    </header>
-
+  <div class="flex-vertical">
+    
     <section>
       <div class="dashboard-home-info-container">
         <div class="cwc-information-container">
@@ -225,7 +136,7 @@
               <h5>ATTENDANCE AND MOVEMENT DATA SYNC STATUS</h5>
               <table class="table table-striped table-dark">
                 <thead>
-                  <tr></tr>
+                  <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Institute Name</th>
                     <th scope="col">Last Sync Date</th>
