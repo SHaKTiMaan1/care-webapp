@@ -14,7 +14,7 @@ router.get("/registerByAdminOptions", (req, res) => {
   res.render("registerByAdminOptions.ejs");
 });
 
-route.get("tanishaTest", (req, res) => {
+router.get("tanishaTest", (req, res) => {
   res.render("Tanisha/");
 });
 
