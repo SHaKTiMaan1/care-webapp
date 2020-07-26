@@ -32,7 +32,7 @@ router.post("/login/admin", async (req, res) => {
 
   console.log("isPasswordValid : " + isPasswordValid);
   if (isPasswordValid) {
-    res.redirect("/admin/dashboard/:" + admin.employee_id);
+    res.redirect("/admin/dashboard/" + admin.employee_id);
   } else {
     res.send("Wrong Password !!");
   }
@@ -64,7 +64,7 @@ router.post("/login/cwcemployee", async (req, res) => {
 
   console.log("isPasswordValid : " + isPasswordValid);
   if (isPasswordValid) {
-    res.redirect("/cwc/dashboard/:" + employee.employee_id);
+    res.redirect("/cwc/dashboard/" + employee.employee_id);
   } else {
     res.send("Wrong Password !!");
   }

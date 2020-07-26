@@ -3,10 +3,10 @@ const Admin = require("../models/admin");
 const bcrypt = require("bcryptjs");
 
 router.get("/admin/dashboard/:employee_id", async (req, res) => {
-  const idToSearch = req.params.employee_id.substring(1);
+  const idToSearch = req.params.employee_id;
 
   const admin = await Admin.findOne({ employee_id: idToSearch });
-
+  console.log("I foud you : " + admin);
   res.render("admin/adminDashboardHome.ejs", { admin: admin });
 });
 

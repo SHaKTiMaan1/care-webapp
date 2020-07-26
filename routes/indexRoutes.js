@@ -10,12 +10,8 @@ router.get("/loginOptions", (req, res) => {
   res.render("login/loginOptions.ejs");
 });
 
-router.get("/registerByAdminOptions", (req, res) => {
-  res.render("registerByAdminOptions.ejs");
-});
-
 router.get("tanishaTest", (req, res) => {
-  res.render("Tanisha/");
+  res.render("");
 });
 
 module.exports = router;

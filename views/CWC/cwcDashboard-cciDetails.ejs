@@ -1,0 +1,95 @@
+<%- include("../partials/headerCwcDashboard")%>
+
+   
+    <!-- <link rel="stylesheet" href="../stylesheets/CWC/child.css" />
+    <link rel="stylesheet" href="../../assets/css/_childcontent-area.css" /> -->
+    
+    <section id="content-area">
+      <div class="main">
+        <div class="heading">
+          <h1>CCI Details</h1>
+        </div>
+
+        <div class="cards">
+          <% cci.forEach(function(cci){ %> <% if(cci.count!=0) {%> <% let
+          strength = 0;%> <% strength =cci.strength; %>
+          <div class="col-md-4">
+            <div class="card">
+              <span class="cci-name"><%= cci.cci_name %></span>
+              <hr />
+              <div class="row">
+                <div class="col-md-8">
+                  <span class="categorie1"
+                    ><i class="fa fa-hand-o-right" aria-hidden="true"></i> Total
+                    Strength</span
+                  >
+                </div>
+                <div class="col-md-4">
+                  <span class="value"><%= strength%></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <span class="categorie2"
+                    ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                    Orphans</span
+                  >
+                </div>
+                <div class="col-md-4">
+                  <span class="value">TBD</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <span class="categorie3"
+                    ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                    Abandoned</span
+                  >
+                </div>
+                <div class="col-md-4">
+                  <span class="value">TBD</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <span class="categorie4"
+                    ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                    Surrendered</span
+                  >
+                </div>
+                <div class="col-md-4">
+                  <span class="value">TBD</span>
+                </div>
+              </div>
+              <div class="btn">
+                <a
+                  class="backbt"
+                  href="/newAttendance/<%= district%>/<%=cwcOfficialName%>/<%=cci.cci_id%>/<%=cci.cci_name%>"
+                  >Attendance List</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <% strength = 0; %> <% } %> <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

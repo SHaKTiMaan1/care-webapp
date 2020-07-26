@@ -83,6 +83,7 @@ router.post("/admin/registerNewCwc/:employee_id", async (req, res) => {
     email: req.body.email,
     registeredBy: registeredBy,
     dateOfRegistration: currentDate,
+    count: 0,
   });
 
   console.log("CWC Created " + cwc);
@@ -155,6 +156,20 @@ router.post("/admin/registerNewCwcemployee/:employee_id", async (req, res) => {
     res.send("There was error" + err);
   }
 });
+
+//CCI REGISTRATION
+router.get(
+  "/cwc/dashboard/newCciRegistraton/:employee_id",
+  async (req, res) => {
+    const employee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+
+    console.log("CWC Employee Found : " + employee);
+    res.render("registration/registerNewCci.ejs", { employee: employee });
+  }
+);
+
 //====================================================================================
 
 router.get("/registerByCWC/cciEmployee", (req, res) => {
