@@ -1,43 +1,40 @@
-const express       = require('express');
-const mongoose      = require('mongoose');
-const dotenv        = require('dotenv');
-const bodyParser 	= require("body-parser");
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
 
-    //IMPORTING ROUTES
-const registrationRoutes    = require('./routes/registrationRoutes');
-const loginRoutes           = require('./routes/loginRoutes');
-const indexRoutes           = require('./routes/indexRoutes');
-const cwcRoutes             = require('./routes/cwcRoutes');
+//IMPORTING ROUTES
+const registrationRoutes = require("./routes/registrationRoutes");
+const loginRoutes = require("./routes/loginRoutes");
+const indexRoutes = require("./routes/indexRoutes");
+const cwcRoutes = require("./routes/cwcRoutes");
 
 const app = express();
 dotenv.config();
 
-
-    //DATABASE CONNECTION
-mongoose.connect(
-    process.env.DB_LINK,
-    { useNewUrlParser: true, useUnifiedTopology: true }
-);
+//DATABASE CONNECTION
+mongoose.connect(process.env.DB_LINK, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 var db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', function() {
-    console.log("We are connected to MongoDB");
-  });
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function () {
+  console.log("We are connected to MongoDB");
+});
 
-    //SERVING THE PUBLIC DIRECTORY
+//SERVING THE PUBLIC DIRECTORY
 app.use(express.static(__dirname + "/public"));
 
-    //MIDDLEWARES
-app.use(bodyParser.urlencoded({extended: true}));
+//MIDDLEWARES
+app.use(bodyParser.urlencoded({ extended: true }));
 
-
-    //ROUTE MIDDLEWARES
+//ROUTE MIDDLEWARES
 app.use(registrationRoutes);
 app.use(loginRoutes);
 app.use(indexRoutes);
 app.use(cwcRoutes);
 
-
-    //LISTENING
-// app.listen(process.env.PORT, process.env.IP);
-app.listen(3000,() => console.log("Server says Hello!!"));
+//LISTENING
+app.listen(process.env.PORT, process.env.IP);
+// app.listen(3000,() => console.log("Server says Hello!!"));
