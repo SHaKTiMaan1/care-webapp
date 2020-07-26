@@ -2,6 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const CciEmployee = require("../models/cciEmployee");
 const CwcEmployee = require("../models/cwcEmployee");
+const Admin = require("../models/admin");
 const { registerValidationEmployee } = require("../validation");
 
 router.get("/registerNewAdmin", (req, res) => {
@@ -10,12 +11,40 @@ router.get("/registerNewAdmin", (req, res) => {
 
 router.post("/registerNewAdmin", async (req, res) => {
   //CHECKING IF USER ALREADY EXISTS
-  const emailExists = await CwcEmployee.findOne({ email: req.body.email });
+  const emailExists = await Admin.findOne({ email: req.body.email });
   if (emailExists) return res.status(400).send("Email Already Exists");
   console.log("Email Doesn't alreasy exist");
 
+  //HASHING THE PASSWORD
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  console.log("Password hashed " + hashedPassword);
+
+  //CREATING A NEW ADMIN
+  const admin = new Admin({
+    employee_id: req.body.employee_id,
+    firstName: req.body.firstName,
+    middleName: req.body.middleName,
+    lastName: req.body.lastName,
+    contactNumber: req.body.contactNumber,
+    aadharNumber: req.body.aadharNumber,
+    email: req.body.email,
+    password: hashedPassword,
+    autherisation_level: req.body.autherisation_level,
+  });
+
+  console.log("Admin Created " + admin);
+
+  try {
+    const savedAdmin = await admin.save();
+
+    console.log("Admin saved " + savedAdmin);
+
+    res.send("Registered");
+  } catch (err) {
+    console.log("We got some error");
+    res.send("There was error" + err);
+  }
 });
 
 router.get("/registerByAdmin/:category", (req, res) => {

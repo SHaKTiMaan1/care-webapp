@@ -19,6 +19,11 @@ var adminSchema = new mongoose.Schema({
     min: 1111111111,
     max: 9999999999,
   },
+  aadharNumber: {
+    type: Number,
+    min: 111111111111,
+    max: 999999999999,
+  },
   email: {
     type: String,
     required: true,
