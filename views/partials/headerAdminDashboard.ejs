@@ -32,35 +32,10 @@
     <section id="sideMenu">
       <nav id="sidemenu-flexbox">
         <a
-          class="active current"
-          href="/cwc/dashboard/:<%= employee.employee_id %>"
+          class="active"
+          href="/admin/dashboard/:<%= admin.employee_id %>"
           title="Home"
-          ><i class="current2 fa fa-home" aria-hidden="true"></i
-        ></a>
-
-        <a
-          class="active"
-          href="indexccidetails.html"
-          title="Children Under Care"
-          ><i class="fa fa-child" aria-hidden="true"></i>
-        </a>
-
-        <a
-          class="active"
-          href="/cwc/dashboard/childRegistration/:<%= employee.employee_id %>"
-          title="Register a new child"
-          ><i class="fa fa-user-plus" aria-hidden="true"></i>
-        </a>
-
-        <a
-          class="active"
-          href="indexccireg.html"
-          title="Child Care Institutions under supervision"
-          ><i class="fa fa-building" aria-hidden="true"></i
-        ></a>
-
-        <a class="active" href="indexccireg.html" title="Help"
-          ><i class="fa fa-question" aria-hidden="true"></i
+          ><i class=" fa fa-home" aria-hidden="true"></i
         ></a>
 
         <a class="active" href="indexccidetails.html" title="Log Out"
@@ -76,17 +51,12 @@
 
           <div id="dashboard-icons-container">
             <h6 class="dashoard-nav-icon">
-              <%= employee.firstName.toUpperCase() + " " + employee.lastName.toUpperCase() %>
+              <%= admin.firstName.toUpperCase() + " " +admin.lastName.toUpperCase()%>
             </h6>
             <a href="" title="Profile">
               <i class="dashoard-nav-icon fa fa-user"></i>
             </a>
-            <a href="" title="Notifications"
-              ><i class="dashoard-nav-icon fa fa-bell"></i>
-            </a>
-            <a href="" title="Messages"
-              ><i class="dashoard-nav-icon fa fa-envelope"></i
-            ></a>
+        
           </div>
         </div>
       </nav>

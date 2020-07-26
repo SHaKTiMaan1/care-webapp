@@ -1,25 +1,31 @@
-<form action="/registerNewAdmin" method="POST">
-  employee_id : <input type="text" name="employee_id" /> <br />
-  firstName :
-  <input type="text" name="firstName" /><br />
-  middleName :
-  <input type="text" name="middleName" /><br />
-  lastName
-  <input type="text" name="lastName" /><br />
-  aadhaarNumber
-  <input type="text" name="aadhaarNumber" /><br />
-  contactNumber
-  <input type="text" name="contactNumber" /><br />
-  email
-  <input type="text" name="email" /><br />
-  password
-  <input type="text" name="password" /><br />
-  <label>autherisation_level</label>
-  <select class="form-control" name="autherisation_level">
-    <option value="national">National</option>
-    <option value="state">State</option>
-    <option value="district">District</option>
-  </select>
-  <br />
-  <input type="submit" name="" id="" />
-</form>
+<%- include("../partials/headerAdminDashboard")%>
+
+<section class="inline-flex mt-5 ml-5 pt-5 pl-5">
+  <div class="pt-3">
+    <form action="/admin/registerNewAdmin/<%=admin.employee_id%>" method="POST">
+      employee_id : <input type="text" name="employee_id" /> <br />
+      firstName :
+      <input type="text" name="firstName" /><br />
+      middleName :
+      <input type="text" name="middleName" /><br />
+      lastName
+      <input type="text" name="lastName" /><br />
+      aadhaarNumber
+      <input type="text" name="aadhaarNumber" /><br />
+      contactNumber
+      <input type="text" name="contactNumber" /><br />
+      email
+      <input type="text" name="email" /><br />
+      password
+      <input type="text" name="password" /><br />
+      <label>autherisation_level</label>
+      <select class="form-control" name="autherisation_level">
+        <option value="national">National</option>
+        <option value="state">State</option>
+        <option value="district">District</option>
+      </select>
+      <br />
+      <input type="submit" name="" id="" class="btn jade" />
+    </form>
+  </div>
+</section>

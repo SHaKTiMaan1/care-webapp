@@ -1,0 +1,154 @@
+<%- include("../partials/headerAdminDashboard")%>
+
+<section class="inline-flex mt-5 ml-5 pt-5">
+  <div class="container pos">
+    <form
+      action="/admin/registerNewCwcemployee/<%= admin.employee_id %>"
+      method="post"
+    >
+      <div class="personalinfo">
+        <p class="infoheading">CWC Employee Registration</p>
+        <hr />
+        <div class="form-group">
+          <label for="" class="fields">Name</label>
+
+          <div class="row position">
+            <div class="col-sm-4">
+              <input
+                type="text"
+                name="firstName"
+                id="fname"
+                class="form-control"
+                placeholder="First Name"
+              />
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="text"
+                name="middleName"
+                id="mname"
+                class="form-control"
+                placeholder="Middle Name"
+              />
+            </div>
+            <div class="col-sm-4">
+              <input
+                type="text"
+                name="lastName"
+                id="lname"
+                class="form-control"
+                placeholder="Last Name"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row position">
+            <div class="col-sm-6">
+              <label for="" class="fields">DATE OF BIRTH</label>
+              <input
+                type="date"
+                name="dateOfBirth"
+                id="dob"
+                class="form-control"
+                placeholder="dd-mm-yyyy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="fields">GENDER</label>
+          <select class="form-control" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="fields">AADHAAR NUMBER</label>
+          <input
+            type="text"
+            name="aadhaarNumber"
+            id="adhaarnum"
+            class="form-control"
+            placeholder="Aadhaar Number"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="" class="fields">CONTACT NUMBER</label>
+          <input
+            type="text"
+            name="contactNumber"
+            id="adhaarnum"
+            class="form-control"
+            placeholder="Contact Number"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="" class="fields">email ID</label>
+          <input
+            type="text"
+            name="email"
+            id="adhaarnum"
+            class="form-control"
+            placeholder="abc@you.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="" class="fields">Password</label>
+
+          <div class="row position">
+            <div class="col-sm-6">
+              <input
+                type="password"
+                name="password"
+                id="fname"
+                class="form-control"
+                placeholder="Password"
+              />
+            </div>
+            <div class="col-sm-6">
+              <input
+                type="password"
+                name="confirmPassword"
+                id="mname"
+                class="form-control"
+                placeholder="Confirm Password"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="fields">Child Welfare Commitee ID</label>
+          <input
+            type="text"
+            name="cwc_id"
+            id="adhaarnum"
+            class="form-control"
+            placeholder="cwc_id"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="" class="fields">Employee ID</label>
+          <input
+            type="text"
+            name="employee_id"
+            id="adhaarnum"
+            class="form-control"
+            placeholder="employee_id"
+          />
+        </div>
+
+        <button class="btn btn-danger">Reset</button>
+        <input type="submit" class="btn btn-primary" />
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+<%- include("../partials/headerAdminDashboard")%>
+
+<section class="inline-flex mt-5 ml-5 pt-5">
+  <div class="container pos">
+    <form
+      action="/admin/registerNewCwc/:<%= admin.employee_id %>"
+      method="post"
+    >
+      <div class="personalinfo">
+        <p class="infoheading">New Child Welfare Commitee Registration</p>
+        <hr />
+        <div class="form-group">
+          <label for="" class="fields">Child Welfare Commitee ID</label>
+          <input
+            type="text"
+            name="cwc_id"
+            id="adhaarnum"
+            class="form-control"
+            placeholder=""
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="" class="fields">Address : </label>
+          <textarea
+            name="address"
+            class="form-control"
+            id=""
+            cols="10"
+            rows="5"
+          >
+          </textarea>
+        </div>
+
+        <label>State</label>
+        <select class="form-control" name="state">
+          <option value="">--- Select State ---</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Bihar">Bihar</option>
+        </select>
+
+        <label>District</label>
+        <select class="form-control" name="district">
+          <option value="">--- Select District ---</option>
+          <option value="jhansi">Jhansi</option>
+          <option value="bhopal">Bhopal</option>
+          <option value="gaya">Gaya</option>
+        </select>
+
+        <div class="form-group">
+          <label for="" class="fields">PIN Code</label>
+          <input
+            type="text"
+            name="pinCode"
+            id="adhaarnum"
+            class="form-control"
+            placeholder="273015"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="" class="fields">email ID</label>
+          <input
+            type="text"
+            name="email"
+            id="adhaarnum"
+            class="form-control"
+            placeholder="abc@you.com"
+          />
+        </div>
+
+        <button class="btn btn-danger">Reset</button>
+        <input type="submit" class="btn btn-primary" />
+      </div>
+    </form>
+  </div>
+</section>

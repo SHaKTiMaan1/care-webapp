@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/loginOptions", (req, res) => {
-  res.render("loginOptions.ejs");
+  res.render("login/loginOptions.ejs");
 });
 
 router.get("/registerByAdminOptions", (req, res) => {

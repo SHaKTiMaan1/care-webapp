@@ -8,6 +8,7 @@ const registrationRoutes = require("./routes/registrationRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 const indexRoutes = require("./routes/indexRoutes");
 const cwcRoutes = require("./routes/cwcRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 dotenv.config();
@@ -34,7 +35,8 @@ app.use(registrationRoutes);
 app.use(loginRoutes);
 app.use(indexRoutes);
 app.use(cwcRoutes);
+app.use(adminRoutes);
 
 //LISTENING
-// app.listen(process.env.PORT, process.env.IP);
-app.listen(3000, () => console.log("Server says Hello!!"));
+app.listen(process.env.PORT, process.env.IP);
+// app.listen(3000, () => console.log("Server says Hello!!"));

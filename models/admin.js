@@ -40,6 +40,9 @@ var adminSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  registeredBy: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Admin", adminSchema);
