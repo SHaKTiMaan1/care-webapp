@@ -282,6 +282,10 @@ header {
   background-color: #f05e23 !important;
 }
 
+.white {
+  background-color: white !important;
+}
+
 .w800h100 {
   width: 100%;
   height: 100px;
