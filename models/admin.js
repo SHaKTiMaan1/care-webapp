@@ -37,4 +37,4 @@ var adminSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("CwcEmployee", cwcEmployeeSchema);
+module.exports = mongoose.model("Admin", adminSchema);
