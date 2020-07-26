@@ -30,7 +30,10 @@
     <h1>CCI Registration</h1>
     <div class="container">
       <div class="jumbotron">
-        <form action="/addCCI" method="POST">
+        <form
+          action="/cwc/dashboard/newCciRegistraton/<%= employee.employee_id %>"
+          method="POST"
+        >
           <div class="form-group">
             <label for="formGroupExampleInput">CCI Name</label>
             <input
@@ -46,34 +49,21 @@
             <label for="formGroupExampleInput2">Address of CCI</label>
             <div class="form-row">
               <div class="col-7">
-                <input
+                <textarea
                   type="text"
                   class="form-control"
                   name="address"
                   placeholder="Address"
+                ></textarea>
+              </div>
+
+              <div class="col-7">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="pincode"
+                  placeholder="pincode"
                 />
-              </div>
-              <div class="col">
-                <select id="inputDistrict" name="district" class="form-control">
-                  <option disabled="disabled" selected="selected"
-                    >District Name</option
-                  >
-                  <option>Ghaziabad</option>
-                  <option>Prayagraj</option>
-                  <option>Agra</option>
-                  <option>Mathura</option>
-                  <option>Kanpur</option>
-                  <option>Jhansi</option>
-                  <option>Bhopal</option>
-                  <option>Lucknow</option>
-                  <option>Noida</option>
-                </select>
-              </div>
-              <div class="col">
-                <select id="inputState" name="state" class="form-control">
-                  <option selected>State</option>
-                  <option>U.P.</option>
-                </select>
               </div>
             </div>
           </div>
