@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const CciEmployee = require("../models/cciEmployee");
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
+const Cci = require("../models/cci");
 const Admin = require("../models/admin");
 const { registerValidationEmployee } = require("../validation");
 const { Router } = require("express");
@@ -157,7 +158,7 @@ router.post("/admin/registerNewCwcemployee/:employee_id", async (req, res) => {
   }
 });
 
-//CCI REGISTRATION
+//CCI REGISTRATION ROUTE
 router.get(
   "/cwc/dashboard/newCciRegistraton/:employee_id",
   async (req, res) => {
@@ -167,6 +168,67 @@ router.get(
 
     console.log("CWC Employee Found : " + employee);
     res.render("registration/registerNewCci.ejs", { employee: employee });
+  }
+);
+
+router.post(
+  "/cwc/dashboard/newCciRegistraton/:employee_id",
+  async (req, res) => {
+    //LOOKING FOR THE EMPLOYEE WHO'S REGISTERING
+    const cwcemployee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+    console.log("CWC Employee Found : " + cwcemployee);
+
+    //LOOKING FOR PARENT CWC
+    const cwc = await Cwc.findOne({
+      cwc_id: cwcemployee.cwc_id,
+    });
+    console.log("CWC  Found : " + cwc);
+
+    let distName = cwc.district;
+    distName = distName.substring(0, 3);
+    count = cwc.count;
+
+    let prefix = "00";
+    count++;
+
+    if (count > 9) {
+      prefix = "0";
+    }
+
+    const ID = distName.concat(prefix, count); // concatinating for makin CCIID
+    console.log(ID);
+
+    // CREATING THE DOCUMENT IN DATABASE
+    const cci = new Cci({
+      cci_id: ID,
+      cci_name: req.body.name,
+      strength: 0,
+      cci_HeadName: {
+        fname: req.body.fname,
+        lname: req.body.lname,
+      },
+      address: req.body.address,
+      district: cwc.district,
+      state: cwc.state,
+      pincode: req.body.pincode,
+      contactNumber: req.body.contact_no,
+      email: req.body.email,
+      cwc_id: cwc.cwc_id,
+      registeredBy: cwcemployee.employee_id,
+    });
+
+    try {
+      savedCci = cci.save();
+      updatedCwc = await Cwc.updateOne(
+        { cwc_id: cwc.cwc_id },
+        { $inc: { count: 1 } }
+      );
+      res.redirect("/cwc/dashboard/" + cwcemployee.employee_id);
+    } catch (e) {
+      console.log("Error in cci creating route ");
+    }
   }
 );
 

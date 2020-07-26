@@ -2,7 +2,9 @@ const router = require("express").Router();
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
+const Child = require("../models/child");
 
+//FOR GETTING THE FORM TO REGISTER A NEW CHILD
 router.get("/cwc/dashboard/childRegistration/:employee_id", async function (
   req,
   res
@@ -12,6 +14,7 @@ router.get("/cwc/dashboard/childRegistration/:employee_id", async function (
   res.render("CWC/cwcdashboard-childRegistration.ejs", { employee: employee });
 });
 
+//CWC DASHBOARD
 router.get("/cwc/dashboard/:employee_id", async function (req, res) {
   const idToSearch = req.params.employee_id;
 
@@ -21,6 +24,7 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
   res.render("CWC/dashboardHome.ejs", { employee: employee });
 });
 
+//CCI INFORMATION
 router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
   const employee = await CwcEmployee.findOne({
     employee_id: req.params.employee_id,
@@ -34,11 +38,11 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
       if (err) {
         console.log(error);
       } else {
-        res.render("cwcDashboard-cciDetails.ejs", {
+        res.render("CWC/showCciInformation.ejs", {
           allCci: allCci,
           allChildren: child,
           district: cwc.district,
-          cwcEmployee: employee,
+          employee: employee,
         });
       }
     });

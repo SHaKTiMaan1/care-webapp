@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
+
 var cciSchema = new mongoose.Schema({
   cci_id: {
+    type: String,
+  },
+  cci_name: {
     type: String,
   },
   address: {
@@ -17,6 +21,18 @@ var cciSchema = new mongoose.Schema({
   },
   head_id: {
     type: String, //employee_id from the cciEmployeeSchema
+  },
+  contactNumber: {
+    type: Number,
+  },
+  email: {
+    type: String,
+  },
+  cwc_id: {
+    type: String,
+  },
+  registeredBy: {
+    type: String,
   },
   attendance: [
     {
@@ -42,3 +58,5 @@ var cciSchema = new mongoose.Schema({
     },
   ],
 });
+
+module.exports = mongoose.model("Cci", cciSchema);
