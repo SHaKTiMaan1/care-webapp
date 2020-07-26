@@ -5,6 +5,12 @@
   padding: 20px;
   display: inline-flex;
 }
+.child-registration .card{
+  width: 100%;
+}
+.container-fluid .row{
+  width: 100%;
+}
 
 * {
   margin: 0;
