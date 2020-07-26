@@ -3,6 +3,7 @@
     border: 2px solid red;
     
 } */
+
 .heading {
   width: 800px;
   font-size: 0.2rem;
@@ -99,6 +100,7 @@ header {
   z-index: 99999;
   position: fixed;
 }
+
 .logo {
   float: left;
   padding-top: 10px;
@@ -106,9 +108,11 @@ header {
   font-size: 24px;
   color: #d3d3d3;
 }
+
 .user-field {
   float: right;
 }
+
 .user-field a .fa {
   display: inline-block;
   margin-right: 10px;
@@ -117,21 +121,25 @@ header {
   padding-right: 20px;
   border: none !important;
 }
+
 .user-field a .fa:hover {
   text-decoration: none;
   color: #39ff14;
   border: none !important;
 }
+
 .fa-caret-down {
   font-size: 0.9em;
   position: relative;
   top: 0;
 }
+
 .fa-caret-down:hover {
   color: #39ff14;
 }
 
-/* By Shraddha ==================================================== */
+/* By Shraddha ============================================= */
+
 #sidemenu-flexbox {
   display: flex;
   flex-direction: column;
@@ -172,7 +180,6 @@ header {
   margin-left: 50px !important;
   display: inline-flex;
   width: 96%;
-  height: ;
   padding: 25px;
   color: white;
   justify-content: space-between;
@@ -180,7 +187,6 @@ header {
 }
 
 .cwc-information-container {
-  background-color: ;
   width: 100%;
   display: flex;
   padding: 10px;
@@ -199,7 +205,6 @@ header {
 }
 
 .cwc-stats-container {
-  background-color: ;
   width: 40%;
 }
 
@@ -207,7 +212,6 @@ header {
   display: flex;
   margin-left: 50px !important;
   justify-content: space-between;
-  height: ;
   width: 96%;
 }
 
@@ -225,14 +229,10 @@ header {
   max-width: 140px;
 }
 
-.parent-row {
-}
-
 .home-main-content-grid-block {
   background-color: #d39feb;
   margin: 10px auto;
   max-width: 640px;
-  height: ;
 }
 
 .action-parent {

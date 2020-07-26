@@ -25,6 +25,9 @@ var cwcSchema = new mongoose.Schema({
   dateOfRegistration: {
     type: String,
   },
+  count: {
+    type: Number,
+  },
 });
 
 module.exports = mongoose.model("Cwc", cwcSchema);
