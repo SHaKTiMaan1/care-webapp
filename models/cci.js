@@ -34,6 +34,9 @@ var cciSchema = new mongoose.Schema({
   registeredBy: {
     type: String,
   },
+  strength: {
+    type: Number,
+  },
   attendance: [
     {
       date: {

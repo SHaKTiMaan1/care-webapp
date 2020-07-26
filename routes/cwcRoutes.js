@@ -34,17 +34,10 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
   allCci = await Cci.find({ district: cwc.district });
 
   try {
-    Child.find({}, function (err, child) {
-      if (err) {
-        console.log(error);
-      } else {
-        res.render("CWC/showCciInformation.ejs", {
-          allCci: allCci,
-          allChildren: child,
-          district: cwc.district,
-          employee: employee,
-        });
-      }
+    res.render("CWC/showCciInformation.ejs", {
+      allCci: allCci,
+      district: cwc.district,
+      employee: employee,
     });
   } catch (err) {
     console.log("There is an error : ");

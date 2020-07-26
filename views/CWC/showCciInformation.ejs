@@ -1,14 +1,14 @@
 <%- include("../partials/headerCwcDashboard")%>
 
-<section class="inline-flex mt-5 pt-5 ml-5">
-  <section id="content-area">
+<section class="inline-flex mt-5 ml-5 pt-5">
+  <section id="content-area" class="">
     <div class="starting">
       <div class="row">
         <div class="col-md-6">
           <h2 class="head">CCI DETAILS</h2>
 
           <label for="" class="district">DISTRICT</label>
-          <label for="" class="name">JHANSI</label>
+          <label for="" class="name"><%= district.toUpperCase() %></label>
 
           <p class="number">Total Number Of Child Care Institutions</p>
           <p class="val">3</p>
@@ -37,13 +37,22 @@
         </div>
       </div>
     </div>
-    <!--CCI details-->
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
     <div class="pos">
-      <!--First Row-->
       <div class="row arrangement">
+        <% allCci.forEach(function(cci){ %>
         <div class="col-md-4 col-sm-6">
           <div class="card">
-            <span class="cci-name">Mother Teresa Child Care</span>
+            <span class="cci-name"><%= cci.cci_name %></span>
             <hr />
             <div class="row options">
               <div class="col-md-8">
@@ -53,7 +62,7 @@
                 >
               </div>
               <div class="col-md-4">
-                <span class="value">120</span>
+                <span class="value"><%= cci.strength %></span>
               </div>
             </div>
             <div class="row options">
@@ -94,112 +103,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="card">
-            <span class="cci-name">St. Judes Child Care</span>
-            <hr />
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie1"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i> Total
-                  Strength</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">120</span>
-              </div>
-            </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie2"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Orphans</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">50</span>
-              </div>
-            </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie3"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Abandoned</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">70</span>
-              </div>
-            </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie4"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Surrendered</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">20</span>
-              </div>
-            </div>
-            <div class="btn">
-              <a class="backbt" href="indexattendance1.html">Attendance List</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="card">
-            <span class="cci-name">Snehalaya Child Care</span>
-            <hr />
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie1"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i> Total
-                  Strength</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">120</span>
-              </div>
-            </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie2"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Orphans</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">50</span>
-              </div>
-            </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie3"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Abandoned</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">70</span>
-              </div>
-            </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie4"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Surrendered</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">20</span>
-              </div>
-            </div>
-            <div class="btn">
-              <a class="backbt" href="indexattendance1.html">Attendance List</a>
-            </div>
-          </div>
-        </div>
+        <% }); %>
       </div>
     </div>
   </section>
