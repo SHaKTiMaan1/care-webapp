@@ -306,7 +306,7 @@ header {
 }
 .flex-horizontal {
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
 }
 .flex-vertical {
   display: flex;

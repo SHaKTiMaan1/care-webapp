@@ -64,7 +64,7 @@
               </p>
               <div class="row">
                 <div class="col-lg-6 d-flex stat my-3">
-                  <div class="mx-auto flex-vertical flex-between">
+                  <div class="mx-auto">
                     <h1 class="value font-weight-bold">
                       <%= cci.noOfChildrenEligibleForAdoption %>
                     </h1>
@@ -86,17 +86,28 @@
 
             <div class="card-footer purple-gradient">
               <% if( ! cci.head_id ){ %>
+              <div class="row">
+
+                <div class="col-lg-4 crimson"><i
+                  class="fa fa-user-plus white-text"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="col-lg-8 royalblue"></div>
+
+              </div>
+
+
               <p class="graph-paragraph">
                 <a
                   href="#"
                   class="no-text-decoration white-text graph-buttons salamander"
                 >
                   <div class="flex-horizontal flex-between">
-                    <i
-                      class="fa fa-user-plus display white-text"
-                      aria-hidden="true"
-                    ></i>
-                    REGISTER MEDICAL CONTROL UNIT HEAD
+                    <div>
+                      </i>
+                    </div>
+                    <div>REGISTER MEDICAL CONTROL UNIT HEAD</div>
                   </div>
                 </a>
               </p>
