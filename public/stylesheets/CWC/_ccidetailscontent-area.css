@@ -20,74 +20,7 @@
 
   border-radius: 8px;
 }
-.card {
-  position: relative;
-  margin-top: 8px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid #d3d3d3 !important;
 
-  transition: 0.5s ease;
-  cursor: pointer;
-}
-.card:hover {
-  -webkit-box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
-  -moz-box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
-  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
-  margin-top: 15px;
-}
-.options {
-  padding-left: 10px;
-}
-.cci-name {
-  font-size: 1.2rem;
-  color: purple;
-  display: block;
-  text-align: center;
-  margin: 10px 0;
-}
-.backbt {
-  display: block;
-  width: 100%;
-  height: 30px;
-  border-radius: 25px;
-  outline: none;
-  border: none;
-  background-image: linear-gradient(to right, #282639, #382043, #f4f6f9);
-  background-size: 200%;
-  font-size: 1.1rem;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
-  margin-top: 10px;
-  padding-top: 5px;
-  cursor: pointer;
-  transition: 0.5s;
-  text-decoration: none;
-}
-.backbt:hover {
-  background-position: right;
-  text-decoration: none;
-  color: black;
-}
-.card .fa {
-  color: #382043;
-}
-.card .fa:hover {
-  color: #39ff14;
-}
-.categorie1 {
-  color: purple;
-}
-.categorie2 {
-  color: orangered;
-}
-.categorie3 {
-  color: rgb(241, 9, 172);
-}
-.categorie4 {
-  color: green;
-}
 .required {
   width: 70%;
 
@@ -133,4 +66,54 @@
 .required-buttons2 .fa {
   color: #7e04b6 !important;
   padding-left: 55px;
+}
+.contain2{
+    
+  margin: 10px;
+  
+}
+.contain2 .row{
+  width: 100%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+}
+.graph-title{
+  color: #7e04b6;
+  
+  font-size: 22px;
+ 
+}
+.graph-info{
+  padding-left: 10px;
+  font-size: 18px;
+}
+.graph-info .fa{
+  color: blue;
+  font-size: 12px;
+  padding-right: 5px;
+}
+.card-header{
+  background: rgb(218, 216, 216);
+}
+.card-footer{
+  background: rgb(218, 216, 216);
+}
+.graph-paragraph{
+  font-size: 18px;
+  color: #7e04b6;
+}
+.graph-buttons .fa{
+  padding-left: 30px;
+  color: #7e04b6;
+}
+.state{
+  color: #1f138d;
+  
+  font-size: 18px;
+  padding-top: 10px;
+}
+.stat{
+  border-right:1px solid #d3d3d3;
 }

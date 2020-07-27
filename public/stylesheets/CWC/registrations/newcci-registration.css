@@ -8,6 +8,13 @@
   
     
 }
+.content-area{
+  
+    margin-top: 12vh !important;
+    margin-left: 2vh !important;
+    width: 96%;
+     
+  }
 body {
     font-family: "Poppins", sans-serif;
     background: #fff;
@@ -100,4 +107,8 @@ body {
 .btn:hover{
 	background-position: right;
 	color: #282639;
+}
+.positioning-button .row{
+    width: 100%;
+    
 }

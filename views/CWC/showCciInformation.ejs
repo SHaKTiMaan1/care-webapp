@@ -44,65 +44,46 @@
 
   <br />
 
-  <div class="pos">
-    <div class="row arrangement">
-      <% allCci.forEach(function(cci){ %>
-      <div class="col-md-4 col-sm-6">
-        <div class="card">
-          <span class="cci-name"><%= cci.cci_name.toUpperCase() %></span>
-          <hr />
-          <div class="row options">
-            <div class="col-md-8">
-              <span class="categorie1"
-                ><i class="fa fa-hand-o-right" aria-hidden="true"></i> Total
-                Strength</span
-              >
+  <div class="content3">
+    <div class="contain2">
+        <div class="row">
+          <div class="col-lg-4 my-4">
+            <% allCci.forEach(function(cci){ %>
+              <div class="card rounded-0">
+                <div class="card-header">
+                    <h6 class="graph-title font-weight-bold mb-0">Mother Teresa Child Care</h6>
+                    <p class="graph-info lead text-muted"><i class="fa fa-circle" aria-hidden="true"></i>CCI ID : CCI34</p>
+                </div>
+                <div class="card-body">
+      
+                    <p class="state border-bottom">TOTAL STRENGTH : 120</p>
+                    <div class="row">
+                        <div class="col-lg-6 d-flex stat my-3">
+                            <div class="mx-auto">
+                            <h6 class="card1 text-muted">Children Eligible for Adoption</h6>
+                            <h3 class="value font-weight-bold">10</h3>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex my-3">
+                            <div class="mx-auto">
+                            <h6 class="card1 text-muted">Children in Waiting List</h6>
+                            <h3 class="value font-weight-bold">15</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <p class="graph-paragraph">Add a new CCI Employee <a href="#" class="graph-buttons"> <i class="fa fa-user-plus display" aria-hidden="true"></i></a></p>
+            
+                </div> 
             </div>
-            <div class="col-md-4">
-              <span class="value"><%= cci.strength %></span>
-            </div>
-          </div>
-          <div class="row options">
-            <div class="col-md-8">
-              <span class="categorie2"
-                ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                Orphans</span
-              >
-            </div>
-            <div class="col-md-4">
-              <span class="value">50</span>
-            </div>
-          </div>
-          <div class="row options">
-            <div class="col-md-8">
-              <span class="categorie3"
-                ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                Abandoned</span
-              >
-            </div>
-            <div class="col-md-4">
-              <span class="value">70</span>
-            </div>
-          </div>
-          <div class="row options">
-            <div class="col-md-8">
-              <span class="categorie4"
-                ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                Surrendered</span
-              >
-            </div>
-            <div class="col-md-4">
-              <span class="value">20</span>
-            </div>
-          </div>
-          <div class="btn">
-            <a class="backbt" href="indexattendance1.html">Attendance List</a>
+            <% }); %>
           </div>
         </div>
-      </div>
-      <% }); %>
     </div>
-  </div>
+  </div>          
+    
+  
 </section>
 
 <script
