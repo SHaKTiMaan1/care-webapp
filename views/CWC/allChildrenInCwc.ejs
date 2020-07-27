@@ -1,1 +1,155 @@
 <%- include("../partials/headerCwcDashboard")%> Hello Tanisha
+<section id="content-area">
+    <div class="starting">
+         <div class="row">
+             <div class="col-md-6">
+                <h2 class="head">CHILD DETAILS</h2>
+         
+                <label for="" class="district">DISTRICT</label>  
+                <label for="" >JHANSI</label>
+            
+             <p class="number">Total Number Of Children</p>
+             <p class="val">5</p>
+             </div>
+             <div class="col-md-6">
+                <div class="wrapper place">
+                    <div class="search_box">
+                        <div class="dropdown">
+                            <div class="default_option">All</div>
+                            <ul>
+                                <li>All</li>
+                                <li>Child Id</li>
+                                <li>Child Name</li>
+                                <li>CCI Name</li>
+                                <li>Age</li>
+                            </ul>
+                        </div>
+                        <div class="search_field">
+                            <input type="text" class="input" placeholder="Search">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                   
+             </div>
+         </div>
+
+    </div>
+    <!--Child details-->
+    <div class="pos">
+        <!--table-->
+        <div class="list">
+            <table>
+                <thead>
+                     <tr>
+                         <th>
+                             CHILD ID
+                         </th>
+                         <th>
+                             NAME
+                         </th>
+                         <th>
+                             CCI NAME
+                         </th>
+                         <th>
+                             AGE
+                         </th>
+                         <th  class="posss">
+                             ACTION
+                         </th>
+                     </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                         <td class="id">001</td>
+                         <td>Monu</td>
+                         <td>St. Judes Child Care</td>
+                         <td>10</td>
+                         <td class="joining">
+                             <button class="btn" type="button"><a href="child_details_view.html">VIEW</a></button>
+      
+                                
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="id">002</td>
+                         <td>Pappu</td>
+                         <td>Mother Teresa Child Care</td>
+                         <td>15</td>
+                         <td class="joining">
+                            <button class="btn" type="button"><a href="#">VIEW</a></button>
+      
+                                 
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="id">003</td>
+                         <td>Rinky</td>
+                         <td>St. Judes Child Care</td>
+                         <td>06</td>
+                         <td class="joining">
+                                <button class="btn" type="button"><a href="#">VIEW</a></button>
+      
+                                 
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="id">004</td>
+                         <td>Guddu</td>
+                         <td>St. Judes Child Care</td>
+                         <td>10</td>
+                         <td class="joining">
+                                <button class="btn" type="button"><a href="#">VIEW</a></button>
+      
+                                
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="id">005</td>
+                         <td>Chintu</td>
+                         <td>St. Judes Child Care</td>
+                         <td>09</td>
+                         <td class="joining">
+                                <button class="btn" type="button"><a href="#">VIEW</a></button>
+      
+                            
+                         </td>
+                     </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+
+<script
+src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"
+></script>
+<script>
+$(document).ready(function(){
+    $(".default_option").click(function(){
+        $(".dropdown ul").toggleClass("active");
+    });
+    $(".dropdown ul li").click(function(){
+        var text = $(this).text();
+        $(".default_option").text(text);
+        $(".dropdown ul").removeClass("active");
+    });
+});
+</script>
+<script
+src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"
+></script>
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+crossorigin="anonymous"
+></script>
+</body>
+</html>
