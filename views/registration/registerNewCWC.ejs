@@ -1,14 +1,19 @@
 <%- include("../partials/headerAdminDashboard")%>
 
-<section class="inline-flex mt-5 ml-5 pt-5">
+<section class="content-area">
+  <div class="heading">
+    <p class="name">New Child Welfare Commitee Registration Portal</p>
+  </div>
   <div class="container pos">
     <form
       action="/admin/registerNewCwc/:<%= admin.employee_id %>"
       method="post"
     >
       <div class="personalinfo">
-        <p class="infoheading">New Child Welfare Commitee Registration</p>
-        <hr />
+        <div class="form-group">
+          <label for="" class="fields">Child Welfare Commitee NAME</label>
+          <input type="text" name="cwc_name" id="cwc_name" class="form-control" placeholder="Enter CWC Name">
+      </div> 
         <div class="form-group">
           <label for="" class="fields">Child Welfare Commitee ID</label>
           <input
@@ -16,7 +21,7 @@
             name="cwc_id"
             id="adhaarnum"
             class="form-control"
-            placeholder=""
+            placeholder="Enter the CWC ID"
           />
         </div>
 
@@ -55,7 +60,7 @@
             name="pinCode"
             id="adhaarnum"
             class="form-control"
-            placeholder="273015"
+            placeholder="pincode"
           />
         </div>
 
@@ -70,8 +75,18 @@
           />
         </div>
 
-        <button class="btn btn-danger">Reset</button>
-        <input type="submit" class="btn btn-primary" />
+       <div class="positioning-button">
+        <div class="row">
+          <div class="col-md-6">
+           <button class="btn btn-danger">Reset</button>
+           
+          </div>
+          <div class="col-md-6">
+           
+           <input type="submit" class="btn btn-primary" />
+          </div>
+        </div>
+       </div>
       </div>
     </form>
   </div>
