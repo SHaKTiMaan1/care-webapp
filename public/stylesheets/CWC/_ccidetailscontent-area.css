@@ -96,6 +96,7 @@ body {
 }
 .card-header{
   background: rgb(218, 216, 216);
+  text-align: left;
 }
 .card-footer{
   background: rgb(218, 216, 216);
@@ -110,7 +111,7 @@ body {
 }
 .state{
   color: #1f138d;
-  
+  text-align: left;
   font-size: 18px;
   padding-top: 10px;
 }
