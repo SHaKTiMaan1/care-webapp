@@ -11,7 +11,7 @@ var childSchema = new mongoose.Schema({
     type: String,
   },
   dateOfBirth: {
-    type: Date,
+    type: String,
   },
   gender: {
     type: String,
@@ -30,9 +30,6 @@ var childSchema = new mongoose.Schema({
   },
   cci_id: {
     type: String, //cci_id from the cciSchema
-  },
-  cci_name: {
-    type: String,
   },
   cwc_id: {
     type: String, //cwc_id from the cwcSchema
@@ -53,6 +50,31 @@ var childSchema = new mongoose.Schema({
       type: String, //guardian_id from the guardianSchema
     },
   ],
+  medicalDetails: {
+    bloodGroup: {
+      type: String,
+    },
+    height: [
+      {
+        date: {
+          type: String,
+        },
+        value: {
+          type: Number,
+        },
+      },
+    ],
+    weight: [
+      {
+        date: {
+          type: String,
+        },
+        value: {
+          type: Number,
+        },
+      },
+    ],
+  },
 });
 
 module.exports = mongoose.model("Child", childSchema);

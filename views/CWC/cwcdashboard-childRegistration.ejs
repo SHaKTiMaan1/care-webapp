@@ -379,7 +379,7 @@
                         <div class="col-sm-3">
                             
                             <label for="" class="radio name">
-                                <input type="radio" class="radio-one" name="injury">
+                                <input type="radio" class="radio-one" name="injury" value="cuts">
                                 <span class="checkmark"></span>
                                 Cuts
                             </label>
@@ -387,7 +387,7 @@
                         <div class="col-sm-3">
                             
                             <label for="" class="radio name">
-                                <input type="radio" class="radio-one" name="injury">
+                                <input type="radio" class="radio-one" name="injury" value="burns">
                                 <span class="checkmark"></span>
                                 Burns
                             </label>
@@ -396,7 +396,7 @@
                             
                             
                             <label for="" class="radio name">
-                                <input type="radio" class="radio-one" name="injury">
+                                <input type="radio" class="radio-one" name="injury" vlaue="others">
                                 <span class="checkmark"></span>
                                 Others
                             </label>
@@ -465,19 +465,28 @@
 
               </div>
 
-              <label class="fieldlabels">Child Care Institute ID : *</label>
               <input type="text" name="cci_id" placeholder=" ID" />
-              <label class="fieldlabels">Child Care Institute Name : *</label>
-              <input type="text" name="cci_name" placeholder=" Name" />
-              <label class="fieldlabels">Address *</label>
-              <input type="text" name="phno" placeholder="Contact No." />
-              <label class="fieldlabels">Witness : </label> <%= employee.firstName + " " + employee.lastName %>
-              
 
-           
+              <div class="form-group">
+                <label class="fieldlabels">Child Care Institute Name : *</label>
+                <select class="form-control" id="cciSelect" name="cci_id" placeholder="Select CCI">
+                  <% allCci.forEach(function(cci){ %>
+                  <% let distname =  (cci.district); %>
+                  <% distname = distname.toLowerCase(); %>
+                  <% district = district.toLowerCase(); %>
+                  <% let value =district.localeCompare(distname);%>
+                  <%  if(value==0){ %>
+                      <option value="<%= cci.cci_id %>">
+                        <%= cci.cci_name%>
+                      </option>
+                  <%    }  %>
+                  <%  });  %>                
+                </select>
+              </div>
 
-              
-            </div>
+          <label class="fieldlabels">Witness : </label> <%= employee.firstName + " " + employee.lastName %>
+        </div>
+
             <input
               type="button"
               name="next"

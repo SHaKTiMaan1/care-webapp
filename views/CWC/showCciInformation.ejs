@@ -1,126 +1,122 @@
 <%- include("../partials/headerCwcDashboard")%>
 
-<section class="inline-flex mt-5 ml-5 pt-5">
-  <section id="content-area" class="">
-    <div class="starting">
-      <div class="row">
-        <div class="col-md-6">
-          <h2 class="head">CCI DETAILS</h2>
+<section id="content-area" class="mt-5 pt-3">
+  <div class="container mt-1 starting p-4">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="head">CCI DETAILS</h2>
 
-          <label for="" class="district">DISTRICT</label>
-          <label for="" class="name"><%= district.toUpperCase() %></label>
+        <label for="" class="district">DISTRICT</label>
+        <label for="" class="name"><%= district.toUpperCase() %></label>
 
-          <p class="number">Total Number Of Child Care Institutions</p>
-          <p class="val">3</p>
-        </div>
-        <div class="col-md-6">
-          <div class="required">
-            <div class="required-image">
-              <img src="img/action.svg" alt="an image" />
-            </div>
-            <div class="required-content">
-              <h2 class="required-title">ACTION REQUIRED</h2>
-              <p class="required-text">
-                ADD A NEW CCI
-                <a href="#" class="required-buttons">
-                  <i class="fa fa-plus display" aria-hidden="true"></i
-                ></a>
-              </p>
-              <p class="required-text">
-                DELETE A CCI
-                <a href="#" class="required-buttons2">
-                  <i class="fa fa-trash display" aria-hidden="true"></i
-                ></a>
-              </p>
-            </div>
+        <p class="number white-text">
+          Total Number Of Child Care Institutions
+        </p>
+        <p class="val white-text">3</p>
+      </div>
+      <div class="col-md-6">
+        <div class="required">
+          <div class="required-image">
+            <img src="/images/cwc/action.svg" alt="an image" />
+          </div>
+          <div class="required-content">
+            <h2 class="required-title">ACTIONS</h2>
+            <p class="required-text">
+              ADD A NEW CCI
+              <a
+                href="/cwc/dashboard/newCciRegistraton/<%= employee.employee_id %>"
+                class="required-buttons"
+              >
+                <i class="fa fa-plus display" aria-hidden="true"></i
+              ></a>
+            </p>
+            <p class="required-text">
+              DELETE A CCI
+              <a href="#" class="required-buttons2">
+                <i class="fa fa-trash display" aria-hidden="true"></i
+              ></a>
+            </p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+  <br />
 
-    <div class="pos">
-      <div class="row arrangement">
-        <% allCci.forEach(function(cci){ %>
-        <div class="col-md-4 col-sm-6">
-          <div class="card">
-            <span class="cci-name"><%= cci.cci_name %></span>
-            <hr />
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie1"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i> Total
-                  Strength</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value"><%= cci.strength %></span>
-              </div>
+  <div class="pos">
+    <div class="row arrangement">
+      <% allCci.forEach(function(cci){ %>
+      <div class="col-md-4 col-sm-6">
+        <div class="card">
+          <span class="cci-name"><%= cci.cci_name.toUpperCase() %></span>
+          <hr />
+          <div class="row options">
+            <div class="col-md-8">
+              <span class="categorie1"
+                ><i class="fa fa-hand-o-right" aria-hidden="true"></i> Total
+                Strength</span
+              >
             </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie2"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Orphans</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">50</span>
-              </div>
-            </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie3"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Abandoned</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">70</span>
-              </div>
-            </div>
-            <div class="row options">
-              <div class="col-md-8">
-                <span class="categorie4"
-                  ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                  Surrendered</span
-                >
-              </div>
-              <div class="col-md-4">
-                <span class="value">20</span>
-              </div>
-            </div>
-            <div class="btn">
-              <a class="backbt" href="indexattendance1.html">Attendance List</a>
+            <div class="col-md-4">
+              <span class="value"><%= cci.strength %></span>
             </div>
           </div>
+          <div class="row options">
+            <div class="col-md-8">
+              <span class="categorie2"
+                ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                Orphans</span
+              >
+            </div>
+            <div class="col-md-4">
+              <span class="value">50</span>
+            </div>
+          </div>
+          <div class="row options">
+            <div class="col-md-8">
+              <span class="categorie3"
+                ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                Abandoned</span
+              >
+            </div>
+            <div class="col-md-4">
+              <span class="value">70</span>
+            </div>
+          </div>
+          <div class="row options">
+            <div class="col-md-8">
+              <span class="categorie4"
+                ><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                Surrendered</span
+              >
+            </div>
+            <div class="col-md-4">
+              <span class="value">20</span>
+            </div>
+          </div>
+          <div class="btn">
+            <a class="backbt" href="indexattendance1.html">Attendance List</a>
+          </div>
         </div>
-        <% }); %>
       </div>
+      <% }); %>
     </div>
-  </section>
+  </div>
 </section>
 
 <script
-src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-crossorigin="anonymous"
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"
 ></script>
 <script
-src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-crossorigin="anonymous"
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"
 ></script>
 <script
-src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-crossorigin="anonymous"
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+  crossorigin="anonymous"
 ></script>
