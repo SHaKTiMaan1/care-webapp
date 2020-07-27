@@ -44,54 +44,85 @@
 
   <br />
 
-  <div class="content3">
+  <div class="content3 container">
     <div class="contain2">
-        <div class="row">
-          <% allCci.forEach(function(cci){ %>
-            <div class="col-lg-4 my-4">
-              
-                <div class="card rounded-0">
-                    <div class="card-header">
-                        <h6 class="graph-title font-weight-bold mb-0">Mother Teresa Child Care</h6>
-                        <p class="graph-info lead text-muted"><i class="fa fa-circle" aria-hidden="true"></i>CCI ID : CCI34</p>
-                    </div>
-                    <div class="card-body">
-
-                        <p class="state border-bottom">TOTAL STRENGTH : 120</p>
-                        <div class="row">
-                            <div class="col-lg-6 d-flex stat my-3">
-                                <div class="mx-auto">
-                                <h6 class="card1 text-muted">Children Eligible for Adoption</h6>
-                                <h3 class="value font-weight-bold">10</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 d-flex my-3">
-                                <div class="mx-auto">
-                                <h6 class="card1 text-muted">Children in Waiting List</h6>
-                                <h3 class="value font-weight-bold">15</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <p class="graph-paragraph">Add a new CCI Employee <a href="#" class="graph-buttons"> <i class="fa fa-user-plus display" aria-hidden="true"></i></a></p>
-                
-                    </div> 
-                </div>
-                
+      <div class="row">
+        <% allCci.forEach(function(cci){ %> <% console.log(cci); %>
+        <div class="col-lg-4 my-4">
+          <div class="card rounded-0">
+            <div class="card-header purple-gradient white-text">
+              <h6 class="">
+                <%= cci.cci_name.toUpperCase() %>
+              </h6>
+              <h6 class="">
+                <b> <%= cci.cci_id.toUpperCase() %> </b>
+              </h6>
             </div>
-            <% }); %>   
+            <div class="card-body">
+              <p class="state border-bottom">
+                TOTAL STRENGTH : <%= cci.strength %>
+              </p>
+              <div class="row">
+                <div class="col-lg-6 d-flex stat my-3">
+                  <div class="mx-auto flex-vertical flex-between">
+                    <h1 class="value font-weight-bold">
+                      <%= cci.noOfChildrenEligibleForAdoption %>
+                    </h1>
+                    <h6 class="card1">
+                      ELIGIBLE FOR ADOPTION
+                    </h6>
+                  </div>
+                </div>
+                <div class="col-lg-6 d-flex my-3">
+                  <div class="mx-auto">
+                    <h1 class="value font-weight-bold">
+                      <%= cci.noOfChildrenInWaitingList %>
+                    </h1>
+                    <h6 class="card1">IN WAITING LIST</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer purple-gradient">
+              <% if( ! cci.head_id ){ %>
+              <p class="graph-paragraph">
+                <a
+                  href="#"
+                  class="no-text-decoration white-text graph-buttons salamander"
+                >
+                  <div class="flex-horizontal flex-between">
+                    <i
+                      class="fa fa-user-plus display white-text"
+                      aria-hidden="true"
+                    ></i>
+                    REGISTER MEDICAL CONTROL UNIT HEAD
+                  </div>
+                </a>
+              </p>
+              <% } else { %> HEAD NAME <% } %> <% if( ! cci.mcuHead_id ){ %>
+              <p class="graph-paragraph">
+                <a
+                  href="#"
+                  class="no-text-decoration white-text graph-buttons jade"
+                >
+                  <div class="flex-horizontal">
+                    REGISTER MEDICAL CONTROL UNIT HEAD
+                    <i
+                      class="fa fa-user-plus display white-text"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                </a>
+              </p>
+              <% } else { %> HEAD NAME <% } %>
+            </div>
+          </div>
         </div>
+        <% }); %>
+      </div>
     </div>
-</div>
-
-
-
-
-
-  
-    
-  
+  </div>
 </section>
 
 <script

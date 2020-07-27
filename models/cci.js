@@ -22,6 +22,9 @@ var cciSchema = new mongoose.Schema({
   head_id: {
     type: String, //employee_id from the cciEmployeeSchema
   },
+  mcuHead_id: {
+    type: String,
+  },
   contactNumber: {
     type: Number,
   },
@@ -35,6 +38,12 @@ var cciSchema = new mongoose.Schema({
     type: String,
   },
   strength: {
+    type: Number,
+  },
+  noOfChildrenEligibleForAdoption: {
+    type: Number,
+  },
+  noOfChildrenInWaitingList: {
     type: Number,
   },
   attendance: [

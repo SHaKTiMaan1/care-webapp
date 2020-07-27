@@ -3,6 +3,7 @@
   margin-left: 50px !important;
   width: 96% !important;
 }
+
 .district {
   font-size: 20px;
 }
@@ -67,54 +68,53 @@
   color: #7e04b6 !important;
   padding-left: 55px;
 }
-.contain2{
-    
+.contain2 {
   margin: 10px;
-  
 }
-.contain2 .row{
+.contain2 .row {
   width: 100%;
 }
 body {
   font-family: "Poppins", sans-serif;
-  background: #fff;
+  background: #f4f6f9;
 }
-.graph-title{
+.graph-title {
   color: #7e04b6;
-  
+
   font-size: 22px;
- 
 }
-.graph-info{
+.graph-info {
   padding-left: 10px;
   font-size: 18px;
 }
-.graph-info .fa{
+.graph-info .fa {
   color: blue;
   font-size: 12px;
   padding-right: 5px;
 }
-.card-header{
-  background: rgb(218, 216, 216);
+.card-header {
   text-align: left;
 }
-.card-footer{
-  background: rgb(218, 216, 216);
+
+.card-body {
+  border-left: 1px solid #d3d3d3;
+  border-right: 1px solid #d3d3d3;
 }
-.graph-paragraph{
-  font-size: 18px;
+
+.graph-paragraph {
+  font-size: 14px;
   color: #7e04b6;
 }
-.graph-buttons .fa{
+.graph-buttons .fa {
   padding-left: 30px;
   color: #7e04b6;
 }
-.state{
+.state {
   color: #1f138d;
   text-align: left;
   font-size: 18px;
   padding-top: 10px;
 }
-.stat{
-  border-right:1px solid #d3d3d3;
+.stat {
+  border-right: 1px solid #d3d3d3;
 }

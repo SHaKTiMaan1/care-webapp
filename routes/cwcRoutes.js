@@ -90,6 +90,17 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
   res.render("CWC/dashboardHome.ejs", { employee: employee });
 });
 
+//CHILDREN LIST PAGE
+router.get("/cwc/dashboard/allChildren/:employee_id", async function (
+  req,
+  res
+) {
+  const idToSearch = req.params.employee_id;
+
+  const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
+  res.render("CWC/allChildrenInCwc.ejs", { employee: employee });
+});
+
 //CCI INFORMATION
 router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
   const employee = await CwcEmployee.findOne({
@@ -97,6 +108,7 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
   });
   const cwc = await Cwc.findOne({ cwc_id: employee.cwc_id });
 
+  console.log(cwc);
   allCci = await Cci.find({ district: cwc.district });
 
   try {

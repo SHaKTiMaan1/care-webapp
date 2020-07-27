@@ -304,20 +304,29 @@ header {
   display: flex;
   justify-content: space-between;
 }
-
+.flex-horizontal {
+  display: flex;
+  flex-direction: row;
+}
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+}
 .purple-gradient {
   background-image: linear-gradient(to right, #7e04b6, #9216cc, #9d1ada);
 }
 
-.flex-vertical {
-  display: flex;
-  flex-direction: column;
+.purple-gradient2 {
+  background-image: linear-gradient(to right, #d39feb, #dfbaf0);
 }
 
 .inline-flex {
   display: inline-flex;
 }
 
+.no-text-decoration {
+  text-decoration: none !important;
+}
 .bottom-info {
   height: 8vh;
   width: 100%;
