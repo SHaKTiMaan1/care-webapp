@@ -174,11 +174,25 @@
     
                  <div class="form-group">
                     <label for="" class="fields fieldlabels">  RELIGION</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Place a dropdown here">
+                    <select name="religion" class="form-control">
+                      <option disabled="disabled" selected="selected">-----------------Select----------------</option>
+                      <option>Hinduism</option>
+                      <option>Buddhism</option>
+                      <option>Islam</option>
+                      <option>Sikhism</option>
+                      <option>Christianity</option>
+                      <option>Jainism</option>
+                  </select>
                 </div> 
                 <div class="form-group">
                     <label for="" class="fields fieldlabels">  NATIONALITY</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Place a drop down here with Indian and Other">
+                    <select name="nationality" class="form-control">
+                      <option disabled="disabled" selected="selected">-----------------Select----------------</option>
+                      <option>Indians</option>
+                      <option>Others</option>
+                      
+                      
+                  </select>
                 </div> 
             </div>              
              
@@ -316,7 +330,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="" class="fields">HIEGHT</label>
-                            <input type="text" name="hieght" id="hieght" class="form-control" placeholder="Hieght(in m)">
+                            <input type="text" name="hieght" id="hieght" class="form-control" placeholder="Hieght(in feets)">
                         </div>
                         <div class="col-sm-4">
                             
@@ -414,12 +428,50 @@
                  </div> 
                  <div class="form-group">
                     <label for="" class="fields">PHYSICALLY CHALLENGED</label>
-                    <input type="text" name="physicalchallenge" id="physicalchallenge" class="form-control" placeholder="Yes / No">
-                </div> 
+                    <div class="row position">
+                    
+                      <div class="col-sm-6">
+                          
+                          <label for="" class="radio name">
+                              <input type="radio" class="radio-one" name="physicalchallenge">
+                              <span class="checkmark"></span>
+                              Yes
+                          </label>
+                      </div>
+                      <div class="col-sm-6">
+                          
+                          <label for="" class="radio name">
+                              <input type="radio" class="radio-one" name="physicalchallenge">
+                              <span class="checkmark"></span>
+                              No
+                          </label>
+                      </div>
+                      
+                  </div>     
+                  </div> 
                 <div class="form-group">
                     <label for="" class="fields">MENTAL ILLNESS</label>
-                    <input type="text" name="mentalhealth" id="mentalhealth" class="form-control" placeholder="Yes / No">
-                </div> 
+                    <div class="row position">
+                    
+                      <div class="col-sm-6">
+                          
+                          <label for="" class="radio name">
+                              <input type="radio" class="radio-one" name="mentalhealth">
+                              <span class="checkmark"></span>
+                              Yes
+                          </label>
+                      </div>
+                      <div class="col-sm-6">
+                          
+                          <label for="" class="radio name">
+                              <input type="radio" class="radio-one" name="mentalhealth">
+                              <span class="checkmark"></span>
+                              No
+                          </label>
+                      </div>
+                      
+                  </div> 
+                  </div> 
                 <div class="form-group">
                     <label for="" class="fields">ANY DISEASE FROM WHICH THE CHILD IS CURRENTLY SUFFERING</label>
                     <input type="text" name="disease" id="disease" class="form-control" placeholder="If yes then Specify name of disease">
