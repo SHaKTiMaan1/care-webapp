@@ -1,0 +1,233 @@
+.starting{
+    margin: 10px;
+    padding: 15px;
+    background: #7e04b6;
+    border-radius: 6px;
+    color: #fff;
+}
+.district{
+    font-size: 20px;
+}
+.place{
+    float: right;
+}
+
+
+.pos{
+    margin: 10px;
+    padding: 15px;
+}
+
+.list{
+
+    margin: 10px;
+    padding: 10px;
+}
+
+.main{
+    padding: 15px;
+}
+.main .heading h1{
+    color: #282639;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 5px solid #282639;
+}
+
+.name{
+    color: #282639;
+    font-size: 1.3rem;
+    margin-left: 15px;
+}
+.high{
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.date{
+    font-size: 1.1rem;
+    font-weight: 200;
+    color: #282639;
+    padding-left: 20px;
+
+}
+.date2{
+    color: #282639;
+    border-radius: 6px;
+    padding: 1px 10px;
+}
+
+/*table code*/
+table{
+    width: 100%;
+    background: #dfe4eb !important;
+    border-radius: 8px !important;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.9);
+
+
+}
+table thead{
+   background: #282639;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   -moz-border-radius-topleft: 5px;
+   -moz-border-radius-topright: 5px;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-radius: 8px;
+}
+table thead th{
+    font-size: 1rem;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    font-weight: 200px;
+    color: #fff;
+    text-align: left;
+   
+}
+.posss{
+    text-align: center !important;
+}
+tbody{
+   background: #dfe4eb;
+    font-size: 1rem;
+
+}
+td{
+    padding: 15px 10px;
+    text-align: left;
+    color: #282639;
+}
+.id{
+    color: orangered;
+}
+.joining{
+    color:#39ff14;
+}
+
+.joining .btn{
+	display: block;
+	width: 100%;
+	height: 30px;
+	border-radius: 20px;
+	outline: none;
+	border: 2px solid #282639;
+    
+	background-size: 200%;
+	font-size: 0.9rem;
+	background: #282639;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	
+	cursor: pointer;
+	transition: .5s;
+}
+
+.joining .btn a{
+    color: #d3d3d3;
+}
+.joining .btn a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.wrapper{
+    float: left;
+    margin-bottom: 50px;
+    padding: 0;
+   
+}
+.wrapper .search_box{
+    width: 500px;
+    height:50px;
+    background: #fff;
+    border-radius: 5px;
+    display: flex;
+    padding: 10px;
+    box-shadow:0 8px 6px -10px black;
+}
+.wrapper .search_box .dropdown{
+    width: 170px;
+    border-right: 2px solid #d3d3d3;
+    position: relative;
+    cursor: pointer;
+}
+.wrapper .search_box .dropdown .default_option{
+    text-transform: uppercase;
+    padding: 5px 10px 15px 15px;
+    font-size: 16px;
+    user-select: none;
+}
+.wrapper .search_box .dropdown ul{
+    position: absolute;
+    top: 70px;
+    left: -10px;
+    background: #fff;
+    width: 150px;   
+    border-radius: 5px;
+    padding: 20px;
+    display: none;
+    box-shadow:8px 8px 6px -10px #b3c6ff;
+
+}
+.wrapper .search_box .dropdown ul.active{
+    display: block;
+}
+.wrapper .search_box .dropdown ul li{
+    padding-bottom: 20px;
+    user-select: none;
+}
+
+.wrapper .search_box .dropdown ul li:last-child{
+    padding-bottom: 0;
+}
+.wrapper .search_box .dropdown ul li:hover{
+    color:red;
+}
+.wrapper .search_box .dropdown:before{
+    content:"";
+    position:absolute;
+    top: 10px;
+    right: 20px;
+    border: 8px solid;
+    border-color: #5078ef transparent transparent transparent;
+
+}
+.search_field{
+    width: 350px;
+    height: 100%;
+    position: relative;
+}
+.search_field .input{
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    border:0;
+    padding-left: 20px;
+    padding-right: 38px;
+    color: #282639;
+    background: #f8f5f5;
+
+}
+.search_field .fas{
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 22px;
+    color: #5078ef;
+    cursor: pointer;
+    
+
+}
+.default_option{
+    color: #7e04b6;
+}
+li{
+    color: #7e04b6;
+    list-style: none;
+}
+li:hover{
+    color: #282639 !important;
+}
