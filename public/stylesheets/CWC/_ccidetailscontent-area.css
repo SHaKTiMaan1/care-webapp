@@ -94,6 +94,7 @@ body {
 }
 .card-header {
   text-align: left;
+  font-size: 22px;
 }
 
 .card-body {
@@ -117,4 +118,13 @@ body {
 }
 .stat {
   border-right: 1px solid #d3d3d3;
+}
+
+/* ================================================ SHRADDHA */
+.card-footer {
+  font-size: 16px;
+}
+
+.card-footer .fa {
+  font-size: 14px;
 }

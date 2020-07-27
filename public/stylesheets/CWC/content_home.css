@@ -312,6 +312,12 @@ header {
   display: flex;
   flex-direction: column;
 }
+.flex-horizontal-around-center {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-around;
+  align-items: center;
+}
 .purple-gradient {
   background-image: linear-gradient(to right, #7e04b6, #9216cc, #9d1ada);
 }

@@ -7,7 +7,9 @@
         <h2 class="head">CCI DETAILS</h2>
 
         <label for="" class="district">DISTRICT</label>
-        <label for="" class="name"><%= district.toUpperCase() %></label>
+        <label for="" class="name white-text"
+          ><%= district.toUpperCase() %></label
+        >
 
         <p class="number white-text">
           Total Number Of Child Care Institutions
@@ -54,9 +56,9 @@
               <h6 class="">
                 <%= cci.cci_name.toUpperCase() %>
               </h6>
-              <h6 class="">
+              <h4 class="">
                 <b> <%= cci.cci_id.toUpperCase() %> </b>
-              </h6>
+              </h4>
             </div>
             <div class="card-body">
               <p class="state border-bottom">
@@ -86,47 +88,42 @@
 
             <div class="card-footer purple-gradient">
               <% if( ! cci.head_id ){ %>
-              <div class="row">
+              <a href="" class="no-text-decoration">
+                <div class="container flex-horizontal-around-center">
+                  <span class="white-text graph"
+                    ><i class="fa fa-user-plus white-text"> </i>REGISTER CCI
+                    HEAD</span
+                  >
+                  <div></div>
+                </div>
+              </a>
 
-                <div class="col-lg-4 crimson"><i
-                  class="fa fa-user-plus white-text"
-                  aria-hidden="true"
-                ></div>
-
-                <div class="col-lg-8 royalblue"></div>
-
+              <% } else { %>
+              <div class="container flex-horizontal-around-center">
+                <div>
+                  <span class="white-text graph">HEAD : </span>
+                </div>
+                <span class="white-text graph"><%= cci.head_name %></span>
               </div>
-
-
-              <p class="graph-paragraph">
-                <a
-                  href="#"
-                  class="no-text-decoration white-text graph-buttons salamander"
-                >
-                  <div class="flex-horizontal flex-between">
-                    <div>
-                      </i>
-                    </div>
-                    <div>REGISTER MEDICAL CONTROL UNIT HEAD</div>
-                  </div>
-                </a>
-              </p>
-              <% } else { %> HEAD NAME <% } %> <% if( ! cci.mcuHead_id ){ %>
-              <p class="graph-paragraph">
-                <a
-                  href="#"
-                  class="no-text-decoration white-text graph-buttons jade"
-                >
-                  <div class="flex-horizontal">
-                    REGISTER MEDICAL CONTROL UNIT HEAD
-                    <i
-                      class="fa fa-user-plus display white-text"
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                </a>
-              </p>
-              <% } else { %> HEAD NAME <% } %>
+              <br />
+              <% } if( ! cci.mcu_id ){ %>
+              <a href="" class="no-text-decoration">
+                <div class="container flex-horizontal-around-center">
+                  <span class="white-text graph"
+                    ><i class="fa fa-user-plus white-text"> </i>REGISTER MCU
+                    HEAD</span
+                  >
+                  <div></div>
+                </div>
+              </a>
+              <% } else { %>
+              <div class="container flex-horizontal-around-center">
+                <div>
+                  <span class="white-text graph">MCU HEAD : </span>
+                </div>
+                <span class="white-text graph"><%= cci.mcuHead_name %></span>
+              </div>
+              <% } %>
             </div>
           </div>
         </div>
