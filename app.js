@@ -9,6 +9,7 @@ const loginRoutes = require("./routes/loginRoutes");
 const indexRoutes = require("./routes/indexRoutes");
 const cwcRoutes = require("./routes/cwcRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const messageRoutes = require("./routes/messageRoutes");
 
 const app = express();
 dotenv.config();
@@ -36,6 +37,8 @@ app.use(loginRoutes);
 app.use(indexRoutes);
 app.use(cwcRoutes);
 app.use(adminRoutes);
+app.use(messageRoutes);
+
 
 //LISTENING
 // app.listen(process.env.PORT, process.env.IP);
