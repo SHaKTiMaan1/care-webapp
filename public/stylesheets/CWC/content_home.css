@@ -289,9 +289,23 @@ header {
 .white {
   background-color: white !important;
 }
+
+.light-purple {
+  background-color: #d39feb;
+}
+
+.light-purple2 {
+  background-color: #d9cbf3;
+  /* background-image: linear-gradient(to right, #cdb7f6, #d1badb, #c4abcf); */
+}
+
 .white-text {
   color: white !important;
 }
+.purple-text {
+  color: #7504aa !important;
+}
+
 .w800h100 {
   width: 100%;
   height: 100px;
@@ -325,7 +339,9 @@ header {
 .purple-gradient2 {
   background-image: linear-gradient(to right, #d39feb, #dfbaf0);
 }
-
+.black-text {
+  color: black !important;
+}
 .inline-flex {
   display: inline-flex;
 }
