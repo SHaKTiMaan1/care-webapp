@@ -11,13 +11,14 @@ router.get(
     const idToSearch = req.params.employee_id;
     const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
     const cwc = await Cwc.findOne({ cwc_id: employee.cwc_id });
-
+    const cci_list  = await Cci.find({cwc_id:employee.cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
     const allCci = await Cci.find({ district: cwc.district });
 
     res.render("CWC/cwcdashboard-childRegistration.ejs", {
       employee: employee,
       allCci: allCci,
       district: cwc.district,
+      cci_list: cci_list
     });
   }
 );
@@ -86,11 +87,11 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
 
   const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
   const cwc_id= employee.cwc_id;
-  const cci  = await Cci.find({cwc_id:cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
-  console.log(cci);
+  const cci_list  = await Cci.find({cwc_id:cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
+  // console.log(cci);
   // console.log("Employee found in CWC Route :");
   // console.log(employee);
-  res.render("CWC/dashboardHome.ejs", { employee: employee, cci_list :cci });
+  res.render("CWC/dashboardHome.ejs", { employee: employee, cci_list :cci_list });
 });
 
 //CHILDREN LIST PAGE
@@ -101,7 +102,8 @@ router.get("/cwc/dashboard/allChildren/:employee_id", async function (
   const idToSearch = req.params.employee_id;
 
   const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
-  res.render("CWC/allChildrenInCwc.ejs", { employee: employee });
+  const cci_list  = await Cci.find({cwc_id:employee.cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
+  res.render("CWC/allChildrenInCwc.ejs", { employee: employee, cci_list: cci_list });
 });
 
 //CCI INFORMATION
