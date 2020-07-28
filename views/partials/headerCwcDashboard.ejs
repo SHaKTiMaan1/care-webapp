@@ -30,19 +30,29 @@
     />
     <link rel="stylesheet" href="/stylesheets/CWC/_ccidetailscontent-area.css">
     <link rel="stylesheet" href="/stylesheets/CWC/child_infocontent.css">
+    <script>
+      $(document).ready(function(){
+          $('[data-toggle="popover"]').popover({
+              placement : 'right',
+              trigger : 'hover'
+          });
+      });
+      </script>
   </head>
   <body>
     <section id="sideMenu">
       <nav id="sidemenu-flexbox">
         <a
-          class="active current"
+          class="active current" 
+          data-toggle="popover" title="CWC Dashboard" data-content="Here are the brief details of the district."
           href="/cwc/dashboard/<%= employee.employee_id %>"
           title="Home"
-          ><i class="current2 fa fa-home" aria-hidden="true"></i
+          ><i class="current2 fa fa-home"  aria-hidden="true"></i
         ></a>
 
         <a
           class="active"
+          data-toggle="popover" title="New Child Registration" data-content="Registration form for New Child."
           href="/cwc/dashboard/allChildren/<%= employee.employee_id %>"
           title="Children Under Care"
           ><i class="fa fa-child" aria-hidden="true"></i>
