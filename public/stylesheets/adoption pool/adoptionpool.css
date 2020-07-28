@@ -1,0 +1,94 @@
+#adoption-content{
+    margin-top: 12vh !important;
+  margin-left: 50px !important;
+  
+  width: 96%;
+  
+  
+  
+    
+}
+.adoption-pool-header{
+    background:#7e04b6;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    color: #fff !important;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.6);
+    
+    border-radius: 6px;
+    height: 40px;
+}
+.adoption-title {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    padding-top: 6px;
+  }
+  .adoption-image{
+    margin: 40px 480px 20px 480px;
+    
+}  
+.adoption-image img{
+   height: 150px;
+   width: 100%;
+}
+
+.strength-in-pool{
+    font-size: 18px;
+}
+.strength-value{
+    padding-left: 10px;
+    font-weight: 900;
+    color: #7e04b6;
+    font-size: 22px;
+}
+table{
+    width: 100%;
+    background: #dfe4eb !important;
+    border-radius: 8px !important;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.9);
+
+
+}
+table thead{
+   background: #282639;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   -moz-border-radius-topleft: 5px;
+   -moz-border-radius-topright: 5px;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-radius: 8px;
+}
+table thead th{
+    font-size: 1rem;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    font-weight: 200px;
+    color: #fff;
+    text-align: left;
+   
+}
+.id{
+    color: orangered;
+}
+tbody{
+   background: #dfe4eb;
+    font-size: 1rem;
+
+}
+td{
+    padding: 15px 10px;
+    text-align: left;
+    color: #282639;
+}
+.medical-report{
+    text-decoration: none;
+    color: #7e04b6;
+   
+}
+.medical-report:hover{
+    text-decoration: none;
+    color: #282639;
+}
