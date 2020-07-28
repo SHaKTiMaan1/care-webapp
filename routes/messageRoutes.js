@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const Message = require("../models/messageSchema.js");
 const Cci = require("../models/cci.js");
-
+const CwcEmployee = require("../models/cwcEmployee");
 
 router.get('/message/:employee_id/:cci_id', async function (req, res) {
   const cci = await Cci.findOne({ cci_id: req.params.cci_id });
   console.log(cci.cci_id);
+  const cci_list  = await Cci.find({cwc_id:cci.cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
+  const employee = await CwcEmployee.findOne({employee_id: req.params.employee_id})
   const message = await Message.findOne({ cci_id: req.params.cci_id })
   if (message != null){
     Message.find({ cci_id: req.params.cci_id, }, { '_id': 0, 'Messages': 1 }, function (err, message) {
@@ -17,7 +19,7 @@ router.get('/message/:employee_id/:cci_id', async function (req, res) {
         console.log(obj);
         // res.send(obj);
 
-        res.render("messageBox.ejs", { employee_id: req.params.employee_id, conversation: obj[0].Messages,  cci: cci });
+        res.render("messageBox.ejs", { employee: employee, conversation: obj[0].Messages,  cci: cci, cci_list:cci_list });
       }
     })
   }

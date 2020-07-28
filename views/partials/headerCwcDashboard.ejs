@@ -80,15 +80,25 @@
             <h6 class="dashoard-nav-icon">
               <%= employee.firstName.toUpperCase() + " " + employee.lastName.toUpperCase() %>
             </h6>
+            <div class="dropdown show ">
+              <a  href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="dashoard-nav-icon fa fa-envelope"></i>
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <%cci_list.forEach(function(eachCci){%>
+                  <a class="dropdown-item" href="/message/<%=employee.employee_id%>/<%=eachCci.cci_id%>"><%=eachCci.cci_name%></a>
+                  <%})%>
+                
+                </div>
+            </div>
             <a href="" title="Profile">
               <i class="dashoard-nav-icon fa fa-user"></i>
             </a>
             <a href="" title="Notifications"
               ><i class="dashoard-nav-icon fa fa-bell"></i>
             </a>
-            <a href="" title="Messages"
-              ><i class="dashoard-nav-icon fa fa-envelope"></i
-            ></a>
+            
           </div>
         </div>
       </nav>

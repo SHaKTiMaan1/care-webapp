@@ -8,9 +8,6 @@ var MessageSchema= new mongoose.Schema(
     cwc_id: {
       type: String
     },
-   
-    
-    
 
     //  timestamps: { createdAt: 'created_at' },
     Messages: [
@@ -19,11 +16,10 @@ var MessageSchema= new mongoose.Schema(
         employee_id: String,
         sender: String,//cwc or cci
         time: {
-          type: Date, default:new Date()
+          type: Number, default:  (new Date()).getTime()
         }
       }
     ]
-   
   }
   );
 
