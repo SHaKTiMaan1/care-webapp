@@ -165,9 +165,9 @@ router.get(
     const employee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
     });
-
+    const cci_list  = await Cci.find({cwc_id:employee.cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
     console.log("CWC Employee Found : " + employee);
-    res.render("registration/registerNewCci.ejs", { employee: employee });
+    res.render("registration/registerNewCci.ejs", { employee: employee, cci_list:cci_list });
   }
 );
 

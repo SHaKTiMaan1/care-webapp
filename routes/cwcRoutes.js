@@ -111,6 +111,8 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
   const employee = await CwcEmployee.findOne({
     employee_id: req.params.employee_id,
   });
+
+  const cci_list  = await Cci.find({cwc_id:employee.cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
   const cwc = await Cwc.findOne({ cwc_id: employee.cwc_id });
 
   console.log(cwc);
@@ -121,6 +123,7 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
       allCci: allCci,
       district: cwc.district,
       employee: employee,
+      cci_list: cci_list
     });
   } catch (err) {
     console.log("There is an error : ");
