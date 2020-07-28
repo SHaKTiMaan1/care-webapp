@@ -1,14 +1,16 @@
 #child-registration-form-parent {
   width: 90vw;
-  margin-left: 6vw;
-  margin-top: 100px;
+  margin-left: 7vw;
+  margin-top: 80px;
   padding: 20px;
   display: inline-flex;
+  display: flex;
+  justify-content: center;
 }
-.child-registration .card{
+.child-registration .card {
   width: 100%;
 }
-.container-fluid .row{
+.container-fluid .row {
   width: 100%;
 }
 
@@ -22,12 +24,12 @@ html {
 }
 
 p {
-  color: grey;
+  color: #918f8f;
 }
 
 #heading {
   text-transform: uppercase;
-  color: #673ab7;
+  color: #7504aa;
   font-weight: normal;
 }
 
@@ -38,9 +40,7 @@ p {
 }
 
 #msform fieldset {
-  background: white;
   border: 0 none;
-  border-radius: 0.5rem;
   box-sizing: border-box;
   width: 100%;
 
@@ -51,6 +51,7 @@ p {
 
 .form-card {
   text-align: left;
+  width: 90vw;
 }
 
 #msform fieldset:not(:first-of-type) {
@@ -78,13 +79,13 @@ p {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #673ab7;
+  border: 1px solid #7e04b6;
   outline-width: 0;
 }
 
 #msform .action-button {
   width: 100px;
-  background: #673ab7;
+  background: #7e04b6;
   font-weight: bold;
   color: white;
   border: 0 none;
@@ -97,7 +98,7 @@ p {
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-  background-color: #311b92;
+  background-color: #440363;
 }
 
 #msform .action-button-previous {
@@ -127,14 +128,14 @@ p {
 
 .fs-title {
   font-size: 25px;
-  color: #673ab7;
+  color: #7e04b6;
   margin-bottom: 15px;
   font-weight: normal;
   text-align: left;
 }
 
 .purple-text {
-  color: #673ab7;
+  color: #7e04b6;
   font-weight: normal;
 }
 
@@ -154,11 +155,11 @@ p {
 #progressbar {
   margin-bottom: 30px;
   overflow: hidden;
-  color: lightgrey;
+  color: #918f8f;
 }
 
 #progressbar .active {
-  color: #673ab7;
+  color: #7e04b6;
 }
 
 #progressbar li {
@@ -172,17 +173,19 @@ p {
 
 #progressbar #account:before {
   font-family: FontAwesome;
-  content: "\f13e";
+  content: "\f0f1";
+  font-size: 33px;
 }
 
 #progressbar #personal:before {
   font-family: FontAwesome;
-  content: "\f007";
+  content: "\f129";
+  font-size: 33px;
 }
 
 #progressbar #payment:before {
   font-family: FontAwesome;
-  content: "\f030";
+  content: "\f0c0";
 }
 
 #progressbar #confirm:before {
@@ -197,7 +200,7 @@ p {
   display: block;
   font-size: 20px;
   color: #ffffff;
-  background: lightgray;
+  background: #918f8f;
   border-radius: 50%;
   margin: 0 auto 10px auto;
   padding: 2px;
@@ -216,7 +219,7 @@ p {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-  background: #673ab7;
+  background: #7e04b6;
 }
 
 .progress {
@@ -224,7 +227,7 @@ p {
 }
 
 .progress-bar {
-  background-color: #673ab7;
+  background-color: #7e04b6;
 }
 
 .fit-image {

@@ -2,23 +2,21 @@
 
 
 <section id="child-registration-form-parent">
-<div class="container-fluid">
-  <div class="row justify-content-center child-registration">
+<div class="container-fluid  ">
+  <div class="row justify-content-center child-registration ">
     <div
-      class="p-4 white"
+      class="p-4"
     >
-      <div class="card">
-        <h2 id="heading">Register a new child</h2>
-        
-        <img src="/images/cwc/happykids.png" class="happykids-img" alt="">
-        
+      <div class="card light-purple2">
+        <h2 id="heading" class="mt-3 purple-text">Register a new child</h2>        
+        <img src="/images/cwc/happykids.png" class="happykids-img" alt="">        
         <form id="msform">
           <!-- progressbar -->
           <ul id="progressbar">
-            <li class="active" id="personal"><strong>Child Info</strong></li>
-            <li id="account"><strong>Medical</strong></li>           
-            <li id="payment"><strong>Official</strong></li>
-            <li id="confirm"><strong>Finish</strong></li>
+            <li class="active" id="personal"><strong>CHILD INFORMATION</strong></li>
+            <li id="account"><strong>MEDICAL</strong></li>           
+            <li id="payment"><strong>GUARDIANS</strong></li>
+            <li id="confirm"><strong>FINISH</strong></li>
           </ul>
           <div class="progress">
             <div
@@ -29,105 +27,91 @@
             ></div>
           </div>
           <br />
-        <!-- fieldsets -->
-    <fieldset>
-        <div class="form-card">
-              <div class="row">
-
+          <!-- fieldsets -->
+          <fieldset>
+            <div class="form-card  ">
+              <div class="row pt-3 ">
                 <div class="col-7">
-                  <h2 class="fs-title">Child Information:</h2>
+                  <h2 class="steps purple-text">STEP 1 OF 4</h2>
                 </div>
                 <div class="col-5">
-                  <h2 class="steps">Step 1 - 4</h2>
                 </div>
-
               </div>
               
               <div class="personalinfo">
-                <p class="infoheading">Child Information</p>
-                <hr>
+                <p class="infoheading">CHILD INFORMATION</p><hr />
                 <div class="form-group">
-                    <label for="" class="fields">Name Of Child</label>
-                   
-                    <div class="row position">
-                    
-                        <div class="col-sm-4">
-                            
-                            <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name">
-                        </div>
-                        <div class="col-sm-4">
-                            
-                            <input type="text" name="mname" id="mname" class="form-control" placeholder="Middle Name">
-                        </div>
-                        <div class="col-sm-4">
-                            
-                            
-                           <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name">
-                        </div>
-                    </div>
-                    
-                </div> 
-                <div class="form-group">
-                
-                   
-                    <div class="row position">
-                    
-                        <div class="col-sm-6">
-                            <label for="" class="fields">AGE OF CHILD</label>
-                            <input type="text" name="age" id="age" class="form-control" placeholder="Age of child">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="" class="fields">DATE OF BIRTH</label>
-                            <input type="date" name="dob" id="dob" class="form-control" placeholder="dd-mm-yyyy">
-                        </div>
-                       
+
+                    <label for="" class="fields">Name Of Child</label>                  
+                    <div class="row position">                    
+                      <div class="col-sm-4">                            
+                        <input type="text" name="firstName" id="fname" class="form-control" placeholder="First Name">
+                      </div>
+                      <div class="col-sm-4">                            
+                        <input type="text" name="mname" id="mname" class="form-control" placeholder="Middle Name">
+                      </div>
+                      <div class="col-sm-4">                            
+                        <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name">
+                      </div>
                     </div>
 
-                    
+                </div> 
+
+                <div class="form-group">                                
+                  <div class="row position"> 
+                    <div class="col-sm-6">
+                      <label for="" class="fields">DATE OF BIRTH</label>
+                      <input type="date" name="dateOfBirth" id="dob" class="form-control" placeholder="dd-mm-yyyy">
+                    </div>                   
+                    <div class="col-sm-6">
+                      <label for="" class="fields">AGE OF CHILD (If Date of Birth is Unknown) </label>
+                      <input type="text" name="age" id="age" class="form-control" placeholder="Estimated Age of the Child">
+                    </div>                                           
+                  </div>                    
                 </div>
+
                 <div class="form-group">
                     <label for="" class="fields">AADHAAR NUMBER</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
+                    <input type="text" name="aadharNumber" id="adhaarnum" class="form-control" placeholder="">
                 </div> 
+                
                 <div class="form-group">
-                    <label for="" class="fields fieldlabels">FATHER'S NAME</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Father's Name">
+                    <label for="" class="black-text fields fieldlabels">FATHER'S NAME</label>
+                    <input type="text" name="fatherName" id="adhaarnum" class="form-control" placeholder="">
                 </div> 
     
                 <div class="form-group">
-                    <label for="" class="fields fieldlabels">MOTHER'S NAME</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Mother's Name">
+                    <label for="" class="black-text fields fieldlabels">MOTHER'S NAME</label>
+                    <input type="text" name="motherName" id="adhaarnum" class="form-control" placeholder="">
                 </div> 
+
                 <div class="form-group">
-                    <label for="" class="fields">GENDER</label>
-                    <div class="row position">
-                    
-                        <div class="col-sm-4">
-                            
-                            <label for="" class="radio name">
-                                <input type="radio" class="radio-one" name="gender">
-                                <span class="checkmark"></span>
-                                Male
-                            </label>
-                        </div>
-                        <div class="col-sm-4">
-                            
-                            <label for="" class="radio name">
-                                <input type="radio" class="radio-one" name="gender">
-                                <span class="checkmark"></span>
-                                Female
-                            </label>
-                        </div>
-                        <div class="col-sm-4">
-                            
-                            
-                            <label for="" class="radio name">
-                                <input type="radio" class="radio-one" name="gender">
-                                <span class="checkmark"></span>
-                                Others
-                            </label>
-                        </div>
+                  <label for="" class="fields">GENDER</label>
+                  <div class="row position">                    
+                    <div class="col-sm-1">                            
+                      <label for="" class="radio">
+                        <input type="radio" class="radio-one" name="gender">
+                        <span class="checkmark"></span>
+                        Male
+                      </label>
                     </div>
+                    <div class="col-sm-1">                           
+                      <label for="" class="radio">
+                        <input type="radio" class="radio-one" name="gender">
+                        <span class="checkmark"></span>
+                        Female
+                      </label>
+                    </div>
+                    <div class="col-sm-1">                                                      
+                      <label for="" class="radio">
+                        <input type="radio" class="radio-one" name="gender">
+                        <span class="checkmark"></span>
+                        Others
+                      </label>
+                    </div>
+                    <div class="col-sm-9">                      
+                    </div>
+                  </div>
                  </div>  
 
                  <div class="form-group">
@@ -194,106 +178,7 @@
                       
                   </select>
                 </div> 
-            </div>              
-             
-            <div class="guardianinfo">
-                <p class="infoheading">Guardian Information</p>
-                <hr>
-                <div class="form-group">
-                    <label for="" class="fields">GUARDIAN 1</label>
-                   
-                    <div class="row position">
-                    
-                        <div class="col-sm-4">
-                            
-                            <input type="text" name="g1fname" id="g1fname" class="form-control" placeholder="First Name">
-                        </div>
-                        <div class="col-sm-4">
-                            
-                            <input type="text" name="g1mname" id="g1mname" class="form-control" placeholder="Middle Name">
-                        </div>
-                        <div class="col-sm-4">
-                            
-                            
-                           <input type="text" name="g1lname" id="g1lname" class="form-control" placeholder="Last Name">
-                        </div>
-                    </div>
-                    
-                </div> 
-                <div class="form-group">
-                    
-                       
-                    <div class="row position">                    
-                        <div class="col-sm-6">
-                            <label for="" class="fields">AGE</label>
-                            <input type="text" name="age" id="age" class="form-control" placeholder="Age of child">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="" class="fields">DATE OF BIRTH</label>
-                            <input type="date" name="dob" id="dob" class="form-control" placeholder="dd-mm-yyyy">
-                        </div>                      
-                    </div>
-
-                    
-                </div>
-
-                <div class="form-group">
-                    <label for="" class="fields">AADHAAR NUMBER</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
-                </div> 
-
-                <div class="form-group">
-                    <label for="" class="fields">CONTACT NUMBER</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
-                </div> 
-
-                <hr>
-                <div class="form-group">
-                    <label for="" class="fields">GUARDIAN 2</label>
-                   
-                    <div class="row position">
-                    
-                        <div class="col-sm-4">
-                            
-                            <input type="text" name="g2fname" id="g2fname" class="form-control" placeholder="First Name">
-                        </div>
-                        <div class="col-sm-4">
-                            
-                            <input type="text" name="g2mname" id="g2mname" class="form-control" placeholder="Middle Name">
-                        </div>
-                        <div class="col-sm-4">
-                            
-                            
-                           <input type="text" name="g2lname" id="g2lname" class="form-control" placeholder="Last Name">
-                        </div>
-                    </div>
-                    
-                </div> 
-                <div class="form-group">
-                    
-                       
-                    <div class="row position">                   
-                        <div class="col-sm-6">
-                            <label for="" class="fields">AGE</label>
-                            <input type="text" name="age" id="age" class="form-control" placeholder="Age of child">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="" class="fields">DATE</label>
-                            <input type="date" name="dob" id="dob" class="form-control" placeholder="dd-mm-yyyy">
-                        </div>                       
-                    </div>                   
-                </div>
-                <div class="form-group">
-                    <label for="" class="fields">AADHAAR NUMBER</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
-                </div> 
-
-                <div class="form-group">
-                    <label for="" class="fields">CONTACT NUMBER</label>
-                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
-                </div> 
-            </div>
-           
+            </div>                                  
         </div>
 
             <input
@@ -307,23 +192,19 @@
     <fieldset>
 
         <div class="form-card">
-              <div class="row">
-                <div class="col-7">
-                  <h2 class="fs-title">Medical Information</h2>
-                </div>
-                <div class="col-5">
-                  <h2 class="steps">Step 2 - 4</h2>
-                </div>
-              </div>
-              
-              <div class="healthinfo">
-                <p class="infoheading"></p>
+          <div class="row pt-3 ">
+            <div class="col-7">
+              <h2 class="steps purple-text">STEP 2 OF 4</h2>
+            </div>
+            <div class="col-5">
+            </div>
+          </div>
+                   
+          <div class="healthinfo">
+            <p class="infoheading">MEDICAL INFORMATION</p>
                 <hr>
-                <div class="form-group">
-                   
-                   
-                    <div class="row position">
-                    
+            <div class="form-group">                                    
+                <div class="row position">                   
                         <div class="col-sm-4">
                             <label for="" class="fields">BLOOD GROUP</label>
                             <input type="text" name="bloodgp" id="bloodgp" class="form-control" placeholder="Blood Group">
@@ -516,8 +397,105 @@
                 </div>
 
               </div>
-
               <input type="text" name="cci_id" placeholder=" ID" />
+              <div class="guardianinfo">
+                <p class="infoheading">GUARDIAN INFORMATION</p>
+                <hr>
+                <div class="form-group">
+                    <label for="" class="fields">GUARDIAN 1</label>
+                   
+                    <div class="row position">
+                    
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="g1fname" id="g1fname" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="g1mname" id="g1mname" class="form-control" placeholder="Middle Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            
+                           <input type="text" name="g1lname" id="g1lname" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    
+                </div> 
+                <div class="form-group">
+                    
+                       
+                    <div class="row position">                    
+                        <div class="col-sm-6">
+                            <label for="" class="fields">AGE</label>
+                            <input type="text" name="age" id="age" class="form-control" placeholder="Age of child">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">DATE OF BIRTH</label>
+                            <input type="date" name="dob" id="dob" class="form-control" placeholder="dd-mm-yyyy">
+                        </div>                      
+                    </div>
+
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="fields">AADHAAR NUMBER</label>
+                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
+                </div> 
+
+                <div class="form-group">
+                    <label for="" class="fields">CONTACT NUMBER</label>
+                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
+                </div> 
+
+                <hr>
+                <div class="form-group">
+                    <label for="" class="fields">GUARDIAN 2</label>
+                   
+                    <div class="row position">
+                    
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="g2fname" id="g2fname" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            <input type="text" name="g2mname" id="g2mname" class="form-control" placeholder="Middle Name">
+                        </div>
+                        <div class="col-sm-4">
+                            
+                            
+                           <input type="text" name="g2lname" id="g2lname" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    
+                </div> 
+                <div class="form-group">
+                    
+                       
+                    <div class="row position">                   
+                        <div class="col-sm-6">
+                            <label for="" class="fields">AGE</label>
+                            <input type="text" name="age" id="age" class="form-control" placeholder="Age of child">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="fields">DATE</label>
+                            <input type="date" name="dob" id="dob" class="form-control" placeholder="dd-mm-yyyy">
+                        </div>                       
+                    </div>                   
+                </div>
+                <div class="form-group">
+                    <label for="" class="fields">AADHAAR NUMBER</label>
+                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
+                </div> 
+
+                <div class="form-group">
+                    <label for="" class="fields">CONTACT NUMBER</label>
+                    <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
+                </div> 
+            </div>
+
 
               <div class="form-group">
                 <label class="fieldlabels">Child Care Institute Name : *</label>

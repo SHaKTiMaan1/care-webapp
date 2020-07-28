@@ -1,0 +1,148 @@
+#content-area{
+    margin-top: 12vh !important;
+  margin-left: 50px !important;
+  
+  width: 96%;
+  background: #dfe4eb;
+  
+  
+  
+    
+}
+.child-view{
+    padding: 10px;
+}
+.child-view-starting{
+    
+    margin-top: 10px !important;
+    
+    margin-left: 15px;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.6);
+    width: 98%;
+    border-radius: 6px;
+    height: 40px;
+}
+.child-view-starting .fa{
+    color: #7e04b6;
+}
+.child-view-starting .btn{
+    margin: 1px;
+    background: #d3d3d3;
+}
+.child-view-back{
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+}
+  .op{
+      
+      float: right;
+      margin-top: 8px;
+      box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.95);
+      margin-right: 5px;
+      
+  }
+  
+
+.image{
+    margin: 10px 400px 10px 480px;
+    
+}  
+.image img{
+   height: 150px;
+   width: 80%;
+}
+
+.personalinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #ffffff;
+}
+.infoheading{
+    font-size: 1rem;
+    font-weight: 200;
+    color: #7e04b6;
+}
+.guardianinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+.healthinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+.officialinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+.registration{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+.reg{
+    padding-left: 10px;
+    display: inline-block;
+
+}
+.radio{
+    color: black;
+}
+.fields{
+    color: black;
+}
+::placeholder{
+    color: #7e04b6 !important;
+
+}
+.registration a{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color:#fff;
+	font-size: 1.2rem;
+	transition: .3s;
+}
+
+.registration a:hover{
+	color: #282639;
+}
+
+
+
+.registration .btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right,#7e04b6,#382043,#F4F6F9);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+	text-align: center !important;
+	padding-top: 10px;
+}
+.registration .btn:hover{
+	background-position: right;
+	color: #fff;
+}

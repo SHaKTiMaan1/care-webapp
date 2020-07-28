@@ -22,6 +22,12 @@ var childSchema = new mongoose.Schema({
   aadharNumber: {
     type: Number,
   },
+  fatherName: {
+    type: String,
+  },
+  motherName: {
+    type: String,
+  },
   registrationDate: {
     type: Date, //The current registration date
   },

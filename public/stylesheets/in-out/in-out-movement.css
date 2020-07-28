@@ -1,0 +1,119 @@
+#in-out-content{
+    margin-top: 12vh;
+    margin-left: 3.7vw;
+    
+}
+
+.in-out-header{
+    margin: 12px;
+    padding-bottom: 20px;
+    
+    background: #fff;
+    
+
+}
+.in-out-header .row{
+    width: 100%;
+    
+}
+.stat{
+    border-right: 1px solid #d3d3d3;
+}
+
+   
+.in-out-header .cci-name{
+    font-size: 30px;
+    color: #7e04b6;
+    padding-left: 10px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+.in-out-header .cci-head .fa{
+    color: red;
+    font-size: 10px;
+    padding-left: 15px;
+    padding-right: 0;
+    
+}
+.in-out-header .cci-head{
+    padding-left: 20px;
+    font-size: 18px;
+    
+    
+}
+.in-out-header .information-child{
+    width: 50%;
+}
+.in-out-header .information-child .total-child-title{
+    padding-top: 25px;
+    
+    font-size: 18px;
+}
+.in-out-header .information-child .total-child-info{
+    font-size: 35px;
+    font-weight: 600;
+    padding-top: 10px;
+    color: #7e04b6;
+}
+.movement{
+    float: right;
+    width: 40%;
+    height: 170px;
+    margin-top: 10px !important;
+}
+.in-out-header2{
+    width: 50%;
+    text-align: center;
+    background: #7e04b6;
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin-left: 20rem;
+    color: #fff;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.9);
+    height: 40px;
+    
+}
+.in-out-header2 .title{
+    padding-top: 5px;
+    font-size: 20px;
+}
+table{
+    width: 100%;
+    background: #dfe4eb !important;
+    border-radius: 8px !important;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.9);
+
+
+}
+table thead{
+   background: #282639;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   -moz-border-radius-topleft: 5px;
+   -moz-border-radius-topright: 5px;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-radius: 8px;
+}
+table thead th{
+    font-size: 1rem;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    font-weight: 200px;
+    color: #fff;
+    text-align: left;
+   
+}
+.id{
+    color: orangered;
+}
+tbody{
+   background: #dfe4eb;
+    font-size: 1rem;
+
+}
+td{
+    padding: 15px 10px;
+    text-align: left;
+    color: #282639;
+}
