@@ -65,7 +65,7 @@
 
           <div id="dashboard-icons-container">
 
-            <h6 class="dashoard-nav-icon"> employee.email.toUpperCase()</h6>
+            <h6 class="dashoard-nav-icon"> <%=StateOfficial.email.toUpperCase() %></h6>
             <a href="" title="Profile">
               <i class="dashoard-nav-icon fa fa-user"></i>
             </a>
@@ -92,7 +92,7 @@
         <div class="state-homecontent1">
             <div class="row title">
                 <div class="col-lg-5">
-                    <h1 class="state-official-title font-weight-bold mb-0">Welcome State Official Name</h1>
+                    <h3 class="state-official-title font-weight-bold mb-0">Welcome <%=StateOfficial.firstName.toUpperCase() +" "+ StateOfficial.lastName.toUpperCase() %></h3>
                     <p class="state-official-location"><i class="fa fa-circle" aria-hidden="true"></i>Jhansi,UttarPradesh</p>
                 </div>
                 <div class="col-lg-3 ">
@@ -114,7 +114,7 @@
                      <div class="col-lg-3 d-flex stat my-3">
                          <div class="mx-auto">
                          <h6 class="card1 text-muted">Total Number Of CWCs</h6>
-                         <h3 class="value font-weight-bold">20</h3>
+                         <h3 class="value font-weight-bold"><%=cwc_count%></h3>
                          </div>
                      </div>
                      <div class="col-lg-3 d-flex stat my-3">

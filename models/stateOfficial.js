@@ -2,6 +2,9 @@ var mongoose = require("mongoose");
 
 var stateOfficialSchema = new mongoose.Schema({
   
+  official_id: {
+    type: String,
+  },
   firstName: {
     type: String,
   },

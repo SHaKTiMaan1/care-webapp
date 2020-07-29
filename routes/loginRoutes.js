@@ -4,6 +4,10 @@ const CciEmployee = require("../models/cciEmployee");
 const CwcEmployee = require("../models/cwcEmployee");
 const Admin = require("../models/admin");
 const { loginValidation } = require("../validation");
+const StateOfficial = require("../models/stateOfficial")
+
+
+
 
 //ADMIN LOGIN
 router.get("/login/admin", (req, res) => {
@@ -92,6 +96,37 @@ router.post("/login/cciemployee", async (req, res) => {
   console.log("isPasswordValid : " + isPasswordValid);
   if (isPasswordValid) {
     res.send("Logged In");
+  } else {
+    res.send("Wrong Password !!");
+  }
+});
+
+
+// STATE LOGIN
+router.get('/login/state',async function(req, res){
+  res.render("login/loginstate.ejs");
+});
+
+
+router.post("/login/state", async (req, res) => {
+  
+
+  //CHECKING IF USER EXISTS
+  console.log(req.body.email);
+  const stateOfficial = await StateOfficial.findOne({ email: req.body.email });
+  if (!stateOfficial) res.send("Official doesn't exist");
+
+  console.log("Found Official " + stateOfficial);
+
+  //CHECKING IF PASSWORD IS CORRECT
+  const isPasswordValid = await bcrypt.compare(
+    req.body.password,
+    stateOfficial.password
+  );
+
+  console.log("isPasswordValid : " + isPasswordValid);
+  if (isPasswordValid) {
+    res.redirect("/state/" + stateOfficial.official_id);
   } else {
     res.send("Wrong Password !!");
   }

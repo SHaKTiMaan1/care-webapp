@@ -296,6 +296,19 @@ router.get('/admin/registerStateOfficial/:employee_id', async function(req,res){
 
 router.post('/admin/registerStateOfficial/:admin_employee_id', async function(req, res){
  
+  // Creating ID
+  var statename =req.body.state;
+  statename = statename.substring(0,3);
+  var fname = req.body.firstName;
+  fname = fname.substring(0,3);
+  official_id  ="";
+  randomNo="";
+  
+  randomNo =  (Math.floor(Math.random() * (999 - 100) ) + 100).toString() ;
+  
+  official_id  = statename.concat(fname, randomNo);
+
+
    //HASHING THE PASSWORD
    const salt = await bcrypt.genSalt(10);
    const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -304,8 +317,9 @@ router.post('/admin/registerStateOfficial/:admin_employee_id', async function(re
  
    //CREATING A NEW CCI EMPLOYEE
    const official = new StateOfficial({
-     firstName: req.body.name,
-     lastName: req.body.name,
+     official_id: official_id,
+     firstName: req.body.firstName,
+     lastName: req.body.lastName,
      dateOfBirth: req.body.dateOfBirth,
      state: req.body.state,
      gender:req.body.gender,
