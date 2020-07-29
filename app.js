@@ -10,6 +10,7 @@ const indexRoutes = require("./routes/indexRoutes");
 const cwcRoutes = require("./routes/cwcRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const messageRoutes = require("./routes/messageRoutes");
+const otherRoutes = require("./routes/otherRoutes");
 
 const app = express();
 dotenv.config();
@@ -38,6 +39,7 @@ app.use(indexRoutes);
 app.use(cwcRoutes);
 app.use(adminRoutes);
 app.use(messageRoutes);
+app.use(otherRoutes);
 
 
 //LISTENING

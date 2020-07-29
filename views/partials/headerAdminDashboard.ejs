@@ -37,7 +37,7 @@
       <nav id="sidemenu-flexbox">
         <a
           class="active"
-          href="/admin/dashboard/:<%= admin.employee_id %>"
+          href="/admin/dashboard/: admin.employee_id"
           title="Home"
           ><i class=" fa fa-home" aria-hidden="true"></i
         ></a>
@@ -55,7 +55,7 @@
 
           <div id="dashboard-icons-container">
             <h6 class="dashoard-nav-icon">
-              <%= admin.firstName.toUpperCase() + " " +admin.lastName.toUpperCase()%>
+            <%= admin.firstName.toUpperCase() + " " +admin.lastName.toUpperCase() %>
             </h6>
             <a href="" title="Profile">
               <i class="dashoard-nav-icon fa fa-user"></i>

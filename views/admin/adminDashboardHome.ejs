@@ -1,26 +1,50 @@
 <%- include("../partials/headerAdminDashboard")%>
 
-<section class="inline-flex mt-5 ml-5 pt-5 pl-5">
-  <div>
-    <h4 class="/admin/registerNewCwc/:<%=admin.employee_id%>">
+<section class="flex mt-5 ml-5 pt-5 pl-5 pr-5">
+  <div class="mx-1">
+    <h4 class="text-center">
       ADMIN DASHBOARD HOME
     </h4>
     <br /><br />
-    <a href="/admin/registerNewCwc/:<%=admin.employee_id%>" class="btn jade"
-      >Register New CWC</a
-    >
-    <br />
-    <br />
-    <a
-      href="/admin/registerNewCwcEmployee/:<%=admin.employee_id%>"
-      class="btn purple-gradient"
-      >Register New CWC Employee</a
-    >
-    <br /><br />
-    <a href="" class="btn salamander">Register New DCPU Employee</a>
-    <br /><br />
-    <a href="/admin/registerNewAdmin/:<%=admin.employee_id%>" class="btn jade"
-      >Register New Admin</a
-    >
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="/admin/registerNewCwc/:<%=admin.employee_id%>" class="btn jade"
+            >Register New CWC</a
+          >
+        </div>
+        <div class="col-sm-6">
+          <a
+          href="/admin/registerNewCwcEmployee/:<%=admin.employee_id%>"
+          class="btn purple-gradient"
+          >Register New CWC Employee</a
+        >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="" class="btn salamander">Register New DCPU Employee</a>
+        </div>
+        <div class="col-sm-6">
+          <a href="/admin/registerNewAdmin/:<%=admin.employee_id%>" class="btn jade"
+            >Register New Admin</a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="/admin/registerStateOfficial/<%=admin.employee_id%>" class="btn jade"
+            >Register New State Official</a
+          >
+        </div>
+        <div class="col-sm-6">
+          <a href="/admin/others/:<%=admin.employee_id%>" class="btn jade"
+            >Register Others</a
+          >
+        </div>
+      </div>
+    </div>
+    
+    
   </div>
 </section>

@@ -5,6 +5,7 @@ const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Admin = require("../models/admin");
+const StateOfficial = require("../models/stateOfficial");
 const { registerValidationEmployee } = require("../validation");
 const { Router } = require("express");
 
@@ -159,9 +160,7 @@ router.post("/admin/registerNewCwcemployee/:employee_id", async (req, res) => {
 });
 
 //CCI REGISTRATION ROUTE
-router.get(
-  "/cwc/dashboard/newCciRegistraton/:employee_id",
-  async (req, res) => {
+router.get("/cwc/dashboard/newCciRegistraton/:employee_id",async (req, res) => {
     const employee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
     });
@@ -282,5 +281,55 @@ router.post("/registerByCWC/cciemployee", async (req, res) => {
     res.send("There was error" + err);
   }
 });
+
+
+
+
+// ================================================================================
+// REGISTER NEW STATE OFFICIAL
+
+router.get('/admin/registerStateOfficial/:employee_id', async function(req,res){
+  const idToSearch = req.params.employee_id;
+  const admin = await Admin.findOne({ employee_id: idToSearch });
+  res.render("registration/registerNewStateOfficial.ejs", {admin : admin});
+});
+
+router.post('/admin/registerStateOfficial/:admin_employee_id', async function(req, res){
+ 
+   //HASHING THE PASSWORD
+   const salt = await bcrypt.genSalt(10);
+   const hashedPassword = await bcrypt.hash(req.body.password, salt);
+ 
+   console.log("Password hashed " + hashedPassword);
+ 
+   //CREATING A NEW CCI EMPLOYEE
+   const official = new StateOfficial({
+     firstName: req.body.name,
+     lastName: req.body.name,
+     dateOfBirth: req.body.dateOfBirth,
+     state: req.body.state,
+     gender:req.body.gender,
+     contactNumber: req.body.contactNumber,
+     email: req.body.email,
+     aadharNumber: req.body.aadharNumber,
+     password: hashedPassword,
+     registeredBy: req.params.admin_employee_id
+   });
+ 
+   console.log("Official Created " + official);
+ 
+   try {
+     const savedOfficial = await official.save();
+ 
+     console.log("Employee saved " + savedOfficial);
+ 
+     res.send("Registered");
+   } catch (err) {
+     console.log("We got some error");
+     res.send("There was error" + err);
+   }
+
+});
+
 
 module.exports = router;
