@@ -575,8 +575,15 @@
 
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">      </script>    
-</body>
 
+<script>
+  $(document).ready(function(){
+      $('[data-toggle="popover"]').popover({
+          placement : 'right',
+          trigger : 'hover'
+      });
+  });
+  </script>
 </body>
 
 </html>
