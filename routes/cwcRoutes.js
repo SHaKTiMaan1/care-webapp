@@ -87,11 +87,14 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
 
   const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
   const cwc_id= employee.cwc_id;
-  const cci_list  = await Cci.find({cwc_id:cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
+  const cwc = await Cwc.findOne({cwc_id:cwc_id})
+  console.log(cwc);
+  const cci_list = await Cci.find({cwc_id:cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
+  const cci_count = await Cci.countDocuments({cwc_id:cwc_id})
   // console.log(cci);
   // console.log("Employee found in CWC Route :");
   // console.log(employee);
-  res.render("CWC/dashboardHome.ejs", { employee: employee, cci_list :cci_list });
+  res.render("CWC/dashboardHome.ejs", { employee: employee, cci_list :cci_list, cwc:cwc, cci_count:cci_count});
 });
 
 //CHILDREN LIST PAGE

@@ -7,7 +7,7 @@
       <div class="dashboard-home-info-container">
         <div class="cwc-information-container">
           <div class="about-cwc">
-            <h2>JHANSI</h2>
+            <h2><%=(cwc.district).toUpperCase()%></h2>
             <p class="white-text">
               VIKRAM BAHADUR SINGH <br />
               CHAIRMAN
@@ -16,7 +16,7 @@
             <p class="white-text">Members</p>
           </div>
           <div>
-            <h1>10</h1>
+            <h1><%=cci_count%></h1>
             <p>
               <a href="/cwc/dashboard/cciDetails/<%= employee.employee_id %>">
                 Child Care <br />
