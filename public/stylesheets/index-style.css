@@ -1,5 +1,7 @@
-
-
+*{
+    margin: 0;
+    padding: 0;
+}
 .logo{
     width: 20%;
     display: flex;
@@ -7,12 +9,6 @@
     align-items: center;
     
 }
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
 .logo img{
     width: 33%;
     border: 3px solid white;
@@ -25,7 +21,7 @@
 
 }
 .pageturn:hover{
-    color: brown;
+    color: darkmagenta;
 }
 
 .navbar{
@@ -79,6 +75,16 @@ body{
     background-attachment: fixed;
 
 }
+.background3{
+    /*background-image: linear-gradient(rgba(44, 238, 131, 0.8),rgba(44, 238, 131, 0.8));*/
+   /* background: white;
+    background-size: cover;*/
+    background: repeating-linear-gradient(120deg,#d3d3d3 0px,white 870px,hsl(1,0% ,0%,0.5)250px,hsl(1,0%, 0%,0.5));
+    
+    
+    
+    
+}
 
 
 
@@ -88,80 +94,48 @@ body{
     background-size: cover;
     background-blend-mode: darken;
 }
-.firstSection{
-    height: 100vh;
-    position: fixed;
-    padding-top: 50px;
-    padding-bottom: 100px;
-    
-}
+
 
 .box-main{
-    padding: 80px 30px auto auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 80%;
-    margin: auto 100px;
-    height: 80%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+       
 }
 .task{
     font-weight: bold;
 }
 .position{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
+ 
+    margin: 100px;
+    text-align: center;   
 }
-.firstHalf{
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
 
-
+.firstHalf .title{
+    font-size: 50px;
 }
-.secondHalf{
-    width: 100%;
-    align-items: center;
-
-}
-.secondHalf img{
-    width: 50%;
-    
-    border: 4px solid white;
-    border-radius: 250px;
-    display: block;
-    margin: auto;
-
-}
-.text-big{
+.typing-style{
     font-size: 40px;
-
-
+    padding-top: 10px;
 }
-.text-small{
-    font-size: 20px;
-
+.short-intro{
+    font-size: 25px;
+    padding-top: 10px;
+}
+.landing-login{
+    padding-top: 10px;
+}
+.pageturn a:hover{
+    color: darkmagenta;
+    text-decoration: none;
 }
 .btn{
-    padding: 8px 80px;
+    padding: 10px 90px;
     margin: 7px 2px;
     border: 3px solid white;
+    font-size: 25px;
     border-radius: 8px;
-    font-size: large;
-    font-weight: bold;
-    
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
     cursor: pointer;
 }
 .btn-sm{
@@ -179,6 +153,7 @@ body{
     margin: 0;
 }
 .pageturn{
+    color: darkmagenta !important;
     text-decoration: none !important;
 }
 footer{
@@ -193,11 +168,94 @@ footer{
 }
 
 
-@media only screen and (max-width: 1140px){
-   
-    .box-main{
-        flex-direction: column-reverse;
-        max-width: 100%;
-    }
+
+.about-section{
+    margin: 30px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0,0, 0.5);
+    background-color: transparent;
+    display: flex;
+
+}
+.info-care{
+    width: calc(70% - 50px);
+    padding-top: 10px;
+    color: #282639;
+    height: 100%;
+    font-size: 20px;
+    line-height: 1.5em;
+    text-align: justify;
+}
+.about{
+    padding: 10px;
+}
+.head{
+    width: calc(30% + 70px);
+    height: 100%;
+    color: #fff;
+
     
+    
+}
+.head .about-heading{
+    float: right;
+    padding-right: 10px;
+    
+}
+.impact-section{
+    margin: 30px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0,0, 0.5);
+}
+.flex-container{
+    height: 350px;
+    background: repeating-linear-gradient(120deg,#d3d3d3 0px,transparent 450px,hsl(283,46%,42%)250px,hsl(283,46%, 42%));
+    
+}
+.fields .row{
+    width: 100%;
+}
+.part-1{
+    height: 300px;
+    width: 300px;
+    border-bottom: 50%;
+    
+    top: 10%;
+    margin-left: 200px;
+    
+    color: black;
+    position: relative;
+    text-align: center;
+}
+.working{
+    border-radius: 50%;
+    border: 5px solid #d3d3d3;
+    position: absolute;
+    max-width: 400px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -10px;
+    display: block;
+    margin: auto;
+}
+
+.impact-section .fields{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-right: 10px;
+    color: white;
+    font-weight: 100;
+    margin-left: 610px;
+    margin-top: -195px;
+    position: relative;
+    letter-spacing: 3px;
+}
+.fields .fa{
+    font-size: 10rem;
+}
+.benefit{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
 }
