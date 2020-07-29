@@ -46,13 +46,12 @@
           class="active current" 
           data-toggle="popover" title="CWC Dashboard" data-content="Here are the brief details of the district."
           href="/cwc/dashboard/<%= employee.employee_id %>"
-          title="Home"
+          
           ><i class="current2 fa fa-home"  aria-hidden="true"></i
         ></a>
 
         <a
           class="active"
-          data-toggle="popover" title="New Child Registration" data-content="Registration form for New Child."
           href="/cwc/dashboard/allChildren/<%= employee.employee_id %>"
           title="Children Under Care"
           ><i class="fa fa-child" aria-hidden="true"></i>
@@ -61,15 +60,17 @@
         <a
           class="active"
           href="/cwc/dashboard/childRegistration/<%= employee.employee_id %>"
-          title="Register a new child"
+          
+          data-toggle="popover" title="New Child Registration" data-content="Registration form for New Child."
           ><i class="fa fa-user-plus" aria-hidden="true"></i>
         </a>
 
         <a
           class="active"
           href="/cwc/dashboard/cciDetails/<%= employee.employee_id %>"
-          title="Child Care Institutions under supervision"
-          ><i class="fa fa-building" aria-hidden="true"></i
+          data-toggle="popover" title="Child Care Institutions under supervision" data-content="Details of all Child Care Institutions in the district">
+          
+          <i class="fa fa-building" aria-hidden="true"></i
         ></a>
 
         <a class="active" href="indexccireg.html" title="Help"

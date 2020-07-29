@@ -90,7 +90,7 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
   const cwc_id= employee.cwc_id;
   const cwc = await Cwc.findOne({cwc_id:cwc_id})
   // console.log(cwc);
-  const cwcEmployee_count = await CwcEmployee.count({cwc_id:cwc_id})
+  const cwcEmployee_count = await CwcEmployee.countDocuments({cwc_id:cwc_id})
   const cci_list = await Cci.find({cwc_id:cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
   const cci_count = await Cci.countDocuments({cwc_id:cwc_id})
   // console.log(cci);
