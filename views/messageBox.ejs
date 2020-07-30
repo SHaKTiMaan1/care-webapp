@@ -137,16 +137,16 @@
           <br />
           <%if(sender.localeCompare("cwc")==0){%>
           
-            <h3 class="text-white"><%=(eachMessage.sender).toUpperCase()%>
-              (<%=employee_id%>) <h5 class="text-white"><%=eachMessage.message%></h5>
-            </h3>
+            <h6 class="text-white"><%=(eachMessage.sender).toUpperCase()%>
+              (<%=employee_id%>) <h4 class="text-white"><%=eachMessage.message%></h4>
+            </h6>
 
             <%}%>
                   <%if(sender.localeCompare("cci")==0){%>
 
-            <h3 class="text-body"><%=(eachMessage.sender).toUpperCase()%> <h5 class="text-body"><%=eachMessage.message%>
-              </h5>
-            </h3>
+            <h6 class="text-body"><%=(eachMessage.sender).toUpperCase()%> <h4 class="text-body"><%=eachMessage.message%>
+              </h4>
+            </h6>
 
             <%}%>
                 
