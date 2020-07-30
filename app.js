@@ -41,6 +41,6 @@ app.use(adminRoutes);
 app.use(messageRoutes);
 app.use(otherRoutes);
 
-//LISTENING ON THE FOLLOWING PORT
-app.listen(process.env.PORT, process.env.IP);
-// app.listen(3001, () => console.log("Server says Hello!!"));
+//LISTENING
+// app.listen(process.env.PORT, process.env.IP);
+app.listen(3001, () => console.log("Server says Hello!!"));
