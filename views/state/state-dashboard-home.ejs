@@ -19,6 +19,7 @@
       crossorigin="anonymous"
     />
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="/stylesheets/CWC/content_home.css" />
     <link rel="stylesheet" href="/stylesheets/state-official/state-dashboard.css" />
     <link rel="stylesheet" href="/stylesheets/state-official/state-dashboard-content.css">
   </head>
@@ -58,14 +59,14 @@
     </section>
 
   <div clas="flex-vertical">
-    <header class="home-nav-container">
+    <div class="home-nav-container">
       <nav class="dashboard-nav navbar fixed-top navbar-light">
         <div class="container">
           <a class="" href="#">CARE</a>
 
           <div id="dashboard-icons-container">
 
-            <h6 class="dashoard-nav-icon"> <%=StateOfficial.email.toUpperCase() %></h6>
+            <h6 class="dashoard-nav-icon"> <%=StateOfficial.firstName.toUpperCase() + " " +StateOfficial.lastName.toUpperCase()%></h6>
             <a href="" title="Profile">
               <i class="dashoard-nav-icon fa fa-user"></i>
             </a>
@@ -85,14 +86,14 @@
           <a class="dashboard-nav-brand navbar-brand" href="#"> CARE</a>
         </div>
       </nav>
-    </header>
+    </div>
 </div>
     <!--Ending of dashboard and begining of home page content-->
     <section class="state-content-area ">
-        <div class="state-homecontent1">
+        <div class="state-homecontent1 purple-gradient mt-5 ml-4 mr-2 pt-2 pb-5 ">
             <div class="row title">
                 <div class="col-lg-5">
-                    <h3 class="state-official-title font-weight-bold mb-0">Welcome <%=StateOfficial.firstName.toUpperCase() +" "+ StateOfficial.lastName.toUpperCase() %></h3>
+                    <h3 class="state-official-title font-weight-bold mb-0"> <%=StateOfficial.firstName.toUpperCase() +" "+ StateOfficial.lastName.toUpperCase() %></h3>
                     <p class="state-official-location"><i class="fa fa-circle" aria-hidden="true"></i>Jhansi,UttarPradesh</p>
                 </div>
                 <div class="col-lg-3 ">
@@ -106,7 +107,7 @@
                 </div>
             </div>
         </div>
-        <div class="content2">
+        <div class="content2 ml-3">
             <div class="contain">
              <p class="state-glance border-bottom "><h1 class="state-glance border-bottom text-center">State At Glance</h1></p>
              <div class="card rounded-0">
@@ -141,13 +142,13 @@
             </div>
  
          </div>
-        <div class="state-content2">
+        <div class="state-content2 ml-3">
             <div class="state-contain2">
                 <div class="row">
                     <div class="col-lg-7 my-4">
                         <div class="card rounded-0">
                             <div class="card-header">
-                                <h6 class="graph-title font-weight-bold mb-0">District At Glance</h6>
+                                <h6 class="graph-title font-weight-bold mb-0">District At a Glance</h6>
                             </div>
                             <div class="card-body">
                                 <canvas id="myChart"></canvas>
@@ -200,7 +201,7 @@
                 </div>
             </div>
         </div>
-        <div class="state-contain3">
+        <div class="state-contain3 ml-3">
             <div class="card news my-3">
                 <div class="news-header border-bottom">
                     <h4 class="glance-title">@CARE News</h4>
@@ -236,6 +237,7 @@
                     </div>
                    
                 </div>
+        </div>
         </div>
     </section>
     

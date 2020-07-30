@@ -1,168 +1,150 @@
-.state-content-area{
-    margin-top: 12vh;
-    margin-left: 3vw;
+.state-content-area {
+  margin-top: 12vh;
+  margin-left: 3vw;
 
   width: 97%;
-     
 }
-.state-homecontent1{
-    margin: 12px;
-    
-    background: #c06fe6;
-
+.state-homecontent1 {
 }
-.state-homecontent1 .row{
-    width: 100%;
-    
+.state-homecontent1 .row {
+  width: 100%;
 }
-.state-glance{
-    color: #1f138d;
-    text-align: center;
-    font-size: 45px;
-    padding-top: 10px;
+.state-glance {
+  color: #1f138d;
+  text-align: center;
+  font-size: 45px;
+  padding-top: 10px;
 }
-.stat{
-    border-right: 1px solid #d3d3d3;
+.stat {
+  border-right: 1px solid #d3d3d3;
 }
-.contain .row{
-    width: 100%;
+.contain .row {
+  width: 100%;
 }
 
-.value{
-    color: #7e04b6;
+.value {
+  color: #7e04b6;
 }
-.contain .card{
-    margin-left: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    border: none;
+.contain .card {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border: none;
 }
-.contain{
-    border: 1px solid #d3d3d3;
-    margin: 10px;
-    
+.contain {
+  border: 1px solid #d3d3d3;
+  margin: 10px;
 }
-.state-contain2 .row{
-    width: 100%;
-    
+.state-contain2 .row {
+  width: 100%;
 }
-.state-contain3 .row{
-    width: 100%;
-    
+.state-contain3 .row {
+  width: 100%;
 }
-.title img{
-    width: 80%;
-    height: 170px;
-    margin-top: 10px !important;
+.title img {
+  width: 80%;
+  height: 170px;
+  margin-top: 10px !important;
 }
-.state-official-title{
-    font-size: 30px;
-    color: #fff;
-    padding-left: 10px;
-    padding-top: 25px;
-    padding-bottom: 10px;
+.state-official-title {
+  font-size: 30px;
+  color: #fff;
+  padding-left: 10px;
+  padding-top: 25px;
+  padding-bottom: 10px;
 }
-.state-official-location .fa{
-    color: red;
-    font-size: 10px;
-    padding-left: 15px;
-    padding-right: 0;
-    
+.state-official-location .fa {
+  color: red;
+  font-size: 10px;
+  padding-left: 15px;
+  padding-right: 0;
 }
-.state-official-location{
-    padding-left: 20px;
-    font-size: 18px;
-    color: #fff;
-    
+.state-official-location {
+  padding-left: 20px;
+  font-size: 18px;
+  color: #fff;
 }
-.information-child{
-    width: 50%;
+.information-child {
+  width: 50%;
 }
-.information-child .total-child-title{
-    padding-top: 25px;
-    color: #fff;
-    font-size: 18px;
+.information-child .total-child-title {
+  padding-top: 25px;
+  color: #fff;
+  font-size: 18px;
 }
-.information-child .total-child-info{
-    font-size: 33px;
-    font-weight: 600;
-    padding-top: 10px;
-    color: #fff;
+.information-child .total-child-info {
+  font-size: 33px;
+  font-weight: 600;
+  padding-top: 10px;
+  color: #fff;
 }
-.state-map{
-    float: right;
+.state-map {
+  float: right;
 }
-.state-contain2{
-    
-    margin: 10px;
-    
+.state-contain2 {
+  margin: 10px;
 }
-.state-contain3{
-    
-    margin: 10px;
-    
+.state-contain3 {
+  margin: 10px;
 }
-.graph-title{
-    color: #7e04b6;
-    text-align: center;
-    font-size: 22px;
-   
+.graph-title {
+  color: #7e04b6;
+  text-align: center;
+  font-size: 22px;
 }
-.card-header{
-    background: #d3d3d3;
+.card-header {
+  background: #d3d3d3;
 }
-.glance-header{
-    padding-top: 10px;
-    padding-left: 10px;
-    background: #d3d3d3;
-    color: #7e04b6;
-    font-size: 20px;
+.glance-header {
+  padding-top: 10px;
+  padding-left: 10px;
+  background: #d3d3d3;
+  color: #7e04b6;
+  font-size: 20px;
 }
-.glance-updates{
-    padding-left: 10px;
-    
-    
+.glance-updates {
+  padding-left: 10px;
 }
-.updated-value{
-    font-size: 20px;
-    padding-left: 15px;
+.updated-value {
+  font-size: 20px;
+  padding-left: 15px;
 }
-.updated-values{
-    font-size: 20px;
-    padding-left: 25px;
+.updated-values {
+  font-size: 20px;
+  padding-left: 25px;
 }
-.glance-updates .fa{
-    color: #7e04b6;
-    font-size: 18px;
+.glance-updates .fa {
+  color: #7e04b6;
+  font-size: 18px;
 }
-.news-header{
-    padding-top: 10px;
-    padding-left: 10px;
-    font-size: 20px;
-    color: #fff;
-    background: #7e04b6;
+.news-header {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 20px;
+  color: #fff;
+  background: #7e04b6;
 }
-.news-updates .fa{
-    color: #7e04b6;
-    font-size: 18px;
+.news-updates .fa {
+  color: #7e04b6;
+  font-size: 18px;
 }
-.news{
-    background: #e7e3e3;
+.news {
+  background: #e7e3e3;
 }
-.state-changedistrict .row{
-    width: 100%;
+.state-changedistrict .row {
+  width: 100%;
 }
-.state-district-image img{
-    width:110% ;
-    height: 150px;
-    padding: 0;
+.state-district-image img {
+  width: 110%;
+  height: 150px;
+  padding: 0;
 }
-.state-district-image{
-    padding-left: 20px;
+.state-district-image {
+  padding-left: 20px;
 }
-.state-change-district{
-    padding-top: 40px;
+.state-change-district {
+  padding-top: 40px;
 }
-.state-change-district .fields{
-    color: #7e04b6;
+.state-change-district .fields {
+  color: #7e04b6;
 }

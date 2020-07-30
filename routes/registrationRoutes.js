@@ -122,7 +122,7 @@ router.post("/admin/registerNewCwcemployee/:employee_id", async (req, res) => {
   const emailExists = await CwcEmployee.findOne({ email: req.body.email });
   if (emailExists) return res.status(400).send("Email Already Exists");
 
-  console.log("Email doesn't already exist");
+  console.log("Email doesn't already exist"); //kcsvjkjvklsdj
 
   //HASHING THE PASSWORD
   const salt = await bcrypt.genSalt(10);
@@ -160,13 +160,21 @@ router.post("/admin/registerNewCwcemployee/:employee_id", async (req, res) => {
 });
 
 //CCI REGISTRATION ROUTE
-router.get("/cwc/dashboard/newCciRegistraton/:employee_id",async (req, res) => {
+router.get(
+  "/cwc/dashboard/newCciRegistraton/:employee_id",
+  async (req, res) => {
     const employee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
     });
-    const cci_list  = await Cci.find({cwc_id:employee.cwc_id},{'_id': 0, 'cci_name': 1,'cci_id':1})
+    const cci_list = await Cci.find(
+      { cwc_id: employee.cwc_id },
+      { _id: 0, cci_name: 1, cci_id: 1 }
+    );
     console.log("CWC Employee Found : " + employee);
-    res.render("registration/registerNewCci.ejs", { employee: employee, cci_list:cci_list });
+    res.render("registration/registerNewCci.ejs", {
+      employee: employee,
+      cci_list: cci_list,
+    });
   }
 );
 
@@ -282,68 +290,67 @@ router.post("/registerByCWC/cciemployee", async (req, res) => {
   }
 });
 
-
-
-
 // ================================================================================
 // REGISTER NEW STATE OFFICIAL
 
-router.get('/admin/registerStateOfficial/:employee_id', async function(req,res){
+router.get("/admin/registerStateOfficial/:employee_id", async function (
+  req,
+  res
+) {
   const idToSearch = req.params.employee_id;
   const admin = await Admin.findOne({ employee_id: idToSearch });
-  res.render("registration/registerNewStateOfficial.ejs", {admin : admin});
+  res.render("registration/registerNewStateOfficial.ejs", { admin: admin });
 });
 
-router.post('/admin/registerStateOfficial/:admin_employee_id', async function(req, res){
- 
+router.post("/admin/registerStateOfficial/:admin_employee_id", async function (
+  req,
+  res
+) {
   // Creating ID
-  var statename =req.body.state;
-  statename = statename.substring(0,3);
+  var statename = req.body.state;
+  statename = statename.substring(0, 3);
   var fname = req.body.firstName;
-  fname = fname.substring(0,3);
-  official_id  ="";
-  randomNo="";
-  
-  randomNo =  (Math.floor(Math.random() * (999 - 100) ) + 100).toString() ;
-  
-  official_id  = statename.concat(fname, randomNo);
+  fname = fname.substring(0, 3);
+  official_id = "";
+  randomNo = "";
 
+  randomNo = (Math.floor(Math.random() * (999 - 100)) + 100).toString();
 
-   //HASHING THE PASSWORD
-   const salt = await bcrypt.genSalt(10);
-   const hashedPassword = await bcrypt.hash(req.body.password, salt);
- 
-   console.log("Password hashed " + hashedPassword);
- 
-   //CREATING A NEW CCI EMPLOYEE
-   const official = new StateOfficial({
-     official_id: official_id,
-     firstName: req.body.firstName,
-     lastName: req.body.lastName,
-     dateOfBirth: req.body.dateOfBirth,
-     state: req.body.state,
-     gender:req.body.gender,
-     contactNumber: req.body.contactNumber,
-     email: req.body.email,
-     aadharNumber: req.body.aadharNumber,
-     password: hashedPassword,
-     registeredBy: req.params.admin_employee_id
-   });
- 
-   console.log("Official Created " + official);
- 
-   try {
-     const savedOfficial = await official.save();
- 
-     console.log("Employee saved " + savedOfficial);
- 
-     res.send("Registered");
-   } catch (err) {
-     console.log("We got some error");
-     res.send("There was error" + err);
-   }
+  official_id = statename.concat(fname, randomNo);
 
+  //HASHING THE PASSWORD
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+  console.log("Password hashed " + hashedPassword);
+
+  //CREATING A NEW CCI EMPLOYEE
+  const official = new StateOfficial({
+    official_id: official_id,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    dateOfBirth: req.body.dateOfBirth,
+    state: req.body.state,
+    gender: req.body.gender,
+    contactNumber: req.body.contactNumber,
+    email: req.body.email,
+    aadharNumber: req.body.aadharNumber,
+    password: hashedPassword,
+    registeredBy: req.params.admin_employee_id,
+  });
+
+  console.log("Official Created " + official);
+
+  try {
+    const savedOfficial = await official.save();
+
+    console.log("Employee saved " + savedOfficial);
+
+    res.send("Registered");
+  } catch (err) {
+    console.log("We got some error");
+    res.send("There was error" + err);
+  }
 });
-
 
 module.exports = router;
