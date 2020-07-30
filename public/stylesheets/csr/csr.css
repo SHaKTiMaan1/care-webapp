@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Poppins", sans-serif;
+   
+  }
+  .form-control{
+      border: none !important;
+  }
+  #csr-content{
+      margin-top: 20px;
+  }
+  .csr-header{
+      width: 50%;
+      margin-left: 23rem;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      border-radius: 10px;
+      height: 35px;
+      background: #9b47c2;
+      box-shadow: -1px 9px 40px -12px rgba(0,0,0,.9);
+  }
+  .csr-title{
+      font-size: 25px;
+      color: #fff;
+  }
+  .csr-body{
+      padding: 10px;
+      
+  }
+  .csr-body-part1{
+      margin: 20px;
+      padding: 10px;
+      box-shadow: -1px 9px 40px -12px rgba(0,0,0,.9);
+      background: #dfe4eb;
+      border-radius: 6px;
+  }
+  .csr-initials{
+      padding-top: 20px;
+      
+  }
+  .child-photo{
+      
+      margin: 20px;
+      padding: 10px;
+  }
+  .child-photo img{
+      width: 100%;
+      border: 2px solid #d3d3d3;
+      height: 100%;
+  }
+  .csr-body-part2{
+    margin: 20px;
+    padding: 10px;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,.9);
+    background: #dfe4eb;
+    border-radius: 6px;
+}
+.csr-body-part3{
+    margin: 20px;
+    padding: 10px;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,.9);
+    background: #dfe4eb;
+    border-radius: 6px;
+}
+.csr-body-part4{
+    margin: 20px;
+    padding: 10px;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,.9);
+    background: #dfe4eb;
+    border-radius: 6px;
+}
+.section-heading{
+    font-size: 20px;
+    padding-top: 10px;
+    color: #7e04b6;
+    font-weight: bolder;
+}
+.csr-body .fields{
+    padding-left: 10px;
+    color: darkblue;
+    font-size: 18px;
+    font-weight: bold;
+}
+.csr-body .values{
+    padding-left: 20px;
+    font-size: 18px;
+    color: #464444;
+
+}
+.csr-confirm{
+    font-weight: bolder;
+    color: #1d1c1c;
+}
+.confirm-box{
+    padding-left: 10px;
+}
+.csr-body-part4 .colora{
+    color: #464444 !important;
+}
+.csr-body-part4 .colora:hover{
+    color: #fff !important;
+}
