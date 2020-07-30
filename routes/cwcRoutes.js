@@ -52,6 +52,8 @@ router.post(
 
     console.log(req.body.cci_id);
 
+    const cci = await Cci.findOne({cci_id:req.body.cci_id})
+
     const child = new Child({
       firstName: req.body.firstName,
       middleName: req.body.middleName,
@@ -66,6 +68,7 @@ router.post(
       registrationDate: currentDate,
       child_id: childID,
       cci_id: String(req.body.cci_id),
+      cci_name: cci.cci_name,
       cwc_id: cwcemployee.cwc_id,
       religion: req.body.religion,
       witness_id: cwcemployee.employee_id,
@@ -131,9 +134,12 @@ router.get("/cwc/dashboard/allChildren/:employee_id", async function (
     { cwc_id: employee.cwc_id },
     { _id: 0, cci_name: 1, cci_id: 1 }
   );
+  const child = await Child.find({cwc_id:employee.cwc_id})
+  console.log(child)
   res.render("CWC/allChildrenInCwc.ejs", {
     employee: employee,
     cci_list: cci_list,
+    child : child
   });
 });
 
