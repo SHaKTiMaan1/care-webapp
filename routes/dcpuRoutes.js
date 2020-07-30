@@ -4,6 +4,8 @@ const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Child = require("../models/child");
 
-//POST ROUTE FOR CHILD REGISTRATION
+router.get("/dcpu/dashboard", async (req, res) => {
+  res.render("dcpu/dcpu-dashboard-home.ejs");
+});
 
 module.exports = router;

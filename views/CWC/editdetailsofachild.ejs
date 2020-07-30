@@ -49,10 +49,12 @@
                         <div class="col-sm-6">
                             <label for="" class="fields">DATE OF BIRTH</label> <br>
                             <label for="" class="values"><%= child.dateOfBirth %></label>
+                            <input type="date" class="editDetails-hide" value="<%= child.dateOfBirth %>">
                         </div>
                         <div class="col-sm-6">
                             <label for="" class="fields">AGE</label> <br>
                             <label for="" class="values view-child-details-data"><%= child.age %></label>
+                            <input type="number" name="age" class="editDetails-hide" value="<%= child.age %>">
                         </div>                             
                     </div>                   
                 </div>
@@ -61,13 +63,20 @@
 
                 <div class="form-group">                               
                     <div class="row position">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label for="" class="fields">GENDER</label> <br>
                             <label for="" class="values view-child-details-data"><%= child.gender.toUpperCase() %></label>
+                            <input type="text" name="gender" class="editDetails-hide" value="<%= child.gender.toUpperCase() %>">
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label for="" class="fields">CASTE</label> <br>
                             <label for="" class="values view-child-details-data"><%= child.caste %></label>
+                            <input type="text" name="caste" class="editDetails-hide" value="<%= child.caste %>">
+                        </div>  
+                        <div class="col-sm-4">
+                            <label for="" class="fields">CASTE</label> <br>
+                            <label for="" class="values view-child-details-data"><%= child.religion %></label>
+                            <input type="text" name="religion" class="editDetails-hide" value="<%= child.caste %>">
                         </div>                             
                     </div>                   
                 </div>
@@ -77,6 +86,7 @@
                 <div class="form-group">
                     <label for="" class="fields">AADHAAR NUMBER</label> <br>
                     <label for="" class="values view-child-details-data">724689189479719</label>
+                    <input type="number" name="aadharNumber" class="editDetails-hide" value="<%= child.aadharNumber %>">
                 </div> 
 
                 
@@ -85,10 +95,12 @@
                         <div class="col-sm-6">
                             <label for="" class="fields">FATHER'S NAME</label> <br>
                             <label for="" class="values view-child-details-data"><%= child.fatherName.toUpperCase() %></label>
+                            <input type="text" name="fatherName" class="editDetails-hide" value="<%= child.fatherName %>">               
                         </div>
                         <div class="col-sm-6">
                             <label for="" class="fields">MOTHER'S NAME</label> <br>
                             <label for="" class="values view-child-details-data"><%= child.motherName.toUpperCase() %></label>
+                            <input type="text" name="motherName" class="editDetails-hide" value="<%= child.motherName %>">
                         </div>                             
                     </div>                   
                 </div>

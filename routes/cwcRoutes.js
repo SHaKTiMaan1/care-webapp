@@ -222,7 +222,6 @@ router.post(
         middleName: req.body.middleName,
         lastName: req.body.lastName,
         dateOfBirth: req.body.dateOfBirth,
-        age: age,
         gender: req.body.gender,
         casteCategory: req.body.caste,
         aadharNumber: req.body.aadharNumber,
@@ -231,7 +230,12 @@ router.post(
         religion: req.body.religion,
       }
     );
-    console.log(updatedChild);
+    res.redirect(
+      "/cwc/dashboard/editChildDetails/" +
+        req.params.employee_id +
+        "/" +
+        req.params.child_id
+    );
   }
 );
 
