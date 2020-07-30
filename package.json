@@ -2,6 +2,9 @@
   "name": "care",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "12.13.0"
+  },
   "main": "app.js",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
