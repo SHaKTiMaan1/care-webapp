@@ -35,36 +35,46 @@ router.post(
       employee_id: req.params.employee_id,
     });
 
-    let dateOfBirth = String(req.body.dateOfBirth);
+    let dateOfBirth = new Date(req.body.dateOfBirth);
     let currentDate = new Date();
-    let prefix = req.body.firstName.substring(0, 3);
-    let mid1 = cwcemployee.cwc_id.substring(0, 3);
-    let mid2 = dateOfBirth.substring(0, 3);
-    var end = 0000;
+    let prefix = req.body.firstName.substring(0, 3).toUpperCase();
+    let mid1 = cwcemployee.cwc_id.substring(0, 3).toUpperCase();
+    let mid2 = "0000";
+    var end = 00000;
+
+    var age = req.body.age;
+    if (dateOfBirth) {
+      console.log(req.body.dateOfBirth.substring(0, 4));
+      mid2 = req.body.dateOfBirth.substring(0, 4);
+      age = Math.floor(
+        (currentDate.getTime() - dateOfBirth.getTime()) /
+          (1000 * 3600 * 24 * 365.25)
+      );
+    }
 
     childID = prefix.concat(mid1, mid2, end);
+
     var existingChild = null;
     do {
-      end = Math.floor(Math.random() * 8999) + 1000;
+      end = Math.floor(Math.random() * 89999) + 10000;
       childID = prefix.concat(mid1, mid2, end);
       existingChild = await Child.findOne({ child_id: childID });
     } while (existingChild);
 
-    console.log(req.body.cci_id);
-
     const cci = await Cci.findOne({ cci_id: req.body.cci_id });
     const cwc = await Cwc.findOne({ cwc_id: cci.cwc_id });
+
     const child = new Child({
       firstName: req.body.firstName,
       middleName: req.body.middleName,
       lastName: req.body.lastName,
       dateOfBirth: req.body.dateOfBirth,
-      age: req.body.age,
+      age: age,
       gender: req.body.gender,
       casteCategory: req.body.caste,
       aadharNumber: req.body.aadharNumber,
       fatherName: req.body.fatherName,
-      motherNAme: req.body.motherName,
+      motherName: req.body.motherName,
       registrationDate: currentDate,
       child_id: childID,
       cci_id: String(req.body.cci_id),
@@ -72,6 +82,12 @@ router.post(
       cwc_id: cwcemployee.cwc_id,
       religion: req.body.religion,
       witness_id: cwcemployee.employee_id,
+      witness_name:
+        cwcemployee.firstName +
+        " " +
+        cwcemployee.middleName +
+        " " +
+        cwcemployee.lastName,
       guardian_id: [],
       height: [
         {
@@ -155,10 +171,12 @@ router.get("/cwc/dashboard/allChildren/:employee_id", async function (
 
 //VIEW INDIVIDUAL CHILD's DATA
 router.get(
-  "/cwc/dashboard/allChildren/viewChildDetails/:employee_id",
-  async function (req, res) {
-    const idToSearch = req.params.employee_id;
-    const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
+  "/cwc/dashboard/allChildren/viewChildDetails/:employee_id/:child_id",
+  async (req, res) => {
+    const employee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+    const child = await Child.findOne({ child_id: req.params.child_id });
     const cci_list = await Cci.find(
       { cwc_id: employee.cwc_id },
       { _id: 0, cci_name: 1, cci_id: 1 }
@@ -167,7 +185,53 @@ router.get(
     res.render("CWC/viewdetailsofa-child.ejs", {
       employee: employee,
       cci_list: cci_list,
+      child: child,
     });
+  }
+);
+
+//EDIT INDIVIDUAL CHILD'S DATA
+router.get(
+  "/cwc/dashboard/editChildDetails/:employee_id/:child_id",
+  async (req, res) => {
+    const employee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+    const child = await Child.findOne({ child_id: req.params.child_id });
+    const cci_list = await Cci.find(
+      { cwc_id: employee.cwc_id },
+      { _id: 0, cci_name: 1, cci_id: 1 }
+    );
+
+    res.render("CWC/editdetailsofachild.ejs", {
+      employee: employee,
+      cci_list: cci_list,
+      child: child,
+    });
+  }
+);
+
+router.post(
+  "/cwc/dashboard/editChildDetails/:employee_id/:child_id",
+  async (req, res) => {
+    // const child = await Child.findOne({ });
+    updatedChild = await Child.updateOne(
+      { child_id: req.params.child_id },
+      {
+        firstName: req.body.firstName,
+        middleName: req.body.middleName,
+        lastName: req.body.lastName,
+        dateOfBirth: req.body.dateOfBirth,
+        age: age,
+        gender: req.body.gender,
+        casteCategory: req.body.caste,
+        aadharNumber: req.body.aadharNumber,
+        fatherName: req.body.fatherName,
+        motherName: req.body.motherName,
+        religion: req.body.religion,
+      }
+    );
+    console.log(updatedChild);
   }
 );
 

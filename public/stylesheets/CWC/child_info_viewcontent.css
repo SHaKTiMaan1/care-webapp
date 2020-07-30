@@ -93,7 +93,13 @@
 }
 .fields {
   color: black;
+  font-size: 20px;
 }
+.view-child-details-data {
+  font-size: 15px;
+  color: rgb(66, 65, 65);
+}
+
 ::placeholder {
   color: #7e04b6 !important;
 }
@@ -137,4 +143,27 @@
 /* ========================================================== */
 .table-parent {
   width: 91vw;
+}
+
+#edit-child-details-edit-icon-button {
+  background-color: #00a86b;
+  border: none;
+}
+
+.edit-child-details-edit-icon {
+  font-size: 15px;
+  transform: translateX(2rem);
+  color: rgb(56, 54, 54);
+}
+
+.editDetails-show {
+  display: inline-block;
+}
+
+.editDetails-show-flex {
+  display: flex;
+}
+
+.editDetails-hide {
+  display: none;
 }

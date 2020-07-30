@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var childSchema = new mongoose.Schema({
   firstName: {
-    type: String, //Raju
+    type: String,
   },
   middleName: {
     type: String,
@@ -54,7 +54,9 @@ var childSchema = new mongoose.Schema({
     type: String,
   },
   witness_id: {
-    //employee_id from the cwcEmployeeSchema
+    type: String,
+  },
+  witness_name: {
     type: String,
   },
   guardian_id: [

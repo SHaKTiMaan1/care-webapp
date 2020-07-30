@@ -5,14 +5,14 @@
     <!--heading-->
     <div class="child-view-starting">
        <a class="child-view-back" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-       <a class="op" href="/cwc/dashboard/editChildDetails/<%= employee.employee_id%>/<%= child.child_id%>">" "<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+       <a class="op" href="/cwc/dashboard/editChildDetails/<%= employee.employee_id%>/<%= child.child_id%>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
        <a class="op" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
     </div>
         
     <!--details-->
     <div class="container">
-       <form action="">
-            <div class="personalinfo child-view jade">
+       <form action="/cwc/dashboard/editChildDetails/<%= employee.employee_id%>/<%= child.child_id%>" method="POST">
+            <div class="personalinfo child-view jade"> 
                 <!--image-->
                 <div class="image">
                     <img src="/images/icons/usericon.svg" alt="">                  
@@ -22,8 +22,27 @@
                 <hr>
                 <div class="form-group">
                     <label for="" class="fields">NAME</label>   <br>
-                    <label for="" class="values view-child-details-data"><%= child.firstName.toUpperCase()  + " " + child.middleName.toUpperCase() + " " + child.lastName.toUpperCase() %></label>
                     
+                    <div class="editDetails-show-flex " id="edit-child-details-edit-icon-parent-1">
+                        <label for="" class="values view-child-details-data"><%= child.firstName.toUpperCase()  + " " + child.middleName.toUpperCase() + " " + child.lastName.toUpperCase() %> </label>
+                        <i class="fa fa-pencil-square-o edit-child-details-edit-icon " id="edit-child-details-edit-icon-1"></i>
+                    </div>
+
+                    <div class="row editDetails-hide" id="edit-child-details-edit-icon-edit-area-1">                    
+                        <div class="col-sm-3">                            
+                          <input type="text" name="firstName" id="fname" class="form-control" value="<%= child.firstName %>">
+                        </div>
+                        <div class="col-sm-3">                            
+                          <input type="text" name="middleName" id="mname" class="form-control" value="<%= child.middleName %>">
+                        </div>
+                        <div class="col-sm-3">                            
+                          <input type="text" name="lastName" id="lname" class="form-control" value="<%= child.lastName %>">
+                        </div>
+                        <div class="col-sm-3">                            
+                            <input type="submit" class="btn btn-dark" value="Save">
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
                 </div> 
                 <div class="form-group">                               
                     <div class="row position">
@@ -136,9 +155,7 @@
                 <div class="form-group">
                     <label for="" class="fields">MENTAL ILLNESS</label><br>
                     <label for="" class="values view-child-details-data">No</label>
-                </div> 
-                
-            
+                </div>           
             
                 <p class="infoheading">Official Information</p>
                 <hr>
@@ -155,15 +172,15 @@
                 <div class="form-group">
                     <label for="" class="fields">WITNESS</label> <br>
                     <label for="" class="values view-child-details-data"><%= child.witness_name + " , " +child.witness_id%></label>
-                </div> 
-            
-            
-               
-           
+                </div>                                                   
        </form>
     </div> 
     
 </section>
+
+<script src="/scripts/CWC/edit-child-details.js">
+</script>
+
 <script
 src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
