@@ -154,6 +154,22 @@ router.get("/cwc/dashboard/allChildren/:employee_id", async function (
 });
 
 //VIEW INDIVIDUAL CHILD's DATA
+router.get(
+  "/cwc/dashboard/allChildren/viewChildDetails/:employee_id",
+  async function (req, res) {
+    const idToSearch = req.params.employee_id;
+    const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
+    const cci_list = await Cci.find(
+      { cwc_id: employee.cwc_id },
+      { _id: 0, cci_name: 1, cci_id: 1 }
+    );
+
+    res.render("CWC/viewdetailsofa-child.ejs", {
+      employee: employee,
+      cci_list: cci_list,
+    });
+  }
+);
 
 //CCI INFORMATION
 router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
