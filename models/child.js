@@ -40,6 +40,9 @@ var childSchema = new mongoose.Schema({
   cci_id: {
     type: String, //cci_id from the cciSchema
   },
+  cci_name: {
+    type: String, //cci_name from the cciSchema
+  },
   cwc_id: {
     type: String, //cwc_id from the cwcSchema
   },
