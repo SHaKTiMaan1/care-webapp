@@ -43,6 +43,10 @@
     color: #7e04b6;
     font-size: 22px;
 }
+.csr-report:hover{
+    text-decoration: none;
+    color: #282639;
+}
 table{
     width: 100%;
     background: #dfe4eb !important;
