@@ -43,11 +43,11 @@
     <section id="sideMenu">
       <nav id="sidemenu-flexbox">
         <a
-          class="active current" 
+          class="active " 
           data-toggle="popover" title="CWC Dashboard" data-content="Here are the brief details of the district."
           href="/cwc/dashboard/<%= employee.employee_id %>"
           
-          ><i class="current2 fa fa-home"  aria-hidden="true"></i
+          ><i class=" fa fa-home"  aria-hidden="true"></i
         ></a>
 
         <a
@@ -97,9 +97,9 @@
                 <i class="dashoard-nav-icon fa fa-envelope"></i>
               </a>
             
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-menu dashboard-home-message-dropdown" aria-labelledby="dropdownMenuLink">
                 <%cci_list.forEach(function(eachCci){%>
-                  <a class="dropdown-item" href="/message/<%=employee.employee_id%>/<%=eachCci.cci_id%>"><%=eachCci.cci_name%></a>
+                  <a class="dropdown-item message-list" href="/message/<%=employee.employee_id%>/<%=eachCci.cci_id%>"><%=eachCci.cci_name.toUpperCase()%></a>
                   <%})%>
                 
                 </div>

@@ -85,99 +85,69 @@
                     <input type="text" name="motherName" id="adhaarnum" class="form-control" placeholder="">
                 </div> 
 
-                <div class="form-group">
-                  <label for="" class="fields">GENDER</label>
-                  <div class="row position">                    
-                    <div class="col-sm-1">                            
-                      <label for="" class="radio">
-                        <input type="radio" class="radio-one" name="gender">
-                        <span class="checkmark"></span>
-                        Male
-                      </label>
+                <hr>
+                <div class="row ">
+                    <div class="form-group col-sm-4  flex-horizontal">                     
+                      <div class="row ">
+                        <div class="form-group col-sm-12 text-center"><label for="" class="fields">GENDER</label></div>
+                        
+                        <div class="form-group col-sm-12 flex-around">
+                          <input type="checkbox" class="radio" value="male" name="gender" /> MALE                 
+                          <input type="checkbox" class="radio" value="female" name="gender" />FEMALE                                      
+                          <input type="checkbox" class="radio" value="other" name="gender" />OTHER  
+                        </div>                        
+                      </div>    
                     </div>
-                    <div class="col-sm-1">                           
-                      <label for="" class="radio">
-                        <input type="radio" class="radio-one" name="gender">
-                        <span class="checkmark"></span>
-                        Female
-                      </label>
+                    <div class="col-sm-2"></div>
+                    <div class="form-group col-sm-6  flex-horizontal">                     
+                      <div class="row ">
+                        <div class="form-group col-sm-12 text-center"><label for="" class="fields">CATEGORY</label></div>
+                        
+                        <div class="form-group col-sm-12 flex-around">
+                          <input type="checkbox" class="radio" value="GEN" name="caste" />GEN                          
+                          <input type="checkbox" class="radio" value="OBC" name="caste" />OBC                                     
+                          <input type="checkbox" class="radio" value="SC" name="caste" />SC  
+                          <input type="checkbox" class="radio" value="ST" name="caste" />ST  
+                          <input type="checkbox" class="radio" value="other" name="caste" />OTHER  
+                        </div>                        
+                      </div>    
                     </div>
-                    <div class="col-sm-1">                                                      
-                      <label for="" class="radio">
-                        <input type="radio" class="radio-one" name="gender">
-                        <span class="checkmark"></span>
-                        Others
-                      </label>
-                    </div>
-                    <div class="col-sm-9">                      
-                    </div>
+                </div>
+                
+                <hr>
+                <div class="row ">
+                  <div class="form-group col-sm-4 ">                     
+                    <div class="form-group">
+                      <label for="" class="fields fieldlabels black-text">  RELIGION</label>
+                      <select name="religion" class="form-control">
+                        <option disabled="disabled" selected="selected">------------Select------------</option>
+                        <option value=""> Hindu</option>
+                        <option>Buddhism</option>
+                        <option>Islam</option>
+                        <option>Sikhism</option>
+                        <option>Christianity</option>
+                        <option>Jainism</option>
+                        <option>Other</option>
+                      </select>
+                    </div> 
                   </div>
-                 </div>  
 
-                 <div class="form-group">
-                    <label for="" class="fields">CASTE CATEGORY</label>
-                    <div class="row position">
-    
-                        <div class="col-sm-2">                       
-                            <label for="" class="radio name fieldlabels">
-                                <input type="radio" class="radio-one" name="caste">
-                                <span class="checkmark"></span>
-                                GEN
-                            </label>
-                        </div>
-                        <div class="col-sm-2">                        
-                            <label for="" class="radio name fieldlabels">
-                                <input type="radio" class="radio-one" name="caste">
-                                <span class="checkmark"></span>
-                                OBC
-                            </label>
-                        </div>
-                        <div class="col-sm-2">                                                
-                            <label for="" class="radio name fieldlabels">
-                                <input type="radio" class="radio-one" name="caste">
-                                <span class="checkmark"></span>
-                                SC
-                            </label>
-                        </div>
-                        <div class="col-sm-2">                                                
-                            <label for="" class="radio name fieldlabels">
-                                <input type="radio" class="radio-one" name="caste">
-                                <span class="checkmark"></span>
-                                ST
-                            </label>
-                        </div>
-                        <div class="col-sm-2">                                                
-                            <label for="" class="radio name fieldlabels">
-                                <input type="radio" class="radio-one" name="caste">
-                                <span class="checkmark"></span>
-                                Other
-                            </label>
-                        </div>
-                    </div>
-                 </div>
-    
-                 <div class="form-group">
-                    <label for="" class="fields fieldlabels">  RELIGION</label>
-                    <select name="religion" class="form-control">
-                      <option disabled="disabled" selected="selected">-----------------Select----------------</option>
-                      <option>Hinduism</option>
-                      <option>Buddhism</option>
-                      <option>Islam</option>
-                      <option>Sikhism</option>
-                      <option>Christianity</option>
-                      <option>Jainism</option>
-                  </select>
-                </div> 
-                <div class="form-group">
-                    <label for="" class="fields fieldlabels">  NATIONALITY</label>
-                    <select name="nationality" class="form-control">
-                      <option disabled="disabled" selected="selected">-----------------Select----------------</option>
-                      <option>Indians</option>
-                      <option>Others</option>
-                      
-                      
-                  </select>
-                </div> 
+                  <div class="col-sm-2"></div>
+                  
+                  <div class="form-group col-sm-4">                     
+                    <div class="form-group">
+                      <label for="" class="fields fieldlabels black-text">  NATIONALITY</label>
+                      <select name="nationality" class="form-control">
+                        <option disabled="disabled" selected="selected">------------Select------------</option>
+                        <option>Indian</option>
+                        <option>Other</option>                                          
+                      </select>
+                      </div>
+                  </div>
+                </div>
+                
+                 
+                 
             </div>                                  
         </div>
 
@@ -210,8 +180,8 @@
                             <input type="text" name="bloodgp" id="bloodgp" class="form-control" placeholder="Blood Group">
                         </div>
                         <div class="col-sm-4">
-                            <label for="" class="fields">HIEGHT</label>
-                            <input type="text" name="hieght" id="hieght" class="form-control" placeholder="Hieght(in feets)">
+                            <label for="" class="fields">HIGHT</label>
+                            <input type="text" name="hight" id="hieght" class="form-control" placeholder="Hight(in feets)">
                         </div>
                         <div class="col-sm-4">
                             
@@ -572,6 +542,7 @@
 
 
 <script src="/scripts/CWC/multi-step-form.js"> </script>
+<script src="/scripts/CWC/checkboxes.js" ></script>
 
 </body>
 

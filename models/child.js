@@ -16,7 +16,7 @@ var childSchema = new mongoose.Schema({
   gender: {
     type: String,
   },
-  casteCategory: {
+  caste: {
     type: String,
   },
   aadharNumber: {
