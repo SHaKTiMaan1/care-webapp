@@ -3,42 +3,22 @@
     <div class="starting">
          <div class="row">
              <div class="col-md-6">
-                <h2 class="head">CHILD DETAILS</h2>
-         
-                <label for="" class="district">DISTRICT</label>  
-                <label for="" >JHANSI</label>
-            
-             <p class="number">Total Number Of Children</p>
-             <p class="val">5</p>
+                <h2 class="head">CHILDREN UNDER CARE</h2>
+                <label for="" class="district">DISTRICT <%= employee.district.toUpperCase() %></label>  
+                <br> <br>
+                <h1 class=" white-text"><%= cwc.strength %></h1>
+                <p class="number white-text">TOTAL NUMBER OF CHILDREN</p>
+             
              </div>
              <div class="col-md-6">
-                <div class="wrapper place">
-                    <div class="search_box">
-                        <div class="dropdown">
-                            <div class="default_option">All</div>
-                            <ul>
-                                <li>All</li>
-                                <li>Child Id</li>
-                                <li>Child Name</li>
-                                <li>CCI Name</li>
-                                <li>Age</li>
-                            </ul>
-                        </div>
-                        <div class="search_field">
-                            <input type="text" class="input" placeholder="Search">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-                   
              </div>
          </div>
 
     </div>
     <!--Child details-->
-    <div class="pos">
+    <div class="pos pl-0 ">
         <!--table-->
-        <div class="list">
+        <div class="listr table-parent">
             
             <table id="table "
             data-toggle="table"
@@ -47,7 +27,7 @@
             data-show-refresh="true"
             data-show-toggle="true"
             >
-                <thead>
+                <thead class="purple-gradient">
                      <tr>
                          <th >
                              CHILD ID
@@ -74,7 +54,7 @@
                             <td><%=eachChild.cci_name%></td>
                             <td><%=eachChild.age%></td>
                             <td class="joining">
-                                <button class="btn" type="button"><a href="/cwc/dashboard/allChildren/viewChildDetails/<%=employee.employee_id%>">VIEW</a></button>
+                                <button class="btn " type="button"><a  href="/cwc/dashboard/allChildren/viewChildDetails/<%=employee.employee_id%>">VIEW</a></button>
          
                                    
                             </td>

@@ -43,6 +43,9 @@ var cwcEmployeeSchema = new mongoose.Schema({
   cwc_id: {
     type: String,
   },
+  district: {
+    type: String,
+  },
   registeredBy: {
     type: String,
   },

@@ -52,8 +52,8 @@ router.post(
 
     console.log(req.body.cci_id);
 
-    const cci = await Cci.findOne({cci_id:req.body.cci_id})
-
+    const cci = await Cci.findOne({ cci_id: req.body.cci_id });
+    const cwc = await Cwc.findOne({ cwc_id: cci.cwc_id });
     const child = new Child({
       firstName: req.body.firstName,
       middleName: req.body.middleName,
@@ -88,6 +88,14 @@ router.post(
     });
 
     try {
+      updatedCci = await Cci.updateOne(
+        { cci_id: cci.cci_id },
+        { $inc: { strength: 1 } }
+      );
+      updatedCwc = await Cwc.updateOne(
+        { cwc_id: cwc.cwc_id },
+        { $inc: { strength: 1 } }
+      );
       savedChild = child.save();
     } catch (err) {
       console.log(err);
@@ -130,37 +138,20 @@ router.get("/cwc/dashboard/allChildren/:employee_id", async function (
 ) {
   const idToSearch = req.params.employee_id;
   const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
+  const cwc = await Cwc.findOne({ cwc_id: employee.cwc_id });
   const cci_list = await Cci.find(
     { cwc_id: employee.cwc_id },
     { _id: 0, cci_name: 1, cci_id: 1 }
   );
-  const child = await Child.find({cwc_id:employee.cwc_id})
-  // console.log(child)
+  const child = await Child.find({ cwc_id: employee.cwc_id });
+  console.log(child);
   res.render("CWC/allChildrenInCwc.ejs", {
     employee: employee,
     cci_list: cci_list,
-    child : child
+    child: child,
+    cwc: cwc,
   });
 });
-
-
-// view-Details of a child
-router.get("/cwc/dashboard/allChildren/viewChildDetails/:employee_id", async function(req, res){
-
-  const idToSearch = req.params.employee_id;
-  const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
-  const cci_list = await Cci.find(
-    { cwc_id: employee.cwc_id },
-    { _id: 0, cci_name: 1, cci_id: 1 }
-  );
-
-  res.render("CWC/viewdetailsofa-child.ejs",{employee:employee, cci_list:cci_list})
-
-}) 
-
-
-
-
 
 //CCI INFORMATION
 router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {

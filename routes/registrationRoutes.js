@@ -86,6 +86,7 @@ router.post("/admin/registerNewCwc/:employee_id", async (req, res) => {
     registeredBy: registeredBy,
     dateOfRegistration: currentDate,
     count: 0,
+    stregth: 0,
   });
 
   console.log("CWC Created " + cwc);
@@ -104,9 +105,7 @@ router.post("/admin/registerNewCwc/:employee_id", async (req, res) => {
 
 //CWC EMPLOYEE REGISTRATION ROUTES
 router.get("/admin/registerNewCwcEmployee/:employee_id", async (req, res) => {
-  const idToSearch = req.params.employee_id.substring(1);
-
-  const admin = await Admin.findOne({ employee_id: idToSearch });
+  const admin = await Admin.findOne({ employee_id: req.params.employee_id });
 
   res.render("registration/registerNewCwcEmployee.ejs", { admin: admin });
 });
@@ -127,8 +126,10 @@ router.post("/admin/registerNewCwcemployee/:employee_id", async (req, res) => {
   //HASHING THE PASSWORD
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
   console.log("Password hashed " + hashedPassword);
+
+  //GETTING DETAILS OF THE CWC
+  const cwc = await Cwc.findOne({ cwc_id: req.body.cwc_id });
 
   //CREATING A NEW CWC EMPLOYEE
   const employee = new CwcEmployee({
@@ -140,6 +141,7 @@ router.post("/admin/registerNewCwcemployee/:employee_id", async (req, res) => {
     gender: req.body.gender,
     aadharNumber: req.body.aadharNumber,
     contactNumber: req.body.contactNumber,
+    district: cwc.cwc_id,
     email: req.body.email,
     cwc_id: req.body.cwc_id,
     password: hashedPassword,

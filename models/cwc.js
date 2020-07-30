@@ -28,6 +28,9 @@ var cwcSchema = new mongoose.Schema({
   count: {
     type: Number,
   },
+  strength: {
+    type: Number,
+  },
 });
 
 module.exports = mongoose.model("Cwc", cwcSchema);
