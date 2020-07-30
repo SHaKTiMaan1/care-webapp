@@ -10,7 +10,7 @@
       <div class="card light-purple2">
         <h2 id="heading" class="mt-3 purple-text">Register a new child</h2>        
         <img src="/images/cwc/happykids.png" class="happykids-img" alt="">        
-        <form id="msform">
+        <form id="msform" action="/cwc/dashboard/childRegistration/<%= employee.employee_id%>" method="POST">
           <!-- progressbar -->
           <ul id="progressbar">
             <li class="active" id="personal"><strong>CHILD INFORMATION</strong></li>
@@ -48,10 +48,10 @@
                         <input type="text" name="firstName" id="fname" class="form-control" placeholder="First Name">
                       </div>
                       <div class="col-sm-4">                            
-                        <input type="text" name="mname" id="mname" class="form-control" placeholder="Middle Name">
+                        <input type="text" name="middleName" id="mname" class="form-control" placeholder="Middle Name">
                       </div>
                       <div class="col-sm-4">                            
-                        <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name">
+                        <input type="text" name="lastName" id="lname" class="form-control" placeholder="Last Name">
                       </div>
                     </div>
 
@@ -65,7 +65,7 @@
                     </div>                   
                     <div class="col-sm-6">
                       <label for="" class="fields">AGE OF CHILD (If Date of Birth is Unknown) </label>
-                      <input type="text" name="age" id="age" class="form-control" placeholder="Estimated Age of the Child">
+                      <input type="number" name="age" id="age" class="form-control" placeholder="Estimated Age of the Child">
                     </div>                                           
                   </div>                    
                 </div>
@@ -367,7 +367,6 @@
                 </div>
 
               </div>
-              <input type="text" name="cci_id" placeholder=" ID" />
               <div class="guardianinfo">
                 <p class="infoheading">GUARDIAN INFORMATION</p>
                 <hr>
@@ -392,22 +391,6 @@
                     </div>
                     
                 </div> 
-                <div class="form-group">
-                    
-                       
-                    <div class="row position">                    
-                        <div class="col-sm-6">
-                            <label for="" class="fields">AGE</label>
-                            <input type="text" name="age" id="age" class="form-control" placeholder="Age of child">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="" class="fields">DATE OF BIRTH</label>
-                            <input type="date" name="dob" id="dob" class="form-control" placeholder="dd-mm-yyyy">
-                        </div>                      
-                    </div>
-
-                    
-                </div>
 
                 <div class="form-group">
                     <label for="" class="fields">AADHAAR NUMBER</label>
@@ -441,20 +424,7 @@
                     </div>
                     
                 </div> 
-                <div class="form-group">
-                    
-                       
-                    <div class="row position">                   
-                        <div class="col-sm-6">
-                            <label for="" class="fields">AGE</label>
-                            <input type="text" name="age" id="age" class="form-control" placeholder="Age of child">
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="" class="fields">DATE</label>
-                            <input type="date" name="dob" id="dob" class="form-control" placeholder="dd-mm-yyyy">
-                        </div>                       
-                    </div>                   
-                </div>
+               
                 <div class="form-group">
                     <label for="" class="fields">AADHAAR NUMBER</label>
                     <input type="text" name="adhaarnum" id="adhaarnum" class="form-control" placeholder="Aadhaar Number">
@@ -488,7 +458,7 @@
         </div>
 
             <input
-              type="button"
+              type="submit"
               name="next"
               class="next action-button"
               value="Submit"

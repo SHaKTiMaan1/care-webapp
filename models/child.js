@@ -13,6 +13,9 @@ var childSchema = new mongoose.Schema({
   dateOfBirth: {
     type: String,
   },
+  age: {
+    type: Number,
+  },
   gender: {
     type: String,
   },
