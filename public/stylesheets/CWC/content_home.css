@@ -315,6 +315,9 @@ header {
 .purple-text {
   color: #7504aa !important;
 }
+.dark-purple-text {
+  color: #3a0253 !important;
+}
 
 .w800h100 {
   width: 100%;
