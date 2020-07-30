@@ -11,6 +11,7 @@ const cwcRoutes = require("./routes/cwcRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const otherRoutes = require("./routes/otherRoutes");
+const dcpuRoutes = require("./routes/dcpuRoutes");
 
 const app = express();
 dotenv.config();
@@ -40,9 +41,7 @@ app.use(cwcRoutes);
 app.use(adminRoutes);
 app.use(messageRoutes);
 app.use(otherRoutes);
-
-
-
+app.use(dcpuRoutes);
 
 //LISTENING
 // app.listen(process.env.PORT, process.env.IP);
