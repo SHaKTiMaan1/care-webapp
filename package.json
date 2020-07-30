@@ -2,9 +2,6 @@
   "name": "care",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "12.13.0"
-  },
   "main": "app.js",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
@@ -23,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/SHaKTiMaan1/CARE.git"
   },
-  "author": "SHaKTiMaan",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SHaKTiMaan1/CARE/issues"
