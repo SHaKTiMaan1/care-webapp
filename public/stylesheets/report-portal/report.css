@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "quartzo";
+    background: #fff;
+  }
+  .background2{
+    background: rgba(0, 0,0, 0.7);
+    background-size: cover;
+    background-blend-mode: darken;
+}
+.navbar{
+    display: flex;
+   
+    position: sticky;
+    top: 0;
+    padding: 0;
+    cursor: pointer;
+}
+  
+
+
+
+    .logo{
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+       
+        
+    }
+.brand{
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: "quartzo";
+    
+}
+.report-header{
+    
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 20rem;
+    border-radius: 6px;
+    height: 30px;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.9);
+    background: #9f12e0;
+    text-align: center;
+}
+.report-title{
+    color: #fff;
+    font-size: 22px;
+}
+.report-body{
+   
+    margin-top: 40px;
+}
+.report-sec-1{
+    background: #d3d3d3;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.9);
+
+}
+.repo-section-heading{
+    color: #7e04b6;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.repo-fields{
+    color: black;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+::placeholder{
+    color: #7e04b6 !important;
+
+}
+.report-sec-1 .form-control{
+    font-size: 18px !important;
+    
+}
+.report-sec-1 .backbt{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right,#7e04b6,#382043,#F4F6F9);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+	text-align: center !important;
+	padding-top: 10px;
+}
+.report-sec-1 .backbt:hover{
+	background-position: right;
+    color: black;
+    text-decoration: none;
+}
