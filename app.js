@@ -44,5 +44,5 @@ app.use(otherRoutes);
 app.use(dcpuRoutes);
 
 //LISTENING
-app.listen(process.env.PORT, process.env.IP);
-// app.listen(3001, () => console.log("Server says Hello!!"));
+// app.listen(process.env.PORT, process.env.IP);
+app.listen(3001, () => console.log("Server says Hello!!"));
