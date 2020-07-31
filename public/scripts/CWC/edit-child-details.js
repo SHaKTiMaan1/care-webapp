@@ -1,4 +1,7 @@
 // for(let i = 1; i < 5 ; i++)
+
+for()
+
 var editIcon = document.getElementById("edit-child-details-edit-icon-1");
 var editIconParent = document.getElementById(
   "edit-child-details-edit-icon-parent-1"

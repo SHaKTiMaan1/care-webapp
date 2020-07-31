@@ -71,6 +71,9 @@ var cciSchema = new mongoose.Schema({
           present: {
             type: Boolean,
           },
+          reasonOfAbsence: {
+            type: String,
+          },
         },
       ],
     },
