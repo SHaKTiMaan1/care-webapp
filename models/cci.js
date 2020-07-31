@@ -75,6 +75,25 @@ var cciSchema = new mongoose.Schema({
       ],
     },
   ],
+  in_out_movement: [
+    {
+      child_id: {
+        type: String,
+      },
+      date_out: {
+        type: String,
+      },
+      time_out: {
+        type: String,
+      },
+      date_in: {
+        type: String,
+      },
+      time_in: {
+        type: String,
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Cci", cciSchema);
