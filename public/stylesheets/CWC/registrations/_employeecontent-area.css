@@ -84,7 +84,7 @@
     color: #7e04b6 !important;
 
 }
-.registration a{
+.positioning-button a{
 	display: block;
 	text-align: center;
 	text-decoration: none;
@@ -93,13 +93,13 @@
 	transition: .3s;
 }
 
-.registration a:hover{
+.positioning-button a:hover{
 	color: #282639;
 }
 
 
 
-.registration .btn{
+.positioning-button .btn{
 	display: block;
 	width: 100%;
 	height: 50px;
@@ -118,7 +118,7 @@
 	text-align: center !important;
 	padding-top: 10px;
 }
-.registration .btn:hover{
+.positioning-button .btn:hover{
 	background-position: right;
 	color: #fff;
 }
