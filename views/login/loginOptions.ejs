@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/stylesheets/CWC/content_home.css" />
-    
+
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   </head>
   <body>
@@ -40,39 +40,37 @@
     <section class="container container2">
       <div class="row">
         <div class="col-md-6">
-          
           <div class="img">
-            <img src="/images/login/dcpu.svg" alt="">
-        </div>
+            <img src="/images/login/dcpu.svg" alt="" />
+          </div>
         </div>
         <div class="col-md-6">
           <div class="login-content">
-            <form action="indexlog.html">
-                <img class="userimg" src="/images/icons/usericon.svg" alt="">
-                <h2>Welcome</h2>
-                <div class="input-div one">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div>
-                        <h5>Username</h5>
-                        <input type="text" class="input">
-                    </div>
+            <form action="/loginOptions" method="POST">
+              <img class="userimg" src="/images/icons/usericon.svg" alt="" />
+              <h2>Welcome</h2>
+              <div class="input-div one">
+                <div class="i">
+                  <i class="fas fa-user"></i>
                 </div>
-                <div class="input-div two">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div>
-                        <h5>Password</h5>
-                        <input type="password" class="input">
-                    </div>
+                <div>
+                  <h5>Email</h5>
+                  <input type="text" class="input" name="email" />
                 </div>
-                <a href="#">Forgot Password ?</a>
-                <input type="submit" class="btn" value="Login">
-               
+              </div>
+              <div class="input-div two">
+                <div class="i">
+                  <i class="fas fa-lock"></i>
+                </div>
+                <div>
+                  <h5>Password</h5>
+                  <input type="password" class="input" name="password" />
+                </div>
+              </div>
+              <a href="#">Forgot Password ?</a> <br />
+              <input type="submit" class="btn" value="Login" />
             </form>
-        </div>
+          </div>
         </div>
       </div>
     </section>
