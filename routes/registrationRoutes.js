@@ -250,6 +250,7 @@ router.get(
     const employee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
     });
+    const cci = await Cci.findOne({cci_id:req.params.cci_id},{'attendance':0})
     const cci_list = await Cci.find(
       { cwc_id: employee.cwc_id },
       { _id: 0, cci_name: 1, cci_id: 1 }
@@ -258,7 +259,7 @@ router.get(
     res.render("registration/registerNewCciEmployee.ejs", {
       employee: employee,
       cci_list: cci_list,
-      cci_id: req.params.cci_id,
+      cci: cci
     });
   }
 );
@@ -280,7 +281,7 @@ router.post(
     console.log("Password hashed " + hashedPassword);
     var cciEmployeeId = "";
 
-    cciEmployeeId = req.body.fname + req.params.cci_id;
+    cciEmployeeId = req.body.firstName + req.params.cci_id;
 
     const cwcemployee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
@@ -288,14 +289,15 @@ router.post(
 
     //CREATING A NEW CCI EMPLOYEE
     const employee = new CciEmployee({
-      name: req.body.fname,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       contactNumber: req.body.contactNumber,
       email: req.body.email,
       gender: req.body.gender,
       cwc_id: cwcemployee.cwc_id,
       cci_id: req.params.cci_id,
       password: hashedPassword,
-      employee_id: cciEmployeeId,
+      employee_id: cciEmployeeId
     });
 
     console.log("Employee Created " + employee);
