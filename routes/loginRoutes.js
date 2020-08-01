@@ -2,12 +2,11 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const CciEmployee = require("../models/cciEmployee");
 const CwcEmployee = require("../models/cwcEmployee");
+const DcpuOfficer = require("../models/dcpuOfficer");
+const StateOfficial = require("../models/stateOfficial");
+const NationalOfficial = require("../models/nationalOfficial");
 const Admin = require("../models/admin");
 const { loginValidation } = require("../validation");
-const StateOfficial = require("../models/stateOfficial")
-
-
-
 
 //ADMIN LOGIN
 router.get("/login/admin", (req, res) => {
@@ -43,6 +42,100 @@ router.post("/login/admin", async (req, res) => {
 });
 
 //CWC EMPLOYEE LOGIN
+
+router.post("/loginOptions", async (req, res) => {
+  const { error } = loginValidation(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  console.log("Validated login");
+
+  const cwcEmployee = await CwcEmployee.findOne({ email: req.body.email });
+  if (cwcEmployee) {
+    const isPasswordValid = await bcrypt.compare(
+      req.body.password,
+      cwcEmployee.password
+    );
+    console.log("isPasswordValid : " + isPasswordValid);
+    if (isPasswordValid) {
+      redirectionLink = "/cwc/dashboard/";
+      employee = cwcEmployee;
+    } else {
+      res.send("Wrong Password !!");
+    }
+  }
+  if (!cwcEmployee) {
+    const cciEmployee = await CciEmployee.findOne({ email: req.body.email });
+    if (cciEmployee) {
+      const isPasswordValid = await bcrypt.compare(
+        req.body.password,
+        cciEmployee.password
+      );
+      console.log("isPasswordValid : " + isPasswordValid);
+      if (isPasswordValid) {
+        redirectionLink = "/cci/dashboard/";
+        employee = cciEmployee;
+      } else {
+        res.send("Wrong Password !!");
+      }
+    }
+    if (!cciEmployee) {
+      const dcpuOfficer = await DcpuOfficer.findOne({
+        email: req.body.email,
+      });
+      if (dcpuOfficer) {
+        const isPasswordValid = await bcrypt.compare(
+          req.body.password,
+          dcpuOfficer.password
+        );
+        console.log("isPasswordValid : " + isPasswordValid);
+        if (isPasswordValid) {
+          redirectionLink = "/cci/dashboard/";
+          employee = dcpuOfficer;
+        } else {
+          res.send("Wrong Password !!");
+        }
+      }
+      if (!dcpuOfficer) {
+        const stateOfficial = await StateOfficial.findOne({
+          email: req.body.email,
+        });
+        if (stateOfficial) {
+          const isPasswordValid = await bcrypt.compare(
+            req.body.password,
+            stateOfficial.password
+          );
+          console.log("isPasswordValid : " + isPasswordValid);
+          if (isPasswordValid) {
+            redirectionLink = "/cci/dashboard/";
+            employee = stateOfficial;
+          } else {
+            res.send("Wrong Password !!");
+          }
+        }
+        if (!stateOfficial) {
+          const natinalOfficial = await NationalOfficial.findOne({
+            email: req.body.email,
+          });
+          if (nationalOfficial) {
+            const isPasswordValid = await bcrypt.compare(
+              req.body.password,
+              nationalOfficial.password
+            );
+            console.log("isPasswordValid : " + isPasswordValid);
+            if (isPasswordValid) {
+              redirectionLink = "/cci/dashboard/";
+              employee = nationalOfficial;
+            } else {
+              res.send("Wrong Password !!");
+            }
+          }
+        }
+      }
+    }
+  }
+  res.redirect(redirectionLink + employee.employee_id);
+});
+
 router.get("/login/cwcemployee", (req, res) => {
   res.render("login/loginCwcEmployee.ejs");
 });
@@ -57,9 +150,7 @@ router.post("/login/cwcemployee", async (req, res) => {
   //CHECKING IF USER EXISTS
   const employee = await CwcEmployee.findOne({ email: req.body.email });
   if (!employee) res.send("Employee doesn't exist");
-
   console.log("Found Employee " + employee);
-
   //CHECKING IF PASSWORD IS CORRECT
   const isPasswordValid = await bcrypt.compare(
     req.body.password,
@@ -86,7 +177,6 @@ router.post("/login/cciemployee", async (req, res) => {
   const employee = await CciEmployee.findOne({ email: req.body.email });
   if (!employee) res.send("Employee doesn't exist");
 
-  console.log("Found Employee " + employee);
   //CHECKING IF PASSWORD IS CORRECT
   const isPasswordValid = await bcrypt.compare(
     req.body.password,
@@ -101,16 +191,12 @@ router.post("/login/cciemployee", async (req, res) => {
   }
 });
 
-
 // STATE LOGIN
-router.get('/login/state',async function(req, res){
+router.get("/login/state", async function (req, res) {
   res.render("login/loginstate.ejs");
 });
 
-
 router.post("/login/state", async (req, res) => {
-  
-
   //CHECKING IF USER EXISTS
   console.log(req.body.email);
   const stateOfficial = await StateOfficial.findOne({ email: req.body.email });

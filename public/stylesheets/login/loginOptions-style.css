@@ -13,6 +13,9 @@
   color: #3a0253 !important;
   border: 2px solid white !important;
 }
+.colora a{
+  color: #fff !important;
+}
 .colora:hover {
   background-color: white;
   color: #3a0253 !important;
@@ -20,93 +23,162 @@
 }
 .colora a:hover {
   color: #3a0253 !important;
+  text-decoration: none !important;
 }
-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 90px;
+
+/* adding new*/
+.container2{
+  
+  margin-bottom: 20px;
 }
-.card {
-  position: relative;
-  width: 250px;
-  height: 350px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid black !important;
-  background: rgb(58, 57, 57) !important;
-  color: #fff !important;
-  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.6);
-  transition: 0.5s ease;
-  cursor: pointer;
+.img img{
+	width: 90%;
 }
-.card:hover {
-  -webkit-box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
-  -moz-box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
-  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
-  transform: scale(1.1);
-}
-.imgBox {
-  position: relative;
-  width: 100%;
-  height: 150px;
-  padding-left: 70px;
-}
-.imgBox img {
-  position: absolute;
-  width: 100px;
+
+.login-content img{
   height: 100px;
-  top: 25px;
-  left: calc(50%, - 50%);
-  border-radius: 50%;
-  border: 1px solid wheat;
-}
-h4 {
-  font-size: 24px;
-  text-align: center;
-  padding: 20px 0;
-  z-index: 99999 !important;
-  position: sticky;
-  color: #fff;
 }
 
-.more {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  text-decoration: none !important;
-  text-transform: uppercase;
-  border: 1px solid white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  transition: 0.5s;
-}
-.more:hover {
-  background: #272727;
-  border-color: #272727;
+form{
+  width: 80%;
+  text-align: center;
+  margin-left: 50px;
+  margin-top: 20px;
 }
 
-.text-footer {
-  text-align: center;
-  padding: 3px 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  font-size: 20px;
-  justify-content: center;
-  color: white;
-  margin: 0;
+.login-content img{
+    height: 100%;
 }
-.background2 {
-  background: rgba(0, 0, 0, 0.7);
-  background-size: cover;
-  background-blend-mode: darken;
+
+.login-content h2{
+	margin: 15px 0;
+	color: #333;
+	text-transform: uppercase;
+	font-size: 2.9rem;
 }
-a {
-  text-decoration: none !important;
-  color: #fff !important;
+.login-content .input-div{
+	position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.login-content .input-div.one{
+	margin-top: 0;
+}
+
+.i{
+	color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	transition: .3s;
+}
+
+.input-div > div{
+    position: relative;
+	height: 45px;
+}
+.userimg{
+    width: 100px;
+}
+
+.input-div > div > h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	transition: .3s;
+}
+
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: #282639;
+	transition: .4s;
+}
+
+.input-div:before{
+	right: 50%;
+}
+
+.input-div:after{
+	left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+	width: 50%;
+}
+
+.input-div.focus > div > h5{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input-div.focus > .i > i{
+	color: #282639;
+}
+
+.input-div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+	font-family: 'poppins', sans-serif;
+}
+
+.input-div.pass{
+	margin-bottom: 4px;
+}
+
+.container2 a{
+	display: block;
+	text-align: right;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	transition: .3s;
+}
+
+.container2 a:hover{
+	color: #282639;
+}
+
+.container2 .btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right,#282639,#382043,#F4F6F9);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	
+	cursor: pointer;
+	transition: .5s;
+}
+.container2 .btn:hover{
+	background-position: right;
+	color: #282639;
 }
