@@ -1,70 +1,64 @@
-#admin-home-content{
-    margin-top: 12vh !important;
-    margin-left: 55px;    
+#admin-home-content {
+  margin-top: 12vh !important;
+  margin-left: 55px;
 }
-.admin-home-header{
+.admin-home-header {
+  height: 80px;
+  background: #7e04b6;
+}
+.admin-home-title {
+  color: #fff;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.admin-home-body {
+  margin-top: 30px;
+}
+.admin-home-body .row {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.admin-home-body .card {
+  height: 150px;
 
-    height: 80px;
-    background: #7e04b6;
+  padding-left: 10px;
+  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
+  transition: 0.5s ease;
+  cursor: pointer;
 }
-.admin-home-title{
-    color: #fff;
-    padding-left: 20px;
-    padding-top: 20px;
+.admin-home-body .card:hover {
+  margin-top: 15px;
 }
-.admin-home-body{
-    
-    margin-top: 30px;
+.blocks-title {
+  text-align: left;
+  padding-top: 10px;
+  font-size: 20px;
+  color: #282639;
 }
-.admin-home-body .row{
-    width: 100%;
-    margin-bottom: 20px;
+.admin-home-body .backbt {
+  display: block;
+  width: 50%;
+  height: 30px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #282639, #382043, #f4f6f9);
+  background-size: 200%;
+  font-size: 1.1rem;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  margin-top: 10px;
+  padding-top: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: none;
 }
-.admin-home-body .card{
-    
-    height: 150px;
-   
-    padding-left: 10px;
-    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.9);
-    transition: .5s ease;
-    cursor: pointer;
+.admin-home-body .backbt:hover {
+  background-position: right;
+  text-decoration: none;
+  color: black;
 }
-.admin-home-body .card:hover{
-    
-   
-    margin-top: 15px;
-}
-.blocks-title{
-    text-align: left;
-    padding-top: 10px;
-    font-size: 20px;
-    color: #282639;
-}
-.admin-home-body .backbt{
-	display: block;
-	width: 50%;
-	height: 30px;
-	border-radius: 25px;
-	outline: none;
-	border: none;
-	background-image: linear-gradient(to right,#282639,#382043,#F4F6F9);
-	background-size: 200%;
-	font-size: 1.1rem;
-	color: #fff;
-	font-family: 'Poppins', sans-serif;
-	text-transform: uppercase;
-    margin-top: 10px;
-    padding-top: 5px;
-	cursor: pointer;
-    transition: .5s;
-    text-decoration: none;
-}
-.admin-home-body .backbt:hover{
-    background-position: right;
-    text-decoration: none;
-    color: black;
-	
-}
-.admin-home-body .backbt{
-    float: right;
+.admin-home-body .backbt {
+  float: right;
 }
