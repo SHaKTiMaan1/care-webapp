@@ -135,9 +135,7 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
     { _id: 0, cci_name: 1, cci_id: 1 }
   );
   const cci_count = await Cci.countDocuments({ cwc_id: cwc_id });
-  // console.log(cci);
-  // console.log("Employee found in CWC Route :");
-  // console.log(employee);
+
   res.render("CWC/dashboardHome.ejs", {
     employee: employee,
     cci_list: cci_list,
