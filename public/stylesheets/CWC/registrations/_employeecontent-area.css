@@ -1,0 +1,124 @@
+#content-area{
+    margin-top: 12vh !important;
+  margin-left: 50px !important;
+  
+  width: 96%;
+  
+  
+  
+    
+}
+.heading{
+    background:#7e04b6;
+    
+    color: #fff !important;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.6);
+    
+    border-radius: 6px;
+    height: 40px;
+}
+.employee-register-title{
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.image{
+    margin: 10px 400px 10px 480px;
+    
+}  
+.image img{
+   height: 150px;
+   width: 80%;
+   border-radius: 6px;
+}
+
+.personalinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+.infoheading{
+    font-size: 1rem;
+    font-weight: 200;
+    color: #7e04b6;
+}
+.contactinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+
+.officialinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+.registration{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+.reg{
+    padding-left: 10px;
+    display: inline-block;
+
+}
+.radio{
+    color: black;
+}
+.fields{
+    color: black;
+}
+::placeholder{
+    color: #7e04b6 !important;
+
+}
+.positioning-button a{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color:#fff;
+	font-size: 1.2rem;
+	transition: .3s;
+}
+
+.positioning-button a:hover{
+	color: #282639;
+}
+
+
+
+.positioning-button .btn{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right,#7e04b6,#382043,#F4F6F9);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+	text-align: center !important;
+	padding-top: 10px;
+}
+.positioning-button .btn:hover{
+	background-position: right;
+	color: #fff;
+}

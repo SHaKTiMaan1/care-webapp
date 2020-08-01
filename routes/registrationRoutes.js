@@ -277,6 +277,10 @@ router.post(
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
     console.log("Password hashed " + hashedPassword);
+    console.log("Password hashed " + hashedPassword);
+    var cciEmployeeId = "";
+
+    cciEmployeeId = req.body.fname + req.params.cci_id;
 
     const cwcemployee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
@@ -291,6 +295,17 @@ router.post(
       cwc_id: cwcemployee.cwc_id,
       cci_id: req.params.cci_id,
       password: hashedPassword,
+    });
+    //CREATING A NEW CCI EMPLOYEE
+    const employee = new CciEmployee({
+      name: req.body.fname,
+      contactNumber: req.body.contactNumber,
+      email: req.body.email,
+      gender: req.body.gender,
+      cwc_id: cwcemployee.cwc_id,
+      cci_id: req.params.cci_id,
+      password: hashedPassword,
+      employee_id: cciEmployeeId,
     });
 
     console.log("Employee Created " + employee);

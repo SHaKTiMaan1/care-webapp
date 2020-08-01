@@ -1,18 +1,20 @@
 <%- include("../partials/headerCwcDashboard")%>
 
-<section class="inline-flex" id="content-area">
-  
-  <div class="container pos">
-    <div class="heading">
-      <p class="name">New CCI Employee Registration Portal</p>
+<section id="content-area">
+  <!--heading-->
+  <div class="heading">
+      <p class="employee-register-title">Registration Portal For Head of Kanha Orphanage</p>
     </div>
   <!--image-->
   <div class="image">
       <img src="/images/groupemployee.jpg" alt="">
-  </div> 
+  </div>  
+  <div class="container pos">
+   
     <form 
       action="/cwc/dashboard/newCciEmployeeRegistraton/<%=employee.employee_id%>/<%=cci_id%>"
       method="post"
+      
     >
       <div class="personalinfo">
         <p class="infoheading">CCI Employee Registration</p>

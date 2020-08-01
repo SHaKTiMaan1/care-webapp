@@ -14,4 +14,8 @@ router.get("tanishaTest", (req, res) => {
   res.render("");
 });
 
+router.get("/report", function(req, res){
+  res.render("Tanisha/report-portal.ejs");
+})
+
 module.exports = router;
