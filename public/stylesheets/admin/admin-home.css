@@ -12,22 +12,29 @@
   padding-top: 20px;
 }
 .admin-home-body {
+  
+  margin-left: 50px;
+  margin-right: 50px;
   margin-top: 30px;
 }
 .admin-home-body .row {
   width: 100%;
-  margin-bottom: 20px;
+  margin-top: 70px;
+  margin-left: 10px;
+  margin-bottom: 40px;
+  position: sticky;
 }
 .admin-home-body .card {
   height: 150px;
 
   padding-left: 10px;
-  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
+  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.6);
   transition: 0.5s ease;
   cursor: pointer;
 }
 .admin-home-body .card:hover {
-  margin-top: 15px;
+  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
 }
 .blocks-title {
   text-align: left;
