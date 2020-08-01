@@ -59,7 +59,7 @@ var cciSchema = new mongoose.Schema({
       },
       data: [
         {
-          C_Id: {
+          child_Id: {
             type: String,
           },
           firstName: {

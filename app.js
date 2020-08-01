@@ -12,6 +12,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const otherRoutes = require("./routes/otherRoutes");
 const dcpuRoutes = require("./routes/dcpuRoutes");
+const cciRoutes = require("./routes/cciRoutes");
 
 const app = express();
 dotenv.config();
@@ -38,6 +39,7 @@ app.use(registrationRoutes);
 app.use(loginRoutes);
 app.use(indexRoutes);
 app.use(cwcRoutes);
+app.use(cciRoutes);
 app.use(adminRoutes);
 app.use(messageRoutes);
 app.use(otherRoutes);

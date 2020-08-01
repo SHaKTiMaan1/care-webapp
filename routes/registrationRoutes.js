@@ -243,19 +243,26 @@ router.post(
 
 //====================================================================================
 
-router.get("/registerByCWC/cciEmployee", (req, res) => {
-  res.render("employeeRegistration.ejs", {
-    category: "cciEmployee",
-    registrationBy: "registerByCWC",
+//CCI EMPLOYEE REGISTRATION ROUTES
+router.get("/cwc/dashboard/newCciEmployeeRegistraton/:employee_id/:cci_id", async (req, res) => {
+  const employee = await CwcEmployee.findOne({
+    employee_id: req.params.employee_id,
   });
+  const cci_list = await Cci.find(
+    { cwc_id: employee.cwc_id },
+    { _id: 0, cci_name: 1, cci_id: 1 }
+  );
+
+  res.render("registration/registerNewCciEmployee.ejs", {
+    employee: employee,
+    cci_list: cci_list,
+    cci_id: req.params.cci_id
+  } );
 });
 
-router.post("/registerByCWC/cciemployee", async (req, res) => {
-  //VALIDATING DATA BEFORE MAKING USER
-  const { error } = registerValidationEmployee(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+router.post("/cwc/dashboard/newCciEmployeeRegistraton/:employee_id/:cci_id", async (req, res) => {
+ 
 
-  console.log("Validated");
   //CHECKING IF USER ALREADY EXISTS
   const emailExists = await CciEmployee.findOne({ email: req.body.email });
   if (emailExists) return res.status(400).send("Email Already Exists");
@@ -267,15 +274,24 @@ router.post("/registerByCWC/cciemployee", async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
   console.log("Password hashed " + hashedPassword);
+  var cciEmployeeId ="";
+  
+  cciEmployeeId = req.body.fname + req.params.cci_id
+
+  const cwcemployee = await CwcEmployee.findOne({
+    employee_id: req.params.employee_id,
+  });
 
   //CREATING A NEW CCI EMPLOYEE
   const employee = new CciEmployee({
-    name: req.body.name,
+    name: req.body.fname,
     contactNumber: req.body.contactNumber,
     email: req.body.email,
-    employee_id: req.body.employee_id,
-    cci_id: req.body.cci_id,
+    gender: req.body.gender,
+    cwc_id:  cwcemployee.cwc_id,
+    cci_id: req.params.cci_id,
     password: hashedPassword,
+    employee_id: cciEmployeeId
   });
 
   console.log("Employee Created " + employee);

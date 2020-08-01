@@ -12,7 +12,8 @@ var MessageSchema= new mongoose.Schema(
     //  timestamps: { createdAt: 'created_at' },
     Messages: [
       {
-        message: String,
+        description: String,
+        subject: String,
         employee_id: String,
         sender: String,//cwc or cci
         time: {

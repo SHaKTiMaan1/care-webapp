@@ -13,6 +13,9 @@ var cciEmployeeSchema = new mongoose.Schema({
     lastName   : {
         type        : String
     },
+    gender   : {
+        type        : String
+    },
     dateOfBirth : {
         type : String
     },
@@ -40,7 +43,7 @@ var cciEmployeeSchema = new mongoose.Schema({
         type : String       //cci_id from cciSchema
     },
     registeredBy : {
-        type : String       //employee_id from the cwcEmployeeSchema
+        type : String       //employee_id of the admin
     }
 });
 
