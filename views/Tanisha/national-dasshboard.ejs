@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>National Oficials Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rowdies&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="/stylesheets/CWC/content_home.css" />
+    <link rel="stylesheet" href="/stylesheets/state-official/state-dashboard.css" />
+    <link rel="stylesheet" href="/stylesheets/state-official/state-dashboard-content.css">
+  </head>
+  <body>
+    <section id="sideMenu">
+      <nav id="sidemenu-flexbox">
+
+        <a
+          class="active current"
+          href="home.html"
+          title="Home"
+          ><i class="current2 fa fa-home" aria-hidden="true"></i
+        ></a>
+        <a
+        class="active"
+        href="indexregister.html"
+        title="Adoption Pool List"
+        ><i class="fa fa-list-alt" aria-hidden="true"></i>
+      </a>
+
+        <a class="active" href="child_info.html" title="Children Under Care"> 
+          <i class="fa fa-child" aria-hidden="true"></i>
+        </a>
+
+        <a class="active" href="indexccidetails.html" title="Child Care Institutions under supervision"> <i class="fa fa-building" aria-hidden="true"></i>
+        </a>
+
+        <a class="active" href="indexccireg.html" title="Help">
+          <i class="fa fa-question" aria-hidden="true"></i
+        ></a>
+
+        <a class="active" href="indexccidetails.html" title="Log Out"
+          ><i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+        </a>
+
+      </nav>
+    </section>
+
+  <div clas="flex-vertical">
+    <div class="home-nav-container">
+      <nav class="dashboard-nav navbar fixed-top navbar-light">
+        <div class="container">
+          <a class="" href="#">CARE</a>
+
+          <div id="dashboard-icons-container">
+
+            <h6 class="dashoard-nav-icon"> <%=StateOfficial.firstName.toUpperCase() + " " +StateOfficial.lastName.toUpperCase()%></h6>
+            <a href="" title="Profile">
+              <i class="dashoard-nav-icon fa fa-user"></i>
+            </a>
+            <a href="" title="Notifications"
+              ><i class="dashoard-nav-icon fa fa-bell"></i>
+            </a>
+            <a href="" title="Messages"
+              ><i class="dashoard-nav-icon fa fa-envelope"></i
+            ></a>
+           
+
+          </div>
+        </div>
+      </nav>
+      <nav class="dashboard-nav-second navbar fixed-top navbar-light">
+        <div class="container">
+          <a class="dashboard-nav-brand navbar-brand" href="#"> CARE</a>
+        </div>
+      </nav>
+    </div>
+</div>
+    <!--Ending of dashboard and begining of home page content-->
+    <section class="state-content-area ">
+        <div class="state-homecontent1 purple-gradient mt-5 ml-4 mr-2 pt-2 pb-5 ">
+            <div class="row title">
+                <div class="col-lg-5">
+                    <h3 class="state-official-title font-weight-bold mb-0"> <%=StateOfficial.firstName.toUpperCase() +" "+ StateOfficial.lastName.toUpperCase() %></h3>
+                    <p class="state-official-location"><i class="fa fa-circle" aria-hidden="true"></i>Jhansi,UttarPradesh</p>
+                </div>
+                <div class="col-lg-3 ">
+                    <div class="mx-auto information-child">
+                        <h6 class="total-child-title">Total Number Of Children Under care</h6>
+                        <h3 class="total-child-info">1120</h3>
+                        </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <img class="state-map" src="/images/full-state.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="content2 ml-3">
+            <div class="contain">
+             <p class="state-glance border-bottom "><h1 class="state-glance border-bottom text-center">Nation At Glance</h1></p>
+             <div class="card rounded-0">
+                 <div class="row">
+                     <div class="col-lg-3 d-flex stat my-3">
+                         <div class="mx-auto">
+                         <h6 class="card1 text-muted">Total Number Of CWCs</h6>
+                         <h3 class="value font-weight-bold"><%=cwc_count%></h3>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 d-flex stat my-3">
+                         <div class="mx-auto">
+                         <h6 class="card1 text-muted">Total Number Of CCIs</h6>
+                         <h3 class="value font-weight-bold"><%=cci_count%></h3>
+                         </div>
+                     </div>
+                     <div class="col-lg-3 d-flex stat my-3">
+                         <div class="mx-auto">
+                         <h6 class="card1 text-muted">Children Eligible For Adoption</h6>
+                         <h3 class="value font-weight-bold">1120</h3>
+                         </div>
+                     </div>
+                     <div class="col-lg-3  my-3">
+                         <div class="mx-auto">
+                             </div>
+                         <h6 class="card1 text-muted">Children In Waiting List</h6>
+                         <h3 class="value font-weight-bold">800</h3>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+            </div>
+ 
+         </div>
+        <div class="state-content2 ml-3">
+            <div class="state-contain2">
+                <div class="row">
+                    <div class="col-lg-7 my-4">
+                        <div class="card rounded-0">
+                            <div class="card-header">
+                                <h6 class="graph-title font-weight-bold mb-0">State At a Glance</h6>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 my-4">
+                        <div class="state-change-district">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <label for="" class="fields">Select State to see the data</label>
+                                        <select name="district" class="form-control">
+                                            <option disabled="disabled" selected="selected">Uttar Pradesh</option>
+                                            <option>Andhra Pradesh</option>
+                                            <option>Maharashtra</option>
+                                            <option>Uttar Pradesh</option>
+                                            
+                                        </select>
+                                    </div> 
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="state-district-image">
+                                        <img src="/images/india-states.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <br>
+                        <br>
+                        <div class="card">
+                            <div class="glance-header border-bottom">
+                                <h4 class="glance-title">Highlights</h4>
+                            </div>
+                            <div class="glance-content my-3">
+                                <div class="form-group">
+                                    <label for="" class="text-muted glance-updates"><i class="fa fa-user-plus" aria-hidden="true"></i>Number of new child registered this week : </label>
+                                    <label for="" class="updated-value">5</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="text-muted glance-updates"><i class="fa fa-building" aria-hidden="true"></i>Number of new CCIs registered this year : </label>
+                                    <label for="" class="updated-values">1</label>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="state-contain3 ml-3">
+            <div class="card news my-3">
+                <div class="news-header border-bottom">
+                    <h4 class="glance-title">@CARE News</h4>
+                </div>
+                <div class="glance-content my-3">
+                    <div class="form-group border-bottom  pl-2">
+                        <label for="" class="news-updates"><i class="fa fa-newspaper-o pr-3" aria-hidden="true"></i>Child ID CCIM01,CCI ID JHUP009,Child Name Monu Has been added to the Adoption Pool on July 24,2020 </label>
+                        
+                    </div>
+                    <div class="form-group border-bottom  pl-2">
+                        <label for="" class="news-updates"><i class="fa fa-newspaper-o pr-3" aria-hidden="true"></i>Child Name Guddu,Child ID CCIG05 has been shifted from CCI ID JHUP001 to CCI ID JHUP009 on July 15,2020  </label>
+                        
+                    </div>
+                    <div class="form-group border-bottom  pl-2">
+                        <label for="" class="news-updates"><i class="fa fa-newspaper-o pr-3" aria-hidden="true"></i>Child Name Guddu,Child ID CCIG05 has been shifted from CCI ID JHUP001 to CCI ID JHUP009 on July 15,2020  </label>
+                        
+                    </div>
+                    <div class="form-group border-bottom  pl-2">
+                        <label for="" class="news-updates"><i class="fa fa-newspaper-o pr-3" aria-hidden="true"></i>Child Name Guddu,Child ID CCIG05 has been shifted from CCI ID JHUP001 to CCI ID JHUP009 on July 15,2020  </label>
+                        
+                    </div>
+                    <div class="form-group border-bottom  pl-2">
+                        <label for="" class="news-updates"><i class="fa fa-newspaper-o pr-3" aria-hidden="true"></i>Child Name Guddu,Child ID CCIG05 has been shifted from CCI ID JHUP001 to CCI ID JHUP009 on July 15,2020  </label>
+                        
+                    </div>
+                    <div class="form-group border-bottom  pl-2">
+                        <label for="" class="news-updates"><i class="fa fa-newspaper-o pr-3" aria-hidden="true"></i>Child Name Guddu,Child ID CCIG05 has been shifted from CCI ID JHUP001 to CCI ID JHUP009 on July 15,2020  </label>
+                        
+                    </div>
+                    <div class="form-group pl-2">
+                        <label for="" class="news-updates"><i class="fa pr-3 fa-newspaper-o" aria-hidden="true"></i>Child Name Guddu,Child ID CCIG05 has been shifted from CCI ID JHUP001 to CCI ID JHUP009 on July 15,2020  </label>
+                        
+                    </div>
+                   
+                </div>
+        </div>
+        </div>
+    </section>
+    
+    
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+  <script> 
+  var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['Number Of CWCs', 'Number of CCIs', 'Children eligible for adoption', 'Children in Waiting List'],
+        datasets: [{
+            label: 'Jhansi District Database',
+            backgroundColor: [
+                '#12C9E5',
+                '#12C9E5',
+                '#111B54',
+                '#12C9E5'
+            ],
+            maxBarThickness:50,
+            borderColor: 'rgb(255, 99, 132)',
+            
+            data: [10,25,870,198]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+    });
+</script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"
+  ></script>
+    </body>
+  </html>
+  
