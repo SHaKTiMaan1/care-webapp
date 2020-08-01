@@ -16,7 +16,7 @@ router.get('/message/:employee_id/:cci_id', async function (req, res) {
       }
       else {
         var obj = JSON.parse(JSON.stringify(message));
-        console.log(obj);
+        // console.log(obj);
         // res.send(obj);
 
         res.render("messageBox.ejs", { employee: employee, conversation: obj[0].Messages,  cci: cci, cci_list:cci_list });
@@ -46,7 +46,8 @@ router.post('/message/:employee_id/:cci_id', function (req, res) {
     time: new Date(),
     sender: "cwc",
     employee_id: req.params.employee_id,
-    message: req.body.message
+    subject: req.body.subject,
+    description: req.body.description
   }];
 
   Message.findOneAndUpdate(

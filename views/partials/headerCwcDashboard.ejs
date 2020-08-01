@@ -56,7 +56,8 @@
         <a
           class="active"
           href="/cwc/dashboard/allChildren/<%= employee.employee_id %>"
-          title="Children Under Care"
+          data-toggle="popover" title="Children Under Care" data-content="Details of all children in the district. You can view and edit the details of each child. "
+
           ><i class="fa fa-child" aria-hidden="true"></i>
         </a>
 
@@ -102,7 +103,7 @@
             
               <div class="dropdown-menu dashboard-home-message-dropdown" aria-labelledby="dropdownMenuLink">
                 <%cci_list.forEach(function(eachCci){%>
-                  <a class="dropdown-item message-list" href="/message/<%=employee.employee_id%>/<%=eachCci.cci_id%>"><%=eachCci.cci_name.toUpperCase()%></a>
+                  <a  data-toggle="popover" title="Send the " data-content="Registration form for New Child." class="dropdown-item message-list" href="/message/<%=employee.employee_id%>/<%=eachCci.cci_id%>"><%=eachCci.cci_name.toUpperCase()%></a>
                   <%})%>
                 
                 </div>
