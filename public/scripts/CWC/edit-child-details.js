@@ -12,3 +12,10 @@ editIcon.onclick = function () {
   editArea.classList.remove("editDetails-hide");
   editArea.classList.add("editDetails-show-flex");
 };
+
+// var editIcon = [];
+// var editIconParent = [];
+// var editArea = [];
+// for (let i = 1; i < 12; i++) {
+//   editIcon[i] = document.getElementById("edit-child-details-edit-icon-" + i);
+// }
