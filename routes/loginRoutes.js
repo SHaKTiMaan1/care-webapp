@@ -74,6 +74,7 @@ router.post("/loginOptions", async (req, res) => {
       console.log("isPasswordValid : " + isPasswordValid);
       if (isPasswordValid) {
         redirectionLink = "/cci/dashboard/";
+        console.log(redirectionLink);
         userid = cciEmployee.employee_id;
       } else {
         res.send("Wrong Password !!");

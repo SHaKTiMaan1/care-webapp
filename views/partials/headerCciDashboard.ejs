@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CCI Home Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Rowdies&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="/stylesheets/CWC/content_home.css" />
+    <link rel="stylesheet" href="/stylesheets/CWC/_childcontent-area.css">
+    <link rel="stylesheet" href="/stylesheets/admin/admin-home.css">
+    
+    <link
+      rel="stylesheet"
+      href="/stylesheets/CWC/registrations/child-registration.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/CWC/registrations/newcci-registration.css"
+    />
+  </head>
+  <body>
+    <section id="sideMenu">
+      <nav id="sidemenu-flexbox">
+        <a
+          class="active"
+          href="/cci/dashboard/<%= employee.employee_id%>"
+          title="Home"
+          ><i class=" fa fa-home" aria-hidden="true"></i
+        ></a>
+
+        <a class="active" href="indexccidetails.html" title="Log Out"
+          ><i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+        </a>
+      </nav>
+    </section>
+
+    <section class="home-nav-container">
+      <nav class="dashboard-nav navbar fixed-top navbar-light">
+        <div class="container">
+          <a class="" href="#"></a>
+
+          <div id="dashboard-icons-container">
+            <h6 class="dashoard-nav-icon">
+            <%= employee.firstName.toUpperCase() + " " +employee.lastName.toUpperCase() %>
+            </h6>
+            <a href="" title="Profile">
+              <i class="dashoard-nav-icon fa fa-user"></i>
+            </a>
+        
+          </div>
+        </div>
+      </nav>
+      <nav class="dashboard-nav-second navbar fixed-top navbar-light">
+        <div class="container">
+          <a class="dashboard-nav-brand navbar-brand" href="#"> CARE</a>
+        </div>
+      </nav>
+    </section>
+  </div>
+
+
