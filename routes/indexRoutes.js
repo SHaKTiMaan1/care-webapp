@@ -18,4 +18,8 @@ router.get("/report", function (req, res) {
   res.render("Tanisha/report-portal.ejs");
 });
 
+router.get("/popup", (req, res) => {
+  res.render("Tanisha/creating-popup.ejs");
+});
+
 module.exports = router;
