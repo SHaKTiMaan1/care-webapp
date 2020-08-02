@@ -1,10 +1,6 @@
 const router = require("express").Router();
 
-
 const report = require('../models/report.js')
-
-
-
 
 
 router.post("/report",async function(req, res){
