@@ -18,7 +18,7 @@ router.get(
 
     //checking if Password is valid
     const isPasswordValid = await bcrypt.compare(
-      req.params.hashedPassword,
+      req.params.passwordToCompare,
       cci_employee.password
     );
 

@@ -250,7 +250,10 @@ router.get(
     const employee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
     });
-    const cci = await Cci.findOne({cci_id:req.params.cci_id},{'attendance':0})
+    const cci = await Cci.findOne(
+      { cci_id: req.params.cci_id },
+      { attendance: 0 }
+    );
     const cci_list = await Cci.find(
       { cwc_id: employee.cwc_id },
       { _id: 0, cci_name: 1, cci_id: 1 }
@@ -259,7 +262,7 @@ router.get(
     res.render("registration/registerNewCciEmployee.ejs", {
       employee: employee,
       cci_list: cci_list,
-      cci: cci
+      cci: cci,
     });
   }
 );
@@ -297,7 +300,7 @@ router.post(
       cwc_id: cwcemployee.cwc_id,
       cci_id: req.params.cci_id,
       password: hashedPassword,
-      employee_id: cciEmployeeId
+      employee_id: cciEmployeeId,
     });
 
     console.log("Employee Created " + employee);
@@ -343,7 +346,7 @@ router.post("/admin/registerStateOfficial/:admin_employee_id", async function (
   official_id = statename.concat(fname, randomNo);
 
   //HASHING THE PASSWORD
-  const salt = await bcrypt.genSalt(10);
+  const salt = SALT_FOR_CCI;
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
   console.log("Password hashed " + hashedPassword);
 
