@@ -6,13 +6,13 @@
   <div class="dcpu-homecontent1">
       <div class="row title">
           <div class="col-lg-5">
-              <h1 class="dcpu-official-title font-weight-bold mb-0">DCPU Official Name</h1>
-              <p class="dcpu-official-location"><i class="fa fa-circle" aria-hidden="true"></i>Jhansi,UttarPradesh</p>
+              <h1 class="dcpu-official-title font-weight-bold mb-0"><%=employee.firstName.toUpperCase() + " " + employee.lastName.toUpperCase()%></h1>
+              <p class="dcpu-official-location"><i class="fa fa-circle" aria-hidden="true"></i><%=employee.district%>, <%=employee.state%></p>
           </div>
           <div class="col-lg-3 ">
               <div class="mx-auto information-child">
                   <h6 class="total-child-title">Total Number Of Children Under care</h6>
-                  <h3 class="total-child-info">1120</h3>
+                  <h3 class="total-child-info"><%=child_count%></h3>
                   </div>
           </div>
           <div class="col-lg-4 ">
@@ -61,37 +61,20 @@
   </div>
     <div class="admin-home-body report-section">
       <div class="row">
-        <div class="col-md-4">
+          <%report.forEach(function(eachReport){%>
+        <div class="col-md-4 mt-5 mb-5">
          <a href="#" class="full-report-display">
           <div class="card">
-            <p class="report-sender">Sender's Information</p>
-            <span class="report-subject">Short Subject</span><br>
-            <span class="report-time text-muted">59 minutes ago</span>
+            <p class="report-sender">Sender Name :<%=(eachReport.SenderDetails[0].firstName) + " " + (eachReport.SenderDetails[0].lastName) %></p>
+            <span class="report-subject">Subject: <%=eachReport.subject%></span><br>
+           <%var date = eachReport.date%>
+           <%date = date.substring(4,15)%>
+            <span class="report-time text-muted">Date:<%=date%></span>
           </div>
          </a>
         </div>
-        <div class="col-md-4">
-          <a href="#" class="full-report-display">
-            <div class="card">
-              <p class="report-sender">Sender's Information</p>
-              <span class="report-subject">Short Subject</span><br>
-              <span class="report-time text-muted">59 minutes ago</span>
-            </div>
-           </a>
-        </div>
-        
-        <div class="col-md-4">
-          <a href="#" class="full-report-display">
-            <div class="card">
-              <p class="report-sender">Sender's Information</p>
-              <span class="report-subject">Short Subject</span><br>
-              <span class="report-time text-muted">59 minutes ago</span>
-            </div>
-           </a>
-        </div>
+        <%})%>
       </div>
-     
-      
     </div>
   </div>
   <div class="dcpu-contain3">
