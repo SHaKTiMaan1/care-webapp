@@ -1,41 +1,55 @@
-{
-  "_id": { "$oid": "5f0d6a27168e2c18f84dca2f" },
-  "cci_id": "GhaM1",
-  "cci_name": "Mridul Child care Instituition",
-  "strength": { "$numberInt": "11" },
-  "cci_HeadName": { "fname": "mridul", "lname": "sharma" },
-  "cci_HeadID": "mridulM1",
-  "cci_address": {
-    "address": "Nandgram",
-    "district": "Ghaziabad",
-    "state": "U.P."
-  },
-  "contact_Info": {
-    "contact_no": "1234587658",
-    "email": "mridul0sharma@gmail.com"
-  },
-  "__v": { "$numberInt": "0" },
-  "attendance": [
-    {
-      "date": "15-06-2019",
-      "data": [
-        { "C_Id": "K123", "firstName": "Kirti", "present": true },
-        { "C_Id": "M123", "firstName": "Mridul", "present": false }
-      ]
+[
+  {
+    "_id": { "$oid": "5f0d6a27168e2c18f84dca2f" },
+    "cci_id": "GhaM1",
+    "cci_name": "Mridul Child care Instituition",
+    "strength": { "$numberInt": "11" },
+    "cci_HeadName": { "fname": "mridul", "lname": "sharma" },
+    "cci_HeadID": "mridulM1",
+    "cci_address": {
+      "address": "Nandgram",
+      "district": "Ghaziabad",
+      "state": "U.P."
     },
-    {
-      "date": "21/07/2020",
-      "data": [
-        { "C_Id": "K123", "firstName": "Kirti", "present": true },
-        { "C_Id": "M123", "firstName": "Mridul", "present": false }
-      ]
+    "contact_Info": {
+      "contact_no": "1234587658",
+      "email": "mridul0sharma@gmail.com"
     },
-    {
-      "date": "21-07-2020",
-      "data": [
-        { "C_Id": "K123", "firstName": "Kirti", "present": true },
-        { "C_Id": "M123", "firstName": "Mridul", "present": false }
-      ]
-    }
-  ]
-}
+    "__v": { "$numberInt": "0" },
+    "attendance": [
+      {
+        "date": "15-06-2019",
+        "data": [
+          { "C_Id": "K123", "firstName": "Kirti", "present": true },
+          { "C_Id": "M123", "firstName": "Mridul", "present": false }
+        ]
+      },
+      {
+        "date": "21/07/2020",
+        "data": [
+          { "C_Id": "K123", "firstName": "Kirti", "present": true },
+          { "C_Id": "M123", "firstName": "Mridul", "present": false }
+        ]
+      },
+      {
+        "date": "21-07-2020",
+        "data": [
+          { "C_Id": "K123", "firstName": "Kirti", "present": true },
+          { "C_Id": "M123", "firstName": "Mridul", "present": false }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "20-03-2014",
+    "data": [
+      {
+        "child_Id": "something",
+        "firstName": "something",
+        "lastName": "something",
+        "present": false,
+        "reasonOfAbsence": "something"
+      }
+    ]
+  }
+]
