@@ -17,12 +17,33 @@ router.get(
     passwordToCompare = myStr.replace(/%2F/g, "/");
 
     //checking if Password is valid
-    const isPasswordValid = false;
-    if (passwordToCompare === cci_employee.password) {
-      isPasswordValid;
-    }
+    const isPasswordValid = await bcrypt.compare(
+      req.params.hashedPassword,
+      cci_employee.password
+    );
 
-    console.log(isPasswordValid);
+    const child = await Child.find({ cci_id: cci_employee.cci_id });
+    if (isPasswordValid) {
+      res.send(child);
+    } else {
+      res.sendStatus(401);
+    }
+  }
+);
+
+router.get(
+  "/firstTimeLoginPlain/:employeeEmail/:Password",
+  async (req, res) => {
+    const cci_employee = await CciEmployee.findOne({
+      email: req.params.employeeEmail,
+    });
+    console.log(req.params.Password);
+
+    //checking if Password is valid
+    const isPasswordValid = await bcrypt.compare(
+      req.params.Password,
+      cci_employee.password
+    );
 
     const child = await Child.find({ cci_id: cci_employee.cci_id });
     if (isPasswordValid) {
