@@ -34,13 +34,12 @@ router.get(
   }
 );
 
-router.get("/childrenDataUpdate/:cci_id", (req, res) => {
+router.get("/childrenDataUpdate/:cci_id", async (req, res) => {
   const cci = await Cci.findOne({
     cci_id: req.params.cci_id,
   });
   console.log(cci);
 });
-
 
 router.post("/postAttendance/:email/:password", async (req, res) => {
   console.log(req.body);
