@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
-var request = require('request');
+var request = require("request");
 const CciEmployee = require("../models/cciEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
@@ -59,19 +59,21 @@ router.get(
   }
 );
 
-router.post('/postAttendance/:email/:password', async function (req,res){
-// console.log(req.body);
-const employee  = await CciEmployee.findOne({email:req.params.email})
-obj = JSON.parse(JSON.stringify(req.body));
-console.log(employee);
-console.log(req.body);
-console.log(obj);
-console.log("request received");
-const result = await Cci.updateOne({cci_id:employee.cci_id}, {$push:{attendance:obj}});
-// console.log(result);
-res.send("done");
+router.post("/postAttendance/:email/:password", async function (req, res) {
+  // console.log(req.body);
+  const employee = await CciEmployee.findOne({ email: req.params.email });
+  obj = JSON.parse(JSON.stringify(req.body));
+  console.log(employee);
+  console.log(req.body);
+  console.log(obj);
+  console.log("request received");
+  const result = await Cci.updateOne(
+    { cci_id: employee.cci_id },
+    { $push: { attendance: obj } }
+  );
+  // console.log(result);
+  res.send("done");
 });
-
 
 //For testing the above post req working or not
 
@@ -97,8 +99,6 @@ res.send("done");
 // }, function (error, response, body){
 //     console.log(response);
 // });
-
-
 
 router.post;
 module.exports = router;
