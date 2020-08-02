@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 
 const CciEmployee = require("../models/cciEmployee");
+const DcpuEmployee = require("../models/dcpuOfficer");
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
@@ -61,14 +62,72 @@ router.post("/admin/registerNewAdmin/:employee_id", async (req, res) => {
   }
 });
 
+//DCPU Employee REgistration Routes
+router.get("/admin/registerNewDcpuEmployee/:employee_id", async (req, res) => {
+  const idToSearch = req.params.employee_id
+  const admin = await Admin.findOne({ employee_id: idToSearch });
+
+  console.log("Admin Found : " + admin);
+  res.render("registration/registerNewDcpuEmployee.ejs", { admin: admin });
+});
+
+
+router.post("/admin/registerNewDcpuEmployee/:employee_id", async (req, res) => {
+
+
+  //CHECKING IF USER ALREADY EXISTS
+  const emailExists = await DcpuEmployee.findOne({ email: req.body.email });
+  if (emailExists) return res.status(400).send("Email Already Exists");
+
+  console.log("Email doesn't already exist"); //kcsvjkjvklsdj
+
+  //HASHING THE PASSWORD
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  console.log("Password hashed " + hashedPassword);
+  
+  EmployeeId = req.body.firstName + req.body.district
+
+  //CREATING A NEW CWC EMPLOYEE
+  const employee = new DcpuEmployee({
+    employee_id: EmployeeId,
+    firstName: req.body.firstName,
+    middleName: req.body.middleName,
+    lastName: req.body.lastName,
+    dateOfBirth: req.body.dateOfBirth,
+    gender: req.body.gender,
+    aadharNumber: req.body.aadhaarNumber,
+    contactNumber: req.body.contactNumber,
+    district: req.body.state,
+    email: req.body.email,
+    password: hashedPassword,
+    registeredBy: req.params.employee_id
+  });
+
+  console.log("Employee Created " + employee);
+
+  try {
+    const savedEmployee = await employee.save();
+
+    console.log("Employee saved " + savedEmployee);
+
+    res.send("Registered");
+  } catch (err) {
+    console.log("We got some error");
+    res.send("There was error" + err);
+  }
+});
+
+
 //CWC REGISTRATION ROUTES
 router.get("/admin/registerNewCwc/:employee_id", async (req, res) => {
-  const idToSearch = req.params.employee_id.substring(1);
+  const idToSearch = req.params.employee_id
   const admin = await Admin.findOne({ employee_id: idToSearch });
 
   console.log("Admin Found : " + admin);
   res.render("registration/registerNewCwc.ejs", { admin: admin });
 });
+
 
 router.post("/admin/registerNewCwc/:employee_id", async (req, res) => {
   const registeredBy = req.params.employee_id.substring(1);

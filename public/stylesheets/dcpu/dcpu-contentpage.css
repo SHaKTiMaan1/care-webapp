@@ -75,6 +75,11 @@
     margin: 10px;
     
 }
+.dcpu-contain4{
+    
+    margin: 10px;
+    
+}
 .graph-title{
     color: #7e04b6;
     text-align: center;
@@ -121,4 +126,26 @@
 }
 .news{
     background: #e7e3e3;
+}
+
+
+
+/* report section */
+.report-sender{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+.report-subject{
+    color: #7e04b6;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.report-time{
+    font-size: 12px;
+    margin-left: 200px;
 }

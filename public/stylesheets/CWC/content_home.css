@@ -4,6 +4,10 @@
     
 } */
 
+a {
+  text-decoration: none !important;
+}
+
 .heading {
   width: 800px;
   font-size: 0.2rem;

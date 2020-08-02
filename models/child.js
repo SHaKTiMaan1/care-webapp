@@ -59,6 +59,9 @@ var childSchema = new mongoose.Schema({
   witness_name: {
     type: String,
   },
+  nextStatusEvaluationDate: {
+    type: Date,
+  },
   guardian_id: [
     {
       type: String, //guardian_id from the guardianSchema

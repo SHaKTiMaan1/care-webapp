@@ -86,6 +86,7 @@ router.post("/loginOptions", async (req, res) => {
       const dcpuOfficer = await DcpuOfficer.findOne({
         email: req.body.email,
       });
+      console.log(dcpuOfficer);
       if (dcpuOfficer) {
         const isPasswordValid = await bcrypt.compare(
           req.body.password,

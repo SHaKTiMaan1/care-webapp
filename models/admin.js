@@ -38,10 +38,45 @@ var adminSchema = new mongoose.Schema({
   },
   autherisation_level: {
     type: String,
-    required: true,
   },
   registeredBy: {
     type: String,
+  },
+  eligibilityListCriteria: {
+    ageLessThan2: {
+      timeIntervalForEvaluation: {
+        type: Number,
+      },
+      minDaysSinceRegistration: {
+        type: Number,
+      },
+      minPresentDaysInCci: {
+        type: Number,
+      },
+      averageGuardianVisits: {
+        type: Number,
+      },
+      revelenceToBioParents: {
+        type: String,
+      },
+    },
+    ageMoreThan2: {
+      timeIntervalForEvaluation: {
+        type: Number,
+      },
+      minDaysSinceRegistration: {
+        type: Number,
+      },
+      minPresentDaysInCci: {
+        type: Number,
+      },
+      averageGuardianVisits: {
+        type: Number,
+      },
+      revelenceToBioParents: {
+        type: String,
+      },
+    },
   },
 });
 
