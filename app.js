@@ -14,6 +14,7 @@ const otherRoutes = require("./routes/otherRoutes");
 const dcpuRoutes = require("./routes/dcpuRoutes");
 const cciRoutes = require("./routes/cciRoutes");
 const apiRoutes = require("./routes/apiRoutes");
+const childRoutes = require("./routes/childRoutes");
 
 const app = express();
 dotenv.config();
@@ -45,8 +46,9 @@ app.use(adminRoutes);
 app.use(messageRoutes);
 app.use(otherRoutes);
 app.use(dcpuRoutes);
+app.use(childRoutes);
 app.use(apiRoutes);
 
-//LISTENING TO THE PORT //
+//LISTENING TO THE PORT //--
 // app.listen(process.env.PORT, process.env.IP); //HEROKU
 app.listen(3001, () => console.log("Server says Hello!!"));

@@ -1,0 +1,56 @@
+.message-box{
+
+    background: #fff;
+}
+.message-box .message-box-container{
+
+    background: #dfe4eb;
+    border-radius: 5px;
+   
+    box-shadow: -1px 12px 50px -12px rgba(0,0,0,0.9);
+}
+.message-header{
+
+    margin-top: 0 !important;
+    height: 50px;
+    
+    padding-left: 10px;
+    background: #fff;
+}
+.message-header .message-box-title{
+    font-size: 22px;
+    color: #7e04b6;
+    padding-top: 15px;
+}
+.message-body{
+    padding: 10px;
+
+}
+.senders-name{
+    color: black;
+    font-size:20px;
+    font-weight: bold;
+}
+.message-description{
+    font-size: 18px;
+    color: rgb(85, 77, 77);
+}
+.message-text-boxes{
+    background: rgb(240, 238, 238);
+    width: 50%;
+    margin-left: 10px;
+    box-shadow: -1px 12px 50px -12px rgba(0,0,0,0.9);
+    border-radius: 6px;
+}
+.message-body-heading{
+    font-size: 20px;
+    color: #7e04b6;
+    font-weight: bold;
+}
+.message-box-sub-heading{
+    padding-left: 10px;
+    
+}
+.message-body ::placeholder{
+    color: #afaeae !important;
+}

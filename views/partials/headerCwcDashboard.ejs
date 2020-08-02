@@ -41,6 +41,20 @@
   />
     <link rel="stylesheet" href="/stylesheets/CWC/_ccidetailscontent-area.css">
     <link rel="stylesheet" href="/stylesheets/CWC/child_infocontent.css">
+    <link rel="stylesheet" href="/stylesheets/message-box/message-box.css">
+    <style> 
+     
+     #group .badge { 
+          position: relative; 
+          top: -15px; 
+          left: -25px; 
+          border: 1px solid #d3d3d3; 
+          border-radius: 50%;
+          background: darkblue;
+          color: #fff;
+      } 
+     
+  </style> 
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script>
       $(document).ready(function(){
@@ -120,9 +134,13 @@
             <a href="" title="Profile">
               <i class="dashoard-nav-icon fa fa-user"></i>
             </a>
-            <a href="" title="Notifications"
+            <span id="group"> 
+              <a href="" title="Notifications"
               ><i class="dashoard-nav-icon fa fa-bell"></i>
-            </a>
+            </a> 
+              <span class="badge badge-light">5</span> 
+            </span> 
+           
             
           </div>
         </div>
