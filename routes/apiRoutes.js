@@ -34,11 +34,16 @@ router.get(
   }
 );
 
-router.get("/childrenDataUpdate/:cci_id", async (req, res) => {
-  const cci = await Cci.findOne({
-    cci_id: req.params.cci_id,
+router.get("/childrenDataUpdate/:cci_id", verifyToken, async (req, res) => {
+  const child = await Child.find({ cci_id: req.params.cci_id });
+  console.log(child);
+  jwt.verify(req.token, "secretKey", (err) => {
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      res.json(child);
+    }
   });
-  console.log(cci);
 });
 
 router.post("/postAttendance/:email/:password", async (req, res) => {
@@ -84,5 +89,20 @@ router.post("/postAttendance/:email/:password", async (req, res) => {
 // }, function (error, response, body){
 //     console.log(response);
 // });
+
+function verifyToken(req, res, next) {
+  const bearerHeader = req.headers["authorization"];
+
+  if (typeof bearerHeader !== "undefined") {
+    const bearer = bearerHeader.split(" ");
+    //Get Token from Array
+    const bearerToken = bearer[1];
+    req.token = bearerToken;
+
+    next();
+  } else {
+    res.sendStatus(403);
+  }
+}
 
 module.exports = router;
