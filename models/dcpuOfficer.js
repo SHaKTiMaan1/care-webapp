@@ -40,6 +40,9 @@ var dcpuOfficerSchema = new mongoose.Schema({
     max: 1024,
     min: 4,
   },
+  state: {
+    type: String,
+  },
   district: {
     type: String,
   },
