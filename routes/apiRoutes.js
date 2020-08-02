@@ -59,19 +59,6 @@ router.get(
   }
 );
 
-<<<<<<< HEAD
-router.post('/postAttendance/:email/:password', async function (req,res){
-// console.log(req.body);
-const employee  = await CciEmployee.findOne({email:req.params.email})
-obj = JSON.parse(JSON.stringify(req.body));
-console.log(employee);
-console.log(req.body);
-// console.log(obj);
-console.log("request received");
-const result = await Cci.updateOne({cci_id:employee.cci_id}, {$push:{attendance:obj}});
-// console.log(result);
-res.send("done");
-=======
 router.post("/postAttendance/:email/:password", async function (req, res) {
   // console.log(req.body);
   const employee = await CciEmployee.findOne({ email: req.params.email });
@@ -86,7 +73,6 @@ router.post("/postAttendance/:email/:password", async function (req, res) {
   );
   // console.log(result);
   res.send("done");
->>>>>>> fb11cccd6cea4c45ddcc0037190dd9aefec7fde6
 });
 
 //For testing the above post req working or not
