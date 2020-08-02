@@ -1,11 +1,14 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
+const dotenv = require("dotenv");
+
 const CciEmployee = require("../models/cciEmployee");
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Admin = require("../models/admin");
 const StateOfficial = require("../models/stateOfficial");
+
 const { registerValidationEmployee } = require("../validation");
 const { Router } = require("express");
 
@@ -244,69 +247,79 @@ router.post(
 //====================================================================================
 
 //CCI EMPLOYEE REGISTRATION ROUTES
-router.get("/cwc/dashboard/newCciEmployeeRegistraton/:employee_id/:cci_id", async (req, res) => {
-  const employee = await CwcEmployee.findOne({
-    employee_id: req.params.employee_id,
-  });
-  const cci_list = await Cci.find(
-    { cwc_id: employee.cwc_id },
-    { _id: 0, cci_name: 1, cci_id: 1 }
-  );
+router.get(
+  "/cwc/dashboard/newCciEmployeeRegistraton/:employee_id/:cci_id",
+  async (req, res) => {
+    const employee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+    const cci = await Cci.findOne(
+      { cci_id: req.params.cci_id },
+      { attendance: 0 }
+    );
+    const cci_list = await Cci.find(
+      { cwc_id: employee.cwc_id },
+      { _id: 0, cci_name: 1, cci_id: 1 }
+    );
 
-  res.render("registration/registerNewCciEmployee.ejs", {
-    employee: employee,
-    cci_list: cci_list,
-    cci_id: req.params.cci_id
-  } );
-});
-
-router.post("/cwc/dashboard/newCciEmployeeRegistraton/:employee_id/:cci_id", async (req, res) => {
- 
-
-  //CHECKING IF USER ALREADY EXISTS
-  const emailExists = await CciEmployee.findOne({ email: req.body.email });
-  if (emailExists) return res.status(400).send("Email Already Exists");
-
-  console.log("Email doesn't already exist");
-
-  //HASHING THE PASSWORD
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-  console.log("Password hashed " + hashedPassword);
-  var cciEmployeeId ="";
-  
-  cciEmployeeId = req.body.fname + req.params.cci_id
-
-  const cwcemployee = await CwcEmployee.findOne({
-    employee_id: req.params.employee_id,
-  });
-
-  //CREATING A NEW CCI EMPLOYEE
-  const employee = new CciEmployee({
-    name: req.body.fname,
-    contactNumber: req.body.contactNumber,
-    email: req.body.email,
-    gender: req.body.gender,
-    cwc_id:  cwcemployee.cwc_id,
-    cci_id: req.params.cci_id,
-    password: hashedPassword,
-    employee_id: cciEmployeeId
-  });
-
-  console.log("Employee Created " + employee);
-
-  try {
-    const savedEmployee = await employee.save();
-
-    console.log("Employee saved " + savedEmployee);
-
-    res.send("Registered");
-  } catch (err) {
-    console.log("We got some error");
-    res.send("There was error" + err);
+    res.render("registration/registerNewCciEmployee.ejs", {
+      employee: employee,
+      cci_list: cci_list,
+      cci: cci,
+    });
   }
-});
+);
+
+router.post(
+  "/cwc/dashboard/newCciEmployeeRegistraton/:employee_id/:cci_id",
+  async (req, res) => {
+    //CHECKING IF USER ALREADY EXISTS
+    const emailExists = await CciEmployee.findOne({ email: req.body.email });
+    if (emailExists) return res.status(400).send("Email Already Exists");
+
+    console.log("Email doesn't already exist");
+
+    //HASHING THE PASSWORD
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+    console.log("Password hashed " + hashedPassword);
+    console.log("Password hashed " + hashedPassword);
+    var cciEmployeeId = "";
+
+    cciEmployeeId = req.body.firstName + req.params.cci_id;
+
+    const cwcemployee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+
+    //CREATING A NEW CCI EMPLOYEE
+    const employee = new CciEmployee({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      contactNumber: req.body.contactNumber,
+      email: req.body.email,
+      gender: req.body.gender,
+      cwc_id: cwcemployee.cwc_id,
+      cci_id: req.params.cci_id,
+      password: hashedPassword,
+      employee_id: cciEmployeeId,
+    });
+
+    console.log("Employee Created " + employee);
+
+    try {
+      const savedEmployee = await employee.save();
+
+      console.log("Employee saved " + savedEmployee);
+
+      res.send("Registered");
+    } catch (err) {
+      console.log("We got some error");
+      res.send("There was error" + err);
+    }
+  }
+);
 
 // ================================================================================
 // REGISTER NEW STATE OFFICIAL
@@ -331,7 +344,6 @@ router.post("/admin/registerStateOfficial/:admin_employee_id", async function (
   fname = fname.substring(0, 3);
   official_id = "";
   randomNo = "";
-
   randomNo = (Math.floor(Math.random() * (999 - 100)) + 100).toString();
 
   official_id = statename.concat(fname, randomNo);
@@ -339,12 +351,11 @@ router.post("/admin/registerStateOfficial/:admin_employee_id", async function (
   //HASHING THE PASSWORD
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
   console.log("Password hashed " + hashedPassword);
 
   //CREATING A NEW CCI EMPLOYEE
   const official = new StateOfficial({
-    official_id: official_id,
+    employee_id: official_id,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     dateOfBirth: req.body.dateOfBirth,

@@ -3,14 +3,17 @@
   margin-left: 50px !important;
 
   width: 96%;
-  background: #dfe4eb;
+  background: #fff;
 }
 .child-view {
   padding: 10px;
 }
+.child-view h5{
+  color: #7e04b6;
+}
 .child-view-starting {
   margin-top: 10px !important;
-
+  background: #f3f1f1;
   margin-left: 15px;
   box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.6);
   width: 98%;

@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 var nationalOfficialSchema = new mongoose.Schema({
-  official_id: {
+  employee_id: {
     type: String,
   },
   firstName: {

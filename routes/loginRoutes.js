@@ -55,15 +55,17 @@ router.post("/loginOptions", async (req, res) => {
       req.body.password,
       cwcEmployee.password
     );
+
     console.log("isPasswordValid : " + isPasswordValid);
     if (isPasswordValid) {
       redirectionLink = "/cwc/dashboard/";
-      employee = cwcEmployee;
+      userid = cwcEmployee.employee_id;
     } else {
       res.send("Wrong Password !!");
     }
   }
   if (!cwcEmployee) {
+    console.log("Not CWC EMployee");
     const cciEmployee = await CciEmployee.findOne({ email: req.body.email });
     if (cciEmployee) {
       const isPasswordValid = await bcrypt.compare(
@@ -73,12 +75,14 @@ router.post("/loginOptions", async (req, res) => {
       console.log("isPasswordValid : " + isPasswordValid);
       if (isPasswordValid) {
         redirectionLink = "/cci/dashboard/";
-        employee = cciEmployee;
+        console.log(redirectionLink);
+        userid = cciEmployee.employee_id;
       } else {
         res.send("Wrong Password !!");
       }
     }
     if (!cciEmployee) {
+      console.log("Not CCI EMployee");
       const dcpuOfficer = await DcpuOfficer.findOne({
         email: req.body.email,
       });
@@ -89,16 +93,18 @@ router.post("/loginOptions", async (req, res) => {
         );
         console.log("isPasswordValid : " + isPasswordValid);
         if (isPasswordValid) {
-          redirectionLink = "/cci/dashboard/";
-          employee = dcpuOfficer;
+          redirectionLink = "/dcpu/dashboard/";
+          userid = dcpuOfficer.employee_id;
         } else {
           res.send("Wrong Password !!");
         }
       }
       if (!dcpuOfficer) {
+        console.log("Not DCPU Officer");
         const stateOfficial = await StateOfficial.findOne({
           email: req.body.email,
         });
+        console.log(stateOfficial);
         if (stateOfficial) {
           const isPasswordValid = await bcrypt.compare(
             req.body.password,
@@ -106,14 +112,16 @@ router.post("/loginOptions", async (req, res) => {
           );
           console.log("isPasswordValid : " + isPasswordValid);
           if (isPasswordValid) {
-            redirectionLink = "/cci/dashboard/";
-            employee = stateOfficial;
+            redirectionLink = "/state/dashboard/";
+            userid = stateOfficial.employee_id;
+            console.log(redirectionLink);
           } else {
             res.send("Wrong Password !!");
           }
         }
         if (!stateOfficial) {
-          const natinalOfficial = await NationalOfficial.findOne({
+          console.log("Not State Official");
+          const nationalOfficial = await NationalOfficial.findOne({
             email: req.body.email,
           });
           if (nationalOfficial) {
@@ -123,8 +131,8 @@ router.post("/loginOptions", async (req, res) => {
             );
             console.log("isPasswordValid : " + isPasswordValid);
             if (isPasswordValid) {
-              redirectionLink = "/cci/dashboard/";
-              employee = nationalOfficial;
+              redirectionLink = "/nation/dashboard/";
+              userid = nationalOfficial.employee_id;
             } else {
               res.send("Wrong Password !!");
             }
@@ -133,7 +141,8 @@ router.post("/loginOptions", async (req, res) => {
       }
     }
   }
-  res.redirect(redirectionLink + employee.employee_id);
+  res.redirect(redirectionLink + userid);
+  console.log(redirectionLink + userid);
 });
 
 router.get("/login/cwcemployee", (req, res) => {

@@ -1,8 +1,7 @@
 var mongoose = require("mongoose");
 
 var stateOfficialSchema = new mongoose.Schema({
-  
-  official_id: {
+  employee_id: {
     type: String,
   },
   firstName: {
@@ -49,4 +48,3 @@ var stateOfficialSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("StateOfficial", stateOfficialSchema);
-

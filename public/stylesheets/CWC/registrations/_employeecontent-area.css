@@ -1,49 +1,60 @@
 #content-area{
+    margin-top: 12vh !important;
+  margin-left: 50px !important;
   
-  margin-top: 1rem;
-  margin-left: 1.5rem;
   width: 96%;
   
   
   
     
 }
-.content-area{
-  
-    margin-top: 12vh !important;
-    margin-left: 2vh !important;
-    width: 96%;
-     
-  }
-body {
-    font-family: "Poppins", sans-serif;
-    background: #fff;
-  }
 .heading{
     background:#7e04b6;
-    margin-bottom: 2rem;
-    margin-left: 12rem;
+    
     color: #fff !important;
     box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.6);
-    width: 70%;
+    
     border-radius: 6px;
     height: 40px;
 }
-.name {
+.employee-register-title{
     font-size: 1.2rem;
     font-weight: 300;
     color: white;
     text-align: center;
-    padding-top: 5px;
-  }
-  .infoheading{
+    padding-bottom: 5px;
+}
+
+.image{
+    margin: 10px 400px 10px 480px;
+    
+}  
+.image img{
+   height: 150px;
+   width: 80%;
+   border-radius: 6px;
+}
+
+.personalinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
+}
+.infoheading{
     font-size: 1rem;
     font-weight: 200;
     color: #7e04b6;
 }
-.pos{
-    margin-top: 40px;
+.contactinfo{
+    margin: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: -1px 9px 40px -12px #636262;
+    background: #dfe4eb;
 }
+
 .officialinfo{
     margin: 15px;
     padding: 10px;
@@ -63,6 +74,9 @@ body {
     display: inline-block;
 
 }
+.radio{
+    color: black;
+}
 .fields{
     color: black;
 }
@@ -70,7 +84,7 @@ body {
     color: #7e04b6 !important;
 
 }
-.registration a{
+.positioning-button a{
 	display: block;
 	text-align: center;
 	text-decoration: none;
@@ -79,13 +93,13 @@ body {
 	transition: .3s;
 }
 
-.registration a:hover{
+.positioning-button a:hover{
 	color: #282639;
 }
 
 
 
-.registration .btn{
+.positioning-button .btn{
 	display: block;
 	width: 100%;
 	height: 50px;
@@ -104,11 +118,7 @@ body {
 	text-align: center !important;
 	padding-top: 10px;
 }
-.registration .btn:hover{
+.positioning-button .btn:hover{
 	background-position: right;
-	color: #282639;
-}
-.positioning-button .row{
-    width: 100%;
-    
+	color: #fff;
 }

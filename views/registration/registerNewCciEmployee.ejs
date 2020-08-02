@@ -1,18 +1,20 @@
-<%- include("../partials/headerCwcDashboard")%>
+<%- include("../partials/headerCciDashboard")%>
 
-<section class="inline-flex" id="content-area">
-  
-  <div class="container pos">
-    <div class="heading">
-      <p class="name">New CCI Employee Registration Portal</p>
+<section id="content-area">
+  <!--heading-->
+  <div class="heading">
+      <p class="employee-register-title">Registration Portal For Head of <%=cci.cci_name%></p>
     </div>
   <!--image-->
   <div class="image">
       <img src="/images/groupemployee.jpg" alt="">
-  </div> 
+  </div>  
+  <div class="container pos">
+   
     <form 
-      action="/cwc/dashboard/newCciEmployeeRegistraton/<%=employee.employee_id%>/<%=cci_id%>"
+      action="/cwc/dashboard/newCciEmployeeRegistraton/<%=employee.employee_id%>/<%=cci.cci_id%>"
       method="post"
+      
     >
       <div class="personalinfo">
         <p class="infoheading">CCI Employee Registration</p>
@@ -132,16 +134,7 @@
 
   
 
-        <div class="form-group">
-          <label for="" class="fields">CCI ID</label>
-          <input
-            type="text"
-            name="cci_id"
-            id="adhaarnum"
-            class="form-control"
-            placeholder="<%=cci_id%>"
-          />
-        </div>
+        
 
         <div class="positioning-button">
           <div class="row">
