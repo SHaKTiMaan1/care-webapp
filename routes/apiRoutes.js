@@ -13,7 +13,6 @@ router.get(
     const cci_employee = await CciEmployee.findOne({
       email: req.params.employeeEmail,
     });
-    console.log(req.params.Password);
 
     //checking if Password is valid
     const isPasswordValid = await bcrypt.compare(
@@ -35,9 +34,18 @@ router.get(
   }
 );
 
+router.get("/childrenDataUpdate/:cci_id", (req, res) => {
+  const cci = await Cci.findOne({
+    cci_id: req.params.cci_id,
+  });
+  console.log(cci);
+});
+
+
 router.post("/postAttendance/:email/:password", async (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
   const employee = await CciEmployee.findOne({ email: req.params.email });
+  const cci = Cci.findOne({ cci_id: employee.cci_id });
   obj = JSON.parse(JSON.stringify(req.body));
   console.log(employee);
   console.log(req.body);
@@ -48,9 +56,9 @@ router.post("/postAttendance/:email/:password", async (req, res) => {
       { cci_id: employee.cci_id },
       { $push: { attendance: obj } }
     );
-    res.send("done");
+    res.send("done" + result);
   } catch (err) {}
-  // console.log(result);
+  console.log(result);
 });
 
 //For testing the above post req working or not
