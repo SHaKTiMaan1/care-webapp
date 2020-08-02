@@ -65,11 +65,11 @@ router.post("/postAttendance/:email", async (req, res) => {
   attendance = JSON.parse(JSON.stringify(req.body["attendance"]));
   inOutMovement = JSON.parse(JSON.stringify(req.body["inOutMovement"]));
 
-  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
-    if (err) {
-      res.sendStatus(403);
-    }
-  });
+  // jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
+  //   if (err) {
+  //     res.sendStatus(403);
+  //   }
+  // });
 
   try {
     const result = await Cci.updateOne(
