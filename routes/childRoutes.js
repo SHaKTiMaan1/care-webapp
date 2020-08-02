@@ -54,11 +54,11 @@ router.post(
     var nextStatusEvaluationDate = new Date();
     var numberOfDaysToAdd = 50;
     if (age < 2) {
-      const numberOfDaysToAdd =
+      numberOfDaysToAdd =
         superadmin.eligibilityListCriteria.ageLessThan2
           .timeIntervalForEvaluation;
     } else {
-      const numberOfDaysToAdd =
+      numberOfDaysToAdd =
         superadmin.eligibilityListCriteria.ageMoreThan2
           .timeIntervalForEvaluation;
     }
