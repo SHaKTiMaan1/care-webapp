@@ -35,6 +35,7 @@ app.use(express.static(__dirname + "/public"));
 
 //MIDDLEWARES
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 //ROUTE MIDDLEWARES
 app.use(registrationRoutes);
