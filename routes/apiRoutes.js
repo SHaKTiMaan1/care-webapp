@@ -13,7 +13,6 @@ router.get(
       email: req.params.employeeEmail,
     });
     console.log(req.params.hashedPassword);
-
     passwordToCompare = myStr.replace(/%2F/g, "/");
 
     //checking if Password is valid
@@ -26,7 +25,7 @@ router.get(
     if (isPasswordValid) {
       res.send(child);
     } else {
-      res.sendStatus(401);
+      res.send("401 Error");
     }
   }
 );
