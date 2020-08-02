@@ -21,6 +21,7 @@ const app = express();
 dotenv.config();
 
 //DATABASE CONNECTION
+
 mongoose.connect(process.env.DB_LINK, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -55,6 +56,6 @@ app.use(reportRoutes);
 //LISTENING TO THE PORT //--
 // app.listen(process.env.PORT, process.env.IP); //HEROKU
 
-// app.listen(3001, () => console.log("Server says Hello!!"));
-const port = process.env.PORT || 3001;
-app.listen(port, () => console.log(`Listening on port ${port}..`));
+app.listen(3001, () => console.log("Server says Hello!!"));
+// const port = process.env.PORT || 3001;
+// app.listen(port, () => console.log(`Listening on port ${port}..`));
