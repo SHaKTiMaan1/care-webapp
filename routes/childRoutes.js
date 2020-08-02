@@ -3,8 +3,8 @@ const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Child = require("../models/child");
+const Admin = require("../models/admin");
 
-//POST ROUTE FOR CHILD REGISTRATION
 //POST ROUTE FOR CHILD REGISTRATION
 router.post(
   "/cwc/dashboard/childRegistration/:employee_id",
@@ -12,6 +12,14 @@ router.post(
     const cwcemployee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
     });
+
+    console.log(cwcemployee);
+
+    const superadmin = await Admin.findOne({
+      autherisation_level: "superadmin",
+    });
+
+    console.log(superadmin);
 
     let dateOfBirth = new Date(req.body.dateOfBirth);
     let currentDate = new Date();
@@ -42,6 +50,27 @@ router.post(
     const cci = await Cci.findOne({ cci_id: req.body.cci_id });
     const cwc = await Cwc.findOne({ cwc_id: cci.cwc_id });
 
+    //ELIGIBILITY LOGIC
+    var nextStatusEvaluationDate = new Date();
+    var numberOfDaysToAdd = 50;
+    if (age < 2) {
+      const numberOfDaysToAdd =
+        superadmin.eligibilityListCriteria.ageLessThan2
+          .timeIntervalForEvaluation;
+    } else {
+      const numberOfDaysToAdd =
+        superadmin.eligibilityListCriteria.ageMoreThan2
+          .timeIntervalForEvaluation;
+    }
+    // 1000 * 3600 * 24 * 365.25;
+
+    nextStatusEvaluationDate.setDate(
+      nextStatusEvaluationDate.getDate() + numberOfDaysToAdd
+    );
+    console.log(currentDate);
+    console.log(nextStatusEvaluationDate);
+
+    //CHILD DATA
     const child = new Child({
       firstName: req.body.firstName,
       middleName: req.body.middleName,
@@ -82,14 +111,6 @@ router.post(
     });
 
     try {
-      updatedCci = await Cci.updateOne(
-        { cci_id: cci.cci_id },
-        { $inc: { strength: 1 } }
-      );
-      updatedCwc = await Cwc.updateOne(
-        { cwc_id: cwc.cwc_id },
-        { $inc: { strength: 1 } }
-      );
       savedChild = child.save();
     } catch (err) {
       console.log(err);
