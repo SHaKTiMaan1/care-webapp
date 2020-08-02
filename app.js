@@ -51,5 +51,6 @@ app.use(childRoutes);
 app.use(apiRoutes);
 
 //LISTENING TO THE PORT //--
-// app.listen(process.env.PORT, process.env.IP); //HEROKU
-app.listen(3001, () => console.log("Server says Hello!!"));
+app.listen(process.env.PORT, process.env.IP); //HEROKU
+
+// app.listen(3001, () => console.log("Server says Hello!!"));
