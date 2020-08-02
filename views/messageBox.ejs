@@ -2,7 +2,7 @@
 
 
 
-  <div class="container py-5">
+  <div class="message-box py-5">
 
     <!-- <div class="form-group">
           <label for="exampleFormControlInput1">CCI ID</label>
@@ -14,9 +14,11 @@
         </div> -->
     <div class="mr-4 ml-4">
       <div class="container">
-        <div class="jumbotron mt-5" style="background-color:#0275d8">
-          
-          <h1 class="text-center">Conversation</h1>
+        <div class="message-box-container mt-5">
+         <div class="message-header">
+          <h1 class="message-box-title">Conversation Portal</h1>
+         </div> 
+         
           <%if(conversation.length!=0)%>
           <%const employee_id = employee.employee_id%>
           <%{%>
@@ -26,16 +28,20 @@
           <br />
           <%if(sender.localeCompare("cwc")==0){%>
           
-            <h6 class="text-white"><%=(eachMessage.sender).toUpperCase()%>
-              (<%=employee_id%>) <h4 class="text-white"><%=eachMessage.description%></h4>
-            </h6>
+           <div class="message-body message-text-boxes">
+            <h6 class="senders-name"><%=(eachMessage.sender).toUpperCase()%>
+              (<%=employee_id%>)</h6> <h4 class="message-description"><%=eachMessage.description%></h4>
+            
+           </div>
 
             <%}%>
                   <%if(sender.localeCompare("cci")==0){%>
 
-            <h6 class="text-body"><%=(eachMessage.sender).toUpperCase()%> <h4 class="text-body"><%=eachMessage.description%>
-              </h4>
-            </h6>
+           <div class="message-body message-text-boxes">
+            <h6 class=senders-name"><%=(eachMessage.sender).toUpperCase()%></h6> <h4 class="message-description"><%=eachMessage.description%>
+            </h4>
+          
+           </div>
 
             <%}%>
                 
@@ -46,15 +52,16 @@
               <br />
               <br />
               <br />
-              <div class="md-1">
+              <div class="message-body">
                 <form  method="POST" action="/message/<%=employee_id%>/<%=cci.cci_id%>">
-                  <label for="exampleFormControlTextarea1">Send Message to <%=cci.cci_name%></label>
+                  <label for="exampleFormControlTextarea1" class="message-body-heading">Compose Message for <%=cci.cci_name%></label>
+                  <hr>
                   <div class="form-group">
-                    <label for="formGroupExampleInput">Subject</label>
+                    <label for="formGroupExampleInput" class="message-box-sub-headings text-muted">Subject</label>
                     <input type="text" class="form-control" id="formGroupExampleInput" name="subject" placeholder="Subject of the Message">
                   </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Description</label>
+              <label for="exampleFormControlTextarea1" class="message-box-sub-headings text-muted">Description</label>
               <textarea class="form-control" placeholder="Type your Message here" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-success my-2">Send</button>
