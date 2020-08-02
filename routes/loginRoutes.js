@@ -55,6 +55,7 @@ router.post("/loginOptions", async (req, res) => {
       req.body.password,
       cwcEmployee.password
     );
+
     console.log("isPasswordValid : " + isPasswordValid);
     if (isPasswordValid) {
       redirectionLink = "/cwc/dashboard/";
