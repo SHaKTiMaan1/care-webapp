@@ -47,6 +47,6 @@ app.use(otherRoutes);
 app.use(dcpuRoutes);
 app.use(apiRoutes);
 
-//LISTENING TO THE PORT
-// app.listen(process.env.PORT, process.env.IP); //HEROKU
-app.listen(3001, () => console.log("Server says Hello!!"));
+//LISTENING TO THE PORT //
+app.listen(process.env.PORT, process.env.IP); //HEROKU
+// app.listen(3001, () => console.log("Server says Hello!!"));
