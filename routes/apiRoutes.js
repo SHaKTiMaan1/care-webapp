@@ -65,7 +65,7 @@ const employee  = await CciEmployee.findOne({email:req.params.email})
 obj = JSON.parse(JSON.stringify(req.body));
 console.log(employee);
 console.log(req.body);
-console.log(obj);
+// console.log(obj);
 console.log("request received");
 const result = await Cci.updateOne({cci_id:employee.cci_id}, {$push:{attendance:obj}});
 // console.log(result);

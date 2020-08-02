@@ -50,21 +50,3 @@ app.use(apiRoutes);
 //LISTENING TO THE PORT //
 // app.listen(process.env.PORT, process.env.IP); //HEROKU
 app.listen(3001, () => console.log("Server says Hello!!"));
-<<<<<<< HEAD
-
-
-// url = "https://" + controller + "/api/v1/ticket"
-
-    // #the username and password to access the APIC-EM Controller
-    // payload = {"username":"usernae","password":"password"}
-
-    // #Content type must be included in the header
-    // header = {"content-type": "application/x-www-form-urlencoded"}
-
-    // #Performs a POST on the specified url to get the service ticket
-    // response= requests.post(url,data=json.dumps(payload), headers=header, verify=False)
-
-    // #convert response to json format
-    // r_json=response.json()
-=======
->>>>>>> aec4482fd1c3dfce27ccecca2cf134d3511e8fd6
