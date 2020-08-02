@@ -56,7 +56,7 @@
       </div>
   </div>
   <div class="dcpu-contain4">
-    <div class="glance-header border-bottom " style="text-align: center;">
+    <div class="glance-header border-bottom " style="text-align: center">
       <h4 class="glance-title">Report Section</h4>
   </div>
     <div class="admin-home-body report-section">
@@ -71,11 +71,6 @@
            <%date = date.substring(4,15)%>
            <!-- ADDING MODAL -->
       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-    Launch demo modal
-  </button>
-  
-  
   
            <span class="report-time text-muted">Date:<%=date%></span>
           </div>
@@ -126,19 +121,21 @@
 
 <div class="for-modal">
     <!-- Modal -->
+   
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  
+  <div class="modal fade" id="cool" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle"></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="div">
-             
+             <p id="modal-content"></p>
           </div>         
         </div>
         <div class="modal-footer">
@@ -148,6 +145,8 @@
       </div>
     </div>
   </div>
+
+  
       <!-- eNDING mODAL -->
 </div>
 <script
@@ -157,7 +156,7 @@ crossorigin="anonymous"
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 <script> 
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart').getContext('2d')
 var chart = new Chart(ctx, {
 // The type of chart we want to create
 type: 'bar',
@@ -182,7 +181,7 @@ data: {
 
 // Configuration options go here
 options: {}
-});
+})
 </script>
 <script
 src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
