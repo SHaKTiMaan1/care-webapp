@@ -7,24 +7,41 @@ const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Child = require("../models/child");
 
-router.post("/dekstopLogin/", async (req, res) => {
-  const cci_employee = await CciEmployee.findOne({
-    email: req.body.email,
-  });
+router.post("/desktopLogin", async (req, res) => {
+  const cci_employee = await CciEmployee.findOne(
+    {
+      email: req.body.email,
+    },
+    { firstName: 1, email: 1, password: 1, cci_id: 1, contactNumber: 1 }
+  );
 
   //checking if Password is valid
   const isPasswordValid = await bcrypt.compare(
     req.body.password,
     cci_employee.password
   );
+  console.log(cci_employee);
+  console.log(isPasswordValid);
+
+  dataForJwt = {
+    name: cci_employee.firstName,
+    email: cci_employee.email,
+    cci_id: cci_employee.cci_id,
+    number: cci_employee.contactNumber,
+  };
 
   const child = await Child.find({ cci_id: cci_employee.cci_id });
   if (isPasswordValid) {
-    jwt.sign({}, "secretKey", (err, token) => {
-      const dataToSend = [token, child];
-      console.log(dataToSend);
-      res.json(dataToSend);
-    });
+    jwt.sign(
+      dataForJwt,
+      process.env.SECRET_KEY,
+      { expiresIn: "2d" },
+      (err, token) => {
+        const dataToSend = [token, child];
+        console.log(dataToSend);
+        res.json(dataToSend);
+      }
+    );
   } else {
     res.sendStatus(403);
   }
@@ -32,8 +49,7 @@ router.post("/dekstopLogin/", async (req, res) => {
 
 router.get("/childrenDataUpdate/:cci_id", verifyToken, async (req, res) => {
   const child = await Child.find({ cci_id: req.params.cci_id });
-  console.log(child);
-  jwt.verify(req.token, "secretKey", (err) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
     if (err) {
       res.sendStatus(403);
     } else {
@@ -42,55 +58,32 @@ router.get("/childrenDataUpdate/:cci_id", verifyToken, async (req, res) => {
   });
 });
 
-router.post(
-  "/postAttendance/:email/:password",
-  verifyToken,
-  async (req, res) => {
-    const employee = await CciEmployee.findOne({ email: req.params.email });
-    const cci = Cci.findOne({ cci_id: employee.cci_id });
-    obj = JSON.parse(JSON.stringify(req.body));
+router.post("/postAttendance/:email", async (req, res) => {
+  const employee = await CciEmployee.findOne({ email: req.params.email });
+  const cci = Cci.findOne({ cci_id: employee.cci_id });
+  attendance = JSON.parse(JSON.stringify(req.body["attendance"]));
+  inOutMovement = JSON.parse(JSON.stringify(req.body["inOutMovement"]));
 
-    jwt.verify(req.token, "secretKey", (err) => {
-      if (err) {
-        res.sendStatus(403);
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
+    if (err) {
+      res.sendStatus(403);
+    }
+  });
+
+  try {
+    const result = await Cci.updateOne(
+      { cci_id: employee.cci_id },
+      {
+        $push: {
+          attendance: { $each: attendance },
+          in_out_movement: { $each: inOutMovement },
+        },
       }
-    });
-
-    try {
-      const result = await Cci.updateOne(
-        { cci_id: employee.cci_id },
-        { $push: { attendance: obj } }
-      );
-      res.send(result);
-    } catch (err) {}
-    console.log(result);
-  }
-);
-
-//For testing the above post req working or not
-
-// var myJSONObject = [
-//   {
-//     date: "today",
-//     data: [
-//       {
-//         child_Id: "something",
-//         firstName: "something",
-//         lastName: "something",
-//         present: true,
-//         reasonOfAbsence:"something",
-//       },
-//     ],
-//   },
-// ]  ;
-// request({
-//     url: "http://localhost:3001/postAttendance/mridul@mail.com/mridul12",
-//     method: "POST",
-//     json: true,   // <--Very important!!!
-//     body: myJSONObject
-// }, function (error, response, body){
-//     console.log(response);
-// });
+    );
+    res.send("Data Sent Sucessfully");
+  } catch (err) {}
+  console.log("Data Sent Sucessfully");
+});
 
 function verifyToken(req, res, next) {
   const bearerHeader = req.headers["authorization"];
