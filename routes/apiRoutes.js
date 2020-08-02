@@ -100,5 +100,4 @@ router.post("/postAttendance/:email/:password", async function (req, res) {
 //     console.log(response);
 // });
 
-
 module.exports = router;
