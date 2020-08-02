@@ -169,7 +169,6 @@ class Ui_MainWindow(object):
         
                         self.da = QtWidgets.QMainWindow()
                         self.window = MainWindow()
-                        self.window.dailog(self.window)
                         self.window.show()
                         Form.hide()
 
