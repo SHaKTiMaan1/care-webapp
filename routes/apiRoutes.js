@@ -12,7 +12,7 @@ router.get(
     const cci_employee = await CciEmployee.findOne({
       email: req.params.employeeEmail,
     });
-    console.log(req.params.hashedPassword);
+    console.log(cci_employee);
     passwordToCompare = myStr.replace(/%2F/g, "/");
 
     //checking if Password is valid
@@ -21,8 +21,8 @@ router.get(
       cci_employee.password
     );
 
-    const child = await Child.find({ cci_id: cci_employee.cci_id });
     if (isPasswordValid) {
+      const child = await Child.find({ cci_id: cci_employee.cci_id });
       res.send(child);
     } else {
       res.send("401 Error");
