@@ -1,11 +1,14 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
+const dotenv = require("dotenv");
+
 const CciEmployee = require("../models/cciEmployee");
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Admin = require("../models/admin");
 const StateOfficial = require("../models/stateOfficial");
+
 const { registerValidationEmployee } = require("../validation");
 const { Router } = require("express");
 
@@ -346,7 +349,7 @@ router.post("/admin/registerStateOfficial/:admin_employee_id", async function (
   official_id = statename.concat(fname, randomNo);
 
   //HASHING THE PASSWORD
-  const salt = SALT_FOR_CCI;
+  const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
   console.log("Password hashed " + hashedPassword);
 

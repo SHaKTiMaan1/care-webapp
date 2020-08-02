@@ -16,16 +16,22 @@ router.get(
     passwordToCompare = myStr.replace(/%2F/g, "/");
 
     //checking if Password is valid
-    const isPasswordValid = await bcrypt.compare(
-      req.params.passwordToCompare,
-      cci_employee.password
-    );
+
+    const isPasswordValid = false;
+    if (req.params.passwordToCompare === cci_employee.password) {
+      isPasswordValid = true;
+    }
+
+    // const isPasswordValid = await bcrypt.compare(
+    //   req.params.passwordToCompare,
+    //   cci_employee.password
+    // );
 
     if (isPasswordValid) {
       const child = await Child.find({ cci_id: cci_employee.cci_id });
       res.send(child);
     } else {
-      res.send("401 Error");
+      res.sendStatus(401);
     }
   }
 );
@@ -53,4 +59,5 @@ router.get(
   }
 );
 
+router.post;
 module.exports = router;
