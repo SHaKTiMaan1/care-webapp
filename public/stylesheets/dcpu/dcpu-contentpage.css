@@ -75,6 +75,11 @@
     margin: 10px;
     
 }
+.dcpu-contain4{
+    
+    margin: 10px;
+    
+}
 .graph-title{
     color: #7e04b6;
     text-align: center;
@@ -122,29 +127,25 @@
 .news{
     background: #e7e3e3;
 }
-/*Report Section */
-.report-item{
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #dbdaff;
-}
-.report-item:last-child{
-    border-bottom: 0px;
-}
-.report-item .repo-image img{
-    margin-right: 15px;
-}
-.report-item .repo-sender-info{
-    margin-bottom: 0;
-    font-size: 16px ;
-    font-size: bold;
-}
-.report-item .concerned-subject{
-    color: #7e04b6;
-    font-size: 12px;
 
+
+
+/* report section */
+.report-sender{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
 }
-.report-item .repo-send-time{
-    font-size: 10px;
+.report-subject{
+    color: #7e04b6;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.report-time{
+    font-size: 12px;
+    margin-left: 200px;
 }
