@@ -43,7 +43,8 @@
         <div id="content-area-1" class="container">
           <div class="parent-row row">
             
-            <div class="home-main-content-grid-block col-12 flex-between">              
+            <span id="myBtn">             
+              <div class="home-main-content-grid-block col-12 flex-between">              
                 <div class="action-required">
                    <h6 class="crimson p-2">
                     ACTION REQUIRED
@@ -53,15 +54,23 @@
                   </div>
                 </div>
                 <div class="details-of-child-for-action">
-                <h6>HIMANSHU AGRAWAL</h6>
-                <p>
-                  ID : KL0023<br>
-                  CCI : JH001 <br>
-                  Registration Date : 02-06-2019 <br>
-                  <p class= "badge badge-warning">ABANDONED</p>
-                </p>
-                </div>
-            </div>    
+                  <h6>HIMANSHU AGRAWAL</h6>
+                  <p>
+                    ID : KL0023<br>
+                    CCI : JH001 <br>
+                    Registration Date : 02-06-2019 <br>
+                    <p class= "badge badge-warning">ABANDONED</p>
+                  </p>
+                </div>                 
+                <div id="myModal" class="modal">                
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text here as required..</p>
+                  </div>        
+                </div>           
+            </div>
+          </span>                 
+            
 
             <div class="home-main-content-grid-block col-12 flex-between">              
               <div class="action-required">
@@ -81,9 +90,9 @@
                 <p class= "badge badge-secondary">ORPHANED</p>
               </p>
               </div>
-          </div>
+            </div>
           
-          <div class="home-main-content-grid-block col-12 flex-between">              
+            <div class="home-main-content-grid-block col-12 flex-between">              
             <div class="action-required">
                <h6 class="crimson p-2">
                 ACTION REQUIRED
@@ -101,7 +110,21 @@
               <p class= "badge badge-secondary">ORPHANED</p>
             </p>
             </div>
-        </div>
+            </div>
+
+            <div class="container">
+              <!-- Trigger/Open The Modal -->
+              <button id="myBtn">Click Me</button>
+              <!-- The Modal -->
+              <div id="myModal" class="modal">
+              <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p>Some text here as required..</p>
+                </div>
+      
+              </div>
+            </div>
 
           </div>           
         </div>
@@ -178,6 +201,34 @@
       </div>
     </section>   
   </div>
+
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+         if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script> 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

@@ -1,11 +1,14 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
+const dotenv = require("dotenv");
+
 const CciEmployee = require("../models/cciEmployee");
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Admin = require("../models/admin");
 const StateOfficial = require("../models/stateOfficial");
+
 const { registerValidationEmployee } = require("../validation");
 const { Router } = require("express");
 
@@ -250,7 +253,10 @@ router.get(
     const employee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
     });
-    const cci = await Cci.findOne({cci_id:req.params.cci_id},{'attendance':0})
+    const cci = await Cci.findOne(
+      { cci_id: req.params.cci_id },
+      { attendance: 0 }
+    );
     const cci_list = await Cci.find(
       { cwc_id: employee.cwc_id },
       { _id: 0, cci_name: 1, cci_id: 1 }
@@ -259,7 +265,7 @@ router.get(
     res.render("registration/registerNewCciEmployee.ejs", {
       employee: employee,
       cci_list: cci_list,
-      cci: cci
+      cci: cci,
     });
   }
 );
@@ -297,7 +303,7 @@ router.post(
       cwc_id: cwcemployee.cwc_id,
       cci_id: req.params.cci_id,
       password: hashedPassword,
-      employee_id: cciEmployeeId
+      employee_id: cciEmployeeId,
     });
 
     console.log("Employee Created " + employee);

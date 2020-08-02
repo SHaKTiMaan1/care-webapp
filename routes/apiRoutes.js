@@ -12,18 +12,23 @@ router.get(
     const cci_employee = await CciEmployee.findOne({
       email: req.params.employeeEmail,
     });
-    console.log(req.params.hashedPassword);
-
+    console.log(cci_employee);
     passwordToCompare = myStr.replace(/%2F/g, "/");
 
     //checking if Password is valid
-    const isPasswordValid = await bcrypt.compare(
-      req.params.hashedPassword,
-      cci_employee.password
-    );
 
-    const child = await Child.find({ cci_id: cci_employee.cci_id });
+    const isPasswordValid = false;
+    if (req.params.passwordToCompare === cci_employee.password) {
+      isPasswordValid = true;
+    }
+
+    // const isPasswordValid = await bcrypt.compare(
+    //   req.params.passwordToCompare,
+    //   cci_employee.password
+    // );
+
     if (isPasswordValid) {
+      const child = await Child.find({ cci_id: cci_employee.cci_id });
       res.send(child);
     } else {
       res.sendStatus(401);
@@ -95,4 +100,5 @@ res.send("done");
 
 
 
+router.post;
 module.exports = router;
