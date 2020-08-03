@@ -38,9 +38,13 @@ router.post("/desktopLogin", async (req, res) => {
       process.env.SECRET_KEY,
       { expiresIn: "2d" },
       (err, token) => {
-        const dataToSend = [token, child];
-        console.log(dataToSend);
-        res.json(dataToSend);
+        if (err) {
+          console.log("The error " + err);
+        } else {
+          const dataToSend = [token, child];
+          console.log(dataToSend);
+          res.json(dataToSend);
+        }
       }
     );
   } else {
@@ -59,19 +63,15 @@ router.get("/childrenDataUpdate/:cci_id", verifyToken, async (req, res) => {
   });
 });
 
-router.post("/postAttendance/:email", async (req, res) => {
+router.post("/postAttendance/:email", verifyToken, async (req, res) => {
   const employee = await CciEmployee.findOne({ email: req.params.email });
-  const cci = Cci.findOne({ cci_id: employee.cci_id });
+  const cci = await Cci.findOne({ cci_id: employee.cci_id });
   attendance = JSON.parse(JSON.stringify(req.body["attendance"]));
   inOutMovement = JSON.parse(JSON.stringify(req.body["inOutMovement"]));
 
-  // jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
-  //   if (err) {
-  //     res.sendStatus(403);
-  //   }
-  // });
-
   try {
+    var decoded = jwt.verify(req.token, process.env.SECRET_KEY);
+    console.log(decoded);
     const result = await Cci.updateOne(
       { cci_id: employee.cci_id },
       {
@@ -81,9 +81,19 @@ router.post("/postAttendance/:email", async (req, res) => {
         },
       }
     );
+    console.log("Data Sent Sucessfully");
     res.send("Data Sent Sucessfully");
-  } catch (err) {}
-  console.log("Data Sent Sucessfully");
+  } catch (err) {
+    console.log("Error");
+    res.sendStatus(403);
+  }
+
+  // (err) => {
+  //   if (err) {
+  //     res.sendStatus(403);
+  //   } else {
+  //     console.log("Hello");
+  //   }
 });
 
 function verifyToken(req, res, next) {
