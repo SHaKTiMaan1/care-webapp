@@ -60,11 +60,11 @@ class Functions():
         widget = self.sender()         
         conn = sqlite3.connect("child.db")
         c = conn.cursor()
-        c.execute(''' SELECT rowid ,C_ID FROM details WHERE SET_EXIST = "False" ''')
+        c.execute(''' SELECT C_ID FROM details WHERE SET_EXIST IS NULL ''')
         val = c.fetchall()
         for row in val:
-            if widget.objectName() == row[1]:
-                c_id = row[1]
+            if widget.objectName() == row[0]:
+                c_id = row[0]
                 break
         path = os.path.join("build-face-dataset/faces", c_id)
         os.mkdir(path)
@@ -303,7 +303,7 @@ class Functions():
 
             for x in ls1:
                 if x not in ls2:
-                    c.execute("INSERT INTO attendance (DATE,C_ID,ATTEND) VALUES (?, ?, ?)", (d, x, "False"))
+                    c.execute("INSERT INTO attendance (DATE,C_ID,ATTEND) VALUES (?, ?, ?)", (d, x, "True"))
             conn.commit()
             running = False
             video_capture.stop()

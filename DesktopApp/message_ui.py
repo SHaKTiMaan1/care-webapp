@@ -16,7 +16,7 @@ class Ui_Form(object):
         Form.setObjectName("Form")
         Form.resize(400, 400)
         self.frame = QtWidgets.QFrame(Form)
-        self.frame.setGeometry(QtCore.QRect(-1, -1, 401, 401))
+        self.frame.setGeometry(QtCore.QRect(-1, -1, 401, 401)) 
         font = QtGui.QFont()
         font.setFamily("Bell MT")
         font.setPointSize(20)
@@ -73,7 +73,7 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.textEdit.setPlaceholderText(_translate("Form", "Enter Message"))
         self.groupBox.setTitle(_translate("Form", "Messages"))
-import login
+import message_rc
 
 if __name__ == "__main__":
     import sys
