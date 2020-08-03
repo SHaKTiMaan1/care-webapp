@@ -51,6 +51,7 @@ router.post(
     const cwc = await Cwc.findOne({ cwc_id: cci.cwc_id });
 
     //ELIGIBILITY LOGIC
+
     var nextStatusEvaluationDate = new Date();
     var numberOfDaysToAdd = 50;
     if (age < 2) {
@@ -88,6 +89,9 @@ router.post(
       cci_name: cci.cci_name,
       cwc_id: cwcemployee.cwc_id,
       religion: req.body.religion,
+      isUpForAdoption: false,
+      hasCSR: false,
+      hasMER: false,
       witness_id: cwcemployee.employee_id,
       witness_name:
         cwcemployee.firstName +
