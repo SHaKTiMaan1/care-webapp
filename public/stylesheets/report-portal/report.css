@@ -3,7 +3,7 @@
     padding: 0;
 }
 body {
-    font-family: "quartzo";
+    font-family: 'Poppins', sans-serif;
     background: #fff;
   }
   .background2{
@@ -42,15 +42,17 @@ body {
     
     width: 60%;
     margin-top: 20px;
-    margin-left: 20rem;
+    margin-left: 18rem;
     border-radius: 6px;
     height: 30px;
-    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.9);
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.6);
     background: #9f12e0;
     text-align: center;
 }
 .report-title{
     color: #fff;
+    font-weight: bold;
+    padding-top: 4px;
     font-size: 22px;
 }
 .report-body{
