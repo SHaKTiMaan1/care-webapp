@@ -32,6 +32,7 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
   const employee = await CwcEmployee.findOne({
     employee_id: req.params.employee_id,
   });
+  const recommendedChildren = await Child.find({isUpForAdoption: true})
   const cwc_id = employee.cwc_id;
   const cwc = await Cwc.findOne({ cwc_id: cwc_id });
   // console.log(cwc);
@@ -58,6 +59,7 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
     cci_count: cci_count,
     cwcEmployee_count: cwcEmployee_count,
     children: children,
+    recommendedChildren: recommendedChildren
   });
 });
 
@@ -210,5 +212,12 @@ router.get(
     } catch (err) {}
   }
 );
+
+
+
+
+
+
+
 
 module.exports = router;
