@@ -288,6 +288,7 @@ header {
 .childIdInTable {
   font-size: 14px;
   color: black;
+  border-bottom: 1px solid black;
 }
 /* background color classes */
 

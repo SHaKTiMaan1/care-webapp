@@ -3,8 +3,39 @@ const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Child = require("../models/child");
+const { get } = require("request");
 
 //FOR GETTING THE FORM TO REGISTER A NEW CHILD
+//SNOOZING ACTION TAKING
+router.get(
+  "/cwc/dashboard/snooze/:employee_id/:child_id/:numberOfDays",
+  async (req, res) => {
+    const child = await Child.findOne({
+      child_id: req.params.child_id,
+    });
+    const employee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+
+    numberOfDays = Number(req.params.numberOfDays);
+    console.log(req.params.numberOfDays);
+    console.log(numberOfDays);
+
+    var nextDate = child.nextStatusEvaluationDate;
+    nextDate.setDate(nextDate.getDate() + numberOfDays);
+
+    try {
+      updatedChild = await Child.updateOne(
+        { child_id: req.params.child_id },
+        {
+          nextStatusEvaluationDate: nextDate,
+        }
+      );
+      res.redirect("/cwc/dashboard/" + employee.employee_id);
+    } catch (err) {}
+  }
+);
+
 router.get(
   "/cwc/dashboard/childRegistration/:employee_id",
   async (req, res) => {
@@ -27,41 +58,23 @@ router.get(
   }
 );
 
-//CWC DASHBOARD
-router.get("/cwc/dashboard/:employee_id", async function (req, res) {
-  const employee = await CwcEmployee.findOne({
-    employee_id: req.params.employee_id,
-  });
-  const recommendedChildren = await Child.find({isUpForAdoption: true})
-  const cwc_id = employee.cwc_id;
-  const cwc = await Cwc.findOne({ cwc_id: cwc_id });
-  // console.log(cwc);
-  const cwcEmployee_count = await CwcEmployee.countDocuments({
-    cwc_id: cwc_id,
-  });
-  const cci_list = await Cci.find(
-    { cwc_id: cwc_id },
-    { _id: 0, cci_name: 1, cci_id: 1 }
-  );
-  const cci_count = await Cci.countDocuments({ cwc_id: cwc_id });
-
-  //TO FIND OUT THE CHILDREN WHO ARE DUE FOR REEVALUATION
-  const currentDate = new Date();
-  const children = await Child.find({
-    nextStatusEvaluationDate: { $lt: currentDate },
-  });
-
-  console.log(children);
-  res.render("CWC/dashboardHome.ejs", {
-    employee: employee,
-    cci_list: cci_list,
-    cwc: cwc,
-    cci_count: cci_count,
-    cwcEmployee_count: cwcEmployee_count,
-    children: children,
-    recommendedChildren: recommendedChildren
-  });
-});
+//CHANGING ELIGIBILITY VALUE
+router.get(
+  "/cwc/dashboard/addToRecommendationList/:employee_id/:child_id",
+  async (req, res) => {
+    const employee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+    try {
+      updatedChild = await Child.updateOne(
+        { child_id: req.params.child_id },
+        { isUpForAdoption: true }
+      );
+      console.log(updatedChild);
+      res.redirect("/cwc/dashboard/" + employee.employee_id);
+    } catch (err) {}
+  }
+);
 
 //CHILDREN LIST PAGE
 router.get("/cwc/dashboard/allChildren/:employee_id", async function (
@@ -183,41 +196,41 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
   }
 });
 
-//SNOOZING ACTION TAKING
-router.get(
-  "/cwc/dashboard/snooze/:employee_id/:child_id/:numberOfDays",
-  async (req, res) => {
-    const child = await Child.findOne({
-      child_id: req.params.child_id,
-    });
-    const employee = await CwcEmployee.findOne({
-      employee_id: req.params.employee_id,
-    });
+//CWC DASHBOARD
+router.get("/cwc/dashboard/:employee_id", async function (req, res) {
+  const employee = await CwcEmployee.findOne({
+    employee_id: req.params.employee_id,
+  });
+  const recommendedChildren = await Child.find({ isUpForAdoption: true });
+  const cwc_id = employee.cwc_id;
+  const cwc = await Cwc.findOne({ cwc_id: cwc_id });
+  // console.log(cwc);
+  const cwcEmployee_count = await CwcEmployee.countDocuments({
+    cwc_id: cwc_id,
+  });
+  const cci_list = await Cci.find(
+    { cwc_id: cwc_id },
+    { _id: 0, cci_name: 1, cci_id: 1 }
+  );
+  const cci_count = await Cci.countDocuments({ cwc_id: cwc_id });
 
-    numberOfDays = Number(req.params.numberOfDays);
-    console.log(req.params.numberOfDays);
-    console.log(numberOfDays);
+  //TO FIND OUT THE CHILDREN WHO ARE DUE FOR REEVALUATION
+  const currentDate = new Date();
+  const children = await Child.find({
+    nextStatusEvaluationDate: { $lt: currentDate },
+    isUpForAdoption: false,
+  });
 
-    var nextDate = child.nextStatusEvaluationDate;
-    nextDate.setDate(nextDate.getDate() + numberOfDays);
-
-    try {
-      updatedChild = await Child.updateOne(
-        { child_id: req.params.child_id },
-        {
-          nextStatusEvaluationDate: nextDate,
-        }
-      );
-      res.redirect("/cwc/dashboard/" + employee.employee_id);
-    } catch (err) {}
-  }
-);
-
-
-
-
-
-
-
+  console.log(children);
+  res.render("CWC/dashboardHome.ejs", {
+    employee: employee,
+    cci_list: cci_list,
+    cwc: cwc,
+    cci_count: cci_count,
+    cwcEmployee_count: cwcEmployee_count,
+    children: children,
+    recommendedChildren: recommendedChildren,
+  });
+});
 
 module.exports = router;

@@ -54,7 +54,6 @@
             <% console.log(btnID); %>
             <% modalDivID = "myModal" + counter; %>
             <% console.log(modalDivID); %>
-            <% if(!(child.isUpForAdoption)){ %>
             <span id="<%= btnID %>" >
               <div class="home-main-content-grid-block col-12 flex-between">              
                 <div class="action-required">
@@ -62,22 +61,20 @@
                     ACTION REQUIRED
                    </h6> 
                   
-
-                   
                    <% if(child.isDataComplete){ %>
                     <div class="purple-gradient px-3 py-4">
-                      Approval for Addition to the Eligibility List
+                      Approval for Addition to the Eligibility List <br>
                     </div>
                     <% } else { %>
-                  <div class="magenta  py-4">
-                    Status and Data Updation Required
-                    <br><br>
-                  </div>
-                  <% } %>
+                    <div class="magenta  py-4">
+                      Status and Data Updation Required
+                      <br><br>
+                    </div>
+                  <%  } %>
                 </div>
-                <div class="details-of-child-for-action  ">
-                <h6><%= child.firstName +" " +child.lastName %></h6>
-                <p>
+                  <div class="details-of-child-for-action  ">
+                  <h6><%= child.firstName +" " +child.lastName %></h6>
+                  <p>
                   <span class="uuid"> <%= child.child_id %></span><br>
                   CCI : <%= child.cci_id %> <br>
                   Registration Date : <br> <%= String(child.registrationDate).substring(0,15) %> <br>
@@ -170,12 +167,12 @@
                             
                         </div>
                         <div class="col-sm-3">
-                          <% if(child.isDataComplete){ %> 
-                            <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">Declare Child Eligible for Adoption</a>
-                          <% } else { %>
-                            <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
+                          <% if(child.isDataComplete){ %>
+                          <% console.log("datacom" + child.isDataComplete); %>                        
+                          <a class="btn btn-danger " href="/cwc/dashboard/addToRecommendationList/<%= employee.employee_id %>/<%=child.child_id%>">Recommend For Adoption</a>
+                          <% }else{ %>
+                          <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
                           <% } %>
-                          
                         </div>  
                       </div> 
                     </div>
@@ -184,7 +181,6 @@
                 </div>
               </div>
             </span>
-            <% } %>
             <% counter++; %>
             <% }); %>                           
           </div>           
@@ -250,7 +246,7 @@
               </table>
             </div>
 
-            <div class="home-grid-side-content-block col-12">
+            <div class="home-grid-side-content-block col-12 ">
               <h4>CHILDREN RECOMMENDED FOR ADOPTION</h4>
               <div class="table">
                 <table class="table">
@@ -259,16 +255,14 @@
                       <th scope="col">ChildID</th>
                       <th scope="col">Name</th>
                       <th scope="col">CCI Name</th>
-                      
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="childIdInTable">
                     <%recommendedChildren.forEach(function(child){%>
                     <tr>
-                      <th scope="row"><span class="childIdInTable"><%=child.child_id%></span></th>
-                      <td><%=child.firstName%></td>
-                      <td><%=child.cci_name%></td>
-                      
+                      <th scope="row" class="childIdInTable" ><%=child.child_id%></th>
+                      <td class="childIdInTable"><%=child.firstName + " " + child.firstName%></td>
+                      <td class="childIdInTable"><%=child.cci_name%></td>
                     </tr>
                   <%})%>
                    
@@ -285,7 +279,7 @@
 
     <section>
       <div class="bottom-info purple-gradient">
-        <h6> <b> All Rights Reserved </b></h6>
+        <h6> <b> All Rights Reserved @ team SHaKTiMaan</b></h6>
       </div>
     </section>   
   </div>
