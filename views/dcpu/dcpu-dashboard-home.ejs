@@ -62,15 +62,14 @@
     <div class="admin-home-body report-section">
       <div class="row">
           <%report.forEach(function(eachReport){%>
-        <div class="col-md-4 mt-5 mb-5">
-         <a href="#" class="full-report-display">
+        <div  class="col-md-4 mt-5 mb-5">
+         <a href="/seeReport/<%=eachReport._id%>" class="full-report-display">
           <div class="card">
             <p class="report-sender">Sender Name :<%=(eachReport.SenderDetails[0].firstName) + " " + (eachReport.SenderDetails[0].lastName) %></p>
             <span class="report-subject">Subject: <%=eachReport.subject%></span><br>
            <%var date = eachReport.date%>
            <%date = date.substring(4,15)%>
-           <!-- ADDING MODAL -->
-      <!-- Button trigger modal -->
+           
   
            <span class="report-time text-muted">Date:<%=date%></span>
           </div>
@@ -119,36 +118,7 @@
   </div>
 </section>
 
-<div class="for-modal">
-    <!-- Modal -->
-   
-  <!-- Modal -->
-  
-  <div class="modal fade" id="cool" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="div">
-             <p id="modal-content"></p>
-          </div>         
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  
-      <!-- eNDING mODAL -->
-</div>
 <script
 src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

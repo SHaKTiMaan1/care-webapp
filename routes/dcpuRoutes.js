@@ -19,4 +19,13 @@ router.get("/dcpu/dashboard/:employee_id", async (req, res) => {
   res.render("dcpu/dcpu-dashboard-home.ejs", {employee: employee, report: Report, child_count:child_count})
 });
 
+
+router.get("/seeReport/:messageId", async function(req, res){
+
+  const foundReport = await report.findOne({_id: req.params.messageId})
+  res.render("Tanisha/report-dcpu-page.ejs",{foundReport: foundReport})
+
+
+})
+
 module.exports = router;

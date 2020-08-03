@@ -27,25 +27,29 @@
             <div class="report-dcpu-header border-bottom">
                 <div class="sender-profile-pic">
                     <img src="/images/icons/usericon.svg" alt="profile-pic" style="width: 50px;">
-                </div>    
-                    <p class="repo-sender-name">Sender's Name</p>
+                </div class="form-group">    
+                    <p class="repo-sender-name"><%=(foundReport.SenderDetails[0].firstName).toUpperCase() +" "+ (foundReport.SenderDetails[0].lastName).toUpperCase()%></p>
+                    <label class="report-subject"><h5><%=foundReport.SenderDetails[0].contactNumber%></h5></label>
                 
             </div>
                
                     
             <div class="report-dcpu-body">
                 <div class="form-group">
-                    <label for="" class="report-subject">Subject Description</label>
-                        
+                    <label for="">Subject</label>
+                    <p class="report-subject"><%=foundReport.subject%></p> 
                 </div>
     
                 <div class="form-group">
-                    <p class="report-description">Message</p>
+                  <label for="">Description</label>
+                    <p class="report-description"><%=foundReport.description%></p>
                 </div>
             </div>
         </div>
         
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     
     <script
     src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
