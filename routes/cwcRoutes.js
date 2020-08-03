@@ -117,7 +117,7 @@ router.get(
       { _id: 0, cci_name: 1, cci_id: 1 }
     );
 
-    res.render("CWC/editdetailsofachild.ejs", {
+    res.render("CWC/editDetailsofChild2.ejs", {
       employee: employee,
       cci_list: cci_list,
       child: child,
@@ -133,15 +133,15 @@ router.post(
       { child_id: req.params.child_id },
       {
         firstName: req.body.firstName,
-        middleName: req.body.middleName,
+        // middleName: req.body.middleName,
         lastName: req.body.lastName,
         dateOfBirth: req.body.dateOfBirth,
         gender: req.body.gender,
-        casteCategory: req.body.caste,
-        aadharNumber: req.body.aadharNumber,
+        caste: req.body.caste,
+        // aadharNumber: req.body.aadharNumber,
         fatherName: req.body.fatherName,
         motherName: req.body.motherName,
-        religion: req.body.religion,
+        // religion: req.body.religion,
       }
     );
     res.redirect(
