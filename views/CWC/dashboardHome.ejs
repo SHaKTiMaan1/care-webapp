@@ -60,24 +60,112 @@
                    <h6 class="crimson p-2">
                     ACTION REQUIRED
                    </h6> 
-                  <div class="purple-gradient p-3">
+                  <!-- <div class="purple-gradient px-3 py-4">
                     Approval for Addition to the Eligibility List
+                  </div> -->
+                  <div class="magenta px-3 py-4">
+                    
+                    Status and Data Updation Required
+                    <BR></BR>
                   </div>
                 </div>
-                <div class="details-of-child-for-action">
+                <div class="details-of-child-for-action px-5 m-3">
                 <h6><%= child.firstName +" " +child.lastName %></h6>
                 <p>
                   ID : <%= child.child_id %><br>
                   CCI : <%= child.cci_id %> <br>
-                  Registration Date : <%= child.registrationDate %> <br>
+                  Registration Date : <br> <%= String(child.registrationDate).substring(0,15) %> <br>
                   <p class= "badge badge-secondary">ORPHANED</p>
                 </p>
                 </div>
 
                 <div id="<%= modalDivID %>" class="modal">                
                   <div class="modal-content">
-                    < span id="<%= closeBtnID %>">&times;</span>
-                    <p>Some text here as required..</p>
+                    <span id="<%= closeBtnID %>"><a href="">&times;</a></span>
+                    <br>
+                    <div class="personalinfo child-view text-center">
+                      <h5 for="">ID : <%= child.child_id.toUpperCase() %></h5>
+            
+                      <label for="" class="values view-child-details-data"><%= child.firstName.toUpperCase()  + " " + child.middleName.toUpperCase() + " " + child.lastName.toUpperCase() %> , </label>              
+                      <label for="" class="values view-child-details-data">AGE <%= child.age %></label> <label for="" class="values view-child-details-data">,  <%= child.gender.toUpperCase() %></label>
+                      <br>
+                      <label for="" class="values view-child-details-data">REGISTERED ON :  <%= String(child.registrationDate).substring(0,15) %> <br></label>
+                      <hr>
+                      
+                      <div class="row position">
+                        <div class="col-sm-6">
+                            <label for="" class="fields">FATHER'S NAME</label> <br>
+                            <label for="" class="values view-child-details-data">
+                            <% if(child.fatherName){ %>
+                            <%= child.fatherName.toUpperCase() %>
+                            <% } else { %>
+                              <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                          
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="" class="fields">MOTHER'S NAME</label> <br>
+                            <label for="" class="values view-child-details-data">
+                            <% if(child.motherName){ %>
+                            <%=  child.motherName.toUpperCase()  %>
+                            <% } else { %>
+                              <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                                                
+                        </div>                             
+                      </div> 
+                      
+                      <div class="row position">
+                        <div class="col-sm-6">
+                          <label for="" class="fields">DATE OF BIRTH</label> <br>
+                          <% if(child.dateOfBirth){ %>
+                            <%=  child.dateOfBirth  %>
+                            <% } else { %>
+                            <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                                                 
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="" class="fields">CASTE</label> <br>
+                          <% if(child.caste){ %>
+                            <%= child.caste %>
+                            <% } else { %>
+                            <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                           
+                        </div>  
+                      </div>    
+                        <label for="" class="fields">AADHAAR NUMBER</label> <br>
+                        <label for="" class="values view-child-details-data"> <%= child.aadharNum %> </label>
+                        <% if(child.aadharNum){ %>
+                          <%= child.aadharNum %>
+                          <% } else { %>
+                          <label for="" class="values view-child-details-data crimson-text">ADD DATA</label>
+                          <% } %>
+                      <hr>
+                      <div class="row position">
+                        <div class="col-sm-6">
+                          <label for="" class="fields">TAKE ACTION AFTER : </label> <br>
+                            
+                        </div>
+                        <div class="col-sm-6">
+                           </div>  
+                      </div>    
+                      <div class="row position">
+                        <div class="col-sm-6">
+                            <a class="btn btn-dark " href="">20 DAYS</a>
+                            <a class="btn btn-dark " href="">50 DAYS</a>
+                            <a class="btn btn-dark " href="">90 DAYS</a>
+                            
+                        </div>
+                        <div class="col-sm-6">
+                          <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
+                        </div>  
+                      </div> 
+                            
+                            
+                    </div>
+
                   </div>        
                 </div>
               </div>
