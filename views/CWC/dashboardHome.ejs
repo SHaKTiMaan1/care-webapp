@@ -239,7 +239,30 @@
             </div>
 
             <div class="home-grid-side-content-block col-12 jade">
-              <h1></h1>
+              <h4>CHILDREN RECOMMENDED FOR ADOPTION</h4>
+              <div class="table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ChildID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">CCI Name</th>
+                      <th scope="col">Category</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%recommendedChildren.forEach(function(child){%>
+                    <tr>
+                      <th scope="row"><%=child.child_id%></th>
+                      <td><%=child.firstName%></td>
+                      <td><%=child.cci_name%></td>
+                      <td><%=child.status%></td>
+                    </tr>
+                  <%})%>
+                   
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>       

@@ -1,6 +1,9 @@
 var mongoose = require("mongoose");
 
 var childSchema = new mongoose.Schema({
+  status:{
+    type:String
+  },
   firstName: {
     type: String,
   },
@@ -45,6 +48,9 @@ var childSchema = new mongoose.Schema({
   },
   cwc_id: {
     type: String, //cwc_id from the cwcSchema
+  },
+  isDataComplete: {
+    type: Boolean, //when all data is complete
   },
 
   religion: {
