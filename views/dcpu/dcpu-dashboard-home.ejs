@@ -63,7 +63,7 @@
       <div class="row">
           <%report.forEach(function(eachReport){%>
         <div  class="col-md-4 mt-5 mb-5">
-         <a href="/seeReport/<%=eachReport._id%>" class="full-report-display">
+         <a href="/dcpu/dashboard/<%=employee.employee_id%>/seeReport/<%=eachReport._id%>" class="full-report-display">
           <div class="card">
             <p class="report-sender">Sender Name :<%=(eachReport.SenderDetails[0].firstName) + " " + (eachReport.SenderDetails[0].lastName) %></p>
             <span class="report-subject">Subject: <%=eachReport.subject%></span><br>

@@ -20,10 +20,13 @@ router.get("/dcpu/dashboard/:employee_id", async (req, res) => {
 });
 
 
-router.get("/seeReport/:messageId", async function(req, res){
+router.get("/dcpu/dashboard/:employee_id/seeReport/:messageId", async function(req, res){
+
+  const employee = await dcpuOfficer.findOne({employee_id : req.params.employee_id})
+  
 
   const foundReport = await report.findOne({_id: req.params.messageId})
-  res.render("Tanisha/report-dcpu-page.ejs",{foundReport: foundReport})
+  res.render("Tanisha/report-dcpu-page.ejs",{ employee: employee,foundReport: foundReport})
 
 
 })

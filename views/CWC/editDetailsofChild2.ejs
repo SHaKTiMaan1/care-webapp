@@ -5,13 +5,13 @@
     <!--heading-->
     <div class="child-view-starting">
        <a class="child-view-back" href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-       <a class="op" href="/cwc/dashboard/editChildDetails/<%= employee.employee_id%>/<%= child.child_id%>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+       <a class="op" href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
        <a class="op" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
     </div>
         
     <!--details-->
     <div class="container">
-       <form action="">
+       <form method="POST" action="/cwc/dashboard/editChildDetails/<%=employee.employee_id%>/<%=child.child_id%>">
             <div class="personalinfo child-view">
                 <!--image-->
                 <div class="image">
@@ -21,19 +21,19 @@
                    
                 <hr>
                 <div class="form-group">
-                    <label for="" class="fields">NAME</label>   <br>
-                    <label for="" class="values view-child-details-data"><%= child.firstName.toUpperCase()  + " " + child.middleName.toUpperCase() + " " + child.lastName.toUpperCase() %></label>
+                    <label for="" class="fields">FIRST NAME</label>   <br>
+                    <input  name="firstName" for=""  value="<%= child.firstName.toUpperCase() %>">
                     
                 </div> 
                 <div class="form-group">                               
                     <div class="row position">
                         <div class="col-sm-6">
                             <label for="" class="fields">DATE OF BIRTH</label> <br>
-                            <label for="" class="values"><%= child.dateOfBirth %></label>
+                            <input name="dateOfBirth" for=""  value="<%= child.dateOfBirth %>">
                         </div>
                         <div class="col-sm-6">
                             <label for="" class="fields">AGE</label> <br>
-                            <label for="" class="values view-child-details-data"><%= child.age %></label>
+                            <input name="age" for="" value="<%= child.age %>" >
                         </div>                             
                     </div>                   
                 </div>
@@ -44,11 +44,12 @@
                     <div class="row position">
                         <div class="col-sm-6">
                             <label for="" class="fields">GENDER</label> <br>
-                            <label for="" class="values view-child-details-data"><%= child.gender.toUpperCase() %></label>
+                            <input name="gender" for="" value="<%= child.gender.toUpperCase() %>" >
+                            
                         </div>
                         <div class="col-sm-6">
                             <label for="" class="fields">CASTE</label> <br>
-                            <label for="" class="values view-child-details-data"><%= child.caste %></label>
+                            <input name="caste" for="" value="<%= child.caste %>" >
                         </div>                             
                     </div>                   
                 </div>
@@ -57,7 +58,7 @@
 
                 <div class="form-group">
                     <label for="" class="fields">AADHAAR NUMBER</label> <br>
-                    <label for="" class="values view-child-details-data">724689189479719</label>
+                    <input name="aadharNumber" for="" value="" >
                 </div> 
 
                 
@@ -65,11 +66,13 @@
                     <div class="row position">
                         <div class="col-sm-6">
                             <label for="" class="fields">FATHER'S NAME</label> <br>
-                            <label for="" class="values view-child-details-data"><%= child.fatherName.toUpperCase() %></label>
+                            <input name="fatherName" for="" value="<%= child.fatherName.toUpperCase() %>" >
+                           
                         </div>
                         <div class="col-sm-6">
                             <label for="" class="fields">MOTHER'S NAME</label> <br>
-                            <label for="" class="values view-child-details-data"><%= child.motherName.toUpperCase() %></label>
+                            <input name="motherName" for="" value="<%= child.motherName.toUpperCase() %>" >
+                          
                         </div>                             
                     </div>                   
                 </div>
@@ -145,7 +148,8 @@
                
                 <div class="form-group">
                     <label for="" class="fields">ASSIGNED CCI NAME</label> <br>
-                    <label for="" class="values"><%= child.cci_name %></label>
+                    <input name="cci_name" for="" value="<%= child.cci_name %>" >
+                    
                 </div> 
                 <div class="form-group">
                     <label for="" class="fields">REGISTRATION DATE AND TIME</label> <br>
@@ -158,7 +162,7 @@
                 </div> 
             
             
-               
+               <button type="submit" class="btn btn-primary" >Update</button>
            
        </form>
     </div> 

@@ -79,7 +79,7 @@ router.post(
       dateOfBirth: req.body.dateOfBirth,
       age: age,
       gender: req.body.gender,
-      casteCategory: req.body.caste,
+      caste: req.body.caste,
       aadharNumber: req.body.aadharNumber,
       fatherName: req.body.fatherName,
       motherName: req.body.motherName,
