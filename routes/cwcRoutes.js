@@ -181,4 +181,32 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
   }
 });
 
+router.post(
+  "/cwc/dashboard/snooze/:employee_id/:child_id/:numberOfDays",
+  async (req, res) => {
+    const employee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
+    });
+    const child = await Child.findOne({
+      child_id: req.params.child_id,
+    });
+
+    numberOfDays = Number(req.params.numberOfDays);
+    console.log(req.params.numberOfDays);
+    console.log(numberOfDays);
+
+    var nextDate = child.nextStatusEvaluationDate;
+    nextDate.setDate(nextDate.getDate() + numberOfDays);
+
+    try {
+      updatedChild = await Child.updateOne(
+        { child_id: req.params.child_id },
+        {
+          nextStatusEvaluationDate: nextDate,
+        }
+      );
+    } catch (err) {}
+  }
+);
+
 module.exports = router;
