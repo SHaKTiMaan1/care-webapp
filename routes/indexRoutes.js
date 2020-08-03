@@ -4,6 +4,7 @@ const multer = require("multer");
 const helpers = require("../helpers");
 const path = require("path");
 const Child = require("../models/child");
+const { v4: uuidv4 } = require("uuid");
 
 //SETTING UP STORAGE
 const storage = multer.diskStorage({
@@ -67,15 +68,11 @@ router.post("/fileUpload", (req, res) => {
 });
 
 router.get("/testDate", async (req, res) => {
-  var currentDate = new Date("2020-08-01");
-  var saved = new Date("2020-07-30T18:30:51.475+00:00");
-  console.log(currentDate + "  " + saved);
+  var childID = uuidv4();
+  childID = childID.toUpperCase();
 
-  const children = await Child.find({
-    registrationDate: { $lt: currentDate },
-  });
-
-  console.log(children);
+  console.log(childID);
+  res.send(childID);
 });
 
 module.exports = router;
