@@ -292,6 +292,10 @@ header {
   background-color: royalblue !important;
 }
 
+.magenta {
+  background-color: #4b4bc2 !important;
+}
+
 .jade {
   background-color: #00a86b !important;
 }
@@ -358,6 +362,9 @@ header {
 }
 .black-text {
   color: black !important;
+}
+.crimson-text {
+  color: #b80f0a !important;
 }
 .inline-flex {
   display: inline-flex;
