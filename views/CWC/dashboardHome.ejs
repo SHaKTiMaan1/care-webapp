@@ -54,25 +54,31 @@
             <% console.log(btnID); %>
             <% modalDivID = "myModal" + counter; %>
             <% console.log(modalDivID); %>
+            <% if(!(child.isUpForAdoption)){ %>
             <span id="<%= btnID %>" >
               <div class="home-main-content-grid-block col-12 flex-between">              
                 <div class="action-required">
                    <h6 class="crimson p-2">
                     ACTION REQUIRED
                    </h6> 
-                  <!-- <div class="purple-gradient px-3 py-4">
-                    Approval for Addition to the Eligibility List
-                  </div> -->
-                  <div class="magenta px-3 py-4">
-                    
+                  
+
+                   
+                   <% if(child.isDataComplete){ %>
+                    <div class="purple-gradient px-3 py-4">
+                      Approval for Addition to the Eligibility List
+                    </div>
+                    <% } else { %>
+                  <div class="magenta  py-4">
                     Status and Data Updation Required
-                    <BR></BR>
+                    <br><br>
                   </div>
+                  <% } %>
                 </div>
-                <div class="details-of-child-for-action px-5 m-3">
+                <div class="details-of-child-for-action  ">
                 <h6><%= child.firstName +" " +child.lastName %></h6>
                 <p>
-                  ID : <%= child.child_id %><br>
+                  <span class="uuid"> <%= child.child_id %></span><br>
                   CCI : <%= child.cci_id %> <br>
                   Registration Date : <br> <%= String(child.registrationDate).substring(0,15) %> <br>
                   <p class= "badge badge-secondary">ORPHANED</p>
@@ -101,7 +107,7 @@
                             <% } else { %>
                               <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
                             <% } %>
-                          
+        
                         </div>
                         <div class="col-sm-6">
                           <label for="" class="fields">MOTHER'S NAME</label> <br>
@@ -173,6 +179,7 @@
                 </div>
               </div>
             </span>
+            <% } %>
             <% counter++; %>
             <% }); %>                           
           </div>           

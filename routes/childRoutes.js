@@ -20,7 +20,7 @@ router.post(
     var childID = uuidv4();
     childID = childID.toUpperCase();
     let dateOfBirth = new Date(req.body.dateOfBirth);
-    let currentDate = new Date("03-02-2020");
+    let currentDate = new Date();
     // let prefix = req.body.firstName.substring(0, 3).toUpperCase();
     // let mid1 = cwcemployee.cwc_id.substring(0, 3).toUpperCase();
     // let mid2 = "0000";

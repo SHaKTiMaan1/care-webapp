@@ -281,7 +281,10 @@ header {
   font-size: 12px;
   font-weight: normal !important;
 }
-
+.uuid {
+  font-size: 15px;
+  color: black;
+}
 /* background color classes */
 
 .crimson {
