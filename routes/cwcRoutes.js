@@ -29,9 +29,9 @@ router.get(
 
 //CWC DASHBOARD
 router.get("/cwc/dashboard/:employee_id", async function (req, res) {
-  const idToSearch = req.params.employee_id;
-
-  const employee = await CwcEmployee.findOne({ employee_id: idToSearch });
+  const employee = await CwcEmployee.findOne({
+    employee_id: req.params.employee_id,
+  });
   const cwc_id = employee.cwc_id;
   const cwc = await Cwc.findOne({ cwc_id: cwc_id });
   // console.log(cwc);
@@ -44,12 +44,20 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
   );
   const cci_count = await Cci.countDocuments({ cwc_id: cwc_id });
 
+  //TO FIND OUT THE CHILDREN WHO ARE DUE FOR REEVALUATION
+  const currentDate = new Date();
+  const children = await Child.find({
+    nextStatusEvaluationDate: { $lt: currentDate },
+  });
+
+  console.log(children);
   res.render("CWC/dashboardHome.ejs", {
     employee: employee,
     cci_list: cci_list,
     cwc: cwc,
     cci_count: cci_count,
     cwcEmployee_count: cwcEmployee_count,
+    children: children,
   });
 });
 
