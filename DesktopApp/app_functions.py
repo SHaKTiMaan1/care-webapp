@@ -303,7 +303,7 @@ class Functions():
 
             for x in ls1:
                 if x not in ls2:
-                    c.execute("INSERT INTO attendance (DATE,C_ID,ATTEND) VALUES (?, ?, ?)", (d, x, "True"))
+                    c.execute("INSERT INTO attendance (DATE,C_ID,ATTEND) VALUES (?, ?, ?)", (d, x, "False"))
             conn.commit()
             running = False
             video_capture.stop()
