@@ -12,21 +12,68 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog,QMessageBox
 import bcrypt
 import sys
-import pymongo
+import socket
+import json
 from getpass import getpass
-import re
+import sqlite3
+import requests
 
 from main import *
 
+conn = sqlite3.connect('child.db')
+c = conn.cursor()
+
+c.execute('''CREATE TABLE IF NOT EXISTS users(
+    EMAIL TEXT NOT NULL,
+    PWD TEXT NOT NULL, 
+    TOKEN TEXT
+);''')
+
+c.execute('''CREATE TABLE IF NOT EXISTS details 
+            (FNAME TEXT NOT NULL,
+            LNAME TEXT NOT NULL,
+            C_ID TEXT PRIMARY KEY NOT NULL,
+            AGE INT NOT NULL, 
+            DOR TEXT NOT NULL,
+            GENDER TEXT NOT NULL,
+            SET_EXIST BOOLEAN "False");''')
+
+c.execute('''CREATE TABLE IF NOT EXISTS attendance
+            (DATE TEXT NOT NULL,
+            C_ID TEXT NOT NULL,
+            ATTEND BOOLEAN DEFAULT "False" NOT NULL ,
+            SYNCED BOOLEAN DEFAULT "False");''')
+
+c.execute('''CREATE TABLE IF NOT EXISTS messages(
+             MSG TEXT,
+             SENDER TEXT NOT NULL,
+             TIME REAL NOT NULL);''')
+
+c.execute('''CREATE TABLE IF NOT EXISTS leftdetails 
+            (FNAME TEXT NOT NULL,
+            LNAME TEXT NOT NULL,
+            C_ID TEXT PRIMARY KEY NOT NULL,
+            AGE INT NOT NULL, 
+            DOR TEXT NOT NULL,
+            GENDER CHAR(1) NOT NULL,
+            SET_EXIST BOOLEAN);''')
+
+c.execute('''CREATE TABLE IF NOT EXISTS in_and_out(
+             C_ID TEXT NOT NULL,
+             DATE_OUT TEXT,
+             TIME_OUT TEXT,
+             DATE_IN TEXT,
+             TIME_IN TEXT,
+             SYNCED BOOLEAN DEFAULT "False");''')
 
 class Ui_MainWindow(object):
-        global hashpass
         def setupUi(self, MainWindow):
                 MainWindow.setObjectName("MainWindow")
                 MainWindow.resize(1050, 624)
                 MainWindow.setMinimumSize(QtCore.QSize(1050, 624))
                 MainWindow.setMaximumSize(QtCore.QSize(1050, 624))
                 MainWindow.setToolTipDuration(1)
+                MainWindow.setWindowTitle("CARE-Login")
                 MainWindow.setAutoFillBackground(False)
                 MainWindow.setStyleSheet("*\n"
         "{\n"
@@ -35,7 +82,7 @@ class Ui_MainWindow(object):
         "}\n"
         "QFrame\n"
         "{\n"
-        "    background: rgba(0,0,0,40);\n"
+        "    background: rgb(0,0,0,40);\n"
         "    font-family: century gothic;\n"
         "    font-size: 24px;\n"
         "    color: white;\n"
@@ -73,6 +120,7 @@ class Ui_MainWindow(object):
                 MainWindow.setDocumentMode(False)
                 MainWindow.setUnifiedTitleAndToolBarOnMac(False)
                 self.centralwidget = QtWidgets.QWidget(MainWindow)
+                self.centralwidget.setWindowTitle("CARE")
                 self.centralwidget.setObjectName("centralwidget")
                 self.frame = QtWidgets.QFrame(self.centralwidget)
                 self.frame.setGeometry(QtCore.QRect(570, 110, 381, 431))
@@ -138,46 +186,110 @@ class Ui_MainWindow(object):
                 self.pushButton1.clicked.connect(self.login)
 
         def login(self):
-                global hashpass
-                uname = self.lineEdit1.text()
-                pawd = self.lineEdit2.text() 
-                
-                """Connection String"""
-                client = pymongo.MongoClient(
-                "mongodb+srv://CCI:root@cluster0.4gzmr.mongodb.net/CARE?retryWrites=true&w=majority")
-                db = client["CARE"]
-                col = db["cciemployees"]
+                email=self.lineEdit1.text()
+                password= self.lineEdit2.text()
+                data = {
+                        "email":email,
+                        "password":password
+                }
+                conn = sqlite3.connect('child.db')
+                c = conn.cursor()
 
-                """Searching for document with the specified CCI Id"""
-                query = {"email": f"{uname}"}
-                doc = col.find(query)
-                
-                for x in doc:
-                        hashpass = x["password"]
-                        hashpass = hashpass.encode('utf-8')
-                        cci_id = x["cci_id"]
-                        e_id = x["employee_id"] 
-                        
-                """Validating Password"""
+                c.execute('''Select PWD FROM users WHERE EMAIL = ?''', (data["email"], ))
+                hashed = c.fetchone()
+                if hashed is None:
+                        IPaddress = socket.gethostbyname(socket.gethostname())
+                        if IPaddress != "127.0.0.1":
+                                url = "https://care-shaktimaan.herokuapp.com/desktopLogin"
+                                response = requests.post(url, data, timeout=20)
+                                if(response.status_code == 200):
+                                        print("Login Successful")
+                                        salt = bcrypt.gensalt()
+                                        pswdencoded = data["password"].encode('utf-8')
+                                        hashed = bcrypt.hashpw(pswdencoded, salt)
+                                        c.execute('''INSERT INTO users (EMAIL, PWD) VALUES(?, ?)''', (data["email"], hashed.decode()))
+                                        x = json.loads(response.text)
+                                        token = x[0]
+                                        c.execute('''UPDATE users SET TOKEN = ? WHERE EMAIL = ?''', (token, data["email"]))
+                                        childobjs = x[1]
 
-                pawd = pawd.encode('utf-8')
-                if(bcrypt.checkpw(pawd, hashpass)):
-                        print("Login Successful")
-                        f = open("CCI.txt","w+")
-                        f.write(cci_id+"\n" +e_id +"\n")
-                        f.close()
-        
-                        self.da = QtWidgets.QMainWindow()
-                        self.window = MainWindow()
-                        self.window.show()
-                        Form.hide()
+                                        for obj in childobjs:
+                                                print(obj)
+                                                c.execute('''INSERT INTO details (FNAME, LNAME, C_ID, AGE, DOR, GENDER ) VALUES (?, ?, ?, ?, ?, ?)''', (
+                                                obj["firstName"], obj["lastName"], obj["child_id"], obj["age"], obj["registrationDate"], obj["gender"]))
+                                        self.da = QtWidgets.QMainWindow()
+                                        self.window = MainWindow()
+                                        self.window.show()
+                                        Form.hide()
+                                else:
+                                        print("Wrong Credentials")
+                                        msg = QMessageBox.critical("Error","Wrong Credential")
+                                        msg.show()
+                                
+                        else:
+                                print("No internet")
 
 
                 else:
-                        message = QMessageBox.critical(self, "Error" ,"Wrong credential!!",QMessageBox.Ok,QMessageBox.StandardButton)                       
-                        self.lineEdit1.clear()
-                        self.lineEdit2.clear()
-                        
+                        IPaddress = socket.gethostbyname(socket.gethostname())
+                        if IPaddress != "127.0.0.1":
+                                url = "https://care-shaktimaan.herokuapp.com/desktopLogin"
+                                response = requests.post(url, data, timeout=20)
+                                if(response.status_code == 200):
+                                        print("Login Successful")
+                                        x = json.loads(response.text)
+                                        token = x[0]
+                                        c.execute('''UPDATE users SET TOKEN = ? WHERE EMAIL = ?''',
+                                                (token, data["email"]))
+                                        childobjs = x[1]
+
+                                        #C_IDS in local database
+                                        c = conn.execute('''SELECT C_ID FROM details;''')
+                                        rows = c.fetchall()
+                                        l_local = []
+                                        for row in rows:
+                                                l_local.append(row[0])
+                                        l_web = []
+                                        for obj in childobjs:
+                                                l_web.append(obj["child_id"])
+                                                if(obj["child_id"] not in l_local):
+                                                        c.execute('''INSERT INTO details (FNAME, LNAME, C_ID, AGE, DOR, GENDER ) VALUES (?, ?, ?, ?, ?, ?)''', (
+                                                                obj["firstName"], obj["lastName"], obj["child_id"], obj["age"], obj["registrationDate"], obj["gender"]))
+                                                else:
+                                                        pass
+
+                                        #Checking for children who left cci and replacing them from main database to another database
+                                        for x in l_local:
+                                                if x not in l_web:
+                                                        c.execute(
+                                                                '''SELECT * FROM details WHERE C_ID = ? ''', (x, ))
+                                                        row = c.fetchone()
+                                                        c.execute(
+                                                                '''INSERT INTO leftdetails VALUES (?, ?, ?, ?, ?, ?, ?, ?)''', (row))
+                                                        c.execute(
+                                                                '''DELETE * FROM details WHERE C_ID = ? ''', (x, ))
+                                        self.da = QtWidgets.QMainWindow()
+                                        self.window = MainWindow()
+                                        self.window.show()
+                                        Form.hide()
+                                else:
+                                        print("Error")
+
+                        else:
+                                hashed = hashed[0].encode('utf-8')
+                                pswdencoded = data["password"].encode('utf-8')
+                                if(bcrypt.checkpw(pswdencoded, hashed)):
+                                        print("Login Successful")
+                                        self.da = QtWidgets.QMainWindow()
+                                        self.window = MainWindow()
+                                        self.window.show()
+                                        Form.hide()
+                                else:
+                                        print("Wrong Credentials")
+
+                conn.commit()
+                conn.close()
+                      
     
         def retranslateUi(self, MainWindow):
                 _translate = QtCore.QCoreApplication.translate

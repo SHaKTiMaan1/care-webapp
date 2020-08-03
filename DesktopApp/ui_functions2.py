@@ -1,3 +1,8 @@
+import sqlite3
+from datetime import date
+import pymongo
+import socket
+import time
 ## ==> GUI FILE
 from main import *
 
@@ -12,7 +17,7 @@ GLOBAL_TITLE_BAR = True
 count = 1
 
 class UIFunctions():
-
+ 
     ## ==> GLOBALS
     GLOBAL_STATE = 0
     GLOBAL_TITLE_BAR = True
@@ -110,7 +115,7 @@ class UIFunctions():
 
     ## ==> DESELECT
     def deselectMenu(getStyle):
-        deselect = getStyle + ("QPushButton { border-right: 7px solid rgb(44, 49, 60); }")
+        deselect = getStyle + ("QPushButton { border-right: 7px solid rgb(56, 98, 6); }")
         return deselect
 
     ## ==> START SELECTION
@@ -133,8 +138,6 @@ class UIFunctions():
     ########################################################################
     ## END - GUI FUNCTIONS
     ########################################################################
-
-
     ########################################################################
     ## START - GUI DEFINITIONS
     ########################################################################

@@ -4,6 +4,9 @@
 #############################################################################
 import sqlite3
 import sys
+import threading
+import os
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow,QApplication,QPushButton,QSizePolicy,QGraphicsDropShadowEffect,QSizeGrip
 from PyQt5.QtCore import QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent
@@ -11,7 +14,7 @@ from PyQt5.QtGui import QBrush, QColor, QConicalGradient, QCursor, QFont, QFontD
 from PyQt5 import *
 
 # GUI FILE
-from ui_main import Ui_MainWindow
+from version2new import Ui_MainWindow2
 
 # IMPORT QSS CUSTOM
 from ui_styles import Style
@@ -20,13 +23,14 @@ from ui_styles import Style
 from ui_functions2 import *
 
 from message_ui import *
+from main_sync import *
 
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        self.ui = Ui_MainWindow()
+        self.ui = Ui_MainWindow2()
         self.ui.setupUi(self)
-
+        self.startTheThread()
         ## PRINT ==> SYSTEM
         #print('System: ' + platform.system())
         #print('Version: ' +platform.release())
@@ -104,6 +108,13 @@ class MainWindow(QMainWindow):
         self.show()
         ## ==> END ##
 
+
+    def startTheThread(self):
+        # Create the new thread. The target function is 'myThread'. The
+        # function we created in the beginning.
+        t = threading.Thread(name='myThread', target=sync)
+        t.start()
+
     ########################################################################
     ## MENUS ==> DYNAMIC MENUS FUNCTIONS
     ########################################################################
@@ -128,18 +139,18 @@ class MainWindow(QMainWindow):
             known_c_ids = []
             conn = sqlite3.connect("child.db")
             c = conn.cursor()
-            result = c.execute(''' SELECT rowid ,C_ID FROM details WHERE SET_EXIST = "False" ''')
+            result = c.execute(''' SELECT C_ID FROM details WHERE SET_EXIST IS NULL ''')
             self.ui.tableWidget_2.setRowCount(0)
 
             for row_number , row_data in enumerate(result):
                 self.ui.tableWidget_2.insertRow(row_number)
-                ls = row_data[1]
+                ls = row_data[0]
                 for column_number , data in enumerate(row_data): 
                     self.ui.tableWidget_2.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
                     self.btn_cell = QPushButton("+")
                     self.btn_cell.setObjectName(ls)
                     self.btn_cell.clicked.connect(lambda:Functions.dataset(self))
-                    self.ui.tableWidget_2.setCellWidget(row_number,column_number+2,self.btn_cell)
+                    self.ui.tableWidget_2.setCellWidget(row_number,column_number+1,self.btn_cell)
 
         # PAGE WIDGETS
         if btnWidget.objectName() == "attendance_button":
@@ -163,14 +174,15 @@ class MainWindow(QMainWindow):
             # child detail table
 
             self.connection = sqlite3.connect('child.db')
-            query = self.connection.execute('''SELECT * FROM details;''')
-            result = query.fetchall()
+            c = self.connection.cursor()
+            query = c.execute('''SELECT FNAME, LNAME, C_ID, AGE, DOR, GENDER FROM details''')
             self.ui.tableWidget.setRowCount(0)
 
-            for row_number , row_data in enumerate(result):
+            for row_number , row_data in enumerate(query):
                 self.ui.tableWidget.insertRow(row_number)
                 for column_number , data in enumerate(row_data):
                     self.ui.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+            
             self.connection.commit()
             self.connection.close()
 
