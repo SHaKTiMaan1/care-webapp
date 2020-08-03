@@ -72,7 +72,7 @@ router.post(
       aadharNumber: req.body.aadharNumber,
       fatherName: req.body.fatherName,
       motherName: req.body.motherName,
-      registrationDate: dummyDate,
+      registrationDate: currentDate,
       nextStatusEvaluationDate: nextStatusEvaluationDate,
       child_id: childID,
       cci_id: String(req.body.cci_id),

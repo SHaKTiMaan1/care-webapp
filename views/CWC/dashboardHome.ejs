@@ -170,7 +170,12 @@
                             
                         </div>
                         <div class="col-sm-3">
-                          <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
+                          <% if(child.isDataComplete){ %> 
+                            <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">Declare Child Eligible for Adoption</a>
+                          <% } else { %>
+                            <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
+                          <% } %>
+                          
                         </div>  
                       </div> 
                     </div>
