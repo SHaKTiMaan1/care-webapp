@@ -15,11 +15,13 @@ const dcpuRoutes = require("./routes/dcpuRoutes");
 const cciRoutes = require("./routes/cciRoutes");
 const apiRoutes = require("./routes/apiRoutes");
 const childRoutes = require("./routes/childRoutes");
+const reportRoutes = require("./routes/reportRoutes");
 
 const app = express();
 dotenv.config();
 
 //DATABASE CONNECTION
+
 mongoose.connect(process.env.DB_LINK, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -49,7 +51,11 @@ app.use(otherRoutes);
 app.use(dcpuRoutes);
 app.use(childRoutes);
 app.use(apiRoutes);
+app.use(reportRoutes);
 
 //LISTENING TO THE PORT //--
 // app.listen(process.env.PORT, process.env.IP); //HEROKU
+
 app.listen(3001, () => console.log("Server says Hello!!"));
+// const port = process.env.PORT || 3001;
+// app.listen(port, () => console.log(`Listening on port ${port}..`));

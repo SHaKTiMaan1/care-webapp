@@ -41,14 +41,47 @@
     ]
   },
   {
-    "date": "20-03-2014",
-    "data": [
+    "attendance": [
       {
-        "child_Id": "something",
-        "firstName": "something",
-        "lastName": "something",
-        "present": false,
-        "reasonOfAbsence": "something"
+        "date": "20-03-2014",
+        "data": [
+          {
+            "child_Id": "monkey",
+            "firstName": "something",
+            "lastName": "something",
+            "present": false,
+            "reasonOfAbsence": "something"
+          }
+        ]
+      },
+      {
+        "date": "20-03-2014",
+        "data": [
+          {
+            "child_Id": "kangaroo",
+            "firstName": "something",
+            "lastName": "something",
+            "present": false,
+            "reasonOfAbsence": "something"
+          }
+        ]
+      }
+    ],
+
+    "inOutMovement": [
+      {
+        "child_id": "hello",
+        "date_out": "mongo",
+        "time_out": "22-22-22",
+        "date_in": "22-22-22",
+        "time_in": "22-22-22"
+      },
+      {
+        "child_id": "mozerala",
+        "date_out": "mongo",
+        "time_out": "22-22-22",
+        "date_in": "22-22-22",
+        "time_in": "22-22-22"
       }
     ]
   }

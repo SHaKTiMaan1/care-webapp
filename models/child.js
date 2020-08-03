@@ -1,6 +1,9 @@
 var mongoose = require("mongoose");
 
 var childSchema = new mongoose.Schema({
+  status: {
+    type: String,
+  },
   firstName: {
     type: String,
   },
@@ -46,12 +49,14 @@ var childSchema = new mongoose.Schema({
   cwc_id: {
     type: String, //cwc_id from the cwcSchema
   },
-
+  isDataComplete: {
+    type: Boolean, //when all data is complete
+  },
   religion: {
     type: String,
   },
-  eligibilityStatus: {
-    type: String,
+  isUpForAdoption: {
+    type: Boolean,
   },
   witness_id: {
     type: String,
@@ -62,12 +67,22 @@ var childSchema = new mongoose.Schema({
   nextStatusEvaluationDate: {
     type: Date,
   },
-  guardian_id: [
-    {
-      type: String, //guardian_id from the guardianSchema
-    },
-  ],
+  hasCSR: {
+    type: Boolean,
+  },
+  hasMER: {
+    type: Boolean,
+  },
   medicalDetails: {
+    hairColor: {
+      type: String,
+    },
+    eyeColor: {
+      type: String,
+    },
+    skinColor: {
+      type: String,
+    },
     bloodGroup: {
       type: String,
     },
@@ -91,7 +106,67 @@ var childSchema = new mongoose.Schema({
         },
       },
     ],
+    ordinaryDiseaseHistory: {
+      whoopingCough: {
+        type: Boolean,
+      },
+    },
+    previousTreatments: [
+      {
+        hospitalName: {
+          type: String,
+        },
+        age: {
+          type: Number,
+        },
+        diagnosis: {
+          type: String,
+        },
+        treatment: {
+          type: String,
+        },
+      },
+    ],
+
+    jaundiceBtHistory: [
+      {
+        description: {
+          type: String,
+        },
+        treatmentInfo: {
+          type: String,
+        },
+      },
+    ],
+    vaccinatedFor: {
+      TB: {
+        type: Boolean,
+      },
+      diptheria: {
+        type: Boolean,
+      },
+      tetanus: {
+        type: Boolean,
+      },
+      poliomyelitis: {
+        type: Boolean,
+      },
+      hepatitisA: {
+        type: Boolean,
+      },
+      measels: {
+        type: Boolean,
+      },
+    },
+    mentalDevelopment: {
+      type: String,
+    },
   },
+  guardian_id: [
+    {
+      type: String, //guardian_id from the guardianSchema
+    },
+  ],
 });
 
 module.exports = mongoose.model("Child", childSchema);

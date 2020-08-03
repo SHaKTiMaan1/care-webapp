@@ -7,7 +7,7 @@
     <link rel="stylesheet" href=" https://www.fontspace.com/quartzo-font-f22857">
     <link rel="stylesheet" href="/stylesheets/report-portal/report.css" />
     
-    <title>Report</title>
+    <title>DCPU Report</title>
 </head>
 <body>
     <nav class="navbar background2  ">
@@ -19,7 +19,7 @@
             <h2 class="report-title">REPORTING PORTAL</h2>
         </div>
         <div class="report-body container">
-            <form>
+            <form id="report" action="/report" method="POST">
             <div class="form">
                 <div class="report-sec-1">
                     <p class="repo-section-heading">Sender's Information</p>
@@ -27,23 +27,24 @@
                     <div class="form-group">
                         <label for="" class="repo-fields">SELECT YOUR DISTRICT</label> 
                         <select class="form-control" name="district" class="form-control">
-                          <option disabled="disabled" selected="selected">Select District</option>
-                          <option value="">Jhansi</option>
-                          <option value="">Prayagraj</option>
-                          <option value="">Agra</option>
+                          <option disabled="disabled" >Select District</option>
+                          <option value="bhopal">Bhopal</option>
+                          <option value="Jhansi">Jhansi</option>
+                          <option value="Prayagraj">Prayagraj</option>
+                          <option value="Agra">Agra</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="" class="repo-fields">NAME</label>
                         <div class="row">
                           <div class="col-md-4">
-                            <input type="text" name="firstName" class="form-control" placeholder="first name" />
+                            <input type="text" name="firstName" class="form-control" placeholder="First name" />
                           </div>
                           <div class="col-md-4">
-                            <input type="text" name="middleName" class="form-control" placeholder="middle name" />
+                            <input type="text" name="middleName" class="form-control" placeholder="Middle name" />
                           </div>
                           <div class="col-md-4">
-                            <input type="text" name="lastName" class="form-control" placeholder="last name" />
+                            <input type="text" name="lastName" class="form-control" placeholder="Last name" />
                           </div>
                         </div>
                     </div>
@@ -52,17 +53,17 @@
                         <div class="row">
                           <div class="col-md-6">
                             <label for="" class="repo-fields">CONTACT NUMBER</label>
-                            <input type="text" name="contactNumber" class="form-control" placeholder="mobile number" />
+                            <input type="text" name="contactNumber" class="form-control" placeholder="Mobile number" />
                           </div>
                           <div class="col-md-6">
                             <label for="" class="repo-fields">EMAIL ID</label>
-                            <input type="text" name="email" class="form-control" placeholder="email Id" />
+                            <input type="text" name="email" class="form-control" placeholder="Email Id" />
                           </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="repo-fields">ADDRESS</label> 
-                        <textarea class="form-control" rows="4" placeholder="Complete Address"></textarea>>
+                        <textarea class="form-control" name="address" rows="4" placeholder="Complete Address"></textarea>>
                     </div>
                     <div class="form-group">
                         <label for="" class="repo-fields">GENDER</label>
@@ -102,14 +103,14 @@
                    
                     <div class="form-group">
                         <label for="" class="repo-fields">SUBJECT OF REPORT</label>
-                        <input type="text" name="current-date" class="form-control">
+                        <input type="text" name="subject" class="form-control">
                     </div> 
                     <div class="form-group">
                         <label for="" class="repo-fields">DESCRIPTION</label> 
-                        <textarea class="form-control" rows="9" placeholder="Description"></textarea>>
+                        <textarea form="report" class="form-control" rows="9" name="description" placeholder="Description"></textarea>
                     </div>
                     <div class="form-group pt-4">
-                        <a class="backbt" href="#">SUBMIT</a>
+                        <input type="submit" class="btn btn-primary" />
                        </div>
                         
                 </div>

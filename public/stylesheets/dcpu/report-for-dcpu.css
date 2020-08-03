@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff;
+  }
+  .dcpu-report{
+      
+      margin-top: 50px;
+      padding: 20px;
+      background:  #fff;;
+  }
+  .report-dcpu-header{
+    
+      display: inline-flex;
+      width: 100%;
+      border-radius: 6px;
+     
+     
+  }
+.sender-profile-pic{
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+   
+}
+.repo-sender-name{
+    margin-left: 10px;
+    font-size: 18px;
+    margin-top:10px;
+}
+.report-dcpu-body{
+   
+    
+    background: #f5f2f2;
+    margin-top: 30px;
+    padding: 10px;
+}
+.report-subject{
+    background: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    color: #7e04b6;
+    font-size: 18px;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.6);
+}
+.report-description{
+    background: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.6);
+}
+.report-main-area{
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+.repo-contact-info{
+    margin-left: 40rem;
+    color: #7e04b6;
+}
+.repo-contact-info .mob-no{
+    margin-bottom: 2px;
+    
+}

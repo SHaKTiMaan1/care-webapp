@@ -6,13 +6,13 @@
   <div class="dcpu-homecontent1">
       <div class="row title">
           <div class="col-lg-5">
-              <h1 class="dcpu-official-title font-weight-bold mb-0">DCPU Official Name</h1>
-              <p class="dcpu-official-location"><i class="fa fa-circle" aria-hidden="true"></i>Jhansi,UttarPradesh</p>
+              <h1 class="dcpu-official-title font-weight-bold mb-0"><%=employee.firstName.toUpperCase() + " " + employee.lastName.toUpperCase()%></h1>
+              <p class="dcpu-official-location"><i class="fa fa-circle" aria-hidden="true"></i><%=employee.district%>, <%=employee.state%></p>
           </div>
           <div class="col-lg-3 ">
               <div class="mx-auto information-child">
                   <h6 class="total-child-title">Total Number Of Children Under care</h6>
-                  <h3 class="total-child-info">1120</h3>
+                  <h3 class="total-child-info"><%=child_count%></h3>
                   </div>
           </div>
           <div class="col-lg-4 ">
@@ -56,42 +56,27 @@
       </div>
   </div>
   <div class="dcpu-contain4">
-    <div class="glance-header border-bottom " style="text-align: center;">
+    <div class="glance-header border-bottom " style="text-align: center">
       <h4 class="glance-title">Report Section</h4>
   </div>
     <div class="admin-home-body report-section">
       <div class="row">
-        <div class="col-md-4">
-         <a href="#" class="full-report-display">
+          <%report.forEach(function(eachReport){%>
+        <div  class="col-md-4 mt-5 mb-5">
+         <a href="/dcpu/dashboard/<%=employee.employee_id%>/seeReport/<%=eachReport._id%>" class="full-report-display">
           <div class="card">
-            <p class="report-sender">Sender's Information</p>
-            <span class="report-subject">Short Subject</span><br>
-            <span class="report-time text-muted">59 minutes ago</span>
+            <p class="report-sender">Sender Name :<%=(eachReport.SenderDetails[0].firstName) + " " + (eachReport.SenderDetails[0].lastName) %></p>
+            <span class="report-subject">Subject: <%=eachReport.subject%></span><br>
+           <%var date = eachReport.date%>
+           <%date = date.substring(4,15)%>
+           
+  
+           <span class="report-time text-muted">Date:<%=date%></span>
           </div>
          </a>
         </div>
-        <div class="col-md-4">
-          <a href="#" class="full-report-display">
-            <div class="card">
-              <p class="report-sender">Sender's Information</p>
-              <span class="report-subject">Short Subject</span><br>
-              <span class="report-time text-muted">59 minutes ago</span>
-            </div>
-           </a>
-        </div>
-        
-        <div class="col-md-4">
-          <a href="#" class="full-report-display">
-            <div class="card">
-              <p class="report-sender">Sender's Information</p>
-              <span class="report-subject">Short Subject</span><br>
-              <span class="report-time text-muted">59 minutes ago</span>
-            </div>
-           </a>
-        </div>
+        <%})%>
       </div>
-     
-      
     </div>
   </div>
   <div class="dcpu-contain3">
@@ -141,7 +126,7 @@ crossorigin="anonymous"
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 <script> 
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart').getContext('2d')
 var chart = new Chart(ctx, {
 // The type of chart we want to create
 type: 'bar',
@@ -166,7 +151,7 @@ data: {
 
 // Configuration options go here
 options: {}
-});
+})
 </script>
 <script
 src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

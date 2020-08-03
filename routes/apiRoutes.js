@@ -1,43 +1,60 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 var request = require("request");
 const CciEmployee = require("../models/cciEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
 const Child = require("../models/child");
 
-router.get(
-  "/firstTimeLoginPlain/:employeeEmail/:Password",
-  async (req, res) => {
-    const cci_employee = await CciEmployee.findOne({
-      email: req.params.employeeEmail,
-    });
+router.post("/desktopLogin", async (req, res) => {
+  const cci_employee = await CciEmployee.findOne(
+    {
+      email: req.body.email,
+    },
+    { firstName: 1, email: 1, password: 1, cci_id: 1, contactNumber: 1 }
+  );
 
-    //checking if Password is valid
-    const isPasswordValid = await bcrypt.compare(
-      req.params.Password,
-      cci_employee.password
+  //checking if Password is valid
+  const isPasswordValid = await bcrypt.compare(
+    req.body.password,
+    cci_employee.password
+  );
+  console.log(cci_employee);
+  console.log(isPasswordValid);
+
+  dataForJwt = {
+    name: cci_employee.firstName,
+    email: cci_employee.email,
+    cci_id: cci_employee.cci_id,
+    number: cci_employee.contactNumber,
+  };
+
+  const child = await Child.find({ cci_id: cci_employee.cci_id });
+  if (isPasswordValid) {
+    jwt.sign(
+      dataForJwt,
+      process.env.SECRET_KEY,
+      { expiresIn: "2d" },
+      (err, token) => {
+        if (err) {
+          console.log("The error " + err);
+        } else {
+          const dataToSend = [token, child];
+          console.log(dataToSend);
+          res.json(dataToSend);
+        }
+      }
     );
-
-    const child = await Child.find({ cci_id: cci_employee.cci_id });
-    if (isPasswordValid) {
-      jwt.sign({}, "secretKey", (err, token) => {
-        res.json({
-          token: token,
-          child: child,
-        });
-      });
-    } else {
-      res.sendStatus(403);
-    }
+  } else {
+    res.sendStatus(403);
   }
-);
+});
 
 router.get("/childrenDataUpdate/:cci_id", verifyToken, async (req, res) => {
   const child = await Child.find({ cci_id: req.params.cci_id });
-  console.log(child);
-  jwt.verify(req.token, "secretKey", (err) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err) => {
     if (err) {
       res.sendStatus(403);
     } else {
@@ -46,49 +63,38 @@ router.get("/childrenDataUpdate/:cci_id", verifyToken, async (req, res) => {
   });
 });
 
-router.post("/postAttendance/:email/:password", async (req, res) => {
-  console.log(req.body);
+router.post("/postAttendance/:email", verifyToken, async (req, res) => {
   const employee = await CciEmployee.findOne({ email: req.params.email });
-  const cci = Cci.findOne({ cci_id: employee.cci_id });
-  obj = JSON.parse(JSON.stringify(req.body));
-  console.log(employee);
-  console.log(req.body);
-  console.log(obj);
-  console.log("request received");
+  const cci = await Cci.findOne({ cci_id: employee.cci_id });
+  attendance = JSON.parse(JSON.stringify(req.body["attendance"]));
+  inOutMovement = JSON.parse(JSON.stringify(req.body["inOutMovement"]));
+
   try {
+    var decoded = jwt.verify(req.token, process.env.SECRET_KEY);
+    console.log(decoded);
     const result = await Cci.updateOne(
       { cci_id: employee.cci_id },
-      { $push: { attendance: obj } }
+      {
+        $push: {
+          attendance: { $each: attendance },
+          in_out_movement: { $each: inOutMovement },
+        },
+      }
     );
-    res.send("done" + result);
-  } catch (err) {}
-  console.log(result);
+    console.log("Data Sent Sucessfully");
+    res.send("Data Sent Sucessfully");
+  } catch (err) {
+    console.log("Error");
+    res.sendStatus(403);
+  }
+
+  // (err) => {
+  //   if (err) {
+  //     res.sendStatus(403);
+  //   } else {
+  //     console.log("Hello");
+  //   }
 });
-
-//For testing the above post req working or not
-
-// var myJSONObject = [
-//   {
-//     date: "today",
-//     data: [
-//       {
-//         child_Id: "something",
-//         firstName: "something",
-//         lastName: "something",
-//         present: true,
-//         reasonOfAbsence:"something",
-//       },
-//     ],
-//   },
-// ]  ;
-// request({
-//     url: "http://localhost:3001/postAttendance/mridul@mail.com/mridul12",
-//     method: "POST",
-//     json: true,   // <--Very important!!!
-//     body: myJSONObject
-// }, function (error, response, body){
-//     console.log(response);
-// });
 
 function verifyToken(req, res, next) {
   const bearerHeader = req.headers["authorization"];

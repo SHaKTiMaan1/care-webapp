@@ -43,90 +43,150 @@
         <div id="content-area-1" class="container">
           <div class="parent-row row">
             
-            <span id="myBtn">             
+                         
+                             
+            
+            <% var allchildren = children %>
+            <% var counter = 0; %>
+            <% children.forEach( function(child){ %>
+            <% btnID = "myBtn" + counter; %>
+            <% closeBtnID = "closeBtn" + counter; %>
+            <% console.log(btnID); %>
+            <% modalDivID = "myModal" + counter; %>
+            <% console.log(modalDivID); %>
+            <% if(!(child.isUpForAdoption)){ %>
+            <span id="<%= btnID %>" >
               <div class="home-main-content-grid-block col-12 flex-between">              
                 <div class="action-required">
                    <h6 class="crimson p-2">
-                     
                     ACTION REQUIRED
                    </h6> 
-                  <div class="purple-gradient p-3">
-                    Approval for Addition to the Eligibility List
+                  
+
+                   
+                   <% if(child.isDataComplete){ %>
+                    <div class="purple-gradient px-3 py-4">
+                      Approval for Addition to the Eligibility List
+                    </div>
+                    <% } else { %>
+                  <div class="magenta  py-4">
+                    Status and Data Updation Required
+                    <br><br>
                   </div>
+                  <% } %>
                 </div>
-                <div class="details-of-child-for-action">
-                  <h6>HIMANSHU AGRAWAL</h6>
-                  <p>
-                    ID : KL0023<br>
-                    CCI : JH001 <br>
-                    Registration Date : 02-06-2019 <br>
-                    <p class= "badge badge-warning">ABANDONED</p>
-                  </p>
-                </div>                 
-                <div id="myModal" class="modal">                
+                <div class="details-of-child-for-action  ">
+                <h6><%= child.firstName +" " +child.lastName %></h6>
+                <p>
+                  <span class="uuid"> <%= child.child_id %></span><br>
+                  CCI : <%= child.cci_id %> <br>
+                  Registration Date : <br> <%= String(child.registrationDate).substring(0,15) %> <br>
+                  <p class= "badge badge-secondary">ORPHANED</p>
+                </p>
+                </div>
+
+                <div id="<%= modalDivID %>" class="modal">                
                   <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Some text here as required..</p>
-                  </div>        
-                </div>           
-            </div>
-          </span>                 
+                    <span id="<%= closeBtnID %>"><a href="">&times;</a></span>
+                    <br>
+                    <div class="personalinfo child-view text-center">
+                      <h5 for="">ID : <%= child.child_id.toUpperCase() %></h5>
             
+                      <label for="" class="values view-child-details-data"><%= child.firstName.toUpperCase()  + " " + child.middleName.toUpperCase() + " " + child.lastName.toUpperCase() %> , </label>              
+                      <label for="" class="values view-child-details-data">AGE <%= child.age %></label> <label for="" class="values view-child-details-data">,  <%= child.gender.toUpperCase() %></label>
+                      <br>
+                      <label for="" class="values view-child-details-data">REGISTERED ON :  <%= String(child.registrationDate).substring(0,15) %> <br></label>
+                      <hr>
+                      
+                      <div class="row position">
+                        <div class="col-sm-6">
+                            <label for="" class="fields">FATHER'S NAME</label> <br>
+                            <label for="" class="values view-child-details-data">
+                            <% if(child.fatherName){ %>
+                            <%= child.fatherName.toUpperCase() %>
+                            <% } else { %>
+                              <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+        
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="" class="fields">MOTHER'S NAME</label> <br>
+                            <label for="" class="values view-child-details-data">
+                            <% if(child.motherName){ %>
+                            <%=  child.motherName.toUpperCase()  %>
+                            <% } else { %>
+                              <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                                                
+                        </div>                             
+                      </div> 
+                      
+                      <div class="row position">
+                        <div class="col-sm-6">
+                          <label for="" class="fields">DATE OF BIRTH</label> <br>
+                          <% if(child.dateOfBirth){ %>
+                            <%=  child.dateOfBirth  %>
+                            <% } else { %>
+                            <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                                                 
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="" class="fields">CASTE</label> <br>
+                          <% if(child.caste){ %>
+                            <%= child.caste %>
+                            <% } else { %>
+                            <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
+                            <% } %>
+                           
+                        </div>  
+                      </div>    
+                        <label for="" class="fields">AADHAAR NUMBER</label> <br>
+                        <label for="" class="values view-child-details-data"> <%= child.aadharNum %> </label>
+                        <% if(child.aadharNum){ %>
+                          <%= child.aadharNum %>
+                          <% } else { %>
+                          <label for="" class="values view-child-details-data crimson-text">ADD DATA</label>
+                          <% } %>
+                      <hr>
+                      <div class="row position">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="" class="fields">TAKE ACTION AFTER  </label> <br>
+                            
+                        </div>
+                        <div class="col-sm-3">
+                           </div>  
+                      </div>    
+                      <div class="row position">
+                        <div class="col-sm-3">
+                          <a class="btn btn-primary " href="/cwc/dashboard/allChildren/viewChildDetails/<%=employee.employee_id%>/<%=child.child_id%>"">VIEW CHILD DATA</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/20">20 DAYS</a>
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/50">50 DAYS</a>
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/90">90 DAYS</a>
+                            
+                        </div>
+                        <div class="col-sm-3">
+                          <% if(child.isDataComplete){ %> 
+                            <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">Declare Child Eligible for Adoption</a>
+                          <% } else { %>
+                            <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
+                          <% } %>
+                          
+                        </div>  
+                      </div> 
+                    </div>
 
-            <div class="home-main-content-grid-block col-12 flex-between">              
-              <div class="action-required">
-                 <h6 class="crimson p-2">
-                  ACTION REQUIRED
-                 </h6> 
-                <div class="purple-gradient p-3">
-                  Approval for Addition to the Eligibility List
+                  </div>        
                 </div>
               </div>
-              <div class="details-of-child-for-action">
-              <h6>Mahima Verma</h6>
-              <p>
-                ID : PT0023<br>
-                CCI : JH003 <br>
-                Registration Date : 02-06-2019 <br>
-                <p class= "badge badge-secondary">ORPHANED</p>
-              </p>
-              </div>
-            </div>
-          
-            <div class="home-main-content-grid-block col-12 flex-between">              
-            <div class="action-required">
-               <h6 class="crimson p-2">
-                ACTION REQUIRED
-               </h6> 
-              <div class="purple-gradient p-3">
-                Approval for Addition to the Eligibility List
-              </div>
-            </div>
-            <div class="details-of-child-for-action">
-            <h6>Mahima Verma</h6>
-            <p>
-              ID : PT0023<br>
-              CCI : JH003 <br>
-              Registration Date : 02-06-2019 <br>
-              <p class= "badge badge-secondary">ORPHANED</p>
-            </p>
-            </div>
-            </div>
-
-            <div class="container">
-              <!-- Trigger/Open The Modal -->
-              <button id="myBtn">Click Me</button>
-              <!-- The Modal -->
-              <div id="myModal" class="modal">
-              <!-- Modal content -->
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <p>Some text here as required..</p>
-                </div>
-      
-              </div>
-            </div>
-
+            </span>
+            <% } %>
+            <% counter++; %>
+            <% }); %>                           
           </div>           
         </div>
       
@@ -189,6 +249,33 @@
                 </tbody>
               </table>
             </div>
+
+            <div class="home-grid-side-content-block col-12">
+              <h4>CHILDREN RECOMMENDED FOR ADOPTION</h4>
+              <div class="table">
+                <table class="table">
+                  <thead class="purple-gradient">
+                    <tr>
+                      <th scope="col">ChildID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">CCI Name</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%recommendedChildren.forEach(function(child){%>
+                    <tr>
+                      <th scope="row"><span class="childIdInTable"><%=child.child_id%></span></th>
+                      <td><%=child.firstName%></td>
+                      <td><%=child.cci_name%></td>
+                      
+                    </tr>
+                  <%})%>
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>       
       </div>
@@ -204,30 +291,31 @@
   </div>
 
   <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-         if (event.target == modal) {
-            modal.style.display = "none";
+    console.log("Hello");
+    var counter = <%= counter %>;
+    console.log(counter);
+    var count = 0;
+    var modal = [];
+    var btn = [];
+    var closeBtn =[];
+    for(let count=0;count<counter;count++){
+      modal[count] = document.getElementById("myModal" + count);
+      console.log("modal[" + count + "]" + "myModal" + count);
+      btn[count] = document.getElementById("myBtn" + count);
+      console.log("btn[" + count + "]");
+      closeBtn[count] = document.getElementById("closeBtn" + count);
+      console.log("closeBtn[" + count + "]");
+      btn[count].onclick = function() {
+        modal[count].style.display = "block";
+      }
+      closeBtn[count].onclick = function() {
+        modal[count].style.display = "none";
+      }
+      window.onclick = function(event) {
+         if (event.target == modal[count]) {
+            modal[count].style.display = "none";
         }
+      }
     }
     </script> 
     <script
