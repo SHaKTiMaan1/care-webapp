@@ -62,6 +62,12 @@ var childSchema = new mongoose.Schema({
   nextStatusEvaluationDate: {
     type: Date,
   },
+  hasCSR: {
+    type: Boolean,
+  },
+  hasMER: {
+    type: Boolean,
+  },
   medicalDetails: {
     hairColor: {
       type: String,
