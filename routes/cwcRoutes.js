@@ -183,14 +183,15 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
   }
 });
 
-router.post(
+//SNOOZING ACTION TAKING
+router.get(
   "/cwc/dashboard/snooze/:employee_id/:child_id/:numberOfDays",
   async (req, res) => {
-    const employee = await CwcEmployee.findOne({
-      employee_id: req.params.employee_id,
-    });
     const child = await Child.findOne({
       child_id: req.params.child_id,
+    });
+    const employee = await CwcEmployee.findOne({
+      employee_id: req.params.employee_id,
     });
 
     numberOfDays = Number(req.params.numberOfDays);
@@ -207,6 +208,7 @@ router.post(
           nextStatusEvaluationDate: nextDate,
         }
       );
+      res.redirect("/cwc/dashboard/" + employee.employee_id);
     } catch (err) {}
   }
 );

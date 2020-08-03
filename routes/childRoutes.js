@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { v4: uuidv4 } = require("uuid");
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
@@ -12,40 +13,27 @@ router.post(
     const cwcemployee = await CwcEmployee.findOne({
       employee_id: req.params.employee_id,
     });
-
-    console.log(cwcemployee);
-
     const superadmin = await Admin.findOne({
       autherisation_level: "superadmin",
     });
 
-    console.log(superadmin);
-
+    var childID = uuidv4();
+    childID = childID.toUpperCase();
     let dateOfBirth = new Date(req.body.dateOfBirth);
-    let currentDate = new Date();
-    let prefix = req.body.firstName.substring(0, 3).toUpperCase();
-    let mid1 = cwcemployee.cwc_id.substring(0, 3).toUpperCase();
-    let mid2 = "0000";
-    var end = 00000;
+    let currentDate = new Date("03-02-2020");
+    // let prefix = req.body.firstName.substring(0, 3).toUpperCase();
+    // let mid1 = cwcemployee.cwc_id.substring(0, 3).toUpperCase();
+    // let mid2 = "0000";
+    // var end = 00000;
 
     var age = req.body.age;
     if (dateOfBirth) {
-      console.log(req.body.dateOfBirth.substring(0, 4));
-      mid2 = req.body.dateOfBirth.substring(0, 4);
+      // mid2 = req.body.dateOfBirth.substring(0, 4);
       age = Math.floor(
         (currentDate.getTime() - dateOfBirth.getTime()) /
           (1000 * 3600 * 24 * 365.25)
       );
     }
-
-    childID = prefix.concat(mid1, mid2, end);
-
-    var existingChild = null;
-    do {
-      end = Math.floor(Math.random() * 89999) + 10000;
-      childID = prefix.concat(mid1, mid2, end);
-      existingChild = await Child.findOne({ child_id: childID });
-    } while (existingChild);
 
     const cci = await Cci.findOne({ cci_id: req.body.cci_id });
     const cwc = await Cwc.findOne({ cwc_id: cci.cwc_id });
@@ -90,6 +78,7 @@ router.post(
       cci_name: cci.cci_name,
       cwc_id: cwcemployee.cwc_id,
       religion: req.body.religion,
+      isDataComplete: false,
       isUpForAdoption: false,
       hasCSR: false,
       hasMER: false,
