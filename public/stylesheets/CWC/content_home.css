@@ -285,6 +285,10 @@ header {
   font-size: 15px;
   color: black;
 }
+.childIdInTable {
+  font-size: 14px;
+  color: black;
+}
 /* background color classes */
 
 .crimson {

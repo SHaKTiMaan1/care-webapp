@@ -245,25 +245,25 @@
               </table>
             </div>
 
-            <div class="home-grid-side-content-block col-12 jade">
+            <div class="home-grid-side-content-block col-12">
               <h4>CHILDREN RECOMMENDED FOR ADOPTION</h4>
               <div class="table">
                 <table class="table">
-                  <thead>
+                  <thead class="purple-gradient">
                     <tr>
                       <th scope="col">ChildID</th>
                       <th scope="col">Name</th>
                       <th scope="col">CCI Name</th>
-                      <th scope="col">Category</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
                     <%recommendedChildren.forEach(function(child){%>
                     <tr>
-                      <th scope="row"><%=child.child_id%></th>
+                      <th scope="row"><span class="childIdInTable"><%=child.child_id%></span></th>
                       <td><%=child.firstName%></td>
                       <td><%=child.cci_name%></td>
-                      <td><%=child.status%></td>
+                      
                     </tr>
                   <%})%>
                    
