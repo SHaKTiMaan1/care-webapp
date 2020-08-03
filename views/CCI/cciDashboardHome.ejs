@@ -1,1 +1,103 @@
 <%- include("../partials/headerCciDashboard")%>
+
+
+<div class="message-box py-5">
+
+  <!-- <div class="form-group">
+        <label for="exampleFormControlInput1">CCI ID</label>
+        <input name="cci_id" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div> -->
+  <!-- <div class="form-group">
+        <label for="exampleFormControlInput1">CWC ID</label>
+        <input name="cwc_id" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div> -->
+  <div class="mr-4 ml-4">
+    <div class="container">
+      <div class="message-box-container mt-5">
+       <div class="message-header">
+        <h1 class="message-box-title">Conversation Portal</h1>
+       </div> 
+       
+        <%if(conversation.length!=0)%>
+        <%const employee_id = employee.employee_id%>
+        <%{%>
+              <%conversation.forEach(function(eachMessage){ %>
+        <%  console.log(((eachMessage.sender).toUpperCase())+":"+eachMessage.description)%>
+        <%const sender = eachMessage.sender%>
+        <br />
+        <%if(sender.localeCompare("cwc")==0){%>
+        
+         <div class="message-body message-text-boxes">
+          <h6 class="senders-name"><%=(eachMessage.sender).toUpperCase()%>
+            (<%=employee_id%>)</h6> 
+            <h4 class="message-description"><%=eachMessage.subject%></h4>
+            <h4 class="message-description"><%=eachMessage.description%></h4>
+          
+         </div>
+
+          <%}%>
+                <%if(sender.localeCompare("cci")==0){%>
+
+         <div class="message-body message-text-boxes">
+          <h6 class=senders-name"><%=(eachMessage.sender).toUpperCase()%></h6> 
+          <h4 class="message-descrription"><%=eachMessage.subject%></h4>
+          <h4 class="message-description"><%=eachMessage.description%>
+          </h4>
+        
+         </div>
+
+          <%}%>
+              
+            
+                
+                <%})%>
+          <%}%>
+            <br />
+            <br />
+            <br />
+            <div class="message-body">
+              <form  method="POST" action="/message/<%=employee_id%>/<%=cci.cci_id%>">
+                <label for="exampleFormControlTextarea1" class="message-body-heading">Compose Message for <%=cci.cci_name%></label>
+                <hr>
+                <div class="form-group">
+                  <label for="formGroupExampleInput" class="message-box-sub-headings text-muted">Subject</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" name="subject" placeholder="Subject of the Message">
+                </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1" class="message-box-sub-headings text-muted">Description</label>
+            <textarea class="form-control" placeholder="Type your Message here" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success my-2">Send</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+</script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+  crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -30,7 +30,9 @@
           
            <div class="message-body message-text-boxes">
             <h6 class="senders-name"><%=(eachMessage.sender).toUpperCase()%>
-              (<%=employee_id%>)</h6> <h4 class="message-description"><%=eachMessage.description%></h4>
+              (<%=employee_id%>)</h6> 
+              <h4 class="message-description"><%=eachMessage.subject%></h4>
+              <h4 class="message-description"><%=eachMessage.description%></h4>
             
            </div>
 
@@ -38,7 +40,9 @@
                   <%if(sender.localeCompare("cci")==0){%>
 
            <div class="message-body message-text-boxes">
-            <h6 class=senders-name"><%=(eachMessage.sender).toUpperCase()%></h6> <h4 class="message-description"><%=eachMessage.description%>
+            <h6 class=senders-name"><%=(eachMessage.sender).toUpperCase()%></h6> 
+            <h4 class="message-descrription"><%=eachMessage.subject%></h4>
+            <h4 class="message-description"><%=eachMessage.description%>
             </h4>
           
            </div>
