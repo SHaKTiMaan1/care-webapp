@@ -144,26 +144,29 @@
                           <% } %>
                       <hr>
                       <div class="row position">
-                        <div class="col-sm-6">
-                          <label for="" class="fields">TAKE ACTION AFTER : </label> <br>
-                            
+                        <div class="col-sm-3">
                         </div>
                         <div class="col-sm-6">
+                          <label for="" class="fields">TAKE ACTION AFTER  </label> <br>
+                            
+                        </div>
+                        <div class="col-sm-3">
                            </div>  
                       </div>    
                       <div class="row position">
-                        <div class="col-sm-6">
-                            <a class="btn btn-dark " href="">20 DAYS</a>
-                            <a class="btn btn-dark " href="">50 DAYS</a>
-                            <a class="btn btn-dark " href="">90 DAYS</a>
-                            
+                        <div class="col-sm-3">
+                          <a class="btn btn-primary " href="/cwc/dashboard/allChildren/viewChildDetails/<%=employee.employee_id%>/<%=child.child_id%>"">VIEW CHILD DATA</a>
                         </div>
                         <div class="col-sm-6">
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/20">20 DAYS</a>
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/50">50 DAYS</a>
+                            <a class="btn btn-dark " href="/cwc/dashboard/snooze/<%= employee.employee_id %>/<%=child.child_id%>/90">90 DAYS</a>
+                            
+                        </div>
+                        <div class="col-sm-3">
                           <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
                         </div>  
                       </div> 
-                            
-                            
                     </div>
 
                   </div>        
