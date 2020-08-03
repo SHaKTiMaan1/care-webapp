@@ -61,3 +61,11 @@ body {
     border-radius: 5px;
 
 }
+.repo-contact-info{
+    margin-left: 40rem;
+    color: #7e04b6;
+}
+.repo-contact-info .mob-no{
+    margin-bottom: 2px;
+    
+}

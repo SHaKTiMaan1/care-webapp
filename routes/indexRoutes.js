@@ -2,6 +2,8 @@ const { route } = require("./cwcRoutes");
 const router = require("express").Router();
 const multer = require("multer");
 const helpers = require("../helpers");
+const path = require("path");
+const Child = require("../models/child");
 
 //SETTING UP STORAGE
 const storage = multer.diskStorage({
@@ -46,7 +48,7 @@ router.post("/fileUpload", (req, res) => {
   upload(req, res, function (err) {
     // req.file contains information of uploaded file
     // req.body contains information of text fields, if there were any
-
+    console.log(req.body);
     if (req.fileValidationError) {
       return res.send(req.fileValidationError);
     } else if (!req.file) {
@@ -62,6 +64,18 @@ router.post("/fileUpload", (req, res) => {
       `You have uploaded this image: <hr/><img src="${req.file.path}" width="500"><hr /><a href="./">Upload another image</a>`
     );
   });
+});
+
+router.get("/testDate", async (req, res) => {
+  var currentDate = new Date("2020-08-01");
+  var saved = new Date("2020-07-30T18:30:51.475+00:00");
+  console.log(currentDate + "  " + saved);
+
+  const children = await Child.find({
+    registrationDate: { $lt: currentDate },
+  });
+
+  console.log(children);
 });
 
 module.exports = router;

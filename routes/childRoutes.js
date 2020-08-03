@@ -84,6 +84,7 @@ router.post(
       fatherName: req.body.fatherName,
       motherName: req.body.motherName,
       registrationDate: currentDate,
+      nextStatusEvaluationDate: nextStatusEvaluationDate,
       child_id: childID,
       cci_id: String(req.body.cci_id),
       cci_name: cci.cci_name,
