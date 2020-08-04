@@ -1,151 +1,130 @@
-.dcpu-content-area{
-    margin-top: 12vh;
-    margin-left: 3vw;
+.dcpu-content-area {
+  margin-top: 14vh;
+  margin-left: 3vw;
 
   width: 97%;
-     
 }
-.dcpu-homecontent1{
-    margin: 12px;
-    
-    background: #c06fe6;
-
+.dcpu-homecontent1 {
 }
-.dcpu-homecontent1 .row{
-    width: 100%;
-    
+.dcpu-homecontent1 .row {
+  width: 100%;
 }
-.dcpu-contain2 .row{
-    width: 100%;
-    
+.dcpu-contain2 .row {
+  width: 100%;
 }
-.dcpu-contain3 .row{
-    width: 100%;
-    
+.dcpu-contain3 .row {
+  width: 100%;
 }
-.title img{
-    width: 80%;
-    height: 170px;
-    margin-top: 10px !important;
+.title img {
+  width: 80%;
+  height: 170px;
+  margin-top: 10px !important;
 }
-.dcpu-official-title{
-    font-size: 30px;
-    color: #fff;
-    padding-left: 10px;
-    padding-top: 25px;
-    padding-bottom: 10px;
+.dcpu-official-title {
+  font-size: 30px;
+  color: #fff;
+  padding-left: 10px;
+  padding-top: 25px;
+  padding-bottom: 10px;
 }
-.dcpu-official-location .fa{
-    color: red;
-    font-size: 10px;
-    padding-left: 15px;
-    padding-right: 0;
-    
+.dcpu-official-location .fa {
+  color: red;
+  font-size: 10px;
+  padding-left: 15px;
+  padding-right: 0;
 }
-.dcpu-official-location{
-    padding-left: 20px;
-    font-size: 18px;
-    color: #fff;
-    
+.dcpu-official-location {
+  padding-left: 20px;
+  font-size: 18px;
+  color: #fff;
 }
-.information-child{
-    width: 50%;
+.information-child {
+  width: 50%;
 }
-.information-child .total-child-title{
-    padding-top: 25px;
-    color: #fff;
-    font-size: 18px;
+.information-child .total-child-title {
+  padding-top: 25px;
+  color: #fff;
+  font-size: 18px;
 }
-.information-child .total-child-info{
-    font-size: 33px;
-    font-weight: 600;
-    padding-top: 10px;
-    color: #fff;
+.information-child .total-child-info {
+  font-size: 33px;
+  font-weight: 600;
+  padding-top: 10px;
+  color: #fff;
 }
-.dcpu-map{
-    float: right;
+.dcpu-map {
+  float: right;
 }
-.dcpu-contain2{
-    
-    margin: 10px;
-    
+.dcpu-contain2 {
+  margin: 10px;
 }
-.dcpu-contain3{
-    
-    margin: 10px;
-    
+.dcpu-contain3 {
+  margin: 10px;
 }
-.dcpu-contain4{
-    
-    margin: 10px;
-    
+.dcpu-contain4 {
+  margin: 10px;
 }
-.graph-title{
-    color: #7e04b6;
-    text-align: center;
-    font-size: 22px;
-   
+.graph-title {
+  color: #7e04b6;
+  text-align: center;
+  font-size: 22px;
 }
-.card-header{
-    background: #d3d3d3;
+.card-header {
+  background: #d3d3d3;
 }
-.glance-header{
-    padding-top: 10px;
-    padding-left: 10px;
-    background: #d3d3d3;
-    color: #7e04b6;
-    font-size: 20px;
+.glance-header {
+  padding-top: 10px;
+  padding-left: 10px;
+  background: #d3d3d3;
+  color: #7e04b6;
+  font-size: 20px;
 }
-.glance-updates{
-    padding-left: 10px;
-    
-    
+.glance-updates {
+  padding-left: 10px;
 }
-.updated-value{
-    font-size: 20px;
-    padding-left: 15px;
+.updated-value {
+  font-size: 20px;
+  padding-left: 15px;
 }
-.updated-values{
-    font-size: 20px;
-    padding-left: 25px;
+.updated-values {
+  font-size: 20px;
+  padding-left: 25px;
 }
-.glance-updates .fa{
-    color: #7e04b6;
-    font-size: 18px;
+.glance-updates .fa {
+  color: #7e04b6;
+  font-size: 18px;
 }
-.news-header{
-    padding-top: 10px;
-    padding-left: 10px;
-    font-size: 20px;
-    color: #fff;
-    background: #7e04b6;
+.news-header {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 20px;
+  color: #fff;
+  background: #7e04b6;
 }
-.news-updates .fa{
-    color: #7e04b6;
-    font-size: 18px;
+.news-updates .fa {
+  color: #7e04b6;
+  font-size: 18px;
 }
-.news{
-    background: #e7e3e3;
+.news {
+  background: #e7e3e3;
 }
-
-
 
 /* report section */
-.report-sender{
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
+.report-sender {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
 }
-.report-subject{
-    color: #7e04b6;
-    font-size: 18px;
-    margin-left: 10px;
-    margin-top: 5px;
+.report-subject {
+  color: #7e04b6;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 5px;
 }
-.report-time{
-    font-size: 12px;
-    margin-left: 200px;
+.report-time {
+  font-size: 12px;
+  margin-left: 200px;
 }
