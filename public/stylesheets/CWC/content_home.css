@@ -334,7 +334,9 @@ header {
 .dark-purple-text {
   color: #3a0253 !important;
 }
-
+.grey-text {
+  color: rgb(86, 83, 87) !important;
+}
 .w800h100 {
   width: 100%;
   height: 100px;
