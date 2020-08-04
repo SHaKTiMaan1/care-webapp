@@ -70,9 +70,9 @@ router.post("/fileUpload", (req, res) => {
 router.get("/testDate", async (req, res) => {
   var childID = uuidv4();
   childID = childID.toUpperCase();
-
+  let dummyDate = new Date("2020-01-22");
   console.log(childID);
-  res.send(childID);
+  res.send(childID + dummyDate);
 });
 
 module.exports = router;

@@ -1,9 +1,12 @@
 #admin-home-content {
-  margin-top: 12vh !important;
-  margin-left: 55px;
+  margin-top: 16vh !important;
+  margin-left: 64px;
+  margin-right: 20px;
+}
+body {
+  background-color: #f3f7f7 !important;
 }
 .admin-home-header {
-  height: 80px;
   background: #7e04b6;
 }
 .admin-home-title {
@@ -12,8 +15,6 @@
   padding-top: 20px;
 }
 .admin-home-body {
-  
-  margin-left: 50px;
   margin-right: 50px;
   margin-top: 30px;
 }
@@ -25,9 +26,8 @@
   position: sticky;
 }
 .admin-home-body .card {
-  height: 150px;
-
   padding-left: 10px;
+  height: 200px;
   box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.6);
   transition: 0.5s ease;
   cursor: pointer;
@@ -44,19 +44,17 @@
 }
 .admin-home-body .backbt {
   display: block;
-  width: 50%;
-  height: 30px;
-  border-radius: 25px;
+  width: 40%;
+
   outline: none;
-  border: none;
-  background-image: linear-gradient(to right, #282639, #382043, #f4f6f9);
+  border: 2px solid #7e04b6;
+
   background-size: 200%;
   font-size: 1.1rem;
-  color: #fff;
+  color: #7e04b6;
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
-  margin-top: 10px;
-  padding-top: 5px;
+
   cursor: pointer;
   transition: 0.5s;
   text-decoration: none;
@@ -64,8 +62,30 @@
 .admin-home-body .backbt:hover {
   background-position: right;
   text-decoration: none;
-  color: black;
+  border: 2px solid #c78ae4;
 }
 .admin-home-body .backbt {
   float: right;
+}
+
+/* ========================================================= */
+.register-someone-back-parent {
+  z-index: 50;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  text-align: right;
+}
+
+.register-someone-background {
+  font-size: 150px;
+  color: #e3ccee;
+  align-self: right;
+  margin-top: 40px;
+  margin-left: 145px;
+}
+.register-someone-content {
+  /* background: url("/images/icons/Register.svg") right no-repeat; */
+  z-index: 100;
+  transform: translateY(-200px);
 }

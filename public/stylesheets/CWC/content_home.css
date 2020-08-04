@@ -281,7 +281,15 @@ header {
   font-size: 12px;
   font-weight: normal !important;
 }
-
+.uuid {
+  font-size: 15px;
+  color: black;
+}
+.childIdInTable {
+  font-size: 14px;
+  color: black;
+  border-bottom: 1px solid black;
+}
 /* background color classes */
 
 .crimson {
@@ -326,7 +334,9 @@ header {
 .dark-purple-text {
   color: #3a0253 !important;
 }
-
+.grey-text {
+  color: rgb(86, 83, 87) !important;
+}
 .w800h100 {
   width: 100%;
   height: 100px;

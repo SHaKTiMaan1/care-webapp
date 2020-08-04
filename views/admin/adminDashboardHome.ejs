@@ -1,46 +1,77 @@
 <%- include("../partials/headerAdminDashboard")%>
 <section id="admin-home-content">
-  <div class="admin-home-header">
-    <h2 class="admin-home-title">ADMIN DASHBOARD</h2>
+  <div class="admin-home-header p-3 pb-5">
+    <h2 class="admin-home-title">
+      <%= admin.firstName.toUpperCase() + " " + admin.lastName.toUpperCase() %>
+    </h2>
+    <h5 class="white-text ml-4">
+      <%= admin.autherisation_level.toUpperCase() %>
+    </h5>
   </div>
   <div class="admin-home-body">
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <p class="blocks-title">New Child Welfare Commitee</p>
+          <div class="register-someone-back-parent">
+            <i class="fa fa-university register-someone-background"></i>
+          </div>
+          <p class="blocks-title register-someone-content grey-text">
+            NEW CHILD WELFARE COMMITEE
+          </p>
 
-          <a class="backbt" href="/admin/registerNewCwc/<%=admin.employee_id%>"
+          <a
+            class="btn btn-primary-outline backbt btn-6 register-someone-content"
+            href="/admin/registerNewCwc/<%=admin.employee_id%>"
             >REGISTER</a
           >
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
-          <p class="blocks-title">New Child Welfare Commitee Employee</p>
+          <div class="register-someone-back-parent">
+            <i class="fa fa-user-plus register-someone-background"></i>
+          </div>
+          <p class="blocks-title register-someone-content grey-text">
+            NEW CHILD WELFARE COMMITEE MEMBER
+          </p>
 
           <a
-            class="backbt btn-2"
+            class="btn btn-primary-outline backbt btn-6 register-someone-content"
             href="/admin/registerNewCwcEmployee/<%=admin.employee_id%>"
             >REGISTER</a
           >
         </div>
       </div>
-      
+
       <div class="col-md-4">
         <div class="card">
-          <p class="blocks-title">New District Provision Unit Employee</p>
+          <div class="register-someone-back-parent">
+            <i class="fa fa-user-plus register-someone-background"></i>
+          </div>
+          <p class="blocks-title register-someone-content grey-text">
+            NEW DISTRICT CHILD PROTECTION UNIT OFFICER
+          </p>
 
-          <a class="backbt btn-3" href="/admin/registerNewDcpuEmployee/<%=admin.employee_id%>">REGISTER</a>
+          <a
+            class="btn btn-primary-outline backbt btn-6 register-someone-content"
+            href="/admin/registerNewDcpuEmployee/<%=admin.employee_id%>"
+            >REGISTER</a
+          >
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <p class="blocks-title">New Admin</p>
+          <div class="register-someone-back-parent">
+            <i class="fa fa-user-secret register-someone-background"></i>
+          </div>
+          <p class="blocks-title register-someone-content grey-text">
+            NEW ADMIN
+          </p>
 
           <a
-            class="backbt btn-4"
+            class="btn btn-primary-outline backbt btn-6 register-someone-content"
             href="/admin/registerNewAdmin/<%=admin.employee_id%>"
             >REGISTER</a
           >
@@ -48,20 +79,30 @@
       </div>
       <div class="col-md-4">
         <div class="card">
-          <p class="blocks-title">New State Official</p>
-
+          <div class="register-someone-back-parent">
+            <i class="fa fa-briefcase register-someone-background"></i>
+          </div>
+          <p class="blocks-title register-someone-content grey-text">
+            NEW STATE OFFICIAL
+          </p>
           <a
-            class="backbt btn-5"
+            class="btn btn-primary-outline backbt btn-6 register-someone-content"
             href="/admin/registerStateOfficial/<%=admin.employee_id%>"
             >REGISTER</a
           >
         </div>
       </div>
+
       <div class="col-md-4">
         <div class="card">
-          <p class="blocks-title">For Others</p>
+          <div class="register-someone-back-parent">
+            <i class="fa fa-id-card register-someone-background"></i>
+          </div>
+          <p class="blocks-title register-someone-content">For Others</p>
 
-          <a class="backbt btn-6" href="/admin/others/<%=admin.employee_id%>"
+          <a
+            class="btn btn-primary-outline backbt btn-6 register-someone-content"
+            href="/admin/others/<%=admin.employee_id%>"
             >REGISTER</a
           >
         </div>
@@ -70,14 +111,17 @@
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <p class="blocks-title">
-            Criteria of eligibility for adoption
+          <div class="register-someone-back-parent">
+            <i class="fa fa-clipboard-list register-someone-background"></i>
+          </div>
+          <p class="blocks-title register-someone-content">
+            CRITERIA OF ELIGIBILITY FOR ADOPTION
           </p>
-          <br />
+
           <a
-            class="backbt"
+            class="btn btn-primary-outline backbt btn-6 register-someone-content"
             href="/admin/dashboard/eligibilityCritegia/<%=admin.employee_id%>"
-            >OPEN</a
+            >REGISTER</a
           >
         </div>
       </div>

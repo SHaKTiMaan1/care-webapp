@@ -60,19 +60,22 @@
                    <h6 class="crimson p-2">
                     ACTION REQUIRED
                    </h6> 
-                  <!-- <div class="purple-gradient px-3 py-4">
-                    Approval for Addition to the Eligibility List
-                  </div> -->
-                  <div class="magenta px-3 py-4">
-                    
-                    Status and Data Updation Required
-                    <BR></BR>
-                  </div>
+                  
+                   <% if(child.isDataComplete){ %>
+                    <div class="purple-gradient px-3 py-4">
+                      Approval for Addition to the Eligibility List <br>
+                    </div>
+                    <% } else { %>
+                    <div class="magenta  py-4">
+                      Status and Data Updation Required
+                      <br><br>
+                    </div>
+                  <%  } %>
                 </div>
-                <div class="details-of-child-for-action px-5 m-3">
-                <h6><%= child.firstName +" " +child.lastName %></h6>
-                <p>
-                  ID : <%= child.child_id %><br>
+                  <div class="details-of-child-for-action  ">
+                  <h6><%= child.firstName +" " +child.lastName %></h6>
+                  <p>
+                  <span class="uuid"> <%= child.child_id %></span><br>
                   CCI : <%= child.cci_id %> <br>
                   Registration Date : <br> <%= String(child.registrationDate).substring(0,15) %> <br>
                   <p class= "badge badge-secondary">ORPHANED</p>
@@ -101,7 +104,7 @@
                             <% } else { %>
                               <label for="" class="values view-child-details-data crimson-text">ADD VALUE</label>
                             <% } %>
-                          
+        
                         </div>
                         <div class="col-sm-6">
                           <label for="" class="fields">MOTHER'S NAME</label> <br>
@@ -164,7 +167,12 @@
                             
                         </div>
                         <div class="col-sm-3">
+                          <% if(child.isDataComplete){ %>
+                          <% console.log("datacom" + child.isDataComplete); %>                        
+                          <a class="btn btn-danger " href="/cwc/dashboard/addToRecommendationList/<%= employee.employee_id %>/<%=child.child_id%>">Recommend For Adoption</a>
+                          <% }else{ %>
                           <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
+                          <% } %>
                         </div>  
                       </div> 
                     </div>
@@ -238,25 +246,23 @@
               </table>
             </div>
 
-            <div class="home-grid-side-content-block col-12 jade">
+            <div class="home-grid-side-content-block col-12 ">
               <h4>CHILDREN RECOMMENDED FOR ADOPTION</h4>
               <div class="table">
                 <table class="table">
-                  <thead>
+                  <thead class="purple-gradient">
                     <tr>
                       <th scope="col">ChildID</th>
                       <th scope="col">Name</th>
                       <th scope="col">CCI Name</th>
-                      <th scope="col">Category</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="childIdInTable">
                     <%recommendedChildren.forEach(function(child){%>
                     <tr>
-                      <th scope="row"><%=child.child_id%></th>
-                      <td><%=child.firstName%></td>
-                      <td><%=child.cci_name%></td>
-                      <td><%=child.status%></td>
+                      <th scope="row" class="childIdInTable" ><%=child.child_id%></th>
+                      <td class="childIdInTable"><%=child.firstName + " " + child.firstName%></td>
+                      <td class="childIdInTable"><%=child.cci_name%></td>
                     </tr>
                   <%})%>
                    
@@ -273,7 +279,7 @@
 
     <section>
       <div class="bottom-info purple-gradient">
-        <h6> <b> All Rights Reserved </b></h6>
+        <h6> <b> All Rights Reserved @ team SHaKTiMaan</b></h6>
       </div>
     </section>   
   </div>

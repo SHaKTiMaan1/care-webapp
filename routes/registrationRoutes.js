@@ -15,8 +15,7 @@ const { Router } = require("express");
 
 //NEW ADMIN REGISTRATION ROUTES
 router.get("/admin/registerNewAdmin/:employee_id", async (req, res) => {
-  const idToSearch = req.params.employee_id.substring(1);
-  const admin = await Admin.findOne({ employee_id: idToSearch });
+  const admin = await Admin.findOne({ employee_id: req.params.employee_id });
 
   res.render("registration/registerNewAdmin.ejs", { admin: admin });
 });

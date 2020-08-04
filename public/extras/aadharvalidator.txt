@@ -1,0 +1,2 @@
+const validator = require("aadhaar-validator");
+const isValid = validator.isValidNumber("123412341234");
