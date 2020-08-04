@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const Cryptr = require("cryptr");
+
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
@@ -110,6 +112,21 @@ router.get(
       { cwc_id: employee.cwc_id },
       { _id: 0, cci_name: 1, cci_id: 1 }
     );
+
+    //DECRYPTING AADHAR NUMBER
+    const secret = String(JSON.stringify(process.env.AADHAR_KEY));
+    cryptr = new Cryptr(secret);
+
+    if (child.aadharNumber) {
+      if (child.aadharNumber.length > 20) {
+        var decryptedAadharNum = cryptr.decrypt(child.aadharNumber);
+        decryptedAadharNum =
+          String(decryptedAadharNum.substring(0, 6)) + "********";
+        child.aadharNumber = decryptedAadharNum;
+      } else {
+        child.aadharNumber = child.aadharNumber.substring(0, 6) + "********";
+      }
+    }
 
     res.render("CWC/viewdetailsofa-child.ejs", {
       employee: employee,

@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const { v4: uuidv4 } = require("uuid");
+const Cryptr = require("cryptr");
+
 const CwcEmployee = require("../models/cwcEmployee");
 const Cwc = require("../models/cwc");
 const Cci = require("../models/cci");
@@ -17,19 +19,26 @@ router.post(
       autherisation_level: "superadmin",
     });
 
+    //ENCRYPTING THE AADHAR NUMBER
+    const secret = String(JSON.stringify(process.env.AADHAR_KEY));
+    const cryptr = new Cryptr(secret);
+    var encryptedAadharNum = "";
+
+    if (req.body.aadharNumber) {
+      var encryptedAadharNum = cryptr.encrypt(req.body.aadharNumber);
+    }
+
+    //GENERATING CHILD ID
     var childID = uuidv4();
     childID = childID.toUpperCase();
+
     let dateOfBirth = new Date(req.body.dateOfBirth);
     let currentDate = new Date();
-    let dummyDate = new Date("2020-01-22");
-    // let prefix = req.body.firstName.substring(0, 3).toUpperCase();
-    // let mid1 = cwcemployee.cwc_id.substring(0, 3).toUpperCase();
-    // let mid2 = "0000";
-    // var end = 00000;
+    // let dummyDate = new Date("2020-01-22");
 
+    //Calculating Age
     var age = req.body.age;
     if (dateOfBirth) {
-      // mid2 = req.body.dateOfBirth.substring(0, 4);
       age = Math.floor(
         (currentDate.getTime() - dateOfBirth.getTime()) /
           (1000 * 3600 * 24 * 365.25)
@@ -69,7 +78,7 @@ router.post(
       age: age,
       gender: req.body.gender,
       caste: req.body.caste,
-      aadharNumber: req.body.aadharNumber,
+      aadharNumber: encryptedAadharNum,
       fatherName: req.body.fatherName,
       motherName: req.body.motherName,
       registrationDate: currentDate,

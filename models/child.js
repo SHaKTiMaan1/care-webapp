@@ -26,7 +26,7 @@ var childSchema = new mongoose.Schema({
     type: String,
   },
   aadharNumber: {
-    type: Number,
+    type: String,
   },
   fatherName: {
     type: String,
