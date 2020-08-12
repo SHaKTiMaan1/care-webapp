@@ -66,14 +66,15 @@ class Functions():
             if widget.objectName() == row[0]:
                 c_id = row[0]
                 break
-        path = os.path.join("build-face-dataset/faces", c_id)
+        path = os.path.join("DesktopApp/build-face-dataset/faces", c_id)
         os.mkdir(path)
 
         # load OpenCV's Haar cascade for face detection from disk
         face_cascade = cv2.CascadeClassifier(
-            "build-face-dataset/haarcascade_frontalface_default.xml")
+            "DesktopApp/build-face-dataset/haarcascade_frontalface_default.xml")
 
-        eye_cascade = cv2.CascadeClassifier("build-face-dataset/haarcascade_eye.xml")
+        eye_cascade = cv2.CascadeClassifier(
+            "DesktopApp/build-face-dataset/haarcascade_eye.xml")
 
 	    # initialize the video stream, allow the camera sensor to warm up,
 	    # and initialize the total number of example faces written to disk

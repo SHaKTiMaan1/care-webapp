@@ -23,7 +23,7 @@ def sync():                   # Thread
     co = syncall()
     #co.ready.connect(UIFunctions.startsync)
     # Getting CCI ID through file
-    f = open("CCI.txt", "r")
+    f = open("DesktopApp/CCI.txt", "r")
     lines = list(f)
     cci_id = lines[0].rstrip("\n")
     f.close()
