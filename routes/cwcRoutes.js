@@ -20,8 +20,6 @@ router.get(
     });
 
     numberOfDays = Number(req.params.numberOfDays);
-    console.log(req.params.numberOfDays);
-    console.log(numberOfDays);
 
     var nextDate = child.nextStatusEvaluationDate;
     nextDate.setDate(nextDate.getDate() + numberOfDays);
@@ -72,7 +70,7 @@ router.get(
         { child_id: req.params.child_id },
         { isUpForAdoption: true }
       );
-      console.log(updatedChild);
+
       res.redirect("/cwc/dashboard/" + employee.employee_id);
     } catch (err) {}
   }
@@ -91,7 +89,7 @@ router.get("/cwc/dashboard/allChildren/:employee_id", async function (
     { _id: 0, cci_name: 1, cci_id: 1 }
   );
   const child = await Child.find({ cwc_id: employee.cwc_id });
-  console.log(child);
+
   res.render("CWC/allChildrenInCwc.ejs", {
     employee: employee,
     cci_list: cci_list,
@@ -196,8 +194,6 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
     { _id: 0, cci_name: 1, cci_id: 1 }
   );
   const cwc = await Cwc.findOne({ cwc_id: employee.cwc_id });
-
-  console.log(cwc);
   allCci = await Cci.find({ district: cwc.district });
 
   try {
@@ -208,7 +204,7 @@ router.get("/cwc/dashboard/cciDetails/:employee_id", async (req, res) => {
       cci_list: cci_list,
     });
   } catch (err) {
-    console.log("There is an error : ");
+    console.log("There is an error in the cwc route : ");
     console.log(err);
   }
 });
@@ -221,7 +217,7 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
   const recommendedChildren = await Child.find({ isUpForAdoption: true });
   const cwc_id = employee.cwc_id;
   const cwc = await Cwc.findOne({ cwc_id: cwc_id });
-  // console.log(cwc);
+
   const cwcEmployee_count = await CwcEmployee.countDocuments({
     cwc_id: cwc_id,
   });
@@ -238,7 +234,6 @@ router.get("/cwc/dashboard/:employee_id", async function (req, res) {
     isUpForAdoption: false,
   });
 
-  console.log(children);
   res.render("CWC/dashboardHome.ejs", {
     employee: employee,
     cci_list: cci_list,

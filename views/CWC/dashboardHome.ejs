@@ -51,9 +51,9 @@
             <% children.forEach( function(child){ %>
             <% btnID = "myBtn" + counter; %>
             <% closeBtnID = "closeBtn" + counter; %>
-            <% console.log(btnID); %>
+           
             <% modalDivID = "myModal" + counter; %>
-            <% console.log(modalDivID); %>
+            
             <span id="<%= btnID %>" >
               <div class="home-main-content-grid-block col-12 flex-between">              
                 <div class="action-required">
@@ -168,7 +168,7 @@
                         </div>
                         <div class="col-sm-3">
                           <% if(child.isDataComplete){ %>
-                          <% console.log("datacom" + child.isDataComplete); %>                        
+                                               
                           <a class="btn btn-danger " href="/cwc/dashboard/addToRecommendationList/<%= employee.employee_id %>/<%=child.child_id%>">Recommend For Adoption</a>
                           <% }else{ %>
                           <a class="btn btn-danger " href="/cwc/dashboard/editChildDetails/<%= employee.employee_id %>/<%=child.child_id%>">UPDATE DATA</a>
@@ -285,20 +285,20 @@
   </div>
 
   <script>
-    console.log("Hello");
+   
     var counter = <%= counter %>;
-    console.log(counter);
+   
     var count = 0;
     var modal = [];
     var btn = [];
     var closeBtn =[];
     for(let count=0;count<counter;count++){
       modal[count] = document.getElementById("myModal" + count);
-      console.log("modal[" + count + "]" + "myModal" + count);
+
       btn[count] = document.getElementById("myBtn" + count);
-      console.log("btn[" + count + "]");
+      
       closeBtn[count] = document.getElementById("closeBtn" + count);
-      console.log("closeBtn[" + count + "]");
+
       btn[count].onclick = function() {
         modal[count].style.display = "block";
       }
