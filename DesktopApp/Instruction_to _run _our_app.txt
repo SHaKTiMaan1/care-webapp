@@ -1,4 +1,0 @@
-For running our desktop app you have to run login_final.py and after you are logged in you are redirect to the dashboard of our app.
-
-If you run the main.py then the dashboard of our app will show.
-
